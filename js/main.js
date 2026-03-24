@@ -414,10 +414,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // ============================================
-  // CONTACT FORM (sponsoring / soutenir) — Formspree
+  // CONTACT FORM (sponsoring / soutenir) — PHP Hostinger
   // ============================================
-  // FORMSPREE — Remplace FORMSPREE_ID par ton ID sur formspree.io
-  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/FORMSPREE_ID';
+  const MAIL_ENDPOINT = 'send-mail.php';
 
   document.querySelectorAll('.contact-form-el').forEach(form => {
     form.addEventListener('submit', async function(e) {
@@ -433,13 +432,14 @@ document.addEventListener('DOMContentLoaded', function() {
       const data = new FormData(form);
 
       try {
-        const res = await fetch(FORMSPREE_ENDPOINT, {
+        const res = await fetch(MAIL_ENDPOINT, {
           method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
+          body: data
         });
 
-        if (res.ok) {
+        const json = await res.json();
+
+        if (json.ok) {
           if (btn) {
             btn.innerHTML = '<i class="fa-solid fa-check"></i> Message envoyé !';
             btn.style.background = 'var(--green-mid)';
@@ -453,7 +453,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
           }, 5000);
         } else {
-          throw new Error('Erreur serveur');
+          throw new Error(json.error || 'Erreur serveur');
         }
       } catch (err) {
         if (btn) {
