@@ -12,7 +12,7 @@
     "lang": "ES"
   },
   "hero": {
-    "badge": "Salida prevista 2025",
+    "badge": "Salida prevista Agosto 2026",
     "title_line1": "La Neuro-",
     "title_line2": "Odisea",
     "tagline": "1.600 km para reconectar un cerebro",
@@ -44,8 +44,8 @@
   },
   "progress": {
     "section_label": "Avance",
-    "title": "Objetivo: 16.000 €",
-    "subtitle": "1.600 km × 10 € por kilómetro — Cada km patrocinado financia la logística, el equipamiento y la producción del documental.",
+    "title": "Objetivo: 36.000 €",
+    "subtitle": "1.600 km × 22 € por kilómetro — Cada km patrocinado financia la logística, el equipamiento y la producción del documental.",
     "km_parraines": "km patrocinados",
     "km_total": "km en total",
     "objectif_financier": "Objetivo financiero",
@@ -151,7 +151,7 @@
     "gold_cta": "Elegir Oro",
     "platinum_name": "Platino",
     "platinum_km": "500+ km",
-    "platinum_price": "5.000 €+",
+    "platinum_price": "11.000 €+",
     "platinum_feat1": "Todo lo incluido en Oro",
     "platinum_feat2": "Estatus de Socio Oficial",
     "platinum_feat3": "Co-branding en todos los soportes",
@@ -177,7 +177,7 @@
     "contact_submit": "Enviar mi solicitud",
     "faq_title": "Preguntas Frecuentes",
     "faq_q1": "¿Cómo funciona el patrocinio por kilómetro?",
-    "faq_a1": "Usted elige un número de kilómetros a patrocinar (mínimo 1 km). Cada kilómetro cuesta 10 €. A cambio, su empresa recibe los beneficios asociados a su nivel (Bronce, Plata, Oro o Platino).",
+    "faq_a1": "Usted elige un número de kilómetros a patrocinar (mínimo 1 km). Cada kilómetro cuesta 22 €. A cambio, su empresa recibe los beneficios asociados a su nivel (Bronce, Plata, Oro o Platino).",
     "faq_q2": "¿Puedo obtener un recibo fiscal para deducción?",
     "faq_a2": "Dado que las contrapartidas son servicios (logo, menciones), el patrocinio se trata como gasto publicitario deducible. Se proporcionan un contrato de asociación y una factura. Consulte a su contable para los detalles de deducibilidad en su país.",
     "faq_q3": "¿Qué ocurre si Roland no termina la ruta?",
