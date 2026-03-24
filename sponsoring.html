@@ -40,6 +40,7 @@
       <div class="nav-desktop hidden md:flex items-center gap-8">
         <a href="index.html" class="nav-link" data-i18n="nav.home">Accueil</a>
         <a href="trajet.html" class="nav-link" data-i18n="nav.trajet">Le Trajet</a>
+        <a href="preparation.html" class="nav-link" data-i18n="nav.preparation">Préparation</a>
         <a href="sponsoring.html" class="nav-link active" data-i18n="nav.sponsoring">Sponsoring</a>
         <a href="journal.html" class="nav-link" data-i18n="nav.journal">Journal</a>
         <a href="soutenir.html" class="btn-primary text-sm py-2 px-5" data-i18n="nav.soutenir">Soutenir</a>
@@ -62,6 +63,7 @@
     <button id="mobileMenuClose" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
     <a href="index.html" class="mobile-nav-link" data-i18n="nav.home">Accueil</a>
     <a href="trajet.html" class="mobile-nav-link" data-i18n="nav.trajet">Le Trajet</a>
+    <a href="preparation.html" class="mobile-nav-link" data-i18n="nav.preparation">Préparation</a>
     <a href="sponsoring.html" class="mobile-nav-link" data-i18n="nav.sponsoring">Sponsoring</a>
     <a href="journal.html" class="mobile-nav-link" data-i18n="nav.journal">Journal</a>
     <a href="soutenir.html" class="mobile-nav-link" data-i18n="nav.soutenir">Soutenir</a>
@@ -123,6 +125,53 @@
           <div style="font-size:2rem; margin-bottom:0.5rem;">📺</div>
           <div style="font-weight:700; font-size:0.9rem; color:var(--dark);">YouTube</div>
           <div style="font-size:0.78rem; color:var(--text-light); margin-top:0.25rem;">Mention dans chaque vidéo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KM ADOPTÉS TRACKER -->
+  <section class="py-12 px-6" style="background:#f0f7f5; border-bottom:1px solid rgba(30,107,94,0.1);">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-6">
+        <p class="text-sm font-semibold tracking-widest uppercase" style="color:var(--green-mid);">Avancement du parrainage</p>
+        <div class="flex items-end justify-center gap-2 mt-2">
+          <span id="kmAdoptes" style="font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:700; color:var(--green-deep); line-height:1;">0</span>
+          <span style="font-size:1.1rem; color:var(--text-light); margin-bottom:0.5rem;">km adoptés sur 1 600</span>
+        </div>
+      </div>
+
+      <!-- Barre de route visuelle -->
+      <div class="relative" style="height:20px; background:rgba(30,107,94,0.12); border-radius:999px; overflow:hidden; margin:0 auto; max-width:700px;">
+        <div id="kmBar" style="height:100%; width:0%; background:linear-gradient(90deg,#1E6B5E,#2D8C7A,#3B9BB0); border-radius:999px; transition:width 1.2s cubic-bezier(0.4,0,0.2,1); position:relative;">
+          <!-- Pèlerin animé au bout de la barre -->
+          <span style="position:absolute; right:-12px; top:50%; transform:translateY(-50%); font-size:1.3rem; line-height:1;">🚶</span>
+        </div>
+      </div>
+
+      <!-- Étapes repères -->
+      <div class="flex justify-between text-xs mt-2 px-1" style="color:var(--text-light); max-width:700px; margin:0.5rem auto 0;">
+        <span>St-Maurice</span>
+        <span>Le Puy</span>
+        <span>Pampelune</span>
+        <span>Santiago 🏁</span>
+      </div>
+
+      <!-- Stats -->
+      <div class="flex justify-center gap-8 mt-6 text-center">
+        <div>
+          <div id="nbPartenaires" style="font-size:1.8rem; font-weight:700; color:var(--green-deep); font-family:'Cormorant Garamond',serif;">0</div>
+          <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-light);">Partenaires</div>
+        </div>
+        <div style="width:1px; background:rgba(0,0,0,0.1);"></div>
+        <div>
+          <div style="font-size:1.8rem; font-weight:700; color:var(--green-deep); font-family:'Cormorant Garamond',serif;">1 600</div>
+          <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-light);">km à parrainer</div>
+        </div>
+        <div style="width:1px; background:rgba(0,0,0,0.1);"></div>
+        <div>
+          <div id="kmRestants" style="font-size:1.8rem; font-weight:700; color:var(--gold); font-family:'Cormorant Garamond',serif;">1 600</div>
+          <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-light);">km disponibles</div>
         </div>
       </div>
     </div>

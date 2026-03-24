@@ -414,26 +414,54 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // ============================================
-  // CONTACT FORM (sponsoring / soutenir)
+  // CONTACT FORM (sponsoring / soutenir) — Formspree
   // ============================================
+  // FORMSPREE — Remplace FORMSPREE_ID par ton ID sur formspree.io
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/FORMSPREE_ID';
+
   document.querySelectorAll('.contact-form-el').forEach(form => {
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
       const btn = form.querySelector('[type="submit"]');
-      const originalText = btn ? btn.textContent : '';
+      const originalHTML = btn ? btn.innerHTML : '';
+
       if (btn) {
-        btn.textContent = 'Envoyé ! Nous vous contactons bientôt.';
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Envoi...';
         btn.disabled = true;
-        btn.style.background = 'var(--green-mid)';
       }
-      setTimeout(() => {
-        if (btn) {
-          btn.textContent = originalText;
-          btn.disabled = false;
-          btn.style.background = '';
+
+      const data = new FormData(form);
+
+      try {
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          if (btn) {
+            btn.innerHTML = '<i class="fa-solid fa-check"></i> Message envoyé !';
+            btn.style.background = 'var(--green-mid)';
+          }
+          form.reset();
+          setTimeout(() => {
+            if (btn) {
+              btn.innerHTML = originalHTML;
+              btn.disabled = false;
+              btn.style.background = '';
+            }
+          }, 5000);
+        } else {
+          throw new Error('Erreur serveur');
         }
-        form.reset();
-      }, 4000);
+      } catch (err) {
+        if (btn) {
+          btn.innerHTML = '<i class="fa-solid fa-exclamation-triangle"></i> Erreur — réessayez';
+          btn.disabled = false;
+          setTimeout(() => { btn.innerHTML = originalHTML; }, 4000);
+        }
+      }
     });
   });
 
@@ -501,6 +529,27 @@ document.addEventListener('DOMContentLoaded', function() {
       updateImpactDisplay(this.value);
     });
     updateImpactDisplay(20); // Default display
+  }
+
+  // ============================================
+  // KM ADOPTÉS TRACKER (données à mettre à jour manuellement)
+  // ============================================
+  const KM_ADOPTES = 0;       // ← Mettre à jour quand un sponsor confirme
+  const NB_PARTENAIRES = 0;   // ← Nombre de partenaires confirmés
+
+  const kmBar = document.getElementById('kmBar');
+  const kmAdoptesEl = document.getElementById('kmAdoptes');
+  const kmRestantsEl = document.getElementById('kmRestants');
+  const nbPartenairesEl = document.getElementById('nbPartenaires');
+
+  if (kmBar) {
+    setTimeout(() => {
+      const pct = (KM_ADOPTES / 1600) * 100;
+      kmBar.style.width = pct + '%';
+      if (kmAdoptesEl) kmAdoptesEl.textContent = KM_ADOPTES.toLocaleString('fr-CH');
+      if (kmRestantsEl) kmRestantsEl.textContent = (1600 - KM_ADOPTES).toLocaleString('fr-CH');
+      if (nbPartenairesEl) nbPartenairesEl.textContent = NB_PARTENAIRES;
+    }, 400);
   }
 
   // ============================================

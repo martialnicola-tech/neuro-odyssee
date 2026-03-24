@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Préparation — La Neuro-Odyssée</title>
+  <meta name="description" content="Découvrez la préparation physique et mentale de Roland Crettaz pour ses 1 600 km vers Santiago de Compostela.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'green-deep': '#1E6B5E', 'green-mid': '#2D8C7A',
+            'blue-ocean': '#3B9BB0', 'gold': '#F0A500',
+            'cream': '#F8F6F1', 'dark': '#1a2332',
+          },
+          fontFamily: {
+            'serif': ['Cormorant Garamond', 'Georgia', 'serif'],
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-cream">
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="nav-glass">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="nav-logo">La <span>Neuro</span>-Odyssée</a>
+      <div class="nav-desktop hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link" data-i18n="nav.home">Accueil</a>
+        <a href="trajet.html" class="nav-link" data-i18n="nav.trajet">Le Trajet</a>
+        <a href="preparation.html" class="nav-link active" data-i18n="nav.preparation">Préparation</a>
+        <a href="sponsoring.html" class="nav-link" data-i18n="nav.sponsoring">Sponsoring</a>
+        <a href="journal.html" class="nav-link" data-i18n="nav.journal">Journal</a>
+        <a href="soutenir.html" class="btn-primary text-sm py-2 px-5" data-i18n="nav.soutenir">Soutenir</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="lang-switcher hidden md:flex">
+          <button class="lang-btn active" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="it">IT</button>
+          <button class="lang-btn" data-lang="de">DE</button>
+        </div>
+        <button id="hamburger" class="hamburger md:hidden" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu">
+    <button id="mobileMenuClose" class="absolute top-6 right-6 text-white text-2xl" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+    <a href="index.html" class="mobile-nav-link">Accueil</a>
+    <a href="trajet.html" class="mobile-nav-link">Le Trajet</a>
+    <a href="preparation.html" class="mobile-nav-link">Préparation</a>
+    <a href="sponsoring.html" class="mobile-nav-link">Sponsoring</a>
+    <a href="journal.html" class="mobile-nav-link">Journal</a>
+    <a href="soutenir.html" class="mobile-nav-link">Soutenir</a>
+    <div class="lang-switcher mt-4">
+      <button class="lang-btn active" data-lang="fr" style="color:white; border-color:rgba(255,255,255,0.3);">FR</button>
+      <button class="lang-btn" data-lang="en" style="color:rgba(255,255,255,0.6); border-color:rgba(255,255,255,0.2);">EN</button>
+      <button class="lang-btn" data-lang="es" style="color:rgba(255,255,255,0.6); border-color:rgba(255,255,255,0.2);">ES</button>
+      <button class="lang-btn" data-lang="it" style="color:rgba(255,255,255,0.6); border-color:rgba(255,255,255,0.2);">IT</button>
+      <button class="lang-btn" data-lang="de" style="color:rgba(255,255,255,0.6); border-color:rgba(255,255,255,0.2);">DE</button>
+    </div>
+  </div>
+
+  <!-- SECTION 1 — HERO -->
+  <section class="hero-bg relative pt-36 pb-24 px-6 overflow-hidden">
+    <div class="hero-pattern"></div>
+    <div class="hero-content max-w-4xl mx-auto text-center">
+      <span class="hero-badge mb-6 inline-flex">
+        <i class="fa-solid fa-dumbbell"></i>
+        <span>AVANT LE DÉPART</span>
+      </span>
+      <h1 class="hero-title animate-fadeInUp">La Préparation</h1>
+      <p class="hero-tagline mt-3 animate-fadeInUp animate-delay-1">Corps, esprit, équipement</p>
+      <p class="hero-subtitle mx-auto mt-4 animate-fadeInUp animate-delay-2">
+        Roland se prépare depuis X semaines pour les 1&nbsp;600 km qui l'attendent
+      </p>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-14 animate-fadeInUp animate-delay-3">
+        <div class="stat-card">
+          <span class="stat-number" data-target="14" data-suffix=" sem." data-duration="1800">14 sem.</span>
+          <span class="stat-label">de préparation</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" data-target="380" data-suffix="+ km" data-duration="2000">380+ km</span>
+          <span class="stat-label">parcourus</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" data-target="8500" data-suffix=" m D+" data-duration="2200">8 500 m D+</span>
+          <span class="stat-label">dénivelé cumulé</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">2</span>
+          <span class="stat-label">entraînements / jour</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — PHOTO + VIDÉO -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <!-- Photo -->
+        <div class="reveal-left">
+          <div style="border-radius:16px; overflow:hidden; aspect-ratio:4/5; background:#e8e4dc;">
+            <img
+              src="images/roland-crettaz.jpg"
+              alt="Roland Crettaz en préparation pour la Neuro-Odyssée"
+              style="width:100%; height:100%; object-fit:cover; display:block;"
+              loading="lazy"
+            >
+          </div>
+        </div>
+        <!-- Vidéo -->
+        <div class="reveal-right flex flex-col gap-4">
+          <div style="border-radius:16px; overflow:hidden; background:#1a2332;">
+            <video
+              src="images/roland-crettaz-entrainement.mp4"
+              controls
+              preload="metadata"
+              style="width:100%; display:block; border-radius:16px;"
+            ></video>
+          </div>
+          <p style="font-size:0.85rem; color:var(--text-light); text-align:center; font-style:italic;">
+            Roland en entraînement &middot; Valais, Suisse 2026
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — JOURNAL D'ENTRAÎNEMENT -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <p class="text-sm font-semibold tracking-widest uppercase mb-3" style="color:var(--green-mid);">Semaine par semaine</p>
+        <h2 class="font-serif text-4xl md:text-5xl" style="color:var(--dark);">Journal de Préparation</h2>
+        <p class="mt-4" style="color:var(--text-light);">La progression, étape par étape</p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="relative">
+        <!-- Ligne verticale -->
+        <div class="absolute left-6 top-0 bottom-0 w-px" style="background:linear-gradient(to bottom,var(--green-mid),var(--blue-ocean)); opacity:0.3;"></div>
+
+        <div class="flex flex-col gap-8">
+
+          <!-- Entrée 1 -->
+          <div class="reveal flex gap-6 pl-16 relative">
+            <div class="absolute left-0 top-1 w-12 h-12 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0" style="background:var(--green-deep);">
+              S1
+            </div>
+            <div class="card-soft flex-1 p-6">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-xs font-semibold tracking-widest uppercase" style="color:var(--text-light);">Semaine 1–2</span>
+              </div>
+              <h3 class="font-serif text-xl mb-2" style="color:var(--dark);">Reprise progressive</h3>
+              <p style="color:var(--text-light); font-size:0.92rem; line-height:1.7;">Sorties quotidiennes de 10–15 km. Rééducation des tendons d'Achille. Premier bilan avec le kiné.</p>
+            </div>
+          </div>
+
+          <!-- Entrée 2 -->
+          <div class="reveal flex gap-6 pl-16 relative">
+            <div class="absolute left-0 top-1 w-12 h-12 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0" style="background:var(--green-mid);">
+              S3
+            </div>
+            <div class="card-soft flex-1 p-6">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-xs font-semibold tracking-widest uppercase" style="color:var(--text-light);">Semaine 3–4</span>
+              </div>
+              <h3 class="font-serif text-xl mb-2" style="color:var(--dark);">Montée en charge</h3>
+              <p style="color:var(--text-light); font-size:0.92rem; line-height:1.7;">Premières sorties longues 25 km. Introduction du dénivelé. Ajustement de l'équipement (chaussures Salomon).</p>
+            </div>
+          </div>
+
+          <!-- Entrée 3 -->
+          <div class="reveal flex gap-6 pl-16 relative">
+            <div class="absolute left-0 top-1 w-12 h-12 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0" style="background:var(--blue-ocean);">
+              S5
+            </div>
+            <div class="card-soft flex-1 p-6">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-xs font-semibold tracking-widest uppercase" style="color:var(--text-light);">Semaine 5–8</span>
+              </div>
+              <h3 class="font-serif text-xl mb-2" style="color:var(--dark);">Endurance</h3>
+              <p style="color:var(--text-light); font-size:0.92rem; line-height:1.7;">Sorties de 30–40 km. Weekends consécutifs. Test du sac de 12 kg. Première nuit en refuge.</p>
+            </div>
+          </div>
+
+          <!-- Entrée 4 — En cours -->
+          <div class="reveal flex gap-6 pl-16 relative">
+            <div class="absolute left-0 top-1 w-12 h-12 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0" style="background:var(--gold);">
+              S9
+            </div>
+            <div class="flex-1 p-6 rounded-2xl" style="border:2px solid var(--gold); background:rgba(240,165,0,0.04);">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-xs font-semibold tracking-widest uppercase" style="color:var(--text-light);">Semaine 9–14</span>
+                <span class="text-xs font-semibold px-3 py-1 rounded-full" style="background:var(--gold); color:#fff;">En cours</span>
+              </div>
+              <h3 class="font-serif text-xl mb-2" style="color:var(--dark);">Préparation spécifique</h3>
+              <p style="color:var(--text-light); font-size:0.92rem; line-height:1.7;">Simulations de journées Compostelle (25 km/jour, 6 jours consécutifs). Ajustements nutritionnels.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — 3 PILIERS -->
+  <section class="py-20 px-6" style="background:var(--cream);">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <p class="text-sm font-semibold tracking-widest uppercase mb-3" style="color:var(--green-mid);">Approche holistique</p>
+        <h2 class="font-serif text-4xl md:text-5xl" style="color:var(--dark);">Les 3 Piliers de la Préparation</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Physique -->
+        <div class="card-soft p-8 text-center reveal">
+          <div style="font-size:2.5rem; margin-bottom:1rem;">🏃</div>
+          <h3 class="font-serif text-2xl mb-3" style="color:var(--dark);">Physique</h3>
+          <p style="color:var(--text-light); font-size:0.92rem; line-height:1.7;">
+            Cardio longue distance, renforcement musculaire ciblé, travail de dénivelé dans les Alpes valaisannes.
+          </p>
+        </div>
+
+        <!-- Mental -->
+        <div class="card-soft p-8 text-center reveal">
+          <div style="font-size:2.5rem; margin-bottom:1rem;">🧠</div>
+          <h3 class="font-serif text-2xl mb-3" style="color:var(--dark);">Mental</h3>
+          <p style="color:var(--text-light); font-size:0.92rem; line-height:1.7;">
+            Méditation quotidienne, journaling, travail avec un coach spécialisé TDAH. La tête doit tenir 90 jours.
+          </p>
+        </div>
+
+        <!-- Équipement -->
+        <div class="card-soft p-8 text-center reveal">
+          <div style="font-size:2.5rem; margin-bottom:1rem;">🎒</div>
+          <h3 class="font-serif text-2xl mb-3" style="color:var(--dark);">Équipement</h3>
+          <p style="color:var(--text-light); font-size:0.92rem; line-height:1.7;">
+            Tests de chaussures, sac ultra-léger 10 kg, nutrition trail, pharmacie de randonnée. Chaque gramme compte.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — ÉQUIPEMENT -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <p class="text-sm font-semibold tracking-widest uppercase mb-3" style="color:var(--green-mid);">Gear list</p>
+        <h2 class="font-serif text-4xl md:text-5xl" style="color:var(--dark);">L'Équipement Testé &amp; Approuvé</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 reveal">
+
+        <!-- Colonne Marche -->
+        <div class="card-soft p-8">
+          <h3 class="font-serif text-xl mb-6" style="color:var(--dark);">
+            <i class="fa-solid fa-shoe-prints mr-2" style="color:var(--green-mid);"></i>Marche
+          </h3>
+          <ul class="flex flex-col gap-3">
+            <li class="flex items-center gap-3" style="color:var(--text-light); font-size:0.92rem;">
+              <i class="fa-solid fa-check" style="color:var(--green-mid); flex-shrink:0;"></i>Chaussures Salomon
+            </li>
+            <li class="flex items-center gap-3" style="color:var(--text-light); font-size:0.92rem;">
+              <i class="fa-solid fa-check" style="color:var(--green-mid); flex-shrink:0;"></i>Bâtons
+            </li>
+            <li class="flex items-center gap-3" style="color:var(--text-light); font-size:0.92rem;">
+              <i class="fa-solid fa-check" style="color:var(--green-mid); flex-shrink:0;"></i>Sac 45L
+            </li>
+            <li class="flex items-center gap-3" style="color:var(--text-light); font-size:0.92rem;">
+              <i class="fa-solid fa-check" style="color:var(--green-mid); flex-shrink:0;"></i>Poncho
+            </li>
+            <li class="flex items-center gap-3" style="color:var(--text-light); font-size:0.92rem;">
+              <i class="fa-solid fa-check" style="color:var(--green-mid); flex-shrink:0;"></i>Guêtres
+            </li>
+          </ul>
+        </div>
+
+        <!-- Colonne Corps -->
+        <div class="card-soft p-8">
+          <h3 class="font-serif text-xl mb-6" style="color:var(--dark);">
+            <i class="fa-solid fa-heart-pulse mr-2" style="color:var(--green-mid);"></i>Corps
+          </h3>
+          <ul class="flex flex-col gap-3">
+            <li class="flex items-center gap-3" style="color:var(--text-light); font-size:0.92rem;">
+              <i class="fa-solid fa-check" style="color:var(--green-mid); flex-shrink:0;"></i>K-tape
+            </li>
+            <li class="flex items-center gap-3" style="color:var(--text-light); font-size:0.92rem;">
+              <i class="fa-solid fa-check" style="color:var(--green-mid); flex-shrink:0;"></i>Anti-ampoules
+            </li>
+            <li class="flex items-center gap-3" style="color:var(--text-light); font-size:0.92rem;">
+              <i class="fa-solid fa-check" style="color:var(--green-mid); flex-shrink:0;"></i>Nutrition trail
+            </li>
+            <li class="flex items-center gap-3" style="color:var(--text-light); font-size:0.92rem;">
+              <i class="fa-solid fa-check" style="color:var(--green-mid); flex-shrink:0;"></i>Pharmacie
+            </li>
+            <li class="flex items-center gap-3" style="color:var(--text-light); font-size:0.92rem;">
+              <i class="fa-solid fa-check" style="color:var(--green-mid); flex-shrink:0;"></i>Crème solaire
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6 — CTA DOUBLE -->
+  <section class="py-20 px-6" style="background:var(--green-deep);">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <h2 class="font-serif text-4xl md:text-5xl mb-4" style="color:#fff;">Suivre la Préparation</h2>
+      <p class="mb-10" style="color:rgba(255,255,255,0.7); font-size:1.05rem;">
+        Retrouvez les réflexions hebdomadaires de Roland dans son journal de bord.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="journal.html" class="btn-primary">
+          <i class="fa-solid fa-book-open"></i>
+          Voir le Journal
+        </a>
+        <a href="soutenir.html" class="btn-secondary" style="border-color:rgba(255,255,255,0.3); color:#fff;">
+          <i class="fa-solid fa-heart"></i>
+          Soutenir le projet
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12" style="border-bottom:1px solid rgba(255,255,255,0.08);">
+        <div class="md:col-span-2">
+          <div class="footer-logo">La <span>Neuro</span>-Odyssée</div>
+          <p class="mt-3 text-sm" style="color:rgba(255,255,255,0.5); max-width:320px;" data-i18n="footer.tagline">1 600 km pour se reconstruire</p>
+          <div class="flex gap-3 mt-6">
+            <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-title" data-i18n="footer.nav_title">Navigation</div>
+          <a href="index.html" class="footer-link" data-i18n="nav.home">Accueil</a>
+          <a href="trajet.html" class="footer-link" data-i18n="nav.trajet">Le Trajet</a>
+          <a href="preparation.html" class="footer-link" data-i18n="nav.preparation">Préparation</a>
+          <a href="sponsoring.html" class="footer-link" data-i18n="nav.sponsoring">Sponsoring</a>
+          <a href="journal.html" class="footer-link" data-i18n="nav.journal">Journal</a>
+          <a href="soutenir.html" class="footer-link" data-i18n="nav.soutenir">Soutenir</a>
+        </div>
+        <div>
+          <div class="footer-title" data-i18n="footer.contact_title">Contact</div>
+          <a href="mailto:contact@neuro-odyssee.com" class="footer-link" data-i18n="footer.contact_email">contact@neuro-odyssee.com</a>
+          <a href="#" class="footer-link" data-i18n="footer.contact_instagram">@neuroodyssee</a>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div class="text-sm" style="color:rgba(255,255,255,0.35);">© <span class="current-year"></span> <span data-i18n="footer.website">neuro-odyssee.com</span></div>
+        <div class="text-sm" style="color:rgba(255,255,255,0.25);">Fait avec passion en Valais 🇨🇭 · <a href="https://iasmart.tech" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.35); text-decoration:underline; text-underline-offset:3px;">iasmart.tech</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
