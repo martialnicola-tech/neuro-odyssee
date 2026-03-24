@@ -12,14 +12,15 @@
     "lang": "DE"
   },
   "hero": {
-    "badge": "Abfahrt geplant August 2026",
+    "badge": "Abfahrt 21. August 2026",
     "title_line1": "Die Neuro-",
     "title_line2": "Odyssee",
     "tagline": "1.600 km um ein Gehirn neu zu verdrahten",
     "subtitle": "Von St-Maurice (Schweiz) nach Santiago de Compostela (Spanien) — Roland Crettaz geht, um zu beweisen, dass ein ADHS-Gehirn und überwundene Sucht kein Schicksal sind.",
     "cta_sponsor": "Sponsor werden",
     "cta_don": "Spenden",
-    "scroll_hint": "Das Projekt entdecken"
+    "scroll_hint": "Das Projekt entdecken",
+    "countdown_label": " Tage bis zur Abfahrt"
   },
   "stats": {
     "km_parraines": "km gesponsert",

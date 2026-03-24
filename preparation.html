@@ -39,7 +39,9 @@
   <!-- NAVBAR -->
   <nav id="navbar" class="nav-glass">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="index.html" class="nav-logo">La <span>Neuro</span>-Odyssée</a>
+      <a href="index.html" class="nav-logo" style="line-height:0; display:flex; align-items:center;">
+        <img src="images/logo-full.svg" alt="La Neuro-Odyssée" height="42" style="height:42px; width:auto; display:block;">
+      </a>
       <div class="nav-desktop hidden md:flex items-center gap-8">
         <a href="index.html" class="nav-link" data-i18n="nav.home">Accueil</a>
         <a href="trajet.html" class="nav-link" data-i18n="nav.trajet">Le Trajet</a>
@@ -346,6 +348,63 @@
         <a href="soutenir.html" class="btn-secondary" style="border-color:rgba(255,255,255,0.3); color:#fff;">
           <i class="fa-solid fa-heart"></i>
           Soutenir le projet
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SECTION SPONSORS ÉQUIPEMENT
+       ============================================ -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="section-label justify-center">Partenaires Équipement</span>
+        <h2 class="section-title mt-3">Soutenez la Préparation</h2>
+        <p class="section-subtitle mx-auto mt-3 text-center">
+          Chaque kilomètre d'entraînement se fait avec du matériel testé et approuvé.
+          Votre marque peut être associée à cette aventure dès maintenant.
+        </p>
+      </div>
+
+      <!-- Logos sponsors (placeholders) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-12 reveal">
+        <div class="img-placeholder-light rounded-xl" style="aspect-ratio:3/2; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; padding:1.5rem;">
+          <i class="fa-solid fa-person-hiking text-2xl" style="color:rgba(30,107,94,0.25);"></i>
+          <span style="font-size:0.7rem; color:rgba(30,107,94,0.35); letter-spacing:0.1em; text-transform:uppercase;">Chaussures</span>
+        </div>
+        <div class="img-placeholder-light rounded-xl" style="aspect-ratio:3/2; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; padding:1.5rem;">
+          <i class="fa-solid fa-shirt text-2xl" style="color:rgba(30,107,94,0.25);"></i>
+          <span style="font-size:0.7rem; color:rgba(30,107,94,0.35); letter-spacing:0.1em; text-transform:uppercase;">Vêtements</span>
+        </div>
+        <div class="img-placeholder-light rounded-xl" style="aspect-ratio:3/2; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; padding:1.5rem;">
+          <i class="fa-solid fa-suitcase text-2xl" style="color:rgba(30,107,94,0.25);"></i>
+          <span style="font-size:0.7rem; color:rgba(30,107,94,0.35); letter-spacing:0.1em; text-transform:uppercase;">Sac & équipement</span>
+        </div>
+        <div class="img-placeholder-light rounded-xl" style="aspect-ratio:3/2; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; padding:1.5rem;">
+          <i class="fa-solid fa-apple-whole text-2xl" style="color:rgba(30,107,94,0.25);"></i>
+          <span style="font-size:0.7rem; color:rgba(30,107,94,0.35); letter-spacing:0.1em; text-transform:uppercase;">Nutrition trail</span>
+        </div>
+      </div>
+
+      <!-- CTA sponsor équipement -->
+      <div class="reveal" style="background:linear-gradient(135deg,#f0f7f5,#e8f4f0); border-radius:1.5rem; padding:2.5rem; display:flex; flex-col md:flex-row; align-items:center; justify-content:space-between; gap:2rem; border:1px solid rgba(30,107,94,0.12);">
+        <div>
+          <h3 class="font-serif text-2xl mb-2" style="color:var(--green-deep);">Devenez partenaire équipement</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-light); max-width:480px;">
+            Votre marque testée sur 1 600 km et mentionnée à chaque étape — dans les vidéos, le livre et le documentaire.
+            Visibilité authentique auprès d'une communauté engagée.
+          </p>
+          <div class="flex flex-wrap gap-3 mt-4">
+            <span style="background:rgba(30,107,94,0.08); color:var(--green-deep); border-radius:999px; padding:4px 14px; font-size:0.78rem; font-weight:600;">📹 Vidéos YouTube</span>
+            <span style="background:rgba(30,107,94,0.08); color:var(--green-deep); border-radius:999px; padding:4px 14px; font-size:0.78rem; font-weight:600;">📖 Livre publié</span>
+            <span style="background:rgba(30,107,94,0.08); color:var(--green-deep); border-radius:999px; padding:4px 14px; font-size:0.78rem; font-weight:600;">🎬 Documentaire</span>
+            <span style="background:rgba(30,107,94,0.08); color:var(--green-deep); border-radius:999px; padding:4px 14px; font-size:0.78rem; font-weight:600;">🌐 Site web 12 mois</span>
+          </div>
+        </div>
+        <a href="sponsoring.html" class="btn-primary shrink-0" style="white-space:nowrap;">
+          <i class="fa-solid fa-handshake"></i>
+          Voir les formules
         </a>
       </div>
     </div>

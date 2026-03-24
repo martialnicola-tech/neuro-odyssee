@@ -553,6 +553,28 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // ============================================
+  // COMPTEUR JOURS AVANT LE DÉPART
+  // ============================================
+  const countdownEl = document.getElementById('countdown-days');
+  if (countdownEl) {
+    const depart = new Date('2026-08-21T00:00:00');
+    const aujourd_hui = new Date();
+    aujourd_hui.setHours(0, 0, 0, 0);
+    const diff = Math.ceil((depart - aujourd_hui) / (1000 * 60 * 60 * 24));
+    if (diff > 0) {
+      countdownEl.textContent = diff.toLocaleString('fr-CH');
+    } else if (diff === 0) {
+      countdownEl.closest('#countdown').innerHTML =
+        '<i class="fa-solid fa-person-hiking" style="color:var(--gold);"></i>' +
+        '<span style="color:rgba(255,255,255,0.9); font-size:0.9rem; font-weight:600;">C\'est le grand départ !</span>';
+    } else {
+      countdownEl.closest('#countdown').innerHTML =
+        '<i class="fa-solid fa-person-hiking" style="color:var(--gold);"></i>' +
+        '<span style="color:rgba(255,255,255,0.9); font-size:0.9rem; font-weight:600;">L\'aventure est en cours !</span>';
+    }
+  }
+
+  // ============================================
   // STAGE CURSOR (trajet.html)
   // ============================================
   const currentKmEl = document.getElementById('currentKm');

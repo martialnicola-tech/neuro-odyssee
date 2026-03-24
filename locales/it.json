@@ -12,14 +12,15 @@
     "lang": "IT"
   },
   "hero": {
-    "badge": "Partenza prevista Agosto 2026",
+    "badge": "Partenza il 21 agosto 2026",
     "title_line1": "La Neuro-",
     "title_line2": "Odissea",
     "tagline": "1.600 km per ricablare un cervello",
     "subtitle": "Da St-Maurice (Svizzera) a Santiago de Compostela (Spagna) — Roland Crettaz cammina per dimostrare che un cervello ADHD e le dipendenze superate non sono una condanna.",
     "cta_sponsor": "Diventa Sponsor",
     "cta_don": "Fai una Donazione",
-    "scroll_hint": "Scopri il progetto"
+    "scroll_hint": "Scopri il progetto",
+    "countdown_label": " giorni alla partenza"
   },
   "stats": {
     "km_parraines": "km sponsorizzati",

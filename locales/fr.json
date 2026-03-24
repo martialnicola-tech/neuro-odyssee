@@ -12,14 +12,15 @@
     "lang": "FR"
   },
   "hero": {
-    "badge": "Départ prévu Août 2026",
+    "badge": "Départ le 21 août 2026",
     "title_line1": "La Neuro-",
     "title_line2": "Odyssée",
     "tagline": "1 600 km pour re-câbler un cerveau",
     "subtitle": "De St-Maurice (Suisse) à Santiago de Compostela (Espagne) — Roland Crettaz marche pour prouver qu'un cerveau TDAH et des addictions surmontées ne sont pas des fatalités.",
     "cta_sponsor": "Devenez Sponsor",
     "cta_don": "Faire un Don",
-    "scroll_hint": "Découvrir le projet"
+    "scroll_hint": "Découvrir le projet",
+    "countdown_label": " jours avant le départ"
   },
   "stats": {
     "km_parraines": "km parrainés",

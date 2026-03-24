@@ -60,8 +60,8 @@
   <nav id="navbar" class="nav-glass">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <!-- Logo -->
-      <a href="index.html" class="nav-logo">
-        La <span>Neuro</span>-Odyssée
+      <a href="index.html" class="nav-logo" style="line-height:0; display:flex; align-items:center;">
+        <img src="images/logo-full.svg" alt="La Neuro-Odyssée" height="42" style="height:42px; width:auto; display:block;">
       </a>
 
       <!-- Desktop Nav -->
@@ -123,12 +123,20 @@
     </svg>
 
     <div class="hero-content relative z-10 text-center px-6 max-w-5xl mx-auto pt-24 pb-16">
-      <!-- Badge -->
-      <div class="flex justify-center mb-8">
-        <span class="hero-badge animate-fadeInUp">
+      <!-- Badge date + compteur -->
+      <div class="flex flex-col items-center gap-3 mb-8 animate-fadeInUp">
+        <span class="hero-badge">
           <i class="fa-regular fa-calendar-check"></i>
-          <span data-i18n="hero.badge">Départ prévu 2025</span>
+          <span data-i18n="hero.badge">Départ le 21 août 2026</span>
         </span>
+        <!-- Compteur de jours -->
+        <div id="countdown" style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.1); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.2); border-radius:999px; padding:6px 20px;">
+          <i class="fa-solid fa-hourglass-half" style="color:var(--gold); font-size:0.85rem;"></i>
+          <span style="color:rgba(255,255,255,0.9); font-size:0.9rem; font-weight:500;">
+            <span id="countdown-days" style="color:var(--gold); font-weight:700; font-size:1.1rem; font-family:'Cormorant Garamond',serif;">—</span>
+            <span data-i18n="hero.countdown_label"> jours avant le départ</span>
+          </span>
+        </div>
       </div>
 
       <!-- Title -->

@@ -12,14 +12,15 @@
     "lang": "ES"
   },
   "hero": {
-    "badge": "Salida prevista Agosto 2026",
+    "badge": "Salida el 21 de agosto de 2026",
     "title_line1": "La Neuro-",
     "title_line2": "Odisea",
     "tagline": "1.600 km para reconectar un cerebro",
     "subtitle": "De St-Maurice (Suiza) a Santiago de Compostela (España) — Roland Crettaz camina para demostrar que un cerebro TDAH y las adicciones superadas no son una condena.",
     "cta_sponsor": "Convertirse en Patrocinador",
     "cta_don": "Hacer una Donación",
-    "scroll_hint": "Descubrir el proyecto"
+    "scroll_hint": "Descubrir el proyecto",
+    "countdown_label": " días para la salida"
   },
   "stats": {
     "km_parraines": "km patrocinados",

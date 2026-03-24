@@ -12,14 +12,15 @@
     "lang": "EN"
   },
   "hero": {
-    "badge": "Departure planned August 2026",
+    "badge": "Departure August 21, 2026",
     "title_line1": "The Neuro-",
     "title_line2": "Odyssey",
     "tagline": "1,600 km to rewire a brain",
     "subtitle": "From St-Maurice (Switzerland) to Santiago de Compostela (Spain) — Roland Crettaz walks to prove that an ADHD brain and overcome addictions are not a life sentence.",
     "cta_sponsor": "Become a Sponsor",
     "cta_don": "Make a Donation",
-    "scroll_hint": "Discover the project"
+    "scroll_hint": "Discover the project",
+    "countdown_label": " days to departure"
   },
   "stats": {
     "km_parraines": "km sponsored",
