@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponsoring — La Neuro-Odyssée</title>
+  <meta name="description" content="Parrainez des kilomètres du périple de Roland Crettaz. 4 formules de sponsoring pour associer votre entreprise à un projet inspirant.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'green-deep': '#1E6B5E', 'green-mid': '#2D8C7A',
+            'blue-ocean': '#3B9BB0', 'gold': '#F0A500',
+            'cream': '#F8F6F1', 'dark': '#1a2332',
+          },
+          fontFamily: {
+            'serif': ['Cormorant Garamond', 'Georgia', 'serif'],
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-cream">
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="nav-glass">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="nav-logo">La <span>Neuro</span>-Odyssée</a>
+      <div class="nav-desktop hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link" data-i18n="nav.home">Accueil</a>
+        <a href="trajet.html" class="nav-link" data-i18n="nav.trajet">Le Trajet</a>
+        <a href="sponsoring.html" class="nav-link active" data-i18n="nav.sponsoring">Sponsoring</a>
+        <a href="journal.html" class="nav-link" data-i18n="nav.journal">Journal</a>
+        <a href="soutenir.html" class="btn-primary text-sm py-2 px-5" data-i18n="nav.soutenir">Soutenir</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="lang-switcher hidden md:flex">
+          <button class="lang-btn active" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="it">IT</button>
+          <button class="lang-btn" data-lang="de">DE</button>
+        </div>
+        <button id="hamburger" class="hamburger md:hidden"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu">
+    <button id="mobileMenuClose" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
+    <a href="index.html" class="mobile-nav-link" data-i18n="nav.home">Accueil</a>
+    <a href="trajet.html" class="mobile-nav-link" data-i18n="nav.trajet">Le Trajet</a>
+    <a href="sponsoring.html" class="mobile-nav-link" data-i18n="nav.sponsoring">Sponsoring</a>
+    <a href="journal.html" class="mobile-nav-link" data-i18n="nav.journal">Journal</a>
+    <a href="soutenir.html" class="mobile-nav-link" data-i18n="nav.soutenir">Soutenir</a>
+    <div class="lang-switcher mt-4">
+      <button class="lang-btn active" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="it">IT</button>
+      <button class="lang-btn" data-lang="de">DE</button>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero-bg relative pt-36 pb-24 px-6 overflow-hidden">
+    <div class="hero-pattern"></div>
+    <div class="hero-content max-w-4xl mx-auto text-center">
+      <span class="hero-badge mb-6 inline-flex">
+        <i class="fa-solid fa-handshake"></i>
+        <span>10 € / km · Formules entreprises</span>
+      </span>
+      <h1 class="hero-title animate-fadeInUp" data-i18n="sponsoring.hero_title">Parrainisez des Kilomètres</h1>
+      <p class="hero-tagline mt-3 animate-fadeInUp animate-delay-1" data-i18n="sponsoring.hero_tagline">Chaque kilomètre que vous parrainez finance ce projet unique</p>
+      <p class="hero-subtitle mx-auto mt-4 animate-fadeInUp animate-delay-2" data-i18n="sponsoring.hero_subtitle">
+        Votre entreprise associée à un projet de dépassement de soi, de neuroscience et d'inspiration humaine.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8 animate-fadeInUp animate-delay-3">
+        <a href="#formules" class="btn-primary">
+          <i class="fa-solid fa-star"></i>
+          <span data-i18n="sponsoring.section_label">Voir les formules</span>
+        </a>
+        <a href="#calculateur" class="btn-secondary">
+          <i class="fa-solid fa-calculator"></i>
+          Calculer mon investissement
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY SPONSOR — IMPACT ROW -->
+  <section class="py-12 px-6 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center reveal">
+        <div class="py-4">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🎬</div>
+          <div style="font-weight:700; font-size:0.9rem; color:var(--dark);">Documentaire</div>
+          <div style="font-size:0.78rem; color:var(--text-light); margin-top:0.25rem;">Logo au générique</div>
+        </div>
+        <div class="py-4">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">📖</div>
+          <div style="font-weight:700; font-size:0.9rem; color:var(--dark);">Livre</div>
+          <div style="font-size:0.78rem; color:var(--text-light); margin-top:0.25rem;">Mention dans l'ouvrage</div>
+        </div>
+        <div class="py-4">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🌐</div>
+          <div style="font-weight:700; font-size:0.9rem; color:var(--dark);">Site web</div>
+          <div style="font-size:0.78rem; color:var(--text-light); margin-top:0.25rem;">Logo pendant 12 mois</div>
+        </div>
+        <div class="py-4">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">📺</div>
+          <div style="font-weight:700; font-size:0.9rem; color:var(--dark);">YouTube</div>
+          <div style="font-size:0.78rem; color:var(--text-light); margin-top:0.25rem;">Mention dans chaque vidéo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPONSOR TIERS -->
+  <section id="formules" class="py-24 px-6 bg-cream">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <span class="section-label justify-center" data-i18n="sponsoring.section_label">Les Formules</span>
+        <h2 class="section-title mt-3" data-i18n="sponsoring.title">Choisissez Votre Engagement</h2>
+        <p class="section-subtitle mx-auto mt-4 text-center" data-i18n="sponsoring.subtitle">
+          4 niveaux d'implication, pour toutes les tailles d'entreprise.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- BRONZE -->
+        <div class="sponsor-tier bronze card-hover reveal">
+          <div class="tier-name tier-color" data-i18n="sponsoring.bronze_name">Bronze</div>
+          <div class="tier-km font-semibold mb-1" data-i18n="sponsoring.bronze_km">1 à 50 km</div>
+          <div class="tier-price" data-i18n="sponsoring.bronze_price">10 € à 500 €</div>
+          <div class="space-y-2 mb-6">
+            <div class="tier-feature"><i class="fa-solid fa-check"></i><span data-i18n="sponsoring.bronze_feat1">Logo sur le site internet pendant 1 an</span></div>
+            <div class="tier-feature"><i class="fa-solid fa-check"></i><span data-i18n="sponsoring.bronze_feat2">Mention dans les vidéos YouTube</span></div>
+            <div class="tier-feature"><i class="fa-solid fa-check"></i><span data-i18n="sponsoring.bronze_feat3">Certificat de parrainage personnalisé</span></div>
+          </div>
+          <button class="btn-green w-full justify-center text-sm" data-modal="contact" data-tier="Bronze" data-i18n="sponsoring.bronze_cta">Choisir Bronze</button>
+        </div>
+
+        <!-- SILVER -->
+        <div class="sponsor-tier silver card-hover reveal animate-delay-1">
+          <div class="tier-name tier-color" data-i18n="sponsoring.silver_name">Argent</div>
+          <div class="tier-km font-semibold mb-1" data-i18n="sponsoring.silver_km">51 à 200 km</div>
+          <div class="tier-price" data-i18n="sponsoring.silver_price">510 € à 2 000 €</div>
+          <div class="space-y-2 mb-6">
+            <div class="tier-feature"><i class="fa-solid fa-check"></i><span data-i18n="sponsoring.silver_feat1">Tout ce qui est inclus dans Bronze</span></div>
+            <div class="tier-feature"><i class="fa-solid fa-check"></i><span data-i18n="sponsoring.silver_feat2">Logo dans le générique du documentaire</span></div>
+            <div class="tier-feature"><i class="fa-solid fa-check"></i><span data-i18n="sponsoring.silver_feat3">Mention dans le livre publié</span></div>
+            <div class="tier-feature"><i class="fa-solid fa-check"></i><span data-i18n="sponsoring.silver_feat4">Post dédié sur les réseaux sociaux</span></div>
+          </div>
+          <button class="btn-green w-full justify-center text-sm" data-modal="contact" data-tier="Argent" data-i18n="sponsoring.silver_cta">Choisir Argent</button>
+        </div>
+
+        <!-- GOLD — Popular -->
+        <div class="sponsor-tier gold popular card-hover reveal animate-delay-2">
+          <div class="tier-badge" data-i18n="sponsoring.popular_badge">Le plus choisi</div>
+          <div class="tier-name tier-color" data-i18n="sponsoring.gold_name">Or</div>
+          <div class="tier-km font-semibold mb-1" data-i18n="sponsoring.gold_km">201 à 500 km</div>
+          <div class="tier-price" data-i18n="sponsoring.gold_price">2 010 € à 5 000 €</div>
+          <div class="space-y-2 mb-6">
+            <div class="tier-feature"><i class="fa-solid fa-check"></i><span data-i18n="sponsoring.gold_feat1">Tout ce qui est inclus dans Argent</span></div>
+            <div class="tier-feature"><i class="fa-solid fa-check"></i><span data-i18n="sponsoring.gold_feat2">Logo premium (position prioritaire)</span></div>
+            <div class="tier-feature"><i class="fa-solid fa-check"></i><span data-i18n="sponsoring.gold_feat3">Entretien vidéo exclusif avec Roland</span></div>
+            <div class="tier-feature"><i class="fa-solid fa-check"></i><span data-i18n="sponsoring.gold_feat4">Dédicace personnalisée dans le livre</span></div>
+            <div class="tier-feature"><i class="fa-solid fa-check"></i><span data-i18n="sponsoring.gold_feat5">Invitation à la conférence de retour</span></div>
+          </div>
+          <button class="btn-primary w-full justify-center text-sm" data-modal="contact" data-tier="Or" data-i18n="sponsoring.gold_cta">Choisir Or</button>
+        </div>
+
+        <!-- PLATINUM -->
+        <div class="sponsor-tier platinum card-hover reveal animate-delay-3">
+          <div class="tier-name tier-color" data-i18n="sponsoring.platinum_name">Platine</div>
+          <div class="tier-km font-semibold mb-1" data-i18n="sponsoring.platinum_km">500+ km</div>
+          <div class="tier-price" data-i18n="sponsoring.platinum_price">5 000 €+</div>
+          <div class="space-y-2 mb-6">
+            <div class="tier-feature"><i class="fa-solid fa-check"></i><span data-i18n="sponsoring.platinum_feat1">Tout ce qui est inclus dans Or</span></div>
+            <div class="tier-feature"><i class="fa-solid fa-check"></i><span data-i18n="sponsoring.platinum_feat2">Statut de Partenaire Officiel</span></div>
+            <div class="tier-feature"><i class="fa-solid fa-check"></i><span data-i18n="sponsoring.platinum_feat3">Co-branding sur tous les supports</span></div>
+            <div class="tier-feature"><i class="fa-solid fa-check"></i><span data-i18n="sponsoring.platinum_feat4">Roland en conférence dans votre entreprise</span></div>
+            <div class="tier-feature"><i class="fa-solid fa-check"></i><span data-i18n="sponsoring.platinum_feat5">Accès aux données du projet</span></div>
+          </div>
+          <button class="btn-green w-full justify-center text-sm" data-modal="contact" data-tier="Platine" data-i18n="sponsoring.platinum_cta">Choisir Platine</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section id="calculateur" class="py-20 px-6 bg-white">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="section-label justify-center" data-i18n="sponsoring.calc_title">Calculateur</span>
+        <h2 class="section-title mt-3" data-i18n="sponsoring.calc_title">Calculateur de Parrainage</h2>
+        <p class="section-subtitle mx-auto mt-3 text-center" data-i18n="sponsoring.calc_subtitle">Définissez le nombre de kilomètres que vous souhaitez parrainer</p>
+      </div>
+
+      <div class="reveal" style="background:var(--cream); border-radius:1.5rem; padding:2.5rem; border:1px solid rgba(45,140,122,0.15);">
+        <!-- Slider -->
+        <div class="mb-8">
+          <label class="form-label flex justify-between">
+            <span data-i18n="sponsoring.calc_km_label">Nombre de kilomètres</span>
+            <span style="color:var(--green-mid); font-weight:700;">
+              <input id="kmInput" type="number" min="1" max="1600" value="50"
+                style="width:80px; text-align:right; border:none; background:transparent; font-size:1rem; font-weight:700; color:var(--green-mid); outline:none; font-family:inherit;">
+              km
+            </span>
+          </label>
+          <input id="kmSlider" type="range" min="1" max="1600" value="50" class="km-slider mt-3">
+          <div class="flex justify-between text-xs mt-1" style="color:var(--text-light);">
+            <span>1 km</span>
+            <span>400 km</span>
+            <span>800 km</span>
+            <span>1 200 km</span>
+            <span>1 600 km</span>
+          </div>
+        </div>
+
+        <!-- Result display -->
+        <div style="background:white; border-radius:1rem; padding:1.75rem; border:1px solid rgba(45,140,122,0.15);" class="text-center">
+          <div style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-light); margin-bottom:0.5rem;" data-i18n="sponsoring.calc_total">Total</div>
+          <div id="kmPrice" style="font-family:'Cormorant Garamond',serif; font-size:3.5rem; font-weight:700; color:var(--green-deep); line-height:1;">500 €</div>
+          <div class="mt-4 flex items-center justify-center gap-3">
+            <span style="font-size:0.8rem; color:var(--text-light);" data-i18n="sponsoring.calc_tier">Niveau :</span>
+            <span id="kmTierBadge" class="tier-color font-bold text-lg bronze">Bronze</span>
+          </div>
+          <div id="kmTierDesc" class="mt-3 text-sm" style="color:var(--text-light); max-width:400px; margin:0.75rem auto 0; line-height:1.6;">
+            Logo sur le site + mention dans les vidéos YouTube
+          </div>
+        </div>
+
+        <div class="text-center mt-6">
+          <button class="btn-primary" data-modal="contact" data-tier="Via calculateur" data-i18n="sponsoring.calc_cta">
+            <i class="fa-solid fa-envelope"></i>
+            Contacter Roland
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section id="contact" class="py-20 px-6 bg-cream">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="section-label justify-center" data-i18n="sponsoring.contact_title">Contact</span>
+        <h2 class="section-title mt-3" data-i18n="sponsoring.contact_title">Prendre Contact</h2>
+        <p class="section-subtitle mx-auto mt-3 text-center" data-i18n="sponsoring.contact_subtitle">
+          Remplissez ce formulaire et Roland vous répond dans les 24h
+        </p>
+      </div>
+
+      <div class="reveal" style="background:white; border-radius:1.5rem; padding:2.5rem; box-shadow:0 4px 20px rgba(0,0,0,0.06); border:1px solid rgba(0,0,0,0.05);">
+        <form class="contact-form-el">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="form-group">
+              <label class="form-label" data-i18n="sponsoring.contact_company">Nom de l'entreprise</label>
+              <input type="text" name="company" class="form-input" data-i18n-placeholder="sponsoring.contact_company" placeholder="Votre entreprise" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-i18n="sponsoring.contact_name">Votre nom et prénom</label>
+              <input type="text" name="name" class="form-input" placeholder="Prénom Nom" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-i18n="sponsoring.contact_email">Adresse email</label>
+              <input type="email" name="email" class="form-input" placeholder="email@entreprise.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-i18n="sponsoring.contact_phone">Téléphone (optionnel)</label>
+              <input type="tel" name="phone" class="form-input" placeholder="+41 79 000 00 00">
+            </div>
+            <div class="form-group sm:col-span-2">
+              <label class="form-label" data-i18n="sponsoring.contact_km">Nombre de km souhaités</label>
+              <input type="number" name="km" min="1" max="1600" class="form-input" placeholder="ex: 100">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-i18n="sponsoring.contact_message">Message (optionnel)</label>
+            <textarea name="message" class="form-input" placeholder="Votre message..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full justify-center">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span data-i18n="sponsoring.contact_submit">Envoyer ma demande</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRENT SPONSORS -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-5xl mx-auto text-center">
+      <h3 class="font-serif text-2xl mb-3" data-i18n="sponsoring.current_sponsors_title">Nos Premiers Partenaires</h3>
+      <p class="text-sm mb-8" style="color:var(--text-light);" data-i18n="sponsoring.current_sponsors_empty">Soyez parmi les premiers ! Votre logo ici.</p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="img-placeholder-light rounded-xl reveal" style="aspect-ratio:3/2; display:flex; align-items:center; justify-content:center;"><i class="fa-regular fa-image text-2xl" style="color:rgba(45,140,122,0.3);"></i></div>
+        <div class="img-placeholder-light rounded-xl reveal animate-delay-1" style="aspect-ratio:3/2; display:flex; align-items:center; justify-content:center;"><i class="fa-regular fa-image text-2xl" style="color:rgba(45,140,122,0.3);"></i></div>
+        <div class="img-placeholder-light rounded-xl reveal animate-delay-2" style="aspect-ratio:3/2; display:flex; align-items:center; justify-content:center;"><i class="fa-regular fa-image text-2xl" style="color:rgba(45,140,122,0.3);"></i></div>
+        <div class="img-placeholder-light rounded-xl reveal animate-delay-3" style="aspect-ratio:3/2; display:flex; align-items:center; justify-content:center;"><i class="fa-regular fa-image text-2xl" style="color:rgba(45,140,122,0.3);"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 px-6 bg-cream">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <h2 class="section-title" data-i18n="sponsoring.faq_title">Questions Fréquentes</h2>
+      </div>
+
+      <div class="space-y-3 reveal">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span data-i18n="sponsoring.faq_q1">Comment fonctionne le parrainage au kilomètre ?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" data-i18n="sponsoring.faq_a1">Vous choisissez un nombre de kilomètres à parrainer (minimum 1 km). Chaque kilomètre est facturé 10 CHF/EUR.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span data-i18n="sponsoring.faq_q2">Puis-je obtenir un reçu fiscal pour déduction ?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" data-i18n="sponsoring.faq_a2">Les contreparties étant des prestations, le parrainage est traité comme une dépense publicitaire déductible.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span data-i18n="sponsoring.faq_q3">Que se passe-t-il si Roland ne finit pas le trajet ?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" data-i18n="sponsoring.faq_a3">En cas d'arrêt prématuré pour raison médicale grave, une clause de remboursement partiel est prévue.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span data-i18n="sponsoring.faq_q4">Comment mon logo sera-t-il affiché ?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" data-i18n="sponsoring.faq_a4">Votre logo apparaît sur le site pendant la durée du projet et jusqu'à 12 mois après le retour.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span data-i18n="sponsoring.faq_q5">Puis-je parrainer des kilomètres en tant que particulier ?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-answer" data-i18n="sponsoring.faq_a5">Absolument ! Les particuliers peuvent aussi parrainer. La page Soutenir propose les formules adaptées.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT MODAL -->
+  <div id="contactModal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close" data-modal-close><i class="fa-solid fa-xmark"></i></button>
+      <div class="mb-6">
+        <span class="section-label">Sponsoring</span>
+        <h3 class="font-serif text-2xl mt-2">
+          Formule <span class="modal-tier-name text-gold-600" style="color:var(--gold);">—</span>
+        </h3>
+        <p class="text-sm mt-2" style="color:var(--text-light);" data-i18n="sponsoring.contact_subtitle">Remplissez ce formulaire et Roland vous répond dans les 24h</p>
+      </div>
+      <form class="contact-form-el">
+        <input type="hidden" name="tier" value="">
+        <div class="form-group">
+          <label class="form-label" data-i18n="sponsoring.contact_company">Nom de l'entreprise</label>
+          <input type="text" name="company" class="form-input" placeholder="Votre entreprise" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-i18n="sponsoring.contact_email">Adresse email</label>
+          <input type="email" name="email" class="form-input" placeholder="email@entreprise.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-i18n="sponsoring.contact_km">Nombre de km souhaités</label>
+          <input type="number" name="km" min="1" max="1600" class="form-input" placeholder="ex: 50">
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-i18n="sponsoring.contact_message">Message</label>
+          <textarea name="message" class="form-input" rows="3" placeholder="..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary w-full justify-center">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span data-i18n="sponsoring.contact_submit">Envoyer ma demande</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12" style="border-bottom:1px solid rgba(255,255,255,0.08);">
+        <div class="md:col-span-2">
+          <div class="footer-logo">La <span>Neuro</span>-Odyssée</div>
+          <p class="mt-3 text-sm" style="color:rgba(255,255,255,0.5); max-width:320px;" data-i18n="footer.tagline">1 600 km pour se reconstruire</p>
+          <div class="flex gap-3 mt-6">
+            <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-title" data-i18n="footer.nav_title">Navigation</div>
+          <a href="index.html" class="footer-link" data-i18n="nav.home">Accueil</a>
+          <a href="trajet.html" class="footer-link" data-i18n="nav.trajet">Le Trajet</a>
+          <a href="sponsoring.html" class="footer-link" data-i18n="nav.sponsoring">Sponsoring</a>
+          <a href="journal.html" class="footer-link" data-i18n="nav.journal">Journal</a>
+          <a href="soutenir.html" class="footer-link" data-i18n="nav.soutenir">Soutenir</a>
+        </div>
+        <div>
+          <div class="footer-title" data-i18n="footer.contact_title">Contact</div>
+          <a href="mailto:contact@neuro-odyssee.com" class="footer-link" data-i18n="footer.contact_email">contact@neuro-odyssee.com</a>
+          <a href="#" class="footer-link" data-i18n="footer.contact_instagram">@neuroodyssee</a>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div class="text-sm" style="color:rgba(255,255,255,0.35);">© <span class="current-year"></span> <span data-i18n="footer.website">neuro-odyssee.com</span></div>
+        <div class="text-sm" style="color:rgba(255,255,255,0.25);" data-i18n="footer.made_with">Fait avec passion en Valais 🇨🇭</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

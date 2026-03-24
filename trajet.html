@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Trajet — La Neuro-Odyssée</title>
+  <meta name="description" content="Découvrez la carte du périple de Roland Crettaz : 1 600 km de St-Maurice à Santiago de Compostela.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'green-deep': '#1E6B5E',
+            'green-mid': '#2D8C7A',
+            'blue-ocean': '#3B9BB0',
+            'gold': '#F0A500',
+            'cream': '#F8F6F1',
+            'dark': '#1a2332',
+          },
+          fontFamily: {
+            'serif': ['Cormorant Garamond', 'Georgia', 'serif'],
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .map-tooltip {
+      background: white !important;
+      border: 1px solid rgba(45,140,122,0.3) !important;
+      border-radius: 0.375rem !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+      font-family: Inter, sans-serif !important;
+      font-size: 0.8rem !important;
+      font-weight: 600 !important;
+      color: #1a2332 !important;
+      padding: 0.3rem 0.6rem !important;
+    }
+    .map-tooltip::before { display: none !important; }
+  </style>
+</head>
+<body class="bg-cream">
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="nav-glass">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="nav-logo">La <span>Neuro</span>-Odyssée</a>
+      <div class="nav-desktop hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link" data-page="index.html" data-i18n="nav.home">Accueil</a>
+        <a href="trajet.html" class="nav-link active" data-page="trajet.html" data-i18n="nav.trajet">Le Trajet</a>
+        <a href="sponsoring.html" class="nav-link" data-page="sponsoring.html" data-i18n="nav.sponsoring">Sponsoring</a>
+        <a href="journal.html" class="nav-link" data-page="journal.html" data-i18n="nav.journal">Journal</a>
+        <a href="soutenir.html" class="btn-primary text-sm py-2 px-5" data-i18n="nav.soutenir">Soutenir</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="lang-switcher hidden md:flex">
+          <button class="lang-btn active" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="it">IT</button>
+          <button class="lang-btn" data-lang="de">DE</button>
+        </div>
+        <button id="hamburger" class="hamburger md:hidden"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu">
+    <button id="mobileMenuClose" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
+    <a href="index.html" class="mobile-nav-link" data-i18n="nav.home">Accueil</a>
+    <a href="trajet.html" class="mobile-nav-link" data-i18n="nav.trajet">Le Trajet</a>
+    <a href="sponsoring.html" class="mobile-nav-link" data-i18n="nav.sponsoring">Sponsoring</a>
+    <a href="journal.html" class="mobile-nav-link" data-i18n="nav.journal">Journal</a>
+    <a href="soutenir.html" class="mobile-nav-link" data-i18n="nav.soutenir">Soutenir</a>
+    <div class="lang-switcher mt-4">
+      <button class="lang-btn active" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="it">IT</button>
+      <button class="lang-btn" data-lang="de">DE</button>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero-bg relative pt-32 pb-20 px-6 overflow-hidden">
+    <div class="hero-pattern"></div>
+    <div class="hero-content max-w-4xl mx-auto text-center">
+      <span class="hero-badge mb-6 inline-flex">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <span>3 pays · 1 600 km · ~90 jours</span>
+      </span>
+      <h1 class="hero-title animate-fadeInUp" data-i18n="trajet.hero_title">1 600 km</h1>
+      <p class="hero-tagline mt-2 animate-fadeInUp animate-delay-1" data-i18n="trajet.hero_subtitle">St-Maurice → Santiago de Compostela</p>
+      <p class="hero-subtitle mx-auto mt-4 animate-fadeInUp animate-delay-2" data-i18n="trajet.hero_text">
+        Un chemin en trois pays, traversant les Alpes, le Massif Central, les Pyrénées et la meseta castillane.
+      </p>
+
+      <!-- Country flags route -->
+      <div class="flex items-center justify-center gap-4 mt-8 animate-fadeInUp animate-delay-3">
+        <div class="text-center">
+          <div class="text-3xl">🇨🇭</div>
+          <div style="color:rgba(255,255,255,0.5); font-size:0.7rem; margin-top:0.25rem; text-transform:uppercase; letter-spacing:0.1em;">Suisse</div>
+        </div>
+        <div style="flex:1; max-width:80px; height:1px; background:linear-gradient(90deg,rgba(255,255,255,0.2),rgba(240,165,0,0.5),rgba(255,255,255,0.2));"></div>
+        <div class="text-center">
+          <div class="text-3xl">🇫🇷</div>
+          <div style="color:rgba(255,255,255,0.5); font-size:0.7rem; margin-top:0.25rem; text-transform:uppercase; letter-spacing:0.1em;">France</div>
+        </div>
+        <div style="flex:1; max-width:80px; height:1px; background:linear-gradient(90deg,rgba(255,255,255,0.2),rgba(240,165,0,0.5),rgba(255,255,255,0.2));"></div>
+        <div class="text-center">
+          <div class="text-3xl">🇪🇸</div>
+          <div style="color:rgba(255,255,255,0.5); font-size:0.7rem; margin-top:0.25rem; text-transform:uppercase; letter-spacing:0.1em;">Espagne</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY STATS BAR -->
+  <section class="stats-bar">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-center">
+        <div class="stat-item flex-1">
+          <span class="stat-number" data-i18n="trajet.stat_distance_val">1 600 km</span>
+          <span class="stat-label" data-i18n="trajet.stat_distance">Distance totale</span>
+        </div>
+        <div class="stat-item flex-1">
+          <span class="stat-number" data-i18n="trajet.stat_days_val">~90 jours</span>
+          <span class="stat-label" data-i18n="trajet.stat_days">Jours estimés</span>
+        </div>
+        <div class="stat-item flex-1">
+          <span class="stat-number" data-i18n="trajet.stat_countries_val">3</span>
+          <span class="stat-label" data-i18n="trajet.stat_countries">Pays traversés</span>
+        </div>
+        <div class="stat-item flex-1">
+          <span class="stat-number" data-i18n="trajet.stat_elevation_val">25 000 m</span>
+          <span class="stat-label" data-i18n="trajet.stat_elevation">D+ estimé</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP SECTION -->
+  <section class="py-16 px-6 bg-cream">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-10 reveal">
+        <span class="section-label justify-center" data-i18n="trajet.section_map">La Carte du Périple</span>
+        <h2 class="section-title mt-3" data-i18n="trajet.section_map">La Carte du Périple</h2>
+        <p class="section-subtitle mx-auto mt-3 text-center" data-i18n="trajet.map_subtitle">Cliquez sur les marqueurs pour découvrir chaque étape</p>
+      </div>
+
+      <!-- Map -->
+      <div class="map-container reveal">
+        <div id="map"></div>
+      </div>
+
+      <!-- Map legend description -->
+      <div class="flex flex-wrap justify-center gap-6 mt-6 reveal">
+        <div class="flex items-center gap-2 text-sm" style="color:var(--text-light);">
+          <div style="width:20px; height:3px; background:var(--green-mid); border-radius:2px;"></div>
+          <span>Route complète</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm" style="color:var(--text-light);">
+          <div style="width:12px; height:12px; background:var(--gold); border-radius:50%; border:2px solid white; box-shadow:0 1px 4px rgba(240,165,0,0.4);"></div>
+          <span>Étape majeure</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm" style="color:var(--text-light);">
+          <div style="width:9px; height:9px; background:var(--green-mid); border-radius:50%; border:2px solid white;"></div>
+          <span>Étape</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm" style="color:var(--text-light);">
+          <span>🏔️</span> Départ
+        </div>
+        <div class="flex items-center gap-2 text-sm" style="color:var(--text-light);">
+          <span>⭐</span> Arrivée
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURSOR / CURRENT POSITION -->
+  <section class="py-16 px-6" style="background:var(--dark);">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="section-label justify-center" style="color:var(--green-mid);" data-i18n="trajet.cursor_title">Le Curseur de Roland</span>
+      <h2 class="section-title mt-3 mb-4" style="color:white;" data-i18n="trajet.cursor_title">Le Curseur de Roland</h2>
+      <p style="color:rgba(255,255,255,0.5); margin-bottom:2.5rem;" data-i18n="trajet.cursor_subtitle">Suivez sa progression en temps réel</p>
+
+      <!-- Cursor visual -->
+      <div class="reveal" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:1rem; padding:2.5rem;">
+        <!-- Status badge -->
+        <div class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full" style="background:rgba(240,165,0,0.12); border:1px solid rgba(240,165,0,0.3);">
+          <div style="width:8px; height:8px; background:var(--gold); border-radius:50%; animation:pulse-map 2s infinite;"></div>
+          <span style="color:var(--gold); font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em;" data-i18n="trajet.depart_prevu">Départ prévu</span>
+          <span style="color:var(--gold); font-size:0.8rem; font-weight:600;">2025</span>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="mb-6">
+          <div class="flex justify-between text-sm mb-2">
+            <span style="color:rgba(255,255,255,0.5);">St-Maurice 🇨🇭</span>
+            <span style="color:rgba(255,255,255,0.5);">Santiago 🇪🇸 ⭐</span>
+          </div>
+          <div class="progress-track" style="background:rgba(255,255,255,0.08); height:16px;">
+            <div class="progress-bar" data-progress="0" style="min-width:16px; border-radius:8px;"></div>
+          </div>
+          <div class="flex justify-between mt-2">
+            <span style="color:var(--gold); font-size:0.85rem; font-weight:700;">
+              <span id="currentKm" data-km="0">0</span> km
+            </span>
+            <span style="color:rgba(255,255,255,0.4); font-size:0.85rem;">1 600 km</span>
+          </div>
+        </div>
+
+        <!-- Stats row -->
+        <div class="grid grid-cols-3 gap-6">
+          <div class="text-center">
+            <div style="font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:700; color:var(--gold); line-height:1;">0</div>
+            <div style="font-size:0.75rem; color:rgba(255,255,255,0.4); margin-top:0.25rem; text-transform:uppercase; letter-spacing:0.08em;" data-i18n="trajet.km_parcourus">km parcourus</div>
+          </div>
+          <div class="text-center">
+            <div style="font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:700; color:var(--gold); line-height:1;">0</div>
+            <div style="font-size:0.75rem; color:rgba(255,255,255,0.4); margin-top:0.25rem; text-transform:uppercase; letter-spacing:0.08em;" data-i18n="trajet.jours_ecoules">jours écoulés</div>
+          </div>
+          <div class="text-center">
+            <div style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:700; color:var(--gold); line-height:1;">—</div>
+            <div style="font-size:0.75rem; color:rgba(255,255,255,0.4); margin-top:0.25rem; text-transform:uppercase; letter-spacing:0.08em;" data-i18n="trajet.prochaine_etape">Prochaine étape</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE CARDS GRID -->
+  <section class="py-20 px-6 bg-cream">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <span class="section-label justify-center" data-i18n="trajet.stages_title">Les Étapes</span>
+        <h2 class="section-title mt-3" data-i18n="trajet.stages_title">Les Étapes</h2>
+        <p class="section-subtitle mx-auto mt-3 text-center" data-i18n="trajet.stages_subtitle">Du départ en Valais à l'arrivée en Galice</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- St-Maurice -->
+        <div class="stage-card start reveal">
+          <span class="stage-km-badge">km 0</span>
+          <div class="flex items-center gap-2 mb-2">
+            <span style="font-size:1.2rem;">🏔️</span>
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--green-deep); background:rgba(30,107,94,0.08); padding:0.15rem 0.5rem; border-radius:1rem;">Départ</span>
+          </div>
+          <h3 class="font-serif text-xl mb-1">🇨🇭 St-Maurice</h3>
+          <p class="text-sm" style="color:var(--text-light);" data-i18n="trajet.stage_desc_stmaurice">Abbaye millénaire, point de départ symbolique en Valais</p>
+        </div>
+
+        <!-- Genève -->
+        <div class="stage-card reveal animate-delay-1">
+          <span class="stage-km-badge">km 65</span>
+          <div class="flex items-center gap-2 mb-2">
+            <span style="font-size:1rem;">📍</span>
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--blue-ocean); background:rgba(59,155,176,0.08); padding:0.15rem 0.5rem; border-radius:1rem;">Étape</span>
+          </div>
+          <h3 class="font-serif text-xl mb-1">🇨🇭 Genève</h3>
+          <p class="text-sm" style="color:var(--text-light);" data-i18n="trajet.stage_desc_geneve">Traversée de la ville internationale, entrée dans le Léman</p>
+        </div>
+
+        <!-- Lyon -->
+        <div class="stage-card reveal animate-delay-2">
+          <span class="stage-km-badge">km 220</span>
+          <div class="flex items-center gap-2 mb-2">
+            <span style="font-size:1rem;">📍</span>
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--blue-ocean); background:rgba(59,155,176,0.08); padding:0.15rem 0.5rem; border-radius:1rem;">Étape</span>
+          </div>
+          <h3 class="font-serif text-xl mb-1">🇫🇷 Lyon</h3>
+          <p class="text-sm" style="color:var(--text-light);" data-i18n="trajet.stage_desc_lyon">Première grande métropole française, confluent de deux fleuves</p>
+        </div>
+
+        <!-- Le Puy-en-Velay -->
+        <div class="stage-card major reveal">
+          <span class="stage-km-badge" style="background:rgba(240,165,0,0.12); color:var(--gold);">km 340</span>
+          <div class="flex items-center gap-2 mb-2">
+            <span style="font-size:1rem;">⭐</span>
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold); background:rgba(240,165,0,0.1); padding:0.15rem 0.5rem; border-radius:1rem;">Majeure</span>
+          </div>
+          <h3 class="font-serif text-xl mb-1">🇫🇷 Le Puy-en-Velay</h3>
+          <p class="text-sm" style="color:var(--text-light);" data-i18n="trajet.stage_desc_lepuy">Porte du chemin GR65, début officiel du Chemin de Compostelle</p>
+        </div>
+
+        <!-- Figeac -->
+        <div class="stage-card reveal animate-delay-1">
+          <span class="stage-km-badge">km 520</span>
+          <div class="flex items-center gap-2 mb-2">
+            <span style="font-size:1rem;">📍</span>
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--blue-ocean); background:rgba(59,155,176,0.08); padding:0.15rem 0.5rem; border-radius:1rem;">Étape</span>
+          </div>
+          <h3 class="font-serif text-xl mb-1">🇫🇷 Figeac</h3>
+          <p class="text-sm" style="color:var(--text-light);" data-i18n="trajet.stage_desc_figeac">Ville médiévale du Lot, passage sur les causses</p>
+        </div>
+
+        <!-- Cahors -->
+        <div class="stage-card reveal animate-delay-2">
+          <span class="stage-km-badge">km 620</span>
+          <div class="flex items-center gap-2 mb-2">
+            <span style="font-size:1rem;">📍</span>
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--blue-ocean); background:rgba(59,155,176,0.08); padding:0.15rem 0.5rem; border-radius:1rem;">Étape</span>
+          </div>
+          <h3 class="font-serif text-xl mb-1">🇫🇷 Cahors</h3>
+          <p class="text-sm" style="color:var(--text-light);" data-i18n="trajet.stage_desc_cahors">Le Pont Valentré, symbole du chemin quercinois</p>
+        </div>
+
+        <!-- Moissac -->
+        <div class="stage-card reveal">
+          <span class="stage-km-badge">km 700</span>
+          <div class="flex items-center gap-2 mb-2">
+            <span style="font-size:1rem;">📍</span>
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--blue-ocean); background:rgba(59,155,176,0.08); padding:0.15rem 0.5rem; border-radius:1rem;">Étape</span>
+          </div>
+          <h3 class="font-serif text-xl mb-1">🇫🇷 Moissac</h3>
+          <p class="text-sm" style="color:var(--text-light);" data-i18n="trajet.stage_desc_moissac">Abbaye romane classée, tympan sculpté exceptionnel</p>
+        </div>
+
+        <!-- St-Jean-Pied-de-Port -->
+        <div class="stage-card major reveal animate-delay-1">
+          <span class="stage-km-badge" style="background:rgba(240,165,0,0.12); color:var(--gold);">km 900</span>
+          <div class="flex items-center gap-2 mb-2">
+            <span style="font-size:1rem;">⭐</span>
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold); background:rgba(240,165,0,0.1); padding:0.15rem 0.5rem; border-radius:1rem;">Majeure</span>
+          </div>
+          <h3 class="font-serif text-xl mb-1">🇫🇷 St-Jean-Pied-de-Port</h3>
+          <p class="text-sm" style="color:var(--text-light);" data-i18n="trajet.stage_desc_saintjean">Dernière ville française, passage des Pyrénées vers l'Espagne</p>
+        </div>
+
+        <!-- Pampelune -->
+        <div class="stage-card reveal animate-delay-2">
+          <span class="stage-km-badge">km 980</span>
+          <div class="flex items-center gap-2 mb-2">
+            <span style="font-size:1rem;">📍</span>
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--blue-ocean); background:rgba(59,155,176,0.08); padding:0.15rem 0.5rem; border-radius:1rem;">Étape</span>
+          </div>
+          <h3 class="font-serif text-xl mb-1">🇪🇸 Pampelune</h3>
+          <p class="text-sm" style="color:var(--text-light);" data-i18n="trajet.stage_desc_pampelune">Pamplona, première ville espagnole, arrivée en Navarre</p>
+        </div>
+
+        <!-- Burgos -->
+        <div class="stage-card major reveal">
+          <span class="stage-km-badge" style="background:rgba(240,165,0,0.12); color:var(--gold);">km 1 200</span>
+          <div class="flex items-center gap-2 mb-2">
+            <span style="font-size:1rem;">⭐</span>
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold); background:rgba(240,165,0,0.1); padding:0.15rem 0.5rem; border-radius:1rem;">Majeure</span>
+          </div>
+          <h3 class="font-serif text-xl mb-1">🇪🇸 Burgos</h3>
+          <p class="text-sm" style="color:var(--text-light);" data-i18n="trajet.stage_desc_burgos">Cathédrale gothique, cœur historique de la Castille</p>
+        </div>
+
+        <!-- León -->
+        <div class="stage-card reveal animate-delay-1">
+          <span class="stage-km-badge">km 1 400</span>
+          <div class="flex items-center gap-2 mb-2">
+            <span style="font-size:1rem;">📍</span>
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--blue-ocean); background:rgba(59,155,176,0.08); padding:0.15rem 0.5rem; border-radius:1rem;">Étape</span>
+          </div>
+          <h3 class="font-serif text-xl mb-1">🇪🇸 León</h3>
+          <p class="text-sm" style="color:var(--text-light);" data-i18n="trajet.stage_desc_leon">Vitraux exceptionnels, dernière grande étape avant Santiago</p>
+        </div>
+
+        <!-- Santiago -->
+        <div class="stage-card end reveal animate-delay-2" style="background:linear-gradient(135deg,#fffbf0,white); border-left-color:var(--gold);">
+          <span class="stage-km-badge" style="background:rgba(240,165,0,0.15); color:var(--gold);">km 1 600</span>
+          <div class="flex items-center gap-2 mb-2">
+            <span style="font-size:1rem;">⭐</span>
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold); background:rgba(240,165,0,0.1); padding:0.15rem 0.5rem; border-radius:1rem;">Arrivée</span>
+          </div>
+          <h3 class="font-serif text-xl mb-1">🇪🇸 Santiago de Compostela</h3>
+          <p class="text-sm" style="color:var(--text-light);" data-i18n="trajet.stage_desc_santiago">La cathédrale del Obradoiro — le bout du chemin</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12" style="border-bottom:1px solid rgba(255,255,255,0.08);">
+        <div class="md:col-span-2">
+          <div class="footer-logo">La <span>Neuro</span>-Odyssée</div>
+          <p class="mt-3 text-sm leading-relaxed" style="color:rgba(255,255,255,0.5); max-width:320px;" data-i18n="footer.tagline">1 600 km pour se reconstruire</p>
+          <div class="flex gap-3 mt-6">
+            <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-title" data-i18n="footer.nav_title">Navigation</div>
+          <a href="index.html" class="footer-link" data-i18n="nav.home">Accueil</a>
+          <a href="trajet.html" class="footer-link" data-i18n="nav.trajet">Le Trajet</a>
+          <a href="sponsoring.html" class="footer-link" data-i18n="nav.sponsoring">Sponsoring</a>
+          <a href="journal.html" class="footer-link" data-i18n="nav.journal">Journal</a>
+          <a href="soutenir.html" class="footer-link" data-i18n="nav.soutenir">Soutenir</a>
+        </div>
+        <div>
+          <div class="footer-title" data-i18n="footer.contact_title">Contact</div>
+          <a href="mailto:contact@neuro-odyssee.com" class="footer-link" data-i18n="footer.contact_email">contact@neuro-odyssee.com</a>
+          <a href="#" class="footer-link" data-i18n="footer.contact_instagram">@neuroodyssee</a>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div class="text-sm" style="color:rgba(255,255,255,0.35);">
+          © <span class="current-year"></span> <span data-i18n="footer.website">neuro-odyssee.com</span>
+        </div>
+        <div class="text-sm" style="color:rgba(255,255,255,0.25);" data-i18n="footer.made_with">Fait avec passion en Valais 🇨🇭</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

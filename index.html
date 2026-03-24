@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="i18n-title" content="hero.tagline">
+  <title>La Neuro-Odyssée — 1 600 km pour se reconstruire</title>
+  <meta name="description" content="Roland Crettaz marche 1 600 km de St-Maurice à Santiago de Compostela pour se reconstruire après un TDAH et des addictions. Rejoignez l'aventure.">
+  <meta name="og:title" content="La Neuro-Odyssée">
+  <meta name="og:description" content="1 600 km pour re-câbler un cerveau — De St-Maurice à Santiago de Compostela">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'green-deep': '#1E6B5E',
+            'green-mid': '#2D8C7A',
+            'blue-ocean': '#3B9BB0',
+            'gold': '#F0A500',
+            'cream': '#F8F6F1',
+            'dark': '#1a2332',
+          },
+          fontFamily: {
+            'serif': ['Cormorant Garamond', 'Georgia', 'serif'],
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-cream">
+
+  <!-- ============================================
+       NAVBAR
+       ============================================ -->
+  <nav id="navbar" class="nav-glass">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="index.html" class="nav-logo">
+        La <span>Neuro</span>-Odyssée
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="nav-desktop hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link" data-page="index.html" data-i18n="nav.home">Accueil</a>
+        <a href="trajet.html" class="nav-link" data-page="trajet.html" data-i18n="nav.trajet">Le Trajet</a>
+        <a href="sponsoring.html" class="nav-link" data-page="sponsoring.html" data-i18n="nav.sponsoring">Sponsoring</a>
+        <a href="journal.html" class="nav-link" data-page="journal.html" data-i18n="nav.journal">Journal</a>
+        <a href="soutenir.html" class="btn-primary text-sm py-2 px-5" data-i18n="nav.soutenir">Soutenir</a>
+      </div>
+
+      <!-- Language Switcher + Hamburger -->
+      <div class="flex items-center gap-3">
+        <div class="lang-switcher hidden md:flex">
+          <button class="lang-btn active" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="it">IT</button>
+          <button class="lang-btn" data-lang="de">DE</button>
+        </div>
+        <button id="hamburger" class="hamburger md:hidden" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu">
+    <button id="mobileMenuClose" class="absolute top-6 right-6 text-white text-2xl" aria-label="Fermer">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <a href="index.html" class="mobile-nav-link" data-i18n="nav.home">Accueil</a>
+    <a href="trajet.html" class="mobile-nav-link" data-i18n="nav.trajet">Le Trajet</a>
+    <a href="sponsoring.html" class="mobile-nav-link" data-i18n="nav.sponsoring">Sponsoring</a>
+    <a href="journal.html" class="mobile-nav-link" data-i18n="nav.journal">Journal</a>
+    <a href="soutenir.html" class="mobile-nav-link" data-i18n="nav.soutenir">Soutenir</a>
+    <!-- Mobile Lang -->
+    <div class="lang-switcher mt-4">
+      <button class="lang-btn active" data-lang="fr" style="color:white; border-color:rgba(255,255,255,0.3);">FR</button>
+      <button class="lang-btn" data-lang="en" style="color:rgba(255,255,255,0.6); border-color:rgba(255,255,255,0.2);">EN</button>
+      <button class="lang-btn" data-lang="es" style="color:rgba(255,255,255,0.6); border-color:rgba(255,255,255,0.2);">ES</button>
+      <button class="lang-btn" data-lang="it" style="color:rgba(255,255,255,0.6); border-color:rgba(255,255,255,0.2);">IT</button>
+      <button class="lang-btn" data-lang="de" style="color:rgba(255,255,255,0.6); border-color:rgba(255,255,255,0.2);">DE</button>
+    </div>
+  </div>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section class="hero-bg relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="hero-pattern"></div>
+    <!-- Subtle mountain silhouette SVG -->
+    <svg class="absolute bottom-0 left-0 right-0 w-full opacity-20" viewBox="0 0 1440 200" preserveAspectRatio="none" style="z-index:1;">
+      <path d="M0,200 L0,120 L120,60 L240,100 L360,40 L480,80 L600,20 L720,70 L840,30 L960,80 L1080,50 L1200,90 L1320,55 L1440,80 L1440,200 Z" fill="rgba(255,255,255,0.05)"/>
+      <path d="M0,200 L0,150 L180,100 L360,130 L540,80 L720,110 L900,70 L1080,100 L1260,80 L1440,110 L1440,200 Z" fill="rgba(255,255,255,0.04)"/>
+    </svg>
+
+    <div class="hero-content relative z-10 text-center px-6 max-w-5xl mx-auto pt-24 pb-16">
+      <!-- Badge -->
+      <div class="flex justify-center mb-8">
+        <span class="hero-badge animate-fadeInUp">
+          <i class="fa-regular fa-calendar-check"></i>
+          <span data-i18n="hero.badge">Départ prévu 2025</span>
+        </span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="hero-title animate-fadeInUp animate-delay-1">
+        <span data-i18n="hero.title_line1">La Neuro-</span><span class="accent" data-i18n="hero.title_line2">Odyssée</span>
+      </h1>
+
+      <!-- Tagline -->
+      <p class="hero-tagline mt-4 mb-6 animate-fadeInUp animate-delay-2" data-i18n="hero.tagline">
+        1 600 km pour re-câbler un cerveau
+      </p>
+
+      <!-- Subtitle -->
+      <p class="hero-subtitle mx-auto mb-10 animate-fadeInUp animate-delay-3" data-i18n="hero.subtitle">
+        De St-Maurice (Suisse) à Santiago de Compostela (Espagne) — Roland Crettaz marche pour prouver qu'un cerveau TDAH et des addictions surmontées ne sont pas des fatalités.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp animate-delay-4">
+        <a href="sponsoring.html" class="btn-primary">
+          <i class="fa-solid fa-handshake"></i>
+          <span data-i18n="hero.cta_sponsor">Devenez Sponsor</span>
+        </a>
+        <a href="soutenir.html" class="btn-secondary">
+          <i class="fa-solid fa-heart"></i>
+          <span data-i18n="hero.cta_don">Faire un Don</span>
+        </a>
+      </div>
+
+      <!-- Route visual hint -->
+      <div class="mt-16 flex items-center justify-center gap-3 text-white opacity-60 animate-fadeInUp animate-delay-5">
+        <span style="font-size:0.8rem; letter-spacing:0.15em; text-transform:uppercase; font-weight:600;">St-Maurice 🇨🇭</span>
+        <div style="flex:1; max-width:200px; height:1px; background:linear-gradient(90deg, transparent, rgba(240,165,0,0.6), transparent);"></div>
+        <span style="color:var(--gold); font-size:0.85rem;">✦ 1 600 km ✦</span>
+        <div style="flex:1; max-width:200px; height:1px; background:linear-gradient(90deg, transparent, rgba(240,165,0,0.6), transparent);"></div>
+        <span style="font-size:0.8rem; letter-spacing:0.15em; text-transform:uppercase; font-weight:600;">Santiago 🇪🇸</span>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="mt-12 animate-fadeInUp animate-delay-6" style="opacity:0.5;">
+        <a href="#stats" style="color:white; display:inline-flex; flex-direction:column; align-items:center; gap:0.5rem; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase;">
+          <span data-i18n="hero.scroll_hint">Découvrir le projet</span>
+          <i class="fa-solid fa-chevron-down" style="animation: bounce 2s infinite;"></i>
+        </a>
+      </div>
+    </div>
+    <style>
+      @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+    </style>
+  </section>
+
+  <!-- ============================================
+       STATS BAR
+       ============================================ -->
+  <section id="stats" class="stats-bar">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-center">
+        <div class="stat-item flex-1">
+          <span class="stat-number" data-target="0" data-suffix="" data-duration="2500">0</span>
+          <span class="stat-label" data-i18n="stats.km_parraines">km parrainés</span>
+        </div>
+        <div class="stat-item flex-1">
+          <span class="stat-number" data-target="0" data-duration="2000">0</span>
+          <span class="stat-label" data-i18n="stats.sponsors">sponsors</span>
+        </div>
+        <div class="stat-item flex-1">
+          <span class="stat-number" data-target="0" data-suffix=" €" data-duration="2200">0 €</span>
+          <span class="stat-label" data-i18n="stats.collectes">collectés</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       LE PROJET — 3 CARDS
+       ============================================ -->
+  <section class="py-24 px-6" style="background:var(--cream);">
+    <div class="max-w-6xl mx-auto">
+      <!-- Section header -->
+      <div class="text-center mb-16 reveal">
+        <span class="section-label justify-center" data-i18n="projet.section_label">Le Projet</span>
+        <h2 class="section-title mt-3" data-i18n="projet.title">Un défi physique, neurologique et humain</h2>
+        <p class="section-subtitle mx-auto mt-4 text-center" data-i18n="projet.subtitle">
+          Trois dimensions d'un même voyage : repousser les limites du corps, démontrer la plasticité du cerveau, et transmettre un message d'espoir.
+        </p>
+      </div>
+
+      <!-- 3 Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Card 1: Le Défi -->
+        <div class="card-feature reveal animate-delay-1">
+          <div class="card-icon" style="background:rgba(30,107,94,0.1);">
+            <span data-i18n="projet.card1_icon">🧭</span>
+          </div>
+          <h3 class="font-serif text-2xl mb-3" data-i18n="projet.card1_title">Le Défi</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-light);" data-i18n="projet.card1_text">
+            1 600 km à pied, seul, du Valais suisse à la côte galicienne. Traversée de trois pays, des Alpes aux Pyrénées, jusqu'à l'Atlantique. Une aventure humaine hors du commun.
+          </p>
+          <div class="mt-5 flex items-center gap-2 text-xs font-bold" style="color:var(--green-mid); letter-spacing:0.08em; text-transform:uppercase;">
+            <span>🇨🇭 → 🇫🇷 → 🇪🇸</span>
+          </div>
+        </div>
+
+        <!-- Card 2: La Science -->
+        <div class="card-feature reveal animate-delay-2">
+          <div class="card-icon" style="background:rgba(59,155,176,0.1);">
+            <span data-i18n="projet.card2_icon">🧠</span>
+          </div>
+          <h3 class="font-serif text-2xl mb-3" data-i18n="projet.card2_title">La Science</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-light);" data-i18n="projet.card2_text">
+            La neuroplasticité démontre que le cerveau se reconfigure tout au long de la vie. La marche intensive génère du BDNF — une protéine qui favorise la croissance neuronale.
+          </p>
+          <div class="mt-5 inline-flex items-center gap-2 text-xs font-bold px-3 py-1 rounded-full" style="background:rgba(59,155,176,0.1); color:var(--blue-ocean);">
+            <i class="fa-solid fa-dna"></i> Neuroplasticité
+          </div>
+        </div>
+
+        <!-- Card 3: Le Message -->
+        <div class="card-feature reveal animate-delay-3">
+          <div class="card-icon" style="background:rgba(240,165,0,0.1);">
+            <span data-i18n="projet.card3_icon">💬</span>
+          </div>
+          <h3 class="font-serif text-2xl mb-3" data-i18n="projet.card3_title">Le Message</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-light);" data-i18n="projet.card3_text">
+            TDAH, alcool, médicaments, tabac : Roland Crettaz a tout traversé. Aujourd'hui il marche pour dire que la reconstruction est possible — à tout âge, malgré tout.
+          </p>
+          <div class="mt-5 inline-flex items-center gap-2 text-xs font-bold px-3 py-1 rounded-full" style="background:rgba(240,165,0,0.1); color:#b87a00;">
+            <i class="fa-solid fa-seedling"></i> TDAH & Addictions
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-12 reveal">
+        <a href="trajet.html" class="btn-green">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span data-i18n="projet.learn_more">En savoir plus</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave divider -->
+  <div class="wave-divider" style="margin-top:-2px;">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#1a2332"/>
+    </svg>
+  </div>
+
+  <!-- ============================================
+       PROGRESS SECTION
+       ============================================ -->
+  <section class="py-20 px-6" style="background:#1a2332;">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-10 reveal">
+        <span class="section-label justify-center" style="color:var(--green-mid);" data-i18n="progress.section_label">Avancement</span>
+        <h2 class="section-title mt-3" style="color:white;" data-i18n="progress.title">Objectif : 16 000 €</h2>
+        <p class="section-subtitle mx-auto mt-4 text-center" style="color:rgba(255,255,255,0.6);" data-i18n="progress.subtitle">
+          1 600 km × 10 € par kilomètre — Chaque km parrainé finance la logistique, l'équipement et la production du documentaire.
+        </p>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="reveal">
+        <div class="flex justify-between items-center mb-3">
+          <span class="progress-label" style="color:var(--gold);">
+            <span data-target="0" data-duration="2000">0</span> <span data-i18n="progress.km_parraines">km parrainés</span>
+          </span>
+          <span class="progress-label" style="color:rgba(255,255,255,0.5);">
+            1 600 <span data-i18n="progress.km_total">km au total</span>
+          </span>
+        </div>
+        <div class="progress-track" style="background:rgba(255,255,255,0.08);">
+          <div class="progress-bar" data-progress="0" style="min-width:4px;"></div>
+        </div>
+        <div class="flex justify-between items-center mt-4">
+          <div>
+            <span class="text-xl font-bold" style="color:var(--gold);">0 %</span>
+            <span class="text-sm ml-2" style="color:rgba(255,255,255,0.5);" data-i18n="progress.tiers_parcourus">de l'objectif atteint</span>
+          </div>
+          <div style="color:rgba(255,255,255,0.5); font-size:0.85rem;">
+            <span data-i18n="progress.objectif_financier">Objectif financier</span> : <strong style="color:var(--gold);">16 000 €</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestones -->
+      <div class="grid grid-cols-4 gap-2 mt-8 reveal">
+        <div class="text-center">
+          <div class="text-xs mb-1" style="color:rgba(255,255,255,0.4);">km 400</div>
+          <div class="h-1 rounded" style="background:rgba(255,255,255,0.1);"></div>
+          <div class="text-xs mt-1" style="color:rgba(255,255,255,0.35);">4 000 €</div>
+        </div>
+        <div class="text-center">
+          <div class="text-xs mb-1" style="color:rgba(255,255,255,0.4);">km 800</div>
+          <div class="h-1 rounded" style="background:rgba(255,255,255,0.1);"></div>
+          <div class="text-xs mt-1" style="color:rgba(255,255,255,0.35);">8 000 €</div>
+        </div>
+        <div class="text-center">
+          <div class="text-xs mb-1" style="color:rgba(255,255,255,0.4);">km 1 200</div>
+          <div class="h-1 rounded" style="background:rgba(255,255,255,0.1);"></div>
+          <div class="text-xs mt-1" style="color:rgba(255,255,255,0.35);">12 000 €</div>
+        </div>
+        <div class="text-center">
+          <div class="text-xs mb-1" style="color:var(--gold);">km 1 600 ⭐</div>
+          <div class="h-1 rounded" style="background:rgba(240,165,0,0.3);"></div>
+          <div class="text-xs mt-1" style="color:var(--gold);">16 000 €</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-10 reveal">
+        <a href="sponsoring.html" class="btn-primary">
+          <i class="fa-solid fa-route"></i>
+          <span data-i18n="progress.cta">Parrainer des kilomètres</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave divider (reversed) -->
+  <div class="wave-divider" style="margin-bottom:-2px;">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,30 C360,0 1080,60 1440,30 L1440,0 L0,0 Z" fill="#1a2332"/>
+    </svg>
+  </div>
+
+  <!-- ============================================
+       ROLAND BIO SECTION
+       ============================================ -->
+  <section class="py-24 px-6 bg-cream">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Photo placeholder -->
+        <div class="reveal-left">
+          <div class="relative">
+            <div class="img-placeholder rounded-2xl overflow-hidden" style="aspect-ratio:4/5; max-width:440px; margin:0 auto;">
+              <!-- Artistic placeholder: portrait in gradient -->
+              <div style="width:100%; height:100%; background:linear-gradient(160deg, #1E6B5E 0%, #1a2332 50%, #2c4a6e 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; padding:2rem; text-align:center;">
+                <div style="font-size:5rem; opacity:0.6;">🚶</div>
+                <div style="color:rgba(255,255,255,0.7); font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-style:italic;">Roland Crettaz</div>
+                <div style="color:rgba(255,255,255,0.4); font-size:0.8rem; letter-spacing:0.15em; text-transform:uppercase;">Valais · Suisse</div>
+                <div style="width:40px; height:2px; background:var(--gold); margin:0.5rem auto;"></div>
+                <div style="color:rgba(255,255,255,0.35); font-size:0.75rem;">Photo à venir</div>
+              </div>
+            </div>
+            <!-- Decorative quote card -->
+            <div style="position:absolute; bottom:-2rem; right:-1rem; max-width:280px; background:white; border-radius:1rem; padding:1.25rem; box-shadow:0 10px 30px rgba(0,0,0,0.15); border-left:4px solid var(--gold);" class="hidden lg:block">
+              <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.95rem; color:var(--dark); line-height:1.6;">"Chaque pas est une thérapie. Le chemin m'a rendu à moi-même."</p>
+              <div style="margin-top:0.75rem; font-size:0.75rem; font-weight:700; color:var(--green-mid);">— Roland Crettaz</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bio text -->
+        <div class="reveal-right">
+          <span class="section-label" data-i18n="roland.section_label">L'Homme Derrière le Projet</span>
+          <h2 class="section-title mt-3" data-i18n="roland.title">Roland Crettaz</h2>
+          <p class="mt-4 leading-relaxed" style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--text-light); font-style:italic;" data-i18n="roland.subtitle">
+            Né en Valais, Roland a vécu des décennies avec un TDAH non diagnostiqué, cherchant à combler ce manque dans l'alcool, les médicaments et la cigarette.
+          </p>
+
+          <div class="mt-6 space-y-4">
+            <p class="leading-relaxed" style="color:var(--text); font-size:1rem;" data-i18n="roland.bio1">
+              Ce n'est qu'à 40 ans que tout s'est mis en place : le diagnostic du TDAH, la décision d'arrêter les substances, le long chemin de la reconstruction.
+            </p>
+
+            <blockquote style="border-left:3px solid var(--gold); padding:1rem 1.25rem; margin:1.5rem 0; background:rgba(240,165,0,0.04); border-radius:0 0.5rem 0.5rem 0;">
+              <p class="leading-relaxed" style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-style:italic; color:var(--dark);" data-i18n="roland.bio2">
+                "Le Chemin de Compostelle n'est pas une fuite. C'est un retour à moi-même."
+              </p>
+            </blockquote>
+
+            <p class="leading-relaxed" style="color:var(--text); font-size:1rem;" data-i18n="roland.bio3">
+              Roland documente chaque étape : vidéos YouTube, blog, et un livre en préparation.
+            </p>
+          </div>
+
+          <!-- Tags -->
+          <div class="flex flex-wrap gap-2 mt-6">
+            <span style="background:rgba(240,165,0,0.1); color:#b87a00; font-size:0.75rem; font-weight:700; padding:0.3rem 0.8rem; border-radius:1rem; text-transform:uppercase; letter-spacing:0.08em;">TDAH</span>
+            <span style="background:rgba(45,140,122,0.1); color:var(--green-deep); font-size:0.75rem; font-weight:700; padding:0.3rem 0.8rem; border-radius:1rem; text-transform:uppercase; letter-spacing:0.08em;">Addictions</span>
+            <span style="background:rgba(59,155,176,0.1); color:var(--blue-ocean); font-size:0.75rem; font-weight:700; padding:0.3rem 0.8rem; border-radius:1rem; text-transform:uppercase; letter-spacing:0.08em;">Neuroplasticité</span>
+            <span style="background:rgba(30,107,94,0.1); color:var(--green-deep); font-size:0.75rem; font-weight:700; padding:0.3rem 0.8rem; border-radius:1rem; text-transform:uppercase; letter-spacing:0.08em;">Compostelle</span>
+          </div>
+
+          <div class="mt-8">
+            <a href="journal.html" class="btn-green">
+              <i class="fa-solid fa-book-open"></i>
+              <span data-i18n="roland.cta_journal">Lire le Journal</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       DOCUMENTARY & BOOK — CINEMATIC BANNER
+       ============================================ -->
+  <section class="cinematic-banner py-24 px-6">
+    <div class="max-w-6xl mx-auto relative z-10">
+      <div class="text-center mb-16 reveal">
+        <span class="section-label justify-center" style="color:var(--green-mid);" data-i18n="docu.section_label">Sur Scène et à l'Écran</span>
+        <h2 class="section-title mt-3" style="color:white;" data-i18n="docu.title">Un Documentaire, Un Livre</h2>
+        <p class="section-subtitle mx-auto mt-4 text-center" style="color:rgba(255,255,255,0.6);" data-i18n="docu.subtitle">
+          Le voyage sera documenté en temps réel. Une œuvre qui raconte la reconstruction — pas seulement la marche.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Documentary -->
+        <div class="reveal" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:1rem; padding:2rem; backdrop-filter:blur(8px);">
+          <div class="mb-4 text-4xl">🎬</div>
+          <div class="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3" style="background:rgba(240,165,0,0.15); color:var(--gold); text-transform:uppercase; letter-spacing:0.1em;" data-i18n="docu.coming_soon">À venir</div>
+          <h3 class="font-serif text-2xl text-white mb-3" data-i18n="docu.docu_title">Le Documentaire</h3>
+          <p style="color:rgba(255,255,255,0.6); font-size:0.95rem; line-height:1.8;" data-i18n="docu.docu_text">
+            Caméra sur l'épaule, Roland filme son quotidien de marcheur : les aurores en montagne, les conversations avec d'autres pèlerins.
+          </p>
+          <!-- Video placeholder -->
+          <div class="yt-placeholder mt-5">
+            <div class="yt-play-btn">
+              <i class="fa-solid fa-play" style="margin-left:3px;"></i>
+            </div>
+            <div style="position:absolute; bottom:1rem; left:1rem; color:rgba(255,255,255,0.5); font-size:0.75rem;">Bande-annonce — bientôt</div>
+          </div>
+        </div>
+
+        <!-- Book -->
+        <div class="reveal animate-delay-2" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:1rem; padding:2rem; backdrop-filter:blur(8px);">
+          <div class="mb-4 text-4xl">📖</div>
+          <div class="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3" style="background:rgba(240,165,0,0.15); color:var(--gold); text-transform:uppercase; letter-spacing:0.1em;" data-i18n="docu.coming_soon">À venir</div>
+          <h3 class="font-serif text-2xl text-white mb-3" data-i18n="docu.book_title">Le Livre</h3>
+          <p style="color:rgba(255,255,255,0.6); font-size:0.95rem; line-height:1.8;" data-i18n="docu.book_text">
+            Un récit de voyage intérieur autant qu'extérieur. Mêlant neuroscience vulgarisée et témoignage personnel.
+          </p>
+          <!-- Book cover placeholder -->
+          <div class="mt-5 rounded-lg overflow-hidden" style="aspect-ratio:4/3; background:linear-gradient(135deg,rgba(45,140,122,0.3),rgba(240,165,0,0.2)); display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.1);">
+            <div class="text-center">
+              <div style="font-size:3rem; margin-bottom:0.5rem;">📚</div>
+              <div style="color:rgba(255,255,255,0.4); font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase;">Couverture à venir</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-10 reveal">
+        <a href="journal.html" class="btn-secondary">
+          <i class="fa-regular fa-bell"></i>
+          <span data-i18n="docu.cta_updates">Rester informé</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SPONSORS PREVIEW
+       ============================================ -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <span class="section-label justify-center" data-i18n="sponsors_preview.section_label">Nos Partenaires</span>
+        <h2 class="section-title mt-3" data-i18n="sponsors_preview.title">Rejoignez les Premiers Sponsors</h2>
+        <p class="section-subtitle mx-auto mt-4 text-center" data-i18n="sponsors_preview.subtitle">
+          Votre logo ici, sur le chemin de 1 600 km — dans les vidéos, dans le livre, dans le documentaire.
+        </p>
+      </div>
+
+      <!-- Sponsor logo grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-12 reveal">
+        <!-- 6 placeholder sponsor slots -->
+        <div class="img-placeholder-light rounded-xl" style="aspect-ratio:3/2; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.5rem; padding:1rem;">
+          <i class="fa-regular fa-image text-2xl" style="color:rgba(45,140,122,0.3);"></i>
+          <span class="text-xs font-semibold" style="color:rgba(45,140,122,0.5);" data-i18n="sponsors_preview.empty_slot">Votre logo</span>
+        </div>
+        <div class="img-placeholder-light rounded-xl" style="aspect-ratio:3/2; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.5rem; padding:1rem;">
+          <i class="fa-regular fa-image text-2xl" style="color:rgba(45,140,122,0.3);"></i>
+          <span class="text-xs font-semibold" style="color:rgba(45,140,122,0.5);" data-i18n="sponsors_preview.empty_slot">Votre logo</span>
+        </div>
+        <div class="img-placeholder-light rounded-xl" style="aspect-ratio:3/2; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.5rem; padding:1rem;">
+          <i class="fa-regular fa-image text-2xl" style="color:rgba(45,140,122,0.3);"></i>
+          <span class="text-xs font-semibold" style="color:rgba(45,140,122,0.5);" data-i18n="sponsors_preview.empty_slot">Votre logo</span>
+        </div>
+        <div class="img-placeholder-light rounded-xl" style="aspect-ratio:3/2; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.5rem; padding:1rem;">
+          <i class="fa-regular fa-image text-2xl" style="color:rgba(45,140,122,0.3);"></i>
+          <span class="text-xs font-semibold" style="color:rgba(45,140,122,0.5);" data-i18n="sponsors_preview.empty_slot">Votre logo</span>
+        </div>
+        <div class="img-placeholder-light rounded-xl" style="aspect-ratio:3/2; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.5rem; padding:1rem;">
+          <i class="fa-regular fa-image text-2xl" style="color:rgba(45,140,122,0.3);"></i>
+          <span class="text-xs font-semibold" style="color:rgba(45,140,122,0.5);" data-i18n="sponsors_preview.empty_slot">Votre logo</span>
+        </div>
+        <div class="img-placeholder-light rounded-xl" style="aspect-ratio:3/2; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.5rem; padding:1rem;">
+          <i class="fa-regular fa-image text-2xl" style="color:rgba(45,140,122,0.3);"></i>
+          <span class="text-xs font-semibold" style="color:rgba(45,140,122,0.5);" data-i18n="sponsors_preview.empty_slot">Votre logo</span>
+        </div>
+      </div>
+
+      <!-- Tier preview badges -->
+      <div class="flex flex-wrap justify-center gap-3 mb-10 reveal">
+        <span style="background:linear-gradient(135deg,#fdf3e7,#fff9f0); border:1.5px solid #cd7f32; color:#cd7f32; font-size:0.8rem; font-weight:700; padding:0.4rem 1rem; border-radius:0.5rem;">🥉 Bronze — dès 10 €</span>
+        <span style="background:linear-gradient(135deg,#f5f6f7,#eef0f2); border:1.5px solid #a8b2be; color:#7a8895; font-size:0.8rem; font-weight:700; padding:0.4rem 1rem; border-radius:0.5rem;">🥈 Argent — dès 510 €</span>
+        <span style="background:linear-gradient(135deg,#fffbf0,#fff8e1); border:1.5px solid var(--gold); color:#b87a00; font-size:0.8rem; font-weight:700; padding:0.4rem 1rem; border-radius:0.5rem;">🥇 Or — dès 2 010 €</span>
+        <span style="background:linear-gradient(135deg,#f0f4ff,#e8f0fe); border:1.5px solid #7b93d3; color:#5c77c8; font-size:0.8rem; font-weight:700; padding:0.4rem 1rem; border-radius:0.5rem;">💎 Platine — dès 5 000 €</span>
+      </div>
+
+      <div class="text-center reveal">
+        <a href="sponsoring.html" class="btn-primary">
+          <i class="fa-solid fa-star"></i>
+          <span data-i18n="sponsors_preview.cta">Devenir Sponsor</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12" style="border-bottom:1px solid rgba(255,255,255,0.08);">
+
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <div class="footer-logo">La <span>Neuro</span>-Odyssée</div>
+          <p class="mt-3 text-sm leading-relaxed" style="color:rgba(255,255,255,0.5); max-width:320px;" data-i18n="footer.tagline">
+            1 600 km pour se reconstruire — De St-Maurice à Santiago de Compostela
+          </p>
+          <!-- Socials -->
+          <div class="flex gap-3 mt-6">
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div>
+          <div class="footer-title" data-i18n="footer.nav_title">Navigation</div>
+          <a href="index.html" class="footer-link" data-i18n="nav.home">Accueil</a>
+          <a href="trajet.html" class="footer-link" data-i18n="nav.trajet">Le Trajet</a>
+          <a href="sponsoring.html" class="footer-link" data-i18n="nav.sponsoring">Sponsoring</a>
+          <a href="journal.html" class="footer-link" data-i18n="nav.journal">Journal</a>
+          <a href="soutenir.html" class="footer-link" data-i18n="nav.soutenir">Soutenir</a>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <div class="footer-title" data-i18n="footer.contact_title">Contact</div>
+          <a href="mailto:contact@neuro-odyssee.com" class="footer-link">
+            <i class="fa-solid fa-envelope mr-2" style="font-size:0.75rem;"></i>
+            <span data-i18n="footer.contact_email">contact@neuro-odyssee.com</span>
+          </a>
+          <a href="#" class="footer-link">
+            <i class="fa-brands fa-instagram mr-2" style="font-size:0.75rem;"></i>
+            <span data-i18n="footer.contact_instagram">@neuroodyssee</span>
+          </a>
+          <a href="#" class="footer-link">
+            <i class="fa-brands fa-youtube mr-2" style="font-size:0.75rem;"></i>
+            <span data-i18n="footer.contact_youtube">La Neuro-Odyssée</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div class="text-sm" style="color:rgba(255,255,255,0.35);">
+          © <span class="current-year"></span> <span data-i18n="footer.website">neuro-odyssee.com</span> — <span data-i18n="footer.rights">Tous droits réservés.</span>
+        </div>
+        <div class="text-sm" style="color:rgba(255,255,255,0.25);" data-i18n="footer.made_with">
+          Fait avec passion en Valais 🇨🇭
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
