@@ -1,0 +1,2 @@
+# Block direct access to PHP files except index.php
+Options -Indexes
