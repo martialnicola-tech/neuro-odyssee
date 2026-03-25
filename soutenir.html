@@ -218,16 +218,16 @@
         <div class="space-y-3 mb-6">
           <p class="text-sm font-semibold text-center mb-4" style="color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:0.1em;" data-i18n="soutenir.payment_title">Méthodes de Paiement</p>
 
-          <!-- Stripe -->
-          <button class="payment-btn w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all" style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); color:white;">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(99,91,255,0.25);">
-              <i class="fa-brands fa-stripe-s text-lg" style="color:#7B73FF;"></i>
+          <!-- Stripe — ACTIF -->
+          <button id="btn-stripe" onclick="payerStripe()" class="payment-btn w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all" style="background:rgba(99,91,255,0.15); border:1px solid rgba(99,91,255,0.4); color:white; cursor:pointer;">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(99,91,255,0.35);">
+              <i class="fa-brands fa-stripe-s text-lg" style="color:#a29fff;"></i>
             </div>
             <div class="text-left flex-1">
-              <div class="font-semibold" data-i18n="soutenir.payment_stripe">Carte bancaire</div>
-              <div class="text-xs" style="color:rgba(255,255,255,0.5);" data-i18n="soutenir.payment_stripe_sub">Via Stripe — sécurisé</div>
+              <div class="font-semibold">Carte bancaire</div>
+              <div class="text-xs" style="color:rgba(255,255,255,0.5);">Visa, Mastercard, AMEX — sécurisé SSL</div>
             </div>
-            <span class="text-xs px-2 py-1 rounded-full" style="background:rgba(240,165,0,0.2); color:var(--gold);" data-i18n="soutenir.payment_coming">Bientôt</span>
+            <span class="text-xs px-2 py-1 rounded-full font-semibold" style="background:rgba(99,91,255,0.3); color:#a29fff;">Payer</span>
           </button>
 
           <!-- Twint -->
@@ -497,5 +497,47 @@
       });
     });
   </script>
+
+<script>
+// ── Stripe Checkout ──────────────────────────────────────────
+function getMontant() {
+  const custom = document.getElementById('don-custom');
+  if (custom && custom.value && parseInt(custom.value) > 0) {
+    return parseInt(custom.value);
+  }
+  const active = document.querySelector('.don-amount-btn.active');
+  return active ? parseInt(active.dataset.amount) : 10;
+}
+
+async function payerStripe() {
+  const btn   = document.getElementById('btn-stripe');
+  const montant = getMontant();
+
+  // Feedback visuel
+  btn.disabled = true;
+  btn.querySelector('.font-semibold').textContent = 'Redirection…';
+
+  try {
+    const res  = await fetch('payment/checkout.php', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ amount: montant })
+    });
+    const data = await res.json();
+
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      alert('Erreur : ' + (data.error || 'Réessaie dans un instant'));
+      btn.disabled = false;
+      btn.querySelector('.font-semibold').textContent = 'Carte bancaire';
+    }
+  } catch (e) {
+    alert('Connexion impossible. Vérifie ta connexion et réessaie.');
+    btn.disabled = false;
+    btn.querySelector('.font-semibold').textContent = 'Carte bancaire';
+  }
+}
+</script>
 </body>
 </html>
