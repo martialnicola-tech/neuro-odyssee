@@ -1,7 +1,7 @@
 <?php
 /**
  * La Neuro-Odyssée — Formulaire de contact
- * Reçoit les demandes de sponsoring et les envoie à contact@neuro-odyssee.com
+ * Reçoit les demandes de sponsoring et les envoie à roland@neuro-odyssee.com
  */
 
 header('Content-Type: application/json');
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // ─── Configuration ───────────────────────────────────────────
-$TO      = 'contact@neuro-odyssee.com';
+$TO      = 'roland@neuro-odyssee.com';
 $SUBJECT = '[Neuro-Odyssée] Nouvelle demande de sponsoring';
 // ─────────────────────────────────────────────────────────────
 
@@ -80,8 +80,8 @@ if ($sent) {
     $confirm_body .= "• Km souhaités : {$km_text}\n\n";
     $confirm_body .= "À très bientôt,\nRoland Crettaz\nwww.neuro-odyssee.com\n";
 
-    $confirm_headers  = "From: contact@neuro-odyssee.com\r\n";
-    $confirm_headers .= "Reply-To: contact@neuro-odyssee.com\r\n";
+    $confirm_headers  = "From: roland@neuro-odyssee.com\r\n";
+    $confirm_headers .= "Reply-To: roland@neuro-odyssee.com\r\n";
     $confirm_headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
     mail($email, $confirm_subject, $confirm_body, $confirm_headers);
