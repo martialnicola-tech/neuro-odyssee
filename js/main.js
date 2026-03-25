@@ -532,25 +532,42 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // ============================================
-  // KM ADOPTÉS TRACKER (données à mettre à jour manuellement)
+  // STATS DYNAMIQUES (depuis data/stats.json)
   // ============================================
-  const KM_ADOPTES = 0;       // ← Mettre à jour quand un sponsor confirme
-  const NB_PARTENAIRES = 0;   // ← Nombre de partenaires confirmés
+  (async () => {
+    try {
+      const res   = await fetch('data/stats.json?v=' + Date.now());
+      const stats = await res.json();
 
-  const kmBar = document.getElementById('kmBar');
-  const kmAdoptesEl = document.getElementById('kmAdoptes');
-  const kmRestantsEl = document.getElementById('kmRestants');
-  const nbPartenairesEl = document.getElementById('nbPartenaires');
+      const km        = stats.km_paraines   || 0;
+      const sponsors  = stats.sponsors      || 0;
+      const collectes = stats.collectes     || 0;
+      const dons      = stats.dons          || 0;
 
-  if (kmBar) {
-    setTimeout(() => {
-      const pct = (KM_ADOPTES / 1600) * 100;
-      kmBar.style.width = pct + '%';
-      if (kmAdoptesEl) kmAdoptesEl.textContent = KM_ADOPTES.toLocaleString('fr-CH');
-      if (kmRestantsEl) kmRestantsEl.textContent = (1600 - KM_ADOPTES).toLocaleString('fr-CH');
-      if (nbPartenairesEl) nbPartenairesEl.textContent = NB_PARTENAIRES;
-    }, 400);
-  }
+      // Barre km adoptés
+      const kmBar          = document.getElementById('kmBar');
+      const kmAdoptesEl    = document.getElementById('kmAdoptes');
+      const kmRestantsEl   = document.getElementById('kmRestants');
+      const nbPartenairesEl= document.getElementById('nbPartenaires');
+
+      if (kmBar) {
+        setTimeout(() => {
+          const pct = Math.min((km / 1600) * 100, 100);
+          kmBar.style.width = pct + '%';
+          if (kmAdoptesEl)    kmAdoptesEl.textContent    = km.toLocaleString('fr-CH');
+          if (kmRestantsEl)   kmRestantsEl.textContent   = (1600 - km).toLocaleString('fr-CH');
+          if (nbPartenairesEl) nbPartenairesEl.textContent = sponsors;
+        }, 400);
+      }
+
+      // Compteurs homepage (data-target)
+      document.querySelectorAll('[data-stat]').forEach(el => {
+        const key = el.dataset.stat;
+        if (stats[key] !== undefined) el.textContent = stats[key].toLocaleString('fr-CH') + (el.dataset.suffix || '');
+      });
+
+    } catch(e) {}
+  })();
 
   // ============================================
   // COMPTEUR JOURS AVANT LE DÉPART
