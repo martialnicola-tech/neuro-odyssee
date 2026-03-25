@@ -18,8 +18,7 @@ if ($amount < 1 || $amount > 10000) {
 
 // Appel API Stripe via cURL (pas de SDK nécessaire)
 $payload = [
-    'automatic_payment_methods[enabled]'         => 'true',
-    'automatic_payment_methods[allow_redirects]' => 'always',
+    'payment_method_types[0]'                        => 'card',
     'line_items[0][price_data][currency]'            => 'eur',
     'line_items[0][price_data][product_data][name]'  => 'Don — La Neuro-Odyssée',
     'line_items[0][price_data][product_data][description]' => 'Soutien au périple de 1 600 km de Roland Crettaz',
