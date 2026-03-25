@@ -346,12 +346,20 @@ $error   = $_GET['error'] ?? '';
               <div style="color:rgba(255,255,255,0.6); font-size:0.83rem; font-style:italic;">"<?= $t['message'] ?>"</div>
             </div>
           </div>
-          <form method="POST" action="supprimer-temoignage.php" onsubmit="return confirm('Supprimer ce témoignage ?')">
-            <input type="hidden" name="id" value="<?= $t['id'] ?>">
-            <button type="submit" style="background:rgba(220,50,50,0.15); color:#ff6b6b; border:1px solid rgba(220,50,50,0.3); padding:0.3rem 0.75rem; border-radius:1rem; font-size:0.75rem; font-weight:600; cursor:pointer; white-space:nowrap;">
-              ✕
-            </button>
-          </form>
+          <div style="display:flex; flex-direction:column; gap:0.3rem;">
+            <form method="POST" action="depublier-temoignage.php">
+              <input type="hidden" name="id" value="<?= $t['id'] ?>">
+              <button type="submit" style="background:rgba(240,165,0,0.15); color:#F0A500; border:1px solid rgba(240,165,0,0.3); padding:0.3rem 0.75rem; border-radius:1rem; font-size:0.75rem; font-weight:600; cursor:pointer; white-space:nowrap; width:100%;">
+                ⏸ Dépublier
+              </button>
+            </form>
+            <form method="POST" action="supprimer-temoignage.php" onsubmit="return confirm('Supprimer définitivement ?')">
+              <input type="hidden" name="id" value="<?= $t['id'] ?>">
+              <button type="submit" style="background:rgba(220,50,50,0.12); color:#ff6b6b; border:1px solid rgba(220,50,50,0.25); padding:0.3rem 0.75rem; border-radius:1rem; font-size:0.75rem; font-weight:600; cursor:pointer; white-space:nowrap; width:100%;">
+                ✕ Supprimer
+              </button>
+            </form>
+          </div>
         </div>
       <?php endforeach; ?>
     <?php endif; ?>
