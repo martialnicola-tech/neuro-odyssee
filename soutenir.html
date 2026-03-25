@@ -359,6 +359,19 @@
   </section>
 
   <!-- ============================================
+       TÉMOIGNAGES DONATEURS
+       ============================================ -->
+  <section class="py-20 px-6" style="background:#f0f7f5;" id="section-temoignages" style="display:none;">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="section-label justify-center">Ils ont soutenu Roland</span>
+        <h2 class="section-title mt-3">Paroles de Donateurs</h2>
+      </div>
+      <div id="temoignages-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- ============================================
        SHARE
        ============================================ -->
   <section class="py-20 px-6">
@@ -515,6 +528,32 @@ function getMontant() {
   const active = document.querySelector('.don-amount-btn.active');
   return active ? parseInt(active.dataset.amount) : 20;
 }
+
+// ── Témoignages ─────────────────────────────────────────
+(async () => {
+  try {
+    const res  = await fetch('data/temoignages.json');
+    const list = await res.json();
+    const publies = list.filter(t => t.approuve && t.publier);
+    if (!publies.length) return;
+
+    document.getElementById('section-temoignages').style.display = 'block';
+    const grid = document.getElementById('temoignages-grid');
+    grid.innerHTML = publies.map(t => `
+      <div class="reveal" style="background:white; border-radius:1.25rem; padding:1.75rem; box-shadow:0 4px 20px rgba(0,0,0,0.06); position:relative;">
+        <div style="font-size:2rem; color:var(--green-mid); opacity:0.25; font-family:'Cormorant Garamond',serif; line-height:1; margin-bottom:0.5rem;">"</div>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-style:italic; color:var(--dark); line-height:1.7; margin-bottom:1rem;">${t.message}</p>
+        <div style="display:flex; align-items:center; gap:0.6rem;">
+          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#1E6B5E,#3B9BB0); display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:0.9rem;">${t.prenom[0].toUpperCase()}</div>
+          <div>
+            <div style="font-weight:700; font-size:0.9rem; color:var(--dark);">${t.prenom}</div>
+            ${t.montant ? `<div style="font-size:0.75rem; color:var(--text-light);">${t.montant} € offerts</div>` : ''}
+          </div>
+        </div>
+      </div>
+    `).join('');
+  } catch(e) {}
+})();
 
 async function payerStripe() {
   const btn   = document.getElementById('btn-stripe');
