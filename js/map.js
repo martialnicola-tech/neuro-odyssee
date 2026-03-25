@@ -209,8 +209,8 @@ function initMap() {
     dashArray: null
   }).addTo(mapInstance);
 
-  // Animated dashes for "to walk" portion (if current km < 1600)
-  if (CURRENT_KM < 1600) {
+  // Animated dashes for "to walk" portion (if current km < 1900)
+  if (CURRENT_KM < 1900) {
     const futureStart = getCoordAtKm(CURRENT_KM);
     const futureCoords = WAYPOINTS
       .filter(w => w.km > CURRENT_KM)
@@ -249,7 +249,7 @@ function initMap() {
   });
 
   // Add current position marker (pulsing gold dot)
-  if (CURRENT_KM > 0 && CURRENT_KM < 1600) {
+  if (CURRENT_KM > 0 && CURRENT_KM < 1900) {
     addCurrentPositionMarker();
   }
 
@@ -361,7 +361,7 @@ function addCurrentPositionMarker() {
   marker.bindPopup(`
     <div style="padding: 4px 2px;">
       <div class="popup-title">📍 Position actuelle</div>
-      <div class="popup-km">km ${CURRENT_KM.toLocaleString('fr-FR')} / 1 600</div>
+      <div class="popup-km">km ${CURRENT_KM.toLocaleString('fr-FR')} / 1 900</div>
       <div style="margin-top: 0.4rem; font-size: 0.8rem; color: #718096;">Roland est ici</div>
     </div>
   `);
@@ -371,7 +371,7 @@ function addCurrentPositionMarker() {
 
 function getCoordAtKm(targetKm) {
   if (targetKm <= 0) return WAYPOINTS[0].coords;
-  if (targetKm >= 1600) return WAYPOINTS[WAYPOINTS.length - 1].coords;
+  if (targetKm >= 1900) return WAYPOINTS[WAYPOINTS.length - 1].coords;
 
   for (let i = 0; i < WAYPOINTS.length - 1; i++) {
     const a = WAYPOINTS[i];

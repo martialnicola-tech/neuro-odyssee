@@ -191,14 +191,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const kmTierDesc = document.getElementById('kmTierDesc');
 
   function updateKmCalculator(km) {
-    km = Math.max(1, Math.min(1600, parseInt(km) || 1));
+    km = Math.max(1, Math.min(1900, parseInt(km) || 1));
     const price = km * 10;
 
     if (kmPrice) kmPrice.textContent = price.toLocaleString('fr-FR') + ' €';
 
     // Update slider gradient
     if (kmSlider) {
-      const pct = (km / 1600) * 100;
+      const pct = (km / 1900) * 100;
       kmSlider.style.background = `linear-gradient(to right, var(--green-mid) 0%, var(--green-mid) ${pct}%, rgba(45,140,122,0.15) ${pct}%, rgba(45,140,122,0.15) 100%)`;
     }
 
@@ -552,10 +552,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (kmBar) {
         setTimeout(() => {
-          const pct = Math.min((km / 1600) * 100, 100);
+          const pct = Math.min((km / 1900) * 100, 100);
           kmBar.style.width = pct + '%';
           if (kmAdoptesEl)    kmAdoptesEl.textContent    = km.toLocaleString('fr-CH');
-          if (kmRestantsEl)   kmRestantsEl.textContent   = (1600 - km).toLocaleString('fr-CH');
+          if (kmRestantsEl)   kmRestantsEl.textContent   = (1900 - km).toLocaleString('fr-CH');
           if (nbPartenairesEl) nbPartenairesEl.textContent = sponsors;
         }, 400);
       }
