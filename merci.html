@@ -89,6 +89,34 @@
       </a>
     </div>
 
+    <!-- Formulaire témoignage -->
+    <div id="temoignage-section" style="margin-top:2rem; border-top:1px solid rgba(255,255,255,0.08); padding-top:1.75rem;">
+      <p style="font-size:0.85rem; color:rgba(255,255,255,0.45); margin-bottom:1rem;">
+        <i class="fa-solid fa-quote-left" style="color:var(--gold,#F0A500); margin-right:0.4rem;"></i>
+        Un mot à laisser à Roland ? (optionnel)
+      </p>
+
+      <div id="form-temoignage">
+        <input id="t-prenom" type="text" placeholder="Votre prénom" maxlength="60"
+          style="width:100%; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:0.6rem; padding:0.7rem 1rem; color:white; font-size:0.9rem; margin-bottom:0.6rem; outline:none;">
+        <textarea id="t-message" placeholder="Votre message pour Roland…" maxlength="400" rows="3"
+          style="width:100%; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:0.6rem; padding:0.7rem 1rem; color:white; font-size:0.9rem; resize:none; outline:none; font-family:inherit;"></textarea>
+        <label style="display:flex; align-items:center; gap:0.5rem; margin:0.6rem 0 1rem; cursor:pointer; font-size:0.82rem; color:rgba(255,255,255,0.5); text-align:left;">
+          <input id="t-publier" type="checkbox" style="accent-color:#F0A500; width:15px; height:15px;">
+          J'autorise la publication de mon témoignage sur le site
+        </label>
+        <button onclick="envoyerTemoignage()"
+          style="width:100%; background:rgba(240,165,0,0.15); border:1px solid rgba(240,165,0,0.35); color:#F0A500; padding:0.7rem 1.5rem; border-radius:2rem; font-weight:600; font-size:0.9rem; cursor:pointer; transition:all 0.2s;">
+          <i class="fa-solid fa-paper-plane" style="margin-right:0.4rem;"></i>Envoyer mon témoignage
+        </button>
+      </div>
+
+      <div id="temoignage-merci" style="display:none; color:rgba(255,255,255,0.6); font-size:0.9rem; padding:1rem 0;">
+        <i class="fa-solid fa-circle-check" style="color:#1E6B5E; margin-right:0.4rem;"></i>
+        Merci ! Roland recevra votre message avec joie. 🙏
+      </div>
+    </div>
+
     <!-- Retour accueil -->
     <a href="index.html" class="btn-home">
       <i class="fa-solid fa-house"></i>
@@ -105,6 +133,30 @@
 
     if (montant) {
       document.getElementById('montant-display').textContent = montant + ' € — Don confirmé ✓';
+    }
+
+    // ── Témoignage ──────────────────────────────────────────
+    async function envoyerTemoignage() {
+      const prenom  = document.getElementById('t-prenom').value.trim();
+      const message = document.getElementById('t-message').value.trim();
+      const publier = document.getElementById('t-publier').checked;
+      const montant = parseInt(new URLSearchParams(window.location.search).get('montant') || '0');
+
+      if (!prenom || !message) {
+        alert('Merci de remplir votre prénom et votre message.');
+        return;
+      }
+
+      try {
+        await fetch('payment/temoignage.php', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify({ prenom, message, publier, montant })
+        });
+      } catch(e) {}
+
+      document.getElementById('form-temoignage').style.display = 'none';
+      document.getElementById('temoignage-merci').style.display = 'block';
     }
 
     // Confettis légers (CSS uniquement)

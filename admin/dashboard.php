@@ -286,5 +286,59 @@ $error   = $_GET['error'] ?? '';
       });
     });
   </script>
+
+  <!-- ═══ TÉMOIGNAGES ═══════════════════════════════════════ -->
+  <div class="section-title" style="margin-top:2rem;">💬 Témoignages donateurs</div>
+  <?php
+  $tFile = __DIR__ . '/../data/temoignages.json';
+  $tList = file_exists($tFile) ? (json_decode(file_get_contents($tFile), true) ?? []) : [];
+  $pending = array_filter($tList, fn($t) => !$t['approuve'] && $t['publier']);
+  $approved = array_filter($tList, fn($t) => $t['approuve']);
+
+  if (empty($tList)): ?>
+    <div style="padding:1.5rem; background:rgba(255,255,255,0.04); border-radius:0.75rem; color:rgba(255,255,255,0.4); text-align:center; font-size:0.9rem;">
+      Aucun témoignage pour l'instant.
+    </div>
+  <?php else: ?>
+    <?php if (!empty($pending)): ?>
+      <div style="margin-bottom:0.5rem; font-size:0.8rem; color:#F0A500; font-weight:600;">
+        ⏳ En attente d'approbation (<?= count($pending) ?>)
+      </div>
+      <?php foreach(array_reverse(array_values($pending)) as $t): ?>
+        <div style="background:rgba(240,165,0,0.07); border:1px solid rgba(240,165,0,0.2); border-radius:0.75rem; padding:1rem; margin-bottom:0.6rem;">
+          <div style="display:flex; justify-content:space-between; align-items:start; gap:1rem;">
+            <div style="flex:1;">
+              <div style="font-weight:700; color:white; font-size:0.9rem;"><?= $t['prenom'] ?></div>
+              <div style="color:rgba(255,255,255,0.35); font-size:0.75rem; margin-bottom:0.4rem;">
+                <?= $t['date'] ?> <?= $t['montant'] ? '· ' . $t['montant'] . ' €' : '' ?>
+              </div>
+              <div style="color:rgba(255,255,255,0.7); font-size:0.85rem; font-style:italic;">"<?= $t['message'] ?>"</div>
+            </div>
+            <form method="POST" action="approuver-temoignage.php">
+              <input type="hidden" name="id" value="<?= $t['id'] ?>">
+              <button type="submit" style="background:#1E6B5E; color:white; border:none; padding:0.4rem 0.9rem; border-radius:1rem; font-size:0.78rem; font-weight:600; cursor:pointer; white-space:nowrap;">
+                ✓ Approuver
+              </button>
+            </form>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    <?php endif; ?>
+
+    <?php if (!empty($approved)): ?>
+      <div style="margin-top:1rem; margin-bottom:0.5rem; font-size:0.8rem; color:#1E6B5E; font-weight:600;">
+        ✅ Approuvés et publiés (<?= count($approved) ?>)
+      </div>
+      <?php foreach(array_reverse(array_values($approved)) as $t): ?>
+        <div style="background:rgba(30,107,94,0.08); border:1px solid rgba(30,107,94,0.2); border-radius:0.75rem; padding:0.85rem 1rem; margin-bottom:0.5rem; display:flex; gap:0.75rem; align-items:start;">
+          <span style="font-size:1.1rem;">💚</span>
+          <div>
+            <div style="font-weight:700; color:white; font-size:0.85rem;"><?= $t['prenom'] ?></div>
+            <div style="color:rgba(255,255,255,0.6); font-size:0.83rem; font-style:italic;">"<?= $t['message'] ?>"</div>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    <?php endif; ?>
+  <?php endif; ?>
 </body>
 </html>
