@@ -535,7 +535,7 @@ async function payerStripe() {
     if (data.url) {
       window.location.href = data.url;
     } else {
-      alert('Erreur : ' + (data.error || 'Réessaie dans un instant'));
+      alert('Erreur : ' + (data.detail || data.error || 'Réessaie dans un instant'));
       btn.disabled = false;
       btn.querySelector('.font-semibold').textContent = 'Carte bancaire';
     }
