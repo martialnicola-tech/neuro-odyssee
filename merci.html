@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merci — La Neuro-Odyssée</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { background: #0d1f1c; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+    .card { background: linear-gradient(160deg, #1a2e28 0%, #0d1f1c 100%); border: 1px solid rgba(45,140,122,0.25); border-radius: 1.5rem; padding: 3rem 2.5rem; max-width: 520px; width: 90%; text-align: center; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+    .checkmark { width: 80px; height: 80px; background: linear-gradient(135deg, #1E6B5E, #2D8C7A); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 0 40px rgba(30,107,94,0.4); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { box-shadow: 0 0 40px rgba(30,107,94,0.4); } 50% { box-shadow: 0 0 60px rgba(30,107,94,0.7); } }
+    .gold { color: #F0A500; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: white; line-height: 1.2; margin-bottom: 1rem; }
+    p { color: rgba(255,255,255,0.65); line-height: 1.7; font-size: 1rem; }
+    .amount-badge { display: inline-block; background: rgba(240,165,0,0.15); border: 1px solid rgba(240,165,0,0.3); color: #F0A500; padding: 0.4rem 1.2rem; border-radius: 2rem; font-weight: 700; font-size: 1.1rem; margin: 1rem 0; }
+    .btn-home { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #1E6B5E, #2D8C7A); color: white; padding: 0.85rem 2rem; border-radius: 3rem; font-weight: 600; text-decoration: none; margin-top: 2rem; transition: transform 0.2s, box-shadow 0.2s; }
+    .btn-home:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(30,107,94,0.4); }
+    .share-row { display: flex; gap: 0.75rem; justify-content: center; margin-top: 1.25rem; }
+    .share-btn { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.6); text-decoration: none; transition: all 0.2s; font-size: 0.95rem; }
+    .share-btn:hover { border-color: rgba(255,255,255,0.4); color: white; transform: translateY(-2px); }
+    .steps { display: flex; gap: 1rem; margin: 1.5rem 0; text-align: left; }
+    .step { flex: 1; background: rgba(255,255,255,0.04); border-radius: 0.75rem; padding: 1rem; border: 1px solid rgba(255,255,255,0.07); }
+    .step-icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
+    .step p { font-size: 0.8rem; margin: 0; }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+    <!-- Checkmark animé -->
+    <div class="checkmark">
+      <i class="fa-solid fa-check text-white text-3xl"></i>
+    </div>
+
+    <!-- Titre -->
+    <h1>Merci <span class="gold">du fond du cœur</span> !</h1>
+
+    <!-- Montant dynamique -->
+    <div id="don-info">
+      <div class="amount-badge" id="montant-display">Don confirmé ✓</div>
+    </div>
+
+    <p>
+      Ton soutien contribue directement au périple de <strong style="color:white;">Roland Crettaz</strong> —
+      1 600 km vers Santiago de Compostela pour prouver qu'on peut re-câbler un cerveau marqué par le TDAH et les addictions.
+    </p>
+
+    <!-- Ce que ça finance -->
+    <div class="steps">
+      <div class="step">
+        <div class="step-icon">🎒</div>
+        <p style="color:rgba(255,255,255,0.7); font-weight:600; font-size:0.85rem;">Équipement</p>
+        <p>Sac, chaussures, matériel de marche</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">🎥</div>
+        <p style="color:rgba(255,255,255,0.7); font-weight:600; font-size:0.85rem;">Documentaire</p>
+        <p>Caméra, montage, diffusion</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">📍</div>
+        <p style="color:rgba(255,255,255,0.7); font-weight:600; font-size:0.85rem;">Logistique</p>
+        <p>Hébergement, nourriture en route</p>
+      </div>
+    </div>
+
+    <!-- Partage -->
+    <p style="font-size:0.85rem; color:rgba(255,255,255,0.4); margin-top:1.5rem;">Partage l'aventure</p>
+    <div class="share-row">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.neuro-odyssee.com" target="_blank" class="share-btn" title="Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+      <a href="https://twitter.com/intent/tweet?text=Je%20soutiens%20La%20Neuro-Odyssée%20!%20Roland%20marche%201600km%20vers%20Compostelle%20pour%20prouver%20la%20neuroplasticité.&url=https://www.neuro-odyssee.com" target="_blank" class="share-btn" title="X / Twitter">
+        <i class="fa-brands fa-x-twitter"></i>
+      </a>
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.neuro-odyssee.com" target="_blank" class="share-btn" title="LinkedIn">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      <a href="https://api.whatsapp.com/send?text=Je%20soutiens%20La%20Neuro-Odyssée%20!%20https://www.neuro-odyssee.com" target="_blank" class="share-btn" title="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+    </div>
+
+    <!-- Retour accueil -->
+    <a href="index.html" class="btn-home">
+      <i class="fa-solid fa-house"></i>
+      Retour à l'accueil
+    </a>
+
+  </div>
+
+  <script>
+    // Afficher le montant depuis l'URL (?montant=30)
+    const params  = new URLSearchParams(window.location.search);
+    const montant = params.get('montant');
+    const type    = params.get('type');
+
+    if (montant) {
+      document.getElementById('montant-display').textContent = montant + ' € — Don confirmé ✓';
+    }
+
+    // Confettis légers (CSS uniquement)
+    document.addEventListener('DOMContentLoaded', () => {
+      const colors = ['#1E6B5E','#F0A500','#3B9BB0','#ffffff'];
+      for (let i = 0; i < 40; i++) {
+        const dot = document.createElement('div');
+        dot.style.cssText = `
+          position:fixed; width:${4+Math.random()*6}px; height:${4+Math.random()*6}px;
+          background:${colors[Math.floor(Math.random()*colors.length)]};
+          border-radius:50%; top:-10px;
+          left:${Math.random()*100}vw;
+          animation: fall ${2+Math.random()*3}s linear ${Math.random()*2}s forwards;
+          opacity:0.8; pointer-events:none; z-index:9999;
+        `;
+        document.body.appendChild(dot);
+      }
+      const style = document.createElement('style');
+      style.textContent = `@keyframes fall { to { top:110vh; opacity:0; } }`;
+      document.head.appendChild(style);
+    });
+  </script>
+
+</body>
+</html>
