@@ -532,9 +532,9 @@ function getMontant() {
 // ── Témoignages ─────────────────────────────────────────
 (async () => {
   try {
-    const res  = await fetch('data/temoignages.json');
+    const res  = await fetch('data/temoignages.json?v=' + Date.now());
     const list = await res.json();
-    const publies = list.filter(t => t.approuve && t.publier);
+    const publies = list.filter(t => t.approuve);
     if (!publies.length) return;
 
     document.getElementById('section-temoignages').style.display = 'block';
