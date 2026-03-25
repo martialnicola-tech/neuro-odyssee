@@ -186,32 +186,42 @@
 
       <div class="rounded-2xl p-8 reveal" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); backdrop-filter:blur(12px);">
         <!-- Amount buttons -->
-        <div class="grid grid-cols-3 gap-3 mb-6">
-          <button class="don-amount-btn active" data-amount="10">
-            <span class="block text-xl font-bold" data-i18n="soutenir.don_10">10 €</span>
-            <span class="block text-xs mt-1 opacity-70" data-i18n="soutenir.don_10_desc">1 repas chaud</span>
+        <div class="grid grid-cols-4 gap-3 mb-5">
+          <button class="don-amount-btn" data-amount="5">
+            <span class="block text-xl font-bold">5 €</span>
+            <span class="block text-xs mt-1 opacity-70">Un café</span>
           </button>
-          <button class="don-amount-btn" data-amount="30">
-            <span class="block text-xl font-bold" data-i18n="soutenir.don_30">30 €</span>
-            <span class="block text-xs mt-1 opacity-70" data-i18n="soutenir.don_30_desc">2 nuits en gîte</span>
+          <button class="don-amount-btn active" data-amount="20">
+            <span class="block text-xl font-bold">20 €</span>
+            <span class="block text-xs mt-1 opacity-70">1 repas chaud</span>
           </button>
           <button class="don-amount-btn" data-amount="50">
-            <span class="block text-xl font-bold" data-i18n="soutenir.don_50">50 €</span>
-            <span class="block text-xs mt-1 opacity-70" data-i18n="soutenir.don_50_desc">Équipement</span>
+            <span class="block text-xl font-bold">50 €</span>
+            <span class="block text-xs mt-1 opacity-70">1 nuit en gîte</span>
+          </button>
+          <button class="don-amount-btn" data-amount="100">
+            <span class="block text-xl font-bold">100 €</span>
+            <span class="block text-xs mt-1 opacity-70">Équipement</span>
           </button>
         </div>
 
         <!-- Custom amount -->
         <div class="mb-8">
-          <input
-            type="number"
-            id="don-custom"
-            min="1"
-            placeholder="Montant libre (€)"
-            class="w-full px-4 py-3 rounded-xl text-white text-center text-lg font-semibold focus:outline-none"
-            style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); placeholder-color:rgba(255,255,255,0.4);"
-            data-i18n-placeholder="soutenir.don_custom_placeholder"
-          >
+          <label style="display:block; font-size:0.78rem; color:rgba(255,255,255,0.45); text-align:center; margin-bottom:0.5rem; letter-spacing:0.05em; text-transform:uppercase;">
+            — ou saisissez le montant de votre choix —
+          </label>
+          <div style="position:relative;">
+            <input
+              type="number"
+              id="don-custom"
+              min="1"
+              step="1"
+              placeholder="Votre montant (€)"
+              class="w-full px-4 py-3 rounded-xl text-white text-center text-lg font-semibold focus:outline-none"
+              style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2);"
+              oninput="this.value && document.querySelectorAll('.don-amount-btn').forEach(b=>b.classList.remove('active'))"
+            >
+          </div>
         </div>
 
         <!-- Payment methods -->
@@ -494,7 +504,7 @@ function getMontant() {
     return parseInt(custom.value);
   }
   const active = document.querySelector('.don-amount-btn.active');
-  return active ? parseInt(active.dataset.amount) : 10;
+  return active ? parseInt(active.dataset.amount) : 20;
 }
 
 async function payerStripe() {
