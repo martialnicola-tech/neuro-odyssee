@@ -540,7 +540,7 @@ function getMontant() {
     document.getElementById('section-temoignages').style.display = 'block';
     const grid = document.getElementById('temoignages-grid');
     grid.innerHTML = publies.map(t => `
-      <div class="reveal" style="background:white; border-radius:1.25rem; padding:1.75rem; box-shadow:0 4px 20px rgba(0,0,0,0.06); position:relative;">
+      <div style="background:white; border-radius:1.25rem; padding:1.75rem; box-shadow:0 4px 20px rgba(0,0,0,0.06); position:relative; animation:fadeIn 0.5s ease both;">
         <div style="font-size:2rem; color:var(--green-mid); opacity:0.25; font-family:'Cormorant Garamond',serif; line-height:1; margin-bottom:0.5rem;">"</div>
         <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-style:italic; color:var(--dark); line-height:1.7; margin-bottom:1rem;">${t.message}</p>
         <div style="display:flex; align-items:center; gap:0.6rem;">
