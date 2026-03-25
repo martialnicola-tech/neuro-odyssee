@@ -1,1 +1,4 @@
 payment/config.php
+data/temoignages.json
+data/posts.json
+data/stats.json
