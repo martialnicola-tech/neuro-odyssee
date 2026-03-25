@@ -3,43 +3,93 @@
    ============================================ */
 
 const WAYPOINTS = [
+  // ── SUISSE : ViaJacobi (Itinéraire national n°4) ──────────────────
   {
     name: "St-Maurice",
     coords: [46.2192, 7.0056],
     type: "start",
     km: 0,
     country: "🇨🇭",
-    desc: "Point de départ — Abbaye de St-Maurice, Valais"
+    desc: "Point de départ — Abbaye de St-Maurice, Valais · ViaJacobi"
+  },
+  {
+    name: "Villeneuve",
+    coords: [46.3943, 6.9280],
+    type: "stage",
+    km: 28,
+    country: "🇨🇭",
+    desc: "Rives du Léman — Entrée en Riviera vaudoise"
+  },
+  {
+    name: "Montreux",
+    coords: [46.4312, 6.9107],
+    type: "stage",
+    km: 42,
+    country: "🇨🇭",
+    desc: "Riviera vaudoise — Château de Chillon"
+  },
+  {
+    name: "Vevey",
+    coords: [46.4628, 6.8442],
+    type: "stage",
+    km: 55,
+    country: "🇨🇭",
+    desc: "Bords du lac Léman — Vignobles de Lavaux (UNESCO)"
+  },
+  {
+    name: "Lausanne",
+    coords: [46.5197, 6.6323],
+    type: "major",
+    km: 90,
+    country: "🇨🇭",
+    desc: "Grande ville étape — Cathédrale gothique · Chemin de Romandie"
+  },
+  {
+    name: "Morges",
+    coords: [46.5115, 6.4997],
+    type: "stage",
+    km: 110,
+    country: "🇨🇭",
+    desc: "Côte vaudoise — Château de Morges"
+  },
+  {
+    name: "Rolle",
+    coords: [46.4572, 6.3373],
+    type: "stage",
+    km: 130,
+    country: "🇨🇭",
+    desc: "Villages viticoles — Gilly, Bursins"
+  },
+  {
+    name: "Nyon",
+    coords: [46.3833, 6.2383],
+    type: "stage",
+    km: 150,
+    country: "🇨🇭",
+    desc: "Colonie romaine — Bords du lac et château"
   },
   {
     name: "Genève",
     coords: [46.2044, 6.1432],
-    type: "stage",
-    km: 65,
+    type: "major",
+    km: 175,
     country: "🇨🇭",
-    desc: "Traversée du lac Léman, première ville étape"
+    desc: "Fin de la ViaJacobi suisse — Départ Via Gebennensis vers Le Puy"
   },
-  {
-    name: "Lyon",
-    coords: [45.7640, 4.8357],
-    type: "stage",
-    km: 220,
-    country: "🇫🇷",
-    desc: "Entrée en France — Confluent du Rhône et de la Saône"
-  },
+  // ── FRANCE : Via Gebennensis puis GR 65 ──────────────────────────
   {
     name: "Le Puy-en-Velay",
     coords: [45.0433, 3.8858],
     type: "major",
-    km: 340,
+    km: 450,
     country: "🇫🇷",
-    desc: "Porte du Chemin de Compostelle — Via Podiensis (GR65)"
+    desc: "Porte officielle du GR 65 — Via Podiensis · Cathédrale du Rocher"
   },
   {
     name: "Figeac",
     coords: [44.6042, 2.0317],
     type: "stage",
-    km: 520,
+    km: 640,
     country: "🇫🇷",
     desc: "Lot — Ville médiévale sur les rives du Célé"
   },
@@ -47,7 +97,7 @@ const WAYPOINTS = [
     name: "Cahors",
     coords: [44.4483, 1.4411],
     type: "stage",
-    km: 620,
+    km: 740,
     country: "🇫🇷",
     desc: "Pont Valentré — Étape symbolique du chemin"
   },
@@ -55,31 +105,40 @@ const WAYPOINTS = [
     name: "Moissac",
     coords: [44.1055, 1.0843],
     type: "stage",
-    km: 700,
+    km: 820,
     country: "🇫🇷",
-    desc: "Abbaye romane — Chef-d'œuvre sculpté"
+    desc: "Abbaye Saint-Pierre — Chef-d'œuvre de l'art roman"
+  },
+  {
+    name: "Condom",
+    coords: [43.9593, 0.3737],
+    type: "stage",
+    km: 910,
+    country: "🇫🇷",
+    desc: "Gascogne — Cathédrale Saint-Pierre, Armagnac"
   },
   {
     name: "St-Jean-Pied-de-Port",
     coords: [43.1630, -1.2382],
     type: "major",
-    km: 900,
+    km: 1050,
     country: "🇫🇷",
-    desc: "Passage des Pyrénées — Dernière ville française"
+    desc: "Passage des Pyrénées — Dernière ville française du GR 65"
   },
+  // ── ESPAGNE : Camino Francés ──────────────────────────────────────
   {
     name: "Pampelune",
     coords: [42.8188, -1.6440],
     type: "stage",
-    km: 980,
+    km: 1130,
     country: "🇪🇸",
-    desc: "Entrée en Espagne — Navarre, Pamplona"
+    desc: "Navarre, Pamplona — Entrée en Espagne"
   },
   {
     name: "Burgos",
     coords: [42.3440, -3.6969],
     type: "major",
-    km: 1200,
+    km: 1300,
     country: "🇪🇸",
     desc: "Cathédrale gothique — Cœur de la Castille"
   },
@@ -87,9 +146,9 @@ const WAYPOINTS = [
     name: "León",
     coords: [42.5987, -5.5671],
     type: "stage",
-    km: 1400,
+    km: 1480,
     country: "🇪🇸",
-    desc: "Vitraux de la cathédrale — Dernière grande étape"
+    desc: "Vitraux de la cathédrale — Avant-dernière grande étape"
   },
   {
     name: "Santiago de Compostela",
@@ -97,7 +156,7 @@ const WAYPOINTS = [
     type: "end",
     km: 1600,
     country: "🇪🇸",
-    desc: "Destination finale — La cathédrale du bout du monde"
+    desc: "Destination finale — La cathédrale du bout du monde · Buen Camino ✨"
   }
 ];
 
