@@ -314,12 +314,20 @@ $error   = $_GET['error'] ?? '';
               </div>
               <div style="color:rgba(255,255,255,0.7); font-size:0.85rem; font-style:italic;">"<?= $t['message'] ?>"</div>
             </div>
-            <form method="POST" action="approuver-temoignage.php">
-              <input type="hidden" name="id" value="<?= $t['id'] ?>">
-              <button type="submit" style="background:#1E6B5E; color:white; border:none; padding:0.4rem 0.9rem; border-radius:1rem; font-size:0.78rem; font-weight:600; cursor:pointer; white-space:nowrap;">
-                ✓ Approuver
-              </button>
-            </form>
+            <div style="display:flex; flex-direction:column; gap:0.4rem;">
+              <form method="POST" action="approuver-temoignage.php">
+                <input type="hidden" name="id" value="<?= $t['id'] ?>">
+                <button type="submit" style="background:#1E6B5E; color:white; border:none; padding:0.4rem 0.9rem; border-radius:1rem; font-size:0.78rem; font-weight:600; cursor:pointer; white-space:nowrap; width:100%;">
+                  ✓ Approuver
+                </button>
+              </form>
+              <form method="POST" action="supprimer-temoignage.php" onsubmit="return confirm('Supprimer ce témoignage ?')">
+                <input type="hidden" name="id" value="<?= $t['id'] ?>">
+                <button type="submit" style="background:rgba(220,50,50,0.15); color:#ff6b6b; border:1px solid rgba(220,50,50,0.3); padding:0.4rem 0.9rem; border-radius:1rem; font-size:0.78rem; font-weight:600; cursor:pointer; white-space:nowrap; width:100%;">
+                  ✕ Supprimer
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       <?php endforeach; ?>
@@ -330,12 +338,20 @@ $error   = $_GET['error'] ?? '';
         ✅ Approuvés et publiés (<?= count($approved) ?>)
       </div>
       <?php foreach(array_reverse(array_values($approved)) as $t): ?>
-        <div style="background:rgba(30,107,94,0.08); border:1px solid rgba(30,107,94,0.2); border-radius:0.75rem; padding:0.85rem 1rem; margin-bottom:0.5rem; display:flex; gap:0.75rem; align-items:start;">
-          <span style="font-size:1.1rem;">💚</span>
-          <div>
-            <div style="font-weight:700; color:white; font-size:0.85rem;"><?= $t['prenom'] ?></div>
-            <div style="color:rgba(255,255,255,0.6); font-size:0.83rem; font-style:italic;">"<?= $t['message'] ?>"</div>
+        <div style="background:rgba(30,107,94,0.08); border:1px solid rgba(30,107,94,0.2); border-radius:0.75rem; padding:0.85rem 1rem; margin-bottom:0.5rem; display:flex; gap:0.75rem; align-items:center; justify-content:space-between;">
+          <div style="display:flex; gap:0.75rem; align-items:start; flex:1;">
+            <span style="font-size:1.1rem;">💚</span>
+            <div>
+              <div style="font-weight:700; color:white; font-size:0.85rem;"><?= $t['prenom'] ?></div>
+              <div style="color:rgba(255,255,255,0.6); font-size:0.83rem; font-style:italic;">"<?= $t['message'] ?>"</div>
+            </div>
           </div>
+          <form method="POST" action="supprimer-temoignage.php" onsubmit="return confirm('Supprimer ce témoignage ?')">
+            <input type="hidden" name="id" value="<?= $t['id'] ?>">
+            <button type="submit" style="background:rgba(220,50,50,0.15); color:#ff6b6b; border:1px solid rgba(220,50,50,0.3); padding:0.3rem 0.75rem; border-radius:1rem; font-size:0.75rem; font-weight:600; cursor:pointer; white-space:nowrap;">
+              ✕
+            </button>
+          </form>
         </div>
       <?php endforeach; ?>
     <?php endif; ?>
