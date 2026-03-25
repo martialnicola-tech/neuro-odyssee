@@ -32,7 +32,7 @@ const WAYPOINTS = [
     name: "Vevey",
     coords: [46.4628, 6.8442],
     type: "stage",
-    km: 55,
+    km: 48,
     country: "🇨🇭",
     desc: "Bords du lac Léman — Vignobles de Lavaux (UNESCO)"
   },
@@ -40,7 +40,7 @@ const WAYPOINTS = [
     name: "Lausanne",
     coords: [46.5197, 6.6323],
     type: "major",
-    km: 90,
+    km: 52,
     country: "🇨🇭",
     desc: "Grande ville étape — Cathédrale gothique · Chemin de Romandie"
   },
@@ -48,7 +48,7 @@ const WAYPOINTS = [
     name: "Morges",
     coords: [46.5115, 6.4997],
     type: "stage",
-    km: 110,
+    km: 65,
     country: "🇨🇭",
     desc: "Côte vaudoise — Château de Morges"
   },
@@ -56,7 +56,7 @@ const WAYPOINTS = [
     name: "Rolle",
     coords: [46.4572, 6.3373],
     type: "stage",
-    km: 130,
+    km: 78,
     country: "🇨🇭",
     desc: "Villages viticoles — Gilly, Bursins"
   },
@@ -64,7 +64,7 @@ const WAYPOINTS = [
     name: "Nyon",
     coords: [46.3833, 6.2383],
     type: "stage",
-    km: 150,
+    km: 100,
     country: "🇨🇭",
     desc: "Colonie romaine — Bords du lac et château"
   },
@@ -72,7 +72,7 @@ const WAYPOINTS = [
     name: "Genève",
     coords: [46.2044, 6.1432],
     type: "major",
-    km: 175,
+    km: 122,
     country: "🇨🇭",
     desc: "Fin de la ViaJacobi suisse — Départ Via Gebennensis vers Le Puy"
   },
@@ -81,7 +81,7 @@ const WAYPOINTS = [
     name: "Le Puy-en-Velay",
     coords: [45.0433, 3.8858],
     type: "major",
-    km: 450,
+    km: 472,
     country: "🇫🇷",
     desc: "Porte officielle du GR 65 — Via Podiensis · Cathédrale du Rocher"
   },
@@ -89,7 +89,7 @@ const WAYPOINTS = [
     name: "Figeac",
     coords: [44.6042, 2.0317],
     type: "stage",
-    km: 640,
+    km: 650,
     country: "🇫🇷",
     desc: "Lot — Ville médiévale sur les rives du Célé"
   },
@@ -97,7 +97,7 @@ const WAYPOINTS = [
     name: "Cahors",
     coords: [44.4483, 1.4411],
     type: "stage",
-    km: 740,
+    km: 760,
     country: "🇫🇷",
     desc: "Pont Valentré — Étape symbolique du chemin"
   },
@@ -105,7 +105,7 @@ const WAYPOINTS = [
     name: "Moissac",
     coords: [44.1055, 1.0843],
     type: "stage",
-    km: 820,
+    km: 850,
     country: "🇫🇷",
     desc: "Abbaye Saint-Pierre — Chef-d'œuvre de l'art roman"
   },
@@ -113,7 +113,7 @@ const WAYPOINTS = [
     name: "Condom",
     coords: [43.9593, 0.3737],
     type: "stage",
-    km: 910,
+    km: 940,
     country: "🇫🇷",
     desc: "Gascogne — Cathédrale Saint-Pierre, Armagnac"
   },
@@ -121,7 +121,7 @@ const WAYPOINTS = [
     name: "St-Jean-Pied-de-Port",
     coords: [43.1630, -1.2382],
     type: "major",
-    km: 1050,
+    km: 1222,
     country: "🇫🇷",
     desc: "Passage des Pyrénées — Dernière ville française du GR 65"
   },
@@ -130,7 +130,7 @@ const WAYPOINTS = [
     name: "Pampelune",
     coords: [42.8188, -1.6440],
     type: "stage",
-    km: 1130,
+    km: 1300,
     country: "🇪🇸",
     desc: "Navarre, Pamplona — Entrée en Espagne"
   },
@@ -138,7 +138,7 @@ const WAYPOINTS = [
     name: "Burgos",
     coords: [42.3440, -3.6969],
     type: "major",
-    km: 1300,
+    km: 1520,
     country: "🇪🇸",
     desc: "Cathédrale gothique — Cœur de la Castille"
   },
@@ -146,7 +146,7 @@ const WAYPOINTS = [
     name: "León",
     coords: [42.5987, -5.5671],
     type: "stage",
-    km: 1480,
+    km: 1730,
     country: "🇪🇸",
     desc: "Vitraux de la cathédrale — Avant-dernière grande étape"
   },
@@ -154,7 +154,7 @@ const WAYPOINTS = [
     name: "Santiago de Compostela",
     coords: [42.8782, -8.5448],
     type: "end",
-    km: 1600,
+    km: 1900,
     country: "🇪🇸",
     desc: "Destination finale — La cathédrale du bout du monde · Buen Camino ✨"
   }
@@ -417,7 +417,7 @@ function addMapLegend() {
         <div style="width:8px; height:8px; background:#2D8C7A; border-radius:50%; border:2px solid white;"></div> Étape
       </div>
       <div style="margin-top:0.5rem; padding-top:0.5rem; border-top:1px solid rgba(0,0,0,0.08); color:#1E6B5E; font-weight:600;">
-        1 600 km · 3 pays
+        1 900 km · 3 pays
       </div>
     `;
     return div;

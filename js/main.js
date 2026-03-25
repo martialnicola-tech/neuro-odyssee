@@ -472,7 +472,7 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.addEventListener('click', function() {
       const platform = this.getAttribute('data-share');
       const url = encodeURIComponent(window.location.origin + '/');
-      const text = encodeURIComponent('La Neuro-Odyssée — 1 600 km pour se reconstruire. Découvrez ce projet inspirant !');
+      const text = encodeURIComponent('La Neuro-Odyssée — 1 900 km pour se reconstruire. Découvrez ce projet inspirant !');
 
       const shareUrls = {
         facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,

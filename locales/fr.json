@@ -1,7 +1,7 @@
 {
   "meta": {
     "site_name": "La Neuro-Odyssée",
-    "tagline": "1 600 km pour se reconstruire"
+    "tagline": "1 900 km pour se reconstruire"
   },
   "nav": {
     "home": "Accueil",
@@ -15,7 +15,7 @@
     "badge": "Départ le 21 août 2026",
     "title_line1": "La Neuro-",
     "title_line2": "Odyssée",
-    "tagline": "1 600 km pour re-câbler un cerveau",
+    "tagline": "1 900 km pour re-câbler un cerveau",
     "subtitle": "De St-Maurice (Suisse) à Santiago de Compostela (Espagne) — Roland Crettaz marche pour prouver qu'un cerveau TDAH et des addictions surmontées ne sont pas des fatalités.",
     "cta_sponsor": "Devenez Sponsor",
     "cta_don": "Faire un Don",
@@ -34,7 +34,7 @@
     "subtitle": "Trois dimensions d'un même voyage : repousser les limites du corps, démontrer la plasticité du cerveau, et transmettre un message d'espoir.",
     "card1_icon": "🧭",
     "card1_title": "Le Défi",
-    "card1_text": "1 600 km à pied, seul, du Valais suisse à la côte galicienne. Traversée de trois pays, des Alpes aux Pyrénées, jusqu'à l'Atlantique. Une aventure humaine hors du commun.",
+    "card1_text": "1 900 km à pied, seul, du Valais suisse à la côte galicienne. Traversée de trois pays, des Alpes aux Pyrénées, jusqu'à l'Atlantique. Une aventure humaine hors du commun.",
     "card2_icon": "🧠",
     "card2_title": "La Science",
     "card2_text": "La neuroplasticité démontre que le cerveau se reconfigure tout au long de la vie. La marche intensive génère du BDNF — une protéine qui favorise la croissance neuronale. Ce pèlerinage est une expérience neuroscientifique vivante.",
@@ -46,7 +46,7 @@
   "progress": {
     "section_label": "Avancement",
     "title": "Objectif : 36 000 €",
-    "subtitle": "1 600 km × 22 € par kilomètre — Chaque km parrainé finance la logistique, l'équipement et la production du documentaire.",
+    "subtitle": "1 900 km × 22 € par kilomètre — Chaque km parrainé finance la logistique, l'équipement et la production du documentaire.",
     "km_parraines": "km parrainés",
     "km_total": "km au total",
     "objectif_financier": "Objectif financier",
@@ -57,7 +57,7 @@
     "section_label": "L'Homme Derrière le Projet",
     "title": "Roland Crettaz",
     "subtitle": "Né en Valais, Roland a vécu des décennies avec un TDAH non diagnostiqué, cherchant à combler ce manque dans l'alcool, les médicaments et la cigarette.",
-    "bio1": "Ce n'est qu'à 40 ans que tout s'est mis en place : le diagnostic du TDAH, la décision d'arrêter les substances, le long chemin de la reconstruction. Une thérapie, des lectures, des rencontres — et puis l'idée folle d'une marche de 1 600 km.",
+    "bio1": "Ce n'est qu'à 40 ans que tout s'est mis en place : le diagnostic du TDAH, la décision d'arrêter les substances, le long chemin de la reconstruction. Une thérapie, des lectures, des rencontres — et puis l'idée folle d'une marche de 1 900 km.",
     "bio2": "\"Le Chemin de Compostelle n'est pas une fuite. C'est un retour à moi-même. Chaque pas est un neurone qui se reconnecte, chaque étape une dépendance qu'on laisse derrière.\"",
     "bio3": "Roland documente chaque étape : vidéos YouTube, blog, et un livre en préparation. Son projet : devenir conférencier pour parler aux entreprises et aux institutions de santé mentale.",
     "quote_author": "— Roland Crettaz",
@@ -77,13 +77,13 @@
   "sponsors_preview": {
     "section_label": "Nos Partenaires",
     "title": "Rejoignez les Premiers Sponsors",
-    "subtitle": "Votre logo ici, sur le chemin de 1 600 km — dans les vidéos, dans le livre, dans le documentaire.",
+    "subtitle": "Votre logo ici, sur le chemin de 1 900 km — dans les vidéos, dans le livre, dans le documentaire.",
     "empty_slot": "Votre logo",
     "cta": "Devenir Sponsor"
   },
   "trajet": {
     "page_title": "Le Trajet",
-    "hero_title": "1 600 km",
+    "hero_title": "1 900 km",
     "hero_subtitle": "St-Maurice → Santiago de Compostela",
     "hero_text": "Un chemin en trois pays, traversant les Alpes, le Massif Central, les Pyrénées et la meseta castillane.",
     "section_map": "La Carte du Périple",
@@ -101,7 +101,7 @@
     "stat_days": "Jours estimés",
     "stat_countries": "Pays traversés",
     "stat_elevation": "D+ estimé",
-    "stat_distance_val": "1 600 km",
+    "stat_distance_val": "1 900 km",
     "stat_days_val": "~90 jours",
     "stat_countries_val": "3 (CH, FR, ES)",
     "stat_elevation_val": "~25 000 m",
@@ -215,7 +215,7 @@
     "post4_excerpt": "Pourquoi les personnes TDAH sont statistiquement plus à risque de développer des addictions. Et pourquoi comprendre ce mécanisme est la première étape vers la liberté.",
     "post4_tag": "addictions",
     "post5_title": "Mes 6 mois de préparation physique pour Compostelle",
-    "post5_excerpt": "On ne marche pas 1 600 km sur un coup de tête. Voici mon programme d'entraînement progressif, mes erreurs, mes victoires, et ce que mes pieds ont appris.",
+    "post5_excerpt": "On ne marche pas 1 900 km sur un coup de tête. Voici mon programme d'entraînement progressif, mes erreurs, mes victoires, et ce que mes pieds ont appris.",
     "post5_tag": "entrainement",
     "post6_title": "La neuroplasticité expliquée à ma mère",
     "post6_excerpt": "Le cerveau n'est pas figé. Il se transforme, il guérit, il apprend à tout âge. Une explication simple d'un concept qui a changé ma vie.",
@@ -279,7 +279,7 @@
     "merci_text": "Votre soutien ne se mesure pas qu'en euros. En partageant ce projet, en croyant en la reconstruction humaine, vous participez à quelque chose de plus grand qu'un simple pèlerinage."
   },
   "footer": {
-    "tagline": "1 600 km pour se reconstruire — De St-Maurice à Santiago de Compostela",
+    "tagline": "1 900 km pour se reconstruire — De St-Maurice à Santiago de Compostela",
     "nav_title": "Navigation",
     "contact_title": "Contact",
     "contact_email": "roland@neuro-odyssee.com",
