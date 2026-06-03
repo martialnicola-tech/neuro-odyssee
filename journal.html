@@ -73,8 +73,10 @@
         <a href="index.html" class="nav-link" data-i18n="nav.home">Accueil</a>
         <a href="trajet.html" class="nav-link" data-i18n="nav.trajet">Le Trajet</a>
         <a href="preparation.html" class="nav-link" data-i18n="nav.preparation">Préparation</a>
-        <a href="sponsoring.html" class="nav-link" data-i18n="nav.sponsoring">Sponsoring</a>
         <a href="journal.html" class="nav-link active" data-i18n="nav.journal">Journal</a>
+        <a href="club.html" class="nav-link" data-i18n="nav.club">Club</a>
+        <a href="sponsoring.html" class="nav-link" data-i18n="nav.sponsoring">Sponsoring</a>
+        <a href="media.html" class="nav-link" data-page="media.html">Médias</a>
         <a href="soutenir.html" class="btn-primary text-sm py-2 px-5" data-i18n="nav.soutenir">Soutenir</a>
       </div>
       <div class="flex items-center gap-3">
@@ -90,14 +92,60 @@
     </div>
   </nav>
 
+  
+  <!-- SPONSORS TICKER -->
+  <div id="sponsorsTicker" style="background:#f8f9fa; border-bottom:1px solid rgba(0,0,0,0.1); padding:0.5rem 0; overflow:hidden; position:relative; z-index:40; min-height:40px;">
+    <div style="position:absolute;left:0;top:0;bottom:0;width:4rem;background:linear-gradient(to right,#f8f9fa,transparent);z-index:2;pointer-events:none;"></div>
+    <div style="position:absolute;right:0;top:0;bottom:0;width:4rem;background:linear-gradient(to left,#f8f9fa,transparent);z-index:2;pointer-events:none;"></div>
+    <div id="sponsorsTrack" style="display:inline-flex;align-items:center;white-space:nowrap;padding-left:50%;"></div>
+  </div>
+  <script>
+  (function() {
+    var nav = document.getElementById('navbar');
+    var ticker = document.getElementById('sponsorsTicker');
+    if (nav && ticker) {
+      ticker.style.marginTop = nav.offsetHeight + 'px';
+    }
+  })();
+  </script>
+  <style>
+    #sponsorsTrack { animation: sponsorScroll 20s linear infinite; }
+    #sponsorsTrack:hover { animation-play-state: paused; }
+    @keyframes sponsorScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  </style>
+  <script>
+  (function() {
+    fetch('/api/sponsors.php')
+      .then(function(r){ return r.json(); })
+      .then(function(sponsors) {
+        if (!sponsors || !sponsors.length) return;
+        var track = document.getElementById('sponsorsTrack');
+        if (!track) return;
+        var all = sponsors.concat(sponsors);
+        track.style.paddingLeft = '0';
+        track.innerHTML = all.map(function(s) {
+          var logo = s.logo ? '<img src="' + s.logo + '" alt="' + s.name + '" style="max-height:28px;max-width:80px;object-fit:contain;vertical-align:middle;mix-blend-mode:multiply;">' : '';
+          var inner = '<span style="display:inline-flex;align-items:center;gap:0.4rem;">' + logo + '<span style="font-size:0.75rem;font-weight:700;color:#1a2332;">' + s.name + '</span></span>';
+          var dot = '<span style="color:rgba(0,0,0,0.2);margin:0 1.5rem;">·</span>';
+          return s.url
+            ? '<a href="' + s.url + '" target="_blank" rel="noopener" style="text-decoration:none;padding:0 0.5rem;">' + inner + '</a>' + dot
+            : '<span style="padding:0 0.5rem;">' + inner + '</span>' + dot;
+        }).join('');
+        track.style.animationDuration = Math.max(12, sponsors.length * 7) + 's';
+      }).catch(function(){});
+  })();
+  </script>
+
   <!-- Mobile Menu -->
   <div id="mobileMenu" class="mobile-menu">
     <button id="mobileMenuClose" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
     <a href="index.html" class="mobile-nav-link" data-i18n="nav.home">Accueil</a>
     <a href="trajet.html" class="mobile-nav-link" data-i18n="nav.trajet">Le Trajet</a>
     <a href="preparation.html" class="mobile-nav-link" data-i18n="nav.preparation">Préparation</a>
-    <a href="sponsoring.html" class="mobile-nav-link" data-i18n="nav.sponsoring">Sponsoring</a>
     <a href="journal.html" class="mobile-nav-link" data-i18n="nav.journal">Journal</a>
+    <a href="club.html" class="mobile-nav-link" data-i18n="nav.club">Club</a>
+    <a href="sponsoring.html" class="mobile-nav-link" data-i18n="nav.sponsoring">Sponsoring</a>
+    <a href="media.html" class="mobile-nav-link">Médias</a>
     <a href="soutenir.html" class="mobile-nav-link" data-i18n="nav.soutenir">Soutenir</a>
     <div class="lang-switcher mt-4">
       <button class="lang-btn active" data-lang="fr">FR</button>
@@ -133,6 +181,7 @@
         <button class="filter-btn" data-filter="compostelle" data-i18n="journal.filter_compostelle">Compostelle</button>
         <button class="filter-btn" data-filter="addictions" data-i18n="journal.filter_addictions">Addictions</button>
         <button class="filter-btn" data-filter="entrainement" data-i18n="journal.filter_entrainement">Entraînement</button>
+        <button class="filter-btn" data-filter="nutrition" data-i18n="journal.filter_nutrition">Nutrition</button>
       </div>
     </div>
   </section>
@@ -140,10 +189,13 @@
   <!-- BLOG GRID -->
   <section class="py-20 px-6 bg-cream">
     <div class="max-w-6xl mx-auto">
+      <!-- Posts dynamiques (admin) -->
+      <div id="dynamicPosts" class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12" style="display:none;"></div>
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blogGrid">
 
         <!-- Post 1: Neuroplasticité -->
-        <article class="blog-card reveal" data-tag="neuroplasticite">
+        <article class="blog-card reveal" data-tag="neuroplasticite" data-post-id="neuro1">
           <div class="blog-card-image">
             <div style="width:100%; height:100%; background:linear-gradient(135deg, #1a2e4a 0%, #3B9BB0 60%, #2D8C7A 100%); display:flex; align-items:center; justify-content:center;">
               <div class="text-center text-white">
@@ -157,10 +209,10 @@
               <span class="blog-tag tag-neuro" data-i18n="journal.filter_neuro">Neuroplasticité</span>
             </div>
             <h3 class="font-serif text-xl mb-2 leading-snug" data-i18n="journal.post1_title">
-              Pourquoi la marche recâble le cerveau — ce que dit la science
+              La magie de la Neuroplasticité
             </h3>
             <p class="text-sm leading-relaxed mb-4" style="color:var(--text-light);" data-i18n="journal.post1_excerpt">
-              Le BDNF, la sérotonine, la dopamine : pendant la marche intensive, le cerveau baigne dans un cocktail neurochimique qui favorise la plasticité.
+              Le BDNF, la sérotonine, la dopamine : pendant la marche intensive, le cerveau baigne dans un cocktail neurochimique qui favorise la plasticité. Ce n'est pas de la poésie — c'est de la biologie.
             </p>
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2 text-xs" style="color:var(--text-light);">
@@ -168,13 +220,13 @@
                 <span>·</span>
                 <span>8 <span data-i18n="journal.min_read">min de lecture</span></span>
               </div>
-              <a href="#" class="text-sm font-semibold" style="color:var(--green-mid);" data-i18n="journal.read_more">Lire la suite <i class="fa-solid fa-arrow-right ml-1" style="font-size:0.7rem;"></i></a>
+              <a href="#" class="text-sm font-semibold open-post" data-post="neuro1" style="color:var(--green-mid);" data-i18n="journal.read_more">Lire la suite <i class="fa-solid fa-arrow-right ml-1" style="font-size:0.7rem;"></i></a>
             </div>
           </div>
         </article>
 
         <!-- Post 2: TDAH -->
-        <article class="blog-card reveal animate-delay-1" data-tag="tdah">
+        <article class="blog-card reveal animate-delay-1" data-tag="tdah" data-post-id="tdah1">
           <div class="blog-card-image">
             <div style="width:100%; height:100%; background:linear-gradient(135deg, #2a1a0e 0%, #8B4513 50%, #F0A500 100%); display:flex; align-items:center; justify-content:center;">
               <div class="text-center text-white">
@@ -188,10 +240,10 @@
               <span class="blog-tag tag-tdah">TDAH</span>
             </div>
             <h3 class="font-serif text-xl mb-2 leading-snug" data-i18n="journal.post2_title">
-              Vivre avec le TDAH non diagnostiqué pendant 30 ans
+              Vivre avec le TDAH non diagnostiqué pendant plus de 30 ans
             </h3>
             <p class="text-sm leading-relaxed mb-4" style="color:var(--text-light);" data-i18n="journal.post2_excerpt">
-              Avant le diagnostic, il y avait juste cette sensation permanente d'être décalé, trop lent, trop rapide, jamais à sa place.
+              Imaginez naviguer sur une mer agitée avec une boussole qui tourne à 360 degrés. Pendant trois décennies, j'ai cru que c'était un défaut de fabrication.
             </p>
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2 text-xs" style="color:var(--text-light);">
@@ -199,13 +251,13 @@
                 <span>·</span>
                 <span>12 <span data-i18n="journal.min_read">min de lecture</span></span>
               </div>
-              <a href="#" class="text-sm font-semibold" style="color:var(--green-mid);" data-i18n="journal.read_more">Lire la suite <i class="fa-solid fa-arrow-right ml-1" style="font-size:0.7rem;"></i></a>
+              <a href="#" class="text-sm font-semibold open-post" data-post="tdah1" style="color:var(--green-mid);" data-i18n="journal.read_more">Lire la suite <i class="fa-solid fa-arrow-right ml-1" style="font-size:0.7rem;"></i></a>
             </div>
           </div>
         </article>
 
         <!-- Post 3: Compostelle -->
-        <article class="blog-card reveal animate-delay-2" data-tag="compostelle">
+        <article class="blog-card reveal animate-delay-2" data-tag="compostelle" data-post-id="compo1">
           <div class="blog-card-image">
             <div style="width:100%; height:100%; background:linear-gradient(135deg, #0f3d35 0%, #1E6B5E 50%, #2D8C7A 100%); display:flex; align-items:center; justify-content:center;">
               <div class="text-center text-white">
@@ -219,10 +271,10 @@
               <span class="blog-tag tag-compostelle" data-i18n="journal.filter_compostelle">Compostelle</span>
             </div>
             <h3 class="font-serif text-xl mb-2 leading-snug" data-i18n="journal.post3_title">
-              Le Chemin GR65 : Le Puy-en-Velay à St-Jean-Pied-de-Port
+              De Saint-Maurice aux Pyrénées : Le Terrain de Reconstruction
             </h3>
             <p class="text-sm leading-relaxed mb-4" style="color:var(--text-light);" data-i18n="journal.post3_excerpt">
-              La Via Podiensis est l'épine dorsale de mon projet. 750 km de sentiers balisés à travers l'Auvergne, le Quercy, la Gascogne.
+              La marche de longue distance n'est pas une promenade, c'est une opération à cerveau ouvert. Un protocole de 1 900 km pour forcer la neuroplasticité.
             </p>
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2 text-xs" style="color:var(--text-light);">
@@ -230,13 +282,13 @@
                 <span>·</span>
                 <span>10 <span data-i18n="journal.min_read">min de lecture</span></span>
               </div>
-              <a href="#" class="text-sm font-semibold" style="color:var(--green-mid);" data-i18n="journal.read_more">Lire la suite <i class="fa-solid fa-arrow-right ml-1" style="font-size:0.7rem;"></i></a>
+              <a href="#" class="text-sm font-semibold open-post" data-post="compo1" style="color:var(--green-mid);" data-i18n="journal.read_more">Lire la suite <i class="fa-solid fa-arrow-right ml-1" style="font-size:0.7rem;"></i></a>
             </div>
           </div>
         </article>
 
         <!-- Post 4: Addictions -->
-        <article class="blog-card reveal" data-tag="addictions">
+        <article class="blog-card reveal" data-tag="addictions" data-post-id="addict1">
           <div class="blog-card-image">
             <div style="width:100%; height:100%; background:linear-gradient(135deg, #1a0a0a 0%, #6b1a1a 50%, #c0392b 100%); display:flex; align-items:center; justify-content:center;">
               <div class="text-center text-white">
@@ -250,10 +302,10 @@
               <span class="blog-tag tag-addictions" data-i18n="journal.filter_addictions">Addictions</span>
             </div>
             <h3 class="font-serif text-xl mb-2 leading-snug" data-i18n="journal.post4_title">
-              Alcool et TDAH : le lien neurologique qu'on n'ose pas nommer
+              TDA / TDAH &amp; Addictions : Le lien neurologique qu'on n'ose pas nommer
             </h3>
             <p class="text-sm leading-relaxed mb-4" style="color:var(--text-light);" data-i18n="journal.post4_excerpt">
-              Pourquoi les personnes TDAH sont statistiquement plus à risque de développer des addictions. Et pourquoi comprendre ce mécanisme est la première étape vers la liberté.
+              Alcool, médicaments, cigarette, écrans... Ce n'est pas une question de manque de volonté — c'est une quête désespérée de survie neurologique.
             </p>
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2 text-xs" style="color:var(--text-light);">
@@ -261,13 +313,13 @@
                 <span>·</span>
                 <span>15 <span data-i18n="journal.min_read">min de lecture</span></span>
               </div>
-              <a href="#" class="text-sm font-semibold" style="color:var(--green-mid);" data-i18n="journal.read_more">Lire la suite <i class="fa-solid fa-arrow-right ml-1" style="font-size:0.7rem;"></i></a>
+              <a href="#" class="text-sm font-semibold open-post" data-post="addict1" style="color:var(--green-mid);" data-i18n="journal.read_more">Lire la suite <i class="fa-solid fa-arrow-right ml-1" style="font-size:0.7rem;"></i></a>
             </div>
           </div>
         </article>
 
         <!-- Post 5: Entraînement -->
-        <article class="blog-card reveal animate-delay-1" data-tag="entrainement">
+        <article class="blog-card reveal animate-delay-1" data-tag="entrainement" data-post-id="train1">
           <div class="blog-card-image">
             <div style="width:100%; height:100%; background:linear-gradient(135deg, #1a1a2e 0%, #3a3a6e 50%, #6610f2 100%); display:flex; align-items:center; justify-content:center;">
               <div class="text-center text-white">
@@ -281,10 +333,10 @@
               <span class="blog-tag tag-entrainement" data-i18n="journal.filter_entrainement">Entraînement</span>
             </div>
             <h3 class="font-serif text-xl mb-2 leading-snug" data-i18n="journal.post5_title">
-              Mes 6 mois de préparation physique pour Compostelle
+              Jour 1 à 10 : La confrontation avec le réel
             </h3>
             <p class="text-sm leading-relaxed mb-4" style="color:var(--text-light);" data-i18n="journal.post5_excerpt">
-              On ne marche pas 1 900 km sur un coup de tête. Voici mon programme d'entraînement progressif, mes erreurs, mes victoires, et ce que mes pieds ont appris.
+              L'excitation du projet rencontre la dureté du terrain. Ce que ces 10 premiers jours m'ont appris — à mes dépens.
             </p>
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2 text-xs" style="color:var(--text-light);">
@@ -292,38 +344,38 @@
                 <span>·</span>
                 <span>9 <span data-i18n="journal.min_read">min de lecture</span></span>
               </div>
-              <a href="#" class="text-sm font-semibold" style="color:var(--green-mid);" data-i18n="journal.read_more">Lire la suite <i class="fa-solid fa-arrow-right ml-1" style="font-size:0.7rem;"></i></a>
+              <a href="#" class="text-sm font-semibold open-post" data-post="train1" style="color:var(--green-mid);" data-i18n="journal.read_more">Lire la suite <i class="fa-solid fa-arrow-right ml-1" style="font-size:0.7rem;"></i></a>
             </div>
           </div>
         </article>
 
-        <!-- Post 6: Neuroplasticité 2 -->
-        <article class="blog-card reveal animate-delay-2" data-tag="neuroplasticite">
+        <!-- Post 6: Nutrition -->
+        <article class="blog-card reveal animate-delay-2" data-tag="nutrition" data-post-id="nutri1">
           <div class="blog-card-image">
-            <div style="width:100%; height:100%; background:linear-gradient(135deg, #0a2a2e 0%, #1E6B5E 40%, #3B9BB0 100%); display:flex; align-items:center; justify-content:center;">
+            <div style="width:100%; height:100%; background:linear-gradient(135deg, #2a1a05 0%, #c45e10 50%, #F0A500 100%); display:flex; align-items:center; justify-content:center;">
               <div class="text-center text-white">
-                <div style="font-size:3.5rem; opacity:0.8; margin-bottom:0.5rem;">✨</div>
-                <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.15em; opacity:0.5;">Neuroplasticité</div>
+                <div style="font-size:3.5rem; opacity:0.8; margin-bottom:0.5rem;">🥗</div>
+                <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.15em; opacity:0.5;">Nutrition</div>
               </div>
             </div>
           </div>
           <div style="padding:1.5rem;">
             <div class="flex items-center gap-2 mb-3">
-              <span class="blog-tag tag-neuro" data-i18n="journal.filter_neuro">Neuroplasticité</span>
+              <span class="blog-tag tag-nutrition" data-i18n="journal.filter_nutrition">Nutrition</span>
             </div>
             <h3 class="font-serif text-xl mb-2 leading-snug" data-i18n="journal.post6_title">
-              La neuroplasticité expliquée à ma mère
+              La Nutrition : La base chimique de votre liberté
             </h3>
             <p class="text-sm leading-relaxed mb-4" style="color:var(--text-light);" data-i18n="journal.post6_excerpt">
-              Le cerveau n'est pas figé. Il se transforme, il guérit, il apprend à tout âge. Une explication simple d'un concept qui a changé ma vie.
+              On pense souvent que l'addiction ou le mal-être sont une question de volonté. C'est oublier que votre cerveau est une machine biologique qui a besoin des bons composants.
             </p>
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2 text-xs" style="color:var(--text-light);">
                 <span>5 mars 2025</span>
                 <span>·</span>
-                <span>6 <span data-i18n="journal.min_read">min de lecture</span></span>
+                <span>7 <span data-i18n="journal.min_read">min de lecture</span></span>
               </div>
-              <a href="#" class="text-sm font-semibold" style="color:var(--green-mid);" data-i18n="journal.read_more">Lire la suite <i class="fa-solid fa-arrow-right ml-1" style="font-size:0.7rem;"></i></a>
+              <a href="#" class="text-sm font-semibold open-post" data-post="nutri1" style="color:var(--green-mid);" data-i18n="journal.read_more">Lire la suite <i class="fa-solid fa-arrow-right ml-1" style="font-size:0.7rem;"></i></a>
             </div>
           </div>
         </article>
@@ -333,14 +385,33 @@
   </section>
 
   <!-- ============================================
+       BLOC NEWSLETTER JOURNAL
+       ============================================ -->
+  <section class="py-12 px-6" style="background:#1a3b30;">
+    <div class="max-w-2xl mx-auto text-center">
+      <div style="font-size:1.25rem; font-weight:700; color:white; margin-bottom:0.5rem;">📘 Vous aimez ce contenu ?</div>
+      <p style="color:rgba(255,255,255,0.65); font-size:0.92rem; margin-bottom:1.25rem;">Recevez l'ebook de Roland offert : <em>Tu fais tout bien. Alors pourquoi tu t'effondres ?</em></p>
+      <form id="journalNewsletter" style="display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center; max-width:480px; margin:0 auto;">
+        <input type="email" name="email" placeholder="Votre email" required
+          style="flex:1; min-width:200px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); border-radius:6px; padding:0.6rem 1rem; color:white; font-size:0.88rem; outline:none;">
+        <button type="submit"
+          style="background:#F0A500; color:#1a2332; border:none; border-radius:6px; padding:0.6rem 1.2rem; font-size:0.85rem; font-weight:700; cursor:pointer; white-space:nowrap;">
+          Recevoir →
+        </button>
+      </form>
+      <p id="journalNewsletterMsg" style="font-size:0.78rem; min-height:1rem; margin-top:0.5rem; color:rgba(255,255,255,0.5);"></p>
+    </div>
+  </section>
+
+  <!-- ============================================
        SECTION ENTRAÎNEMENTS
        ============================================ -->
   <section class="py-20 px-6" style="background:#f0f7f5;">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-12 reveal">
-        <span class="section-label justify-center">Entraînements</span>
-        <h2 class="section-title mt-3">La Préparation en Images</h2>
-        <p class="section-subtitle mx-auto mt-3 text-center">
+        <span class="section-label justify-center" data-i18n="journal.training_label">Entraînements</span>
+        <h2 class="section-title mt-3" data-i18n="journal.training_title">La Préparation en Images</h2>
+        <p class="section-subtitle mx-auto mt-3 text-center" data-i18n="journal.training_subtitle">
           1 900 km ne s'improvisent pas — voici les semaines de préparation physique de Roland en Valais
         </p>
       </div>
@@ -360,7 +431,30 @@
         </div>
         <p class="text-center mt-4 text-sm font-medium" style="color:var(--text-light);">
           <i class="fa-solid fa-mountain-sun mr-2" style="color:var(--green-mid);"></i>
-          Roland en entraînement — Valais, Suisse · Printemps 2026
+          <span data-i18n="journal.training_caption">Roland en entraînement — Valais, Suisse · Printemps 2026</span>
+        </p>
+      </div>
+
+      <!-- Vidéo Jour 9 -->
+      <div class="reveal mt-10">
+        <div class="flex items-center gap-3 mb-4">
+          <span style="background:var(--green-deep); color:white; font-size:0.72rem; font-weight:700; padding:0.25rem 0.75rem; border-radius:1rem; text-transform:uppercase; letter-spacing:0.08em;" data-i18n="journal.day_badge">Jour</span>
+          <span style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:700; color:var(--dark);">9</span>
+          <span style="color:var(--text-light); font-size:0.9rem;" data-i18n="journal.day9_subtitle">Entraînement · Valais</span>
+        </div>
+        <div class="rounded-2xl overflow-hidden" style="box-shadow:0 20px 60px rgba(30,107,94,0.2);">
+          <video
+            controls
+            preload="metadata"
+            style="width:100%; max-height:520px; background:#1a2332; display:block;"
+            aria-label="Roland Crettaz — entraînement jour 9"
+          >
+            <source src="images/roland-entrainement-jour9.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="text-center mt-4 text-sm font-medium" style="color:var(--text-light);">
+          <i class="fa-solid fa-person-hiking mr-2" style="color:var(--green-mid);"></i>
+          <span data-i18n="journal.day9_caption">Jour 9 d'entraînement — Roland en Valais · Printemps 2026</span>
         </p>
       </div>
 
@@ -378,88 +472,25 @@
           <div class="rounded-xl p-6" style="background:white; box-shadow:0 4px 20px rgba(0,0,0,0.06);">
             <div class="flex items-center gap-3 mb-3">
               <div class="w-10 h-10 rounded-lg flex items-center justify-center text-lg" style="background:linear-gradient(135deg,#e8f4f0,#d0ebe4);">🏃</div>
-              <div class="font-semibold" style="color:var(--green-deep);">Cardio longue distance</div>
+              <div class="font-semibold" style="color:var(--green-deep);" data-i18n="journal.training_cardio_title">Cardio longue distance</div>
             </div>
-            <p class="text-sm leading-relaxed" style="color:var(--text-light);">Sorties hebdomadaires de 20-35 km pour habituer le corps aux longues distances. Focus sur la gestion de l'effort et la récupération.</p>
+            <p class="text-sm leading-relaxed" style="color:var(--text-light);" data-i18n="journal.training_cardio_text">Sorties hebdomadaires de 20-35 km pour habituer le corps aux longues distances. Focus sur la gestion de l'effort et la récupération.</p>
           </div>
           <div class="rounded-xl p-6" style="background:white; box-shadow:0 4px 20px rgba(0,0,0,0.06);">
             <div class="flex items-center gap-3 mb-3">
               <div class="w-10 h-10 rounded-lg flex items-center justify-center text-lg" style="background:linear-gradient(135deg,#e8f4f0,#d0ebe4);">⛰️</div>
-              <div class="font-semibold" style="color:var(--green-deep);">Dénivelé positif</div>
+              <div class="font-semibold" style="color:var(--green-deep);" data-i18n="journal.training_elev_title">Dénivelé positif</div>
             </div>
-            <p class="text-sm leading-relaxed" style="color:var(--text-light);">Entraînements spécifiques en montagne valaisanne pour préparer les Alpes et les Pyrénées. Jusqu'à 1 500 m de D+ par sortie.</p>
+            <p class="text-sm leading-relaxed" style="color:var(--text-light);" data-i18n="journal.training_elev_text">Entraînements spécifiques en montagne valaisanne pour préparer les Alpes et les Pyrénées. Jusqu'à 1 500 m de D+ par sortie.</p>
           </div>
           <div class="rounded-xl p-6" style="background:white; box-shadow:0 4px 20px rgba(0,0,0,0.06);">
             <div class="flex items-center gap-3 mb-3">
               <div class="w-10 h-10 rounded-lg flex items-center justify-center text-lg" style="background:linear-gradient(135deg,#e8f4f0,#d0ebe4);">🧠</div>
-              <div class="font-semibold" style="color:var(--green-deep);">Préparation mentale</div>
+              <div class="font-semibold" style="color:var(--green-deep);" data-i18n="journal.training_mental_title">Préparation mentale</div>
             </div>
-            <p class="text-sm leading-relaxed" style="color:var(--text-light);">Méditation quotidienne, journaling, travail avec un coach. La tête doit être aussi entraînée que les jambes pour 90 jours de marche.</p>
+            <p class="text-sm leading-relaxed" style="color:var(--text-light);" data-i18n="journal.training_mental_text">Méditation quotidienne, journaling, travail avec un coach. La tête doit être aussi entraînée que les jambes pour 90 jours de marche.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- YOUTUBE SECTION -->
-  <section class="py-20 px-6 bg-white">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 reveal">
-        <span class="section-label justify-center" data-i18n="journal.videos_title">Dernières Vidéos</span>
-        <h2 class="section-title mt-3" data-i18n="journal.videos_title">Dernières Vidéos</h2>
-        <p class="section-subtitle mx-auto mt-3 text-center" data-i18n="journal.videos_subtitle">
-          Suivez la préparation et le voyage en vidéo
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Video 1 -->
-        <div class="reveal">
-          <div class="yt-placeholder">
-            <div style="position:absolute; inset:0; background:linear-gradient(135deg,#0f1923,#1E6B5E,#1a2332);"></div>
-            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1rem; z-index:1;">
-              <div class="yt-play-btn">
-                <i class="fa-solid fa-play" style="margin-left:3px;"></i>
-              </div>
-              <div style="text-align:center;">
-                <div style="color:white; font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600;" data-i18n="journal.video1_title">Vidéo #1 — Bientôt disponible</div>
-                <div style="color:rgba(255,255,255,0.4); font-size:0.75rem; margin-top:0.25rem;">La Neuro-Odyssée · YouTube</div>
-              </div>
-            </div>
-          </div>
-          <div style="padding:1rem 0;">
-            <h4 class="font-serif text-lg" data-i18n="journal.video1_title">Vidéo #1 — Bientôt disponible</h4>
-            <p class="text-sm mt-1" style="color:var(--text-light);">La Neuro-Odyssée · Préparation</p>
-          </div>
-        </div>
-
-        <!-- Video 2 -->
-        <div class="reveal animate-delay-2">
-          <div class="yt-placeholder">
-            <div style="position:absolute; inset:0; background:linear-gradient(135deg,#1a2332,#3B9BB0,#0f3d35);"></div>
-            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1rem; z-index:1;">
-              <div class="yt-play-btn">
-                <i class="fa-solid fa-play" style="margin-left:3px;"></i>
-              </div>
-              <div style="text-align:center;">
-                <div style="color:white; font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600;" data-i18n="journal.video2_title">Vidéo #2 — Bientôt disponible</div>
-                <div style="color:rgba(255,255,255,0.4); font-size:0.75rem; margin-top:0.25rem;">La Neuro-Odyssée · YouTube</div>
-              </div>
-            </div>
-          </div>
-          <div style="padding:1rem 0;">
-            <h4 class="font-serif text-lg" data-i18n="journal.video2_title">Vidéo #2 — Bientôt disponible</h4>
-            <p class="text-sm mt-1" style="color:var(--text-light);">La Neuro-Odyssée · Le Chemin</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- YouTube subscribe CTA -->
-      <div class="text-center mt-10 reveal">
-        <a href="https://youtube.com" target="_blank" rel="noopener" class="btn-primary" style="background:#FF0000; border-color:#FF0000;">
-          <i class="fa-brands fa-youtube"></i>
-          S'abonner sur YouTube
-        </a>
       </div>
     </div>
   </section>
@@ -474,20 +505,30 @@
         Recevez les articles, mises à jour du voyage et actualités du projet
       </p>
 
-      <form class="newsletter-form newsletter-form-el justify-center mx-auto" style="max-width:480px;">
+      <form class="newsletter-form newsletter-form-el justify-center mx-auto" id="nl-form" style="max-width:480px; flex-wrap:wrap;">
+        <input
+          type="text"
+          name="nom"
+          class="newsletter-input"
+          placeholder="Ton prénom"
+          required
+          style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.15); color:white; flex:1; min-width:120px;"
+        >
         <input
           type="email"
+          name="email"
           class="newsletter-input"
           data-i18n-placeholder="journal.newsletter_placeholder"
-          placeholder="Votre adresse email"
+          placeholder="Ton email"
           required
-          style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.15); color:white;"
+          style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.15); color:white; flex:1; min-width:180px;"
         >
         <button type="submit" class="btn-primary" style="white-space:nowrap;">
           <i class="fa-solid fa-paper-plane"></i>
           <span data-i18n="journal.newsletter_cta">S'inscrire</span>
         </button>
       </form>
+      <div id="nl-msg" style="display:none; margin-top:0.75rem; font-size:0.9rem; font-weight:500; text-align:center;"></div>
 
       <p class="mt-4 text-xs" style="color:rgba(255,255,255,0.3);" data-i18n="journal.newsletter_note">
         Aucun spam. Désinscription facile à tout moment.
@@ -516,17 +557,29 @@
           <div class="footer-logo">La <span>Neuro</span>-Odyssée</div>
           <p class="mt-3 text-sm" style="color:rgba(255,255,255,0.5); max-width:320px;" data-i18n="footer.tagline">1 900 km pour se reconstruire</p>
           <div class="flex gap-3 mt-6">
-            <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@LaNeuro-Odyssee" target="_blank" rel="noopener" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.instagram.com/la_neuro_odyssee" target="_blank" rel="noopener" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
             <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+          <div class="mt-6">
+            <div style="margin-bottom:0.6rem;"><div style="font-size:0.7rem; font-weight:700; color:rgba(255,255,255,0.35); text-transform:uppercase; letter-spacing:0.1em;">📘 Ebook offert</div><div style="font-size:0.82rem; font-style:italic; color:rgba(255,255,255,0.65); margin-top:0.2rem; line-height:1.4;">« Tu fais tout bien.<br>Alors pourquoi tu t'effondres&nbsp;? »</div></div>
+            <form id="footerNewsletter_journal" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+              <input type="email" name="email" placeholder="Votre email" required
+                style="flex:1; min-width:160px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:0.5rem 0.75rem; color:white; font-size:0.82rem; outline:none;">
+              <button type="submit"
+                style="background:#F0A500; color:#1a2332; border:none; border-radius:6px; padding:0.5rem 1rem; font-size:0.8rem; font-weight:700; cursor:pointer; white-space:nowrap;">
+                Recevoir →
+              </button>
+            </form>
+            <p id="footerNewsletter_journalMsg" style="font-size:0.75rem; min-height:1rem; margin-top:0.4rem; color:rgba(255,255,255,0.5);"></p>
           </div>
         </div>
         <div>
           <div class="footer-title" data-i18n="footer.nav_title">Navigation</div>
           <a href="index.html" class="footer-link" data-i18n="nav.home">Accueil</a>
           <a href="trajet.html" class="footer-link" data-i18n="nav.trajet">Le Trajet</a>
-          <a href="sponsoring.html" class="footer-link" data-i18n="nav.sponsoring">Sponsoring</a>
           <a href="journal.html" class="footer-link" data-i18n="nav.journal">Journal</a>
+          <a href="sponsoring.html" class="footer-link" data-i18n="nav.sponsoring">Sponsoring</a>
           <a href="soutenir.html" class="footer-link" data-i18n="nav.soutenir">Soutenir</a>
         </div>
         <div>
@@ -544,5 +597,335 @@
 
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
+
+<!-- ============================================
+     ARTICLE MODAL
+     ============================================ -->
+<div id="articleModal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.7); backdrop-filter:blur(4px); overflow-y:auto; padding:2rem 1rem;">
+  <div style="max-width:760px; margin:2rem auto; background:var(--cream); border-radius:1.5rem; padding:3rem 2.5rem; position:relative; box-shadow:0 30px 80px rgba(0,0,0,0.3);">
+    <button onclick="closePost()" style="position:absolute; top:1.25rem; right:1.25rem; width:2.5rem; height:2.5rem; border-radius:50%; border:none; background:rgba(0,0,0,0.08); cursor:pointer; font-size:1.1rem; display:flex; align-items:center; justify-content:center; color:var(--dark);">✕</button>
+    <div id="articleModalTag" style="margin-bottom:1rem;"></div>
+    <h2 id="articleModalTitle" class="font-serif" style="font-size:2rem; line-height:1.2; color:var(--dark); margin-bottom:0.5rem;"></h2>
+    <div id="articleModalBody" style="margin-top:1.5rem; font-size:1rem; line-height:1.85; color:var(--text);"></div>
+    <div style="margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.08); text-align:center;">
+      <a href="soutenir.html" class="btn-primary" style="margin-right:1rem;">
+        <i class="fa-solid fa-heart"></i> Soutenir Roland
+      </a>
+      <a href="sponsoring.html" class="btn-secondary">
+        <i class="fa-solid fa-handshake"></i> Devenir partenaire
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+const POSTS = {
+  neuro1: {
+    tag: '<span class="blog-tag tag-neuro">Neuroplasticité</span>',
+    title: 'La magie de la Neuroplasticité',
+    body: `
+      <p style="font-style:italic; color:var(--text-light); font-size:1.1rem; margin-bottom:1.5rem;">Le BDNF, la sérotonine, la dopamine : pendant la marche intensive, le cerveau baigne dans un cocktail neurochimique qui favorise la plasticité. Ce n'est pas de la poésie — c'est de la biologie.</p>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; margin:1.5rem 0 0.75rem;">Le cerveau n'est pas une machine figée</h3>
+      <p>On a longtemps cru que passé un certain âge, notre "disque dur" était gravé à jamais. La science prouve aujourd'hui le contraire grâce à la neuroplasticité. C'est la capacité fascinante de votre cerveau à se remodeler, à créer de nouveaux circuits et à "effacer" d'anciens schémas de pensée.</p>
+      <p style="margin-top:1rem;">Et devinez quel est l'un des activateurs les plus puissants de ce processus ? La marche au long cours.</p>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; margin:1.5rem 0 0.75rem;">Le "Miracle-Gro" des neurones</h3>
+      <p>En marchant 25 ou 30 km par jour, vous déclenchez la production de BDNF, une protéine que les chercheurs comparent à un "engrais" pour neurones. Cet engrais prépare le terrain pour :</p>
+      <ul style="margin:1rem 0 1rem 1.5rem; list-style:disc;">
+        <li style="margin-bottom:0.5rem;">Réparer vos connexions nerveuses.</li>
+        <li style="margin-bottom:0.5rem;">Améliorer votre clarté mentale.</li>
+        <li style="margin-bottom:0.5rem;">Ouvrir des fenêtres d'apprentissage inédites.</li>
+      </ul>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; margin:1.5rem 0 0.75rem;">Marcher pour "re-câbler" sa vie</h3>
+      <p>La marche intensive sur le chemin de Saint-Jacques n'est pas qu'un défi physique. C'est une opération à cerveau ouvert, mais sans bistouri. En plaçant votre corps dans cet état d'effort prolongé, vous forcez votre esprit à sortir de ses rails habituels.</p>
+      <p style="margin-top:1rem;">C'est là que la magie opère : les pensées tournent différemment, les blocages se dissolvent et de nouvelles perspectives apparaissent. Mais attention, ce "recâblage" ne se fait pas par hasard. Il existe des clés biologiques pour orienter cette plasticité vers un véritable changement durable.</p>
+      <blockquote style="border-left:3px solid var(--gold); padding:1rem 1.25rem; margin:1.5rem 0; background:rgba(240,165,0,0.06); border-radius:0 0.5rem 0.5rem 0; font-style:italic;">Vous sentez que votre esprit tourne en boucle ? Et si votre prochain périple était l'occasion de réinitialiser votre architecture intérieure ?</blockquote>
+      <p>Contactez-moi pour découvrir comment optimiser votre chimie cérébrale et faire de votre marche un véritable levier de transformation.</p>
+    `
+  },
+  tdah1: {
+    tag: '<span class="blog-tag tag-tdah">TDAH</span>',
+    title: 'Vivre avec le TDAH non diagnostiqué pendant plus de 30 ans',
+    body: `
+      <p style="font-style:italic; color:var(--text-light); font-size:1.1rem; margin-bottom:1.5rem;">Avant le diagnostic, il y avait juste cette sensation permanente d'être décalé, trop lent, trop rapide, jamais à sa place. Voici mon histoire.</p>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; margin:1.5rem 0 0.75rem;">Toutes ces années dans le brouillard</h3>
+      <p>Imaginez essayer de naviguer sur une mer agitée avec une boussole qui tourne à 360 degrés. Pour moi, le TDAH n'était pas une hyperactivité visible, c'était un vacarme intérieur. Une difficulté à filtrer les stimuli, une fatigue chronique à force de vouloir "faire comme les autres", et ce sentiment tenace de gâcher son potentiel.</p>
+      <p style="margin-top:1rem;">Pendant trois décennies, j'ai cru que c'était un défaut de fabrication. Un manque de volonté. Une faille de caractère.</p>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; margin:1.5rem 0 0.75rem;">Le déclic sur le chemin</h3>
+      <p>C'est souvent dans l'effort brut, là où le corps prend le relais sur le mental, que les masques tombent. Sur les sentiers de longue distance, j'ai découvert que mon cerveau ne fonctionnait pas "mal", il fonctionnait différemment.</p>
+      <p style="margin-top:1rem;">La marche intensive est devenue mon laboratoire de neurobiologie à ciel ouvert :</p>
+      <ul style="margin:1rem 0 1rem 1.5rem; list-style:disc;">
+        <li style="margin-bottom:0.5rem;">Pourquoi le mouvement linéaire apaisait-il enfin mes pensées ?</li>
+        <li style="margin-bottom:0.5rem;">Comment la dopamine, si rare chez nous, se libère-t-elle stratégiquement après 20 km ?</li>
+        <li style="margin-bottom:0.5rem;">Pourquoi ce "décalage" devenait-il une force d'endurance une fois sur le terrain ?</li>
+      </ul>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; margin:1.5rem 0 0.75rem;">Le diagnostic comme libération</h3>
+      <p>Mettre un mot sur plus de 30 ans de chaos a tout changé. Ce n'était pas une excuse, c'était un mode d'emploi. Comprendre la chimie de son propre cerveau, c'est arrêter de se battre contre soi-même pour enfin apprendre à piloter sa propre machine.</p>
+      <p style="margin-top:1rem;">Aujourd'hui, je ne vois plus mon TDAH comme un boulet, mais comme un moteur que j'ai appris à régler. Et le chemin de Saint-Jacques a été l'ingrédient principal de ce réglage.</p>
+      <blockquote style="border-left:3px solid var(--gold); padding:1rem 1.25rem; margin:1.5rem 0; background:rgba(240,165,0,0.06); border-radius:0 0.5rem 0.5rem 0; font-style:italic;">Vous aussi, vous avez cette sensation de marcher à côté de vos pompes, même dans la vie de tous les jours ? Parlons-en. Je vous accompagne pour transformer ce "trop-plein" en une énergie motrice, sur le chemin comme dans votre quotidien.</blockquote>
+    `
+  },
+  compo1: {
+    tag: '<span class="blog-tag tag-compostelle">Compostelle</span>',
+    title: 'De Saint-Maurice aux Pyrénées : Le Terrain de Reconstruction',
+    body: `
+      <p style="font-style:italic; color:var(--text-light); font-size:1.1rem; margin-bottom:1.5rem;">La marche de longue distance n'est pas une promenade, c'est une opération à cerveau ouvert. C'est un protocole de 1 900 km pour forcer la neuroplasticité, stabiliser le TDAH et sortir des circuits de l'addiction.</p>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; margin:1.5rem 0 0.75rem;">La phase d'amorce : Via Francigena &amp; Via Jacobi</h3>
+      <p>Mon expédition démarre à Saint-Maurice en Valais. Les premiers kilomètres sont les plus cruciaux pour le sevrage et la chimie mentale.</p>
+      <ul style="margin:1rem 0 1rem 1.5rem; list-style:disc;">
+        <li style="margin-bottom:0.75rem;"><strong>De Saint-Maurice à Lausanne (Via Francigena) :</strong> C'est ici que le corps commence à brûler les toxines et que le "bruit" mental commence à baisser.</li>
+        <li style="margin-bottom:0.75rem;"><strong>De Lausanne à Genève (Via Jacobi) :</strong> Une phase de stabilisation. On utilise le rythme du pas pour réguler la sérotonine et préparer le cerveau à l'effort long.</li>
+      </ul>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; margin:1.5rem 0 0.75rem;">Le cœur du réacteur : La Via Podiensis (GR65)</h3>
+      <p>Une fois le Puy-en-Velay atteint, j'attaque l'épine dorsale de ce protocole : 750 km à travers l'Auvergne, le Quercy et la Gascogne.</p>
+      <p style="margin-top:1rem;">Ce tracé est mon laboratoire de neurobiologie à ciel ouvert. J'y teste en conditions réelles :</p>
+      <ul style="margin:1rem 0 1rem 1.5rem; list-style:disc;">
+        <li style="margin-bottom:0.75rem;"><strong>Le sevrage dopaminergique :</strong> Comment le cerveau réapprend à produire sa propre récompense sans substances chimiques.</li>
+        <li style="margin-bottom:0.75rem;"><strong>La résilience TDAH :</strong> Utiliser l'effort brut pour canaliser l'hyperactivité et retrouver une concentration laser.</li>
+        <li style="margin-bottom:0.75rem;"><strong>La reconstruction nutritionnelle :</strong> Apporter au corps les briques nécessaires pour rebâtir les circuits neuronaux endommagés.</li>
+      </ul>
+      <blockquote style="border-left:3px solid var(--green-mid); padding:1rem 1.25rem; margin:1.5rem 0; background:rgba(45,140,122,0.06); border-radius:0 0.5rem 0.5rem 0; font-style:italic;">Vous avez l'impression que votre cerveau est votre pire ennemi ? Je parcours ces sentiers pour prouver que l'on peut reprendre les commandes de sa propre biologie. Ne vous contentez pas de survivre à votre quotidien — venez découvrir comment recâbler votre moteur intérieur.</blockquote>
+      <p style="text-align:center; margin-top:1.5rem;"><a href="contact.html" class="btn-green">Contactez-moi pour construire votre protocole de changement</a></p>
+    `
+  },
+  addict1: {
+    tag: '<span class="blog-tag tag-addictions">Addictions</span>',
+    title: 'TDA / TDAH & Addictions : Le lien neurologique qu\'on n\'ose pas nommer',
+    body: `
+      <p style="font-style:italic; color:var(--text-light); font-size:1.1rem; margin-bottom:1.5rem;">Alcool, médicaments, cigarette, écrans... Pourquoi les personnes TDAH / TDA sont-elles statistiquement plus à risque ? Ce n'est pas une question de "manque de volonté", c'est une question de recherche de survie neurologique.</p>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; margin:1.5rem 0 0.75rem;">La quête désespérée de Dopamine</h3>
+      <p>Le cerveau TDAH vit dans un état de famine dopaminergique permanente. La dopamine est le neurotransmetteur de la concentration, de la motivation et du plaisir. Quand le réservoir est vide, le cerveau panique et cherche une solution rapide pour "allumer la lumière".</p>
+      <ul style="margin:1rem 0 1rem 1.5rem; list-style:disc;">
+        <li style="margin-bottom:0.75rem;"><strong>L'alcool et les médicaments :</strong> Pour calmer le brouhaha mental et l'anxiété de ne pas être "assez".</li>
+        <li style="margin-bottom:0.75rem;"><strong>La cigarette :</strong> La nicotine est un stimulant qui mime l'effet de certains traitements TDAH, offrant une béquille de concentration éphémère.</li>
+        <li style="margin-bottom:0.75rem;"><strong>Les addictions comportementales :</strong> Pour le "shoot" immédiat qui fait oublier le vide.</li>
+      </ul>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; margin:1.5rem 0 0.75rem;">L'automédication inconsciente</h3>
+      <p>Pendant plus de 30 ans, sans le savoir, j'ai peut-être — comme vous — utilisé ces substances pour essayer de réguler un cerveau que je ne comprenais pas. On n'appelle pas ça une addiction par plaisir, on appelle ça de l'automédication. On cherche à se sentir "normal", juste un instant.</p>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; margin:1.5rem 0 0.75rem;">Pourquoi comprendre ce mécanisme change tout ?</h3>
+      <p>La honte est le carburant de l'addiction. En comprenant que votre cerveau cherche simplement à compenser un déficit biologique, vous changez de regard :</p>
+      <ul style="margin:1rem 0 1rem 1.5rem; list-style:disc;">
+        <li style="margin-bottom:0.75rem;"><strong>On déculpabilise :</strong> Vous n'êtes pas "faible", votre chimie est déséquilibrée.</li>
+        <li style="margin-bottom:0.75rem;"><strong>On remplace :</strong> On apprend à donner au cerveau ce dont il a besoin (nutrition, marche intensive, compléments) pour qu'il arrête de réclamer des substances toxiques.</li>
+        <li style="margin-bottom:0.75rem;"><strong>On se libère :</strong> La connaissance est le premier pas vers le sevrage durable.</li>
+      </ul>
+      <blockquote style="border-left:3px solid #c0392b; padding:1rem 1.25rem; margin:1.5rem 0; background:rgba(192,57,43,0.05); border-radius:0 0.5rem 0.5rem 0; font-style:italic;">Vous avez l'impression d'être prisonnier d'une béquille qui vous détruit ? Comprendre votre câblage TDA / TDAH est la clé pour briser les chaînes. Ne restez pas seul avec ce poids — transformons ensemble cette quête de dopamine en une énergie constructive.</blockquote>
+    `
+  },
+  nutri1: {
+    tag: '<span class="blog-tag tag-nutrition">Nutrition</span>',
+    title: 'La Nutrition : La base chimique de votre liberté',
+    body: `
+      <p style="font-style:italic; color:var(--text-light); font-size:1.1rem; margin-bottom:1.5rem;">On pense souvent que l'addiction ou le mal-être sont une question de "volonté". C'est oublier que votre cerveau est une machine biologique. Sans les bons composants, il ne peut pas fabriquer la chimie du bonheur et de la stabilité.</p>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; margin:1.5rem 0 0.75rem;">Sortir des addictions : Une bataille de neurotransmetteurs</h3>
+      <p>Que ce soit le sucre, les écrans ou des substances plus fortes, l'addiction "pirate" votre circuit de la récompense. Elle épuise vos stocks de dopamine. Résultat ? Vous vous sentez vide, anxieux, incapable de ressentir du plaisir sans votre "dose".</p>
+      <p style="margin-top:1rem;">Pour sortir de ce cercle vicieux, il ne suffit pas d'arrêter. Il faut reconstruire.</p>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; margin:1.5rem 0 0.75rem;">L'assiette, votre première pharmacie</h3>
+      <p>Votre cerveau fabrique ses messagers chimiques à partir de ce que vous mangez :</p>
+      <ul style="margin:1rem 0 1rem 1.5rem; list-style:disc;">
+        <li style="margin-bottom:0.75rem;"><strong>Les protéines (Tyrosine) :</strong> Sans elles, pas de dopamine. Pas de dopamine, pas de motivation pour se lever et marcher.</li>
+        <li style="margin-bottom:0.75rem;"><strong>Le Magnésium et les Oméga-3 :</strong> Ils sont les isolants de vos câbles électriques cérébraux. Ils calment l'inflammation qui brouille vos pensées.</li>
+        <li style="margin-bottom:0.75rem;"><strong>La Complémentation ciblée :</strong> Parfois, après des années de stress ou d'addiction, le réservoir est tellement vide que l'alimentation seule ne suffit pas au départ. C'est là que des compléments spécifiques interviennent pour "rallumer la mèche".</li>
+      </ul>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; margin:1.5rem 0 0.75rem;">Pourquoi c'est la base de mon accompagnement</h3>
+      <p>Sur le chemin de Saint-Jacques, j'ai compris qu'on ne peut pas demander à un moteur de faire 30 km avec du mauvais carburant. C'est la même chose pour votre santé mentale.</p>
+      <p style="margin-top:1rem;">Apprendre à nourrir son cerveau, c'est lui redonner les moyens de résister aux pulsions et de retrouver une clarté que vous pensiez perdue. C'est transformer votre biologie pour libérer votre psychologie.</p>
+      <blockquote style="border-left:3px solid #c45e10; padding:1rem 1.25rem; margin:1.5rem 0; background:rgba(196,94,16,0.05); border-radius:0 0.5rem 0.5rem 0; font-style:italic;">Votre alimentation est-elle votre alliée ou votre sabotrice ? Découvrez comment une stratégie nutritionnelle adaptée peut devenir votre meilleur outil de sevrage et de reconstruction. Contactez-moi pour établir votre protocole de "carburant mental".</blockquote>
+    `
+  }
+};
+
+POSTS['train1'] = {
+    tag: '<span class="blog-tag tag-entrainement">Entraînement</span>',
+    title: 'Jour 1 à 10 : La confrontation avec le réel',
+    body: `
+      <p style="font-style:italic; color:var(--text-light); font-size:1.1rem; margin-bottom:1.5rem;">Je viens de boucler mes 10 premiers jours de préparation intensive. C'est le moment où l'excitation du projet rencontre la dureté du terrain.</p>
+      <ul style="margin:0 0 1.5rem 1.5rem; list-style:disc;">
+        <li style="margin-bottom:0.75rem;"><strong>Le choc physique :</strong> Sortir du mode "théorique" pour confronter mes muscles et mon cerveau TDAH à la répétition du pas.</li>
+        <li style="margin-bottom:0.75rem;"><strong>La gestion du "Drive" :</strong> Apprendre à ne pas tout donner le premier jour pour tenir sur la durée. C'est ma première leçon de gestion de la dopamine : l'endurance est une économie, pas une dépense aveugle.</li>
+      </ul>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; margin:1.5rem 0 0.75rem;">Ce que j'ai déjà appris (à mes dépens)</h3>
+      <p>Ces 10 jours ont été un condensé d'enseignements :</p>
+      <ul style="margin:1rem 0 1rem 1.5rem; list-style:disc;">
+        <li style="margin-bottom:0.75rem;"><strong>L'erreur classique :</strong> Vouloir brûler les étapes. Le cerveau veut aller vite, mais les tendons demandent du temps. J'ai dû recalibrer mon impatience.</li>
+        <li style="margin-bottom:0.75rem;"><strong>La victoire biologique :</strong> Sentir les premiers effets du "cocktail neurochimique" après 15 km. Cette clarté mentale que je recherche commence à pointer le bout de son nez.</li>
+      </ul>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; margin:1.5rem 0 0.75rem;">Le programme des 6 prochains mois</h3>
+      <p>Mon entraînement est un protocole strict de patience neurologique :</p>
+      <ul style="margin:1rem 0 1rem 1.5rem; list-style:disc;">
+        <li style="margin-bottom:0.75rem;"><strong>Phase 1 (Actuelle) :</strong> Adaptation mécanique et tests de charge progressive autour de Martigny.</li>
+        <li style="margin-bottom:0.75rem;"><strong>Phase 2 :</strong> Optimisation de la nutrition en plein effort. Quels compléments pour éviter le crash de 14h ?</li>
+        <li style="margin-bottom:0.75rem;"><strong>Phase 3 :</strong> Sorties "chocs" de plusieurs jours pour simuler la fatigue accumulée de la Via Jacobi.</li>
+      </ul>
+      <blockquote style="border-left:3px solid #6610f2; padding:1rem 1.25rem; margin:1.5rem 0; background:rgba(102,16,242,0.04); border-radius:0 0.5rem 0.5rem 0; font-style:italic;">Vous voulez suivre ma progression ou comprendre comment je gère mes premières difficultés ? Je partage ici mes réglages, mes doutes et mes solutions concrètes. Ne restez pas spectateur de votre changement : regardez comment on construit une résilience, jour après jour.</blockquote>
+    `
+  };
+
+document.querySelectorAll('.open-post').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    var id = this.getAttribute('data-post');
+    var post = POSTS[id];
+    if (!post) return;
+    document.getElementById('articleModalTag').innerHTML = post.tag;
+    document.getElementById('articleModalTitle').textContent = post.title;
+    document.getElementById('articleModalBody').innerHTML = post.body;
+    var modal = document.getElementById('articleModal');
+    modal.style.display = 'block';
+    modal.scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+function closePost() {
+  document.getElementById('articleModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+document.getElementById('articleModal').addEventListener('click', function(e) {
+  if (e.target === this) closePost();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closePost();
+});
+
+// ═══ CHARGEMENT POSTS DYNAMIQUES (ADMIN) ═══
+(async function() {
+  try {
+    const res = await fetch('api/posts.php');
+    const posts = await res.json();
+    if (!posts.length) return;
+
+    const container = document.getElementById('dynamicPosts');
+    const typeIcons = { journal: '📔', etape: '📍', entrainement: '🏃', neuro: '🧠' };
+    const typeColors = {
+      journal: 'linear-gradient(135deg, #1a2332, #3B9BB0)',
+      etape: 'linear-gradient(135deg, #0f3d35, #1E6B5E, #2D8C7A)',
+      entrainement: 'linear-gradient(135deg, #1a1a2e, #3a3a6e, #6610f2)',
+      neuro: 'linear-gradient(135deg, #1a2e4a, #3B9BB0, #2D8C7A)'
+    };
+
+    posts.forEach(function(p) {
+      var card = document.createElement('article');
+      card.className = 'blog-card reveal visible';
+      card.style.overflow = 'hidden';
+      card.style.borderRadius = '1rem';
+      card.style.background = 'white';
+      card.style.boxShadow = '0 4px 24px rgba(0,0,0,0.08)';
+
+      var date = new Date(p.created_at * 1000);
+      var dateStr = date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' });
+      var icon = p.youtube ? '🎬' : (typeIcons[p.type] || '📝');
+
+      // Media : YouTube ou images ou gradient
+      var mediaHtml = '';
+      if (p.youtube) {
+        mediaHtml = '<div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">'
+          + '<iframe src="https://www.youtube.com/embed/' + p.youtube + '" '
+          + 'style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" '
+          + 'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" '
+          + 'allowfullscreen loading="lazy"></iframe></div>';
+      } else if (p.images && p.images.length) {
+        var img = p.images[0];
+        if (img.match(/\.(mp4|mov)$/i)) {
+          mediaHtml = '<video controls preload="metadata" style="width:100%; max-height:280px; background:#1a2332; display:block;">'
+            + '<source src="' + img + '" type="video/mp4"></video>';
+        } else {
+          mediaHtml = '<div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; background:#f0f0f0;">'
+            + '<img src="' + img + '" alt="' + (p.title || '') + '" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:center 35%; display:block;" loading="lazy">'
+            + '</div>';
+        }
+      } else {
+        var bg = typeColors[p.type] || typeColors.journal;
+        mediaHtml = '<div style="height:180px; background:' + bg + '; display:flex; align-items:center; justify-content:center;">'
+          + '<div style="text-align:center; color:white;"><div style="font-size:3rem; opacity:0.8;">' + icon + '</div></div></div>';
+      }
+
+      // Contenu tronqué avec expand
+      var fullContent = p.content || '';
+      var isTruncated = fullContent.length > 200;
+      var excerpt = isTruncated ? fullContent.substring(0, 200) + '…' : fullContent;
+      var contentHtml = '<p class="post-excerpt" style="font-size:0.85rem; color:rgba(26,35,50,0.6); line-height:1.6; margin-bottom:0.25rem;">' + excerpt + '</p>';
+      if (isTruncated) {
+        contentHtml += '<p class="post-full" style="font-size:0.85rem; color:rgba(26,35,50,0.6); line-height:1.6; margin-bottom:0.25rem; display:none;">' + fullContent + '</p>'
+          + '<button class="post-toggle" style="font-size:0.78rem; color:var(--green-mid); background:none; border:none; cursor:pointer; padding:0; margin-bottom:0.5rem; font-weight:600;">Lire la suite</button>';
+      }
+
+      card.innerHTML = mediaHtml
+        + '<div style="padding:1.25rem;">'
+        + '  <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">'
+        + '    <span style="font-size:1.2rem;">' + icon + '</span>'
+        + '    <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:rgba(26,35,50,0.45); font-weight:600;">' + (p.type || 'journal') + '</span>'
+        + (p.location ? '<span style="font-size:0.7rem; color:rgba(26,35,50,0.35);">· ' + p.location + '</span>' : '')
+        + (p.km ? '<span style="font-size:0.7rem; color:var(--green-mid); font-weight:600;">' + p.km + '</span>' : '')
+        + '  </div>'
+        + '  <h3 style="font-family:Cormorant Garamond,Georgia,serif; font-size:1.25rem; margin-bottom:0.5rem; line-height:1.3; color:#1a2332;">' + (p.title || '') + '</h3>'
+        + contentHtml
+        + (p.url ? '<a href="' + p.url + '" target="_blank" rel="noopener" style="display:inline-block; font-size:0.78rem; color:var(--green-mid); font-weight:600; margin-bottom:0.35rem; word-break:break-all;">🔗 ' + p.url.replace(/^https?:\/\//, '') + '</a>' : '')
+        + '  <div style="font-size:0.75rem; color:rgba(26,35,50,0.35); margin-top:0.5rem;">' + dateStr + '</div>'
+        + '</div>';
+
+      if (isTruncated) {
+        var btn = card.querySelector('.post-toggle');
+        btn.addEventListener('click', function() {
+          var excerptEl = card.querySelector('.post-excerpt');
+          var fullEl = card.querySelector('.post-full');
+          var expanded = fullEl.style.display !== 'none';
+          excerptEl.style.display = expanded ? '' : 'none';
+          fullEl.style.display = expanded ? 'none' : '';
+          btn.textContent = expanded ? 'Lire la suite' : 'Réduire';
+        });
+      }
+
+      container.appendChild(card);
+    });
+
+    container.style.display = '';
+
+    // Les vidéos YouTube sont déjà affichées dans le flux principal ci-dessus
+  } catch(e) {
+    // Silencieux si pas de posts
+  }
+})();
+
+// ═══ FORMULAIRE NEWSLETTER ═══
+var nlForm = document.getElementById('nl-form');
+if (nlForm) {
+  nlForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var email = this.querySelector('input[name=email]').value;
+    var nom = this.querySelector('input[name=nom]').value;
+    var btn = this.querySelector('button');
+    var msg = document.getElementById('nl-msg');
+    btn.disabled = true;
+    try {
+      var res = await fetch('api/newsletter.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({email: email, nom: nom})
+      });
+      var data = await res.json();
+      if (data.ok) {
+        msg.textContent = 'Inscription confirmée !';
+        msg.style.color = '#6de0c8';
+        msg.style.display = 'block';
+        nlForm.reset();
+      } else {
+        throw new Error(data.error || 'Erreur');
+      }
+    } catch(err) {
+      msg.textContent = err.message || 'Erreur, réessaie';
+      msg.style.color = '#ff8080';
+      msg.style.display = 'block';
+    }
+    btn.disabled = false;
+  });
+}
+</script>
+  <script src="js/newsletter.js"></script>
+  <script>
+    initNewsletterForm('footerNewsletter_journal');
+    initNewsletterForm('journalNewsletter');
+  </script>
 </body>
 </html>

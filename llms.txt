@@ -1,0 +1,48 @@
+# La Neuro-Odyssée
+
+## Identity
+- Name: La Neuro-Odyssée
+- Person: Roland Crettaz
+- URL: https://www.neuro-odyssee.com
+- Language: French (primary), English, German, Italian
+- Location: Saint-Maurice, Valais, Switzerland
+
+## Project
+Roland Crettaz walks 1,900 km from Saint-Maurice (Switzerland) to Santiago de Compostela to rebuild himself after a late ADHD diagnosis and addictions. The journey is a live neuroplasticity experiment combining intensive walking, neuroscience, nutrition, and coaching.
+
+## Mission
+Prove that the brain can rewire itself through long-distance walking. Document the biological and psychological transformation in real time, and offer a coaching model based on personal experience.
+
+## Services
+- Neuroscience-based coaching (ADHD, addictions, burnout)
+- Corporate keynote speaking on mental resilience and neuroplasticity
+- Sponsorship packages for companies aligned with well-being and sport
+- Online club (Le Club Neuro-Odyssée) for followers and supporters
+
+## Route
+Saint-Maurice (VS) → Lausanne (Via Francigena) → Geneva (Via Jacobi) → Le Puy-en-Velay → Conques → Cahors → Figeac → Saint-Jean-Pied-de-Port → Pamplona → Burgos → León → Santiago de Compostela
+
+## Key Facts
+- Distance: 1,900 km
+- Duration: ~6 months
+- Condition treated: ADHD (diagnosed at 40+), addictions, burnout
+- Scientific basis: BDNF production, neuroplasticity, dopamine regulation
+- Book: "Voyage au cœur de la résilience" by Roland Crettaz (December 2025)
+
+## Pages
+- / — Home, mission, live stats, sponsors
+- /trajet.html — The 1,900 km route explained
+- /preparation.html — Physical and mental preparation protocol
+- /journal.html — Live blog: neuroplasticity, ADHD, addictions, Compostela
+- /sponsoring.html — Partnership packages (Bronze/Silver/Gold/Platinum)
+- /soutenir.html — Donate and sponsor km
+- /club.html — Join the supporters club
+- /contact.html — Contact Roland
+
+## Contact
+- Email: roland@neuro-odyssee.com
+- Instagram: @neuroodyssee
+- YouTube: La Neuro-Odyssée
+
+## Creator
+Website built in Valais by IAsmart.tech (https://iasmart.tech)

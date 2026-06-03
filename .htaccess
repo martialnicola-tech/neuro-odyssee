@@ -1,0 +1,6 @@
+Options -Indexes
+
+# Redirection non-www → www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^neuro-odyssee\.com$ [NC]
+RewriteRule ^(.*)$ https://www.neuro-odyssee.com/$1 [R=301,L]

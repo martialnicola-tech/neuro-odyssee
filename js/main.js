@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function updateKmCalculator(km) {
     km = Math.max(1, Math.min(1900, parseInt(km) || 1));
-    const price = km * 10;
+    const price = Math.max(27, Math.round(km * 25.79)); // 490€ / 19 km = 25.79€/km
 
     if (kmPrice) kmPrice.textContent = price.toLocaleString('fr-FR') + ' €';
 
@@ -202,37 +202,43 @@ document.addEventListener('DOMContentLoaded', function() {
       kmSlider.style.background = `linear-gradient(to right, var(--green-mid) 0%, var(--green-mid) ${pct}%, rgba(45,140,122,0.15) ${pct}%, rgba(45,140,122,0.15) 100%)`;
     }
 
-    // Determine tier
-    let tier = '', tierClass = '', desc = '';
-    if (km <= 50) {
-      tier = 'Bronze';
-      tierClass = 'bronze';
-      desc = 'Logo sur le site + mention dans les vidéos YouTube';
-    } else if (km <= 200) {
-      tier = 'Argent';
-      tierClass = 'silver';
-      desc = 'Logo sur le site, mention vidéos + logo dans le documentaire + mention dans le livre';
-    } else if (km <= 500) {
-      tier = 'Or';
-      tierClass = 'gold';
-      desc = 'Logo premium, entretien exclusif, dédicace personnalisée + tous les avantages Argent';
-    } else {
-      tier = 'Platine';
-      tierClass = 'platinum';
-      desc = 'Partenaire officiel, co-branding, invitation à la conférence + tous les avantages Or';
-    }
+    // Determine tier based on pack thresholds (19 / 57 / 114 / 190 km)
+    const TIERS = [
+      { min: 0,   max: 18,  name: 'Bronze',  cls: 'bronze',   desc: 'Logo sur le site + mention dans les vidéos YouTube',                                       next: 19,  nextName: 'Bronze'  },
+      { min: 19,  max: 56,  name: 'Bronze',  cls: 'bronze',   desc: 'Logo sur le site + mention dans les vidéos YouTube',                                       next: 57,  nextName: 'Argent'  },
+      { min: 57,  max: 113, name: 'Argent',  cls: 'silver',   desc: 'Logo sur le site, documentaire, mention dans le livre + post réseaux sociaux',             next: 114, nextName: 'Or'      },
+      { min: 114, max: 189, name: 'Or',      cls: 'gold',     desc: 'Logo premium, entretien exclusif, dédicace personnalisée + tous les avantages Argent',     next: 190, nextName: 'Platine' },
+      { min: 190, max: 1900,name: 'Platine', cls: 'platinum', desc: 'Partenaire officiel, co-branding, conférence dans votre entreprise + tous les avantages Or', next: null, nextName: null   },
+    ];
+
+    const t = TIERS.find(t => km >= t.min && km <= t.max) || TIERS[TIERS.length - 1];
 
     if (kmTierBadge) {
-      kmTierBadge.textContent = tier;
-      kmTierBadge.className = `tier-color font-bold text-lg ${tierClass}`;
+      kmTierBadge.textContent = t.name;
+      kmTierBadge.className = `tier-color font-bold text-lg ${t.cls}`;
     }
-    if (kmTierDesc) kmTierDesc.textContent = desc;
+    if (kmTierDesc) kmTierDesc.textContent = t.desc;
+
+    // "Il vous manque X km" message
+    const kmNextEl = document.getElementById('kmNextTier');
+    if (kmNextEl) {
+      if (t.next !== null && km < t.next) {
+        const manque = t.next - km;
+        kmNextEl.innerHTML = `<span style="color:var(--gold); font-weight:600;">+${manque} km</span> pour atteindre le niveau <strong>${t.nextName}</strong>`;
+        kmNextEl.style.display = 'block';
+      } else if (t.next === null) {
+        kmNextEl.innerHTML = `<span style="color:var(--green-mid);">🏆 Niveau maximum — Partenaire Officiel</span>`;
+        kmNextEl.style.display = 'block';
+      } else {
+        kmNextEl.style.display = 'none';
+      }
+    }
 
     // Highlight corresponding tier card
     document.querySelectorAll('.sponsor-tier').forEach(card => {
       card.style.outline = 'none';
     });
-    const tierCard = document.querySelector(`.sponsor-tier.${tierClass}`);
+    const tierCard = document.querySelector(`.sponsor-tier.${t.cls}`);
     if (tierCard) {
       tierCard.style.outline = '3px solid var(--gold)';
       tierCard.style.outlineOffset = '2px';
@@ -251,6 +257,11 @@ document.addEventListener('DOMContentLoaded', function() {
       if (kmSlider) kmSlider.value = this.value;
       updateKmCalculator(this.value);
     });
+  }
+
+  // Init calculator display on load
+  if (kmSlider || kmInput) {
+    updateKmCalculator((kmInput && kmInput.value) || 50);
   }
 
   // ============================================
@@ -544,6 +555,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const collectes = stats.collectes     || 0;
       const dons      = stats.dons          || 0;
 
+      // km financés = km sponsoring entreprises + km équivalents des dons particuliers (22€/km)
+      const kmDons  = Math.floor(collectes / 22);
+      const kmTotal = km + kmDons;
+
       // Barre km adoptés
       const kmBar          = document.getElementById('kmBar');
       const kmAdoptesEl    = document.getElementById('kmAdoptes');
@@ -552,10 +567,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (kmBar) {
         setTimeout(() => {
-          const pct = Math.min((km / 1900) * 100, 100);
+          const pct = Math.min((kmTotal / 1900) * 100, 100);
           kmBar.style.width = pct + '%';
-          if (kmAdoptesEl)    kmAdoptesEl.textContent    = km.toLocaleString('fr-CH');
-          if (kmRestantsEl)   kmRestantsEl.textContent   = (1900 - km).toLocaleString('fr-CH');
+          if (kmAdoptesEl)    kmAdoptesEl.textContent    = kmTotal.toLocaleString('fr-CH');
+          if (kmRestantsEl)   kmRestantsEl.textContent   = Math.max(0, 1900 - kmTotal).toLocaleString('fr-CH');
           if (nbPartenairesEl) nbPartenairesEl.textContent = sponsors;
         }, 400);
       }

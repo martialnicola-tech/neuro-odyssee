@@ -1,0 +1,121 @@
+# La Neuro-Odyssée — Full Reference
+
+## Person: Roland Crettaz
+
+- Full name: Roland Crettaz
+- Nationality: Swiss
+- Location: Saint-Maurice, Valais, Switzerland
+- Languages: French, German, English
+- Diagnosed: ADHD (TDA/TDAH) at age 40+
+- Background: Entrepreneur, coach, author, speaker
+- Book: "Voyage au cœur de la résilience — Un chemin vers l'énergie positive" (Broché, December 2025)
+- Email: roland@neuro-odyssee.com
+
+## The Neuro-Odyssée Project
+
+Roland Crettaz walks 1,900 km from Saint-Maurice, Switzerland to Santiago de Compostela, Spain. This is not a tourism project — it is a live, documented neurological reconstruction protocol.
+
+### Why this walk?
+After a late ADHD diagnosis combined with substance addiction and burnout, Roland chose walking as his therapy. Science supports this: intensive long-distance walking triggers:
+- BDNF production (the "Miracle-Gro" for neurons)
+- Dopamine regulation through rhythmic movement
+- Serotonin stabilization
+- Prefrontal cortex strengthening
+- Creation of new neural pathways (neuroplasticity)
+
+### What makes it unique?
+- 100% documented in real time (journal, photos, videos)
+- Scientific basis (neuroscience, nutrition, neuroplasticity)
+- Personal story: ADHD + addiction + late diagnosis + reconstruction
+- Coaching model derived from lived experience
+- Open to sponsors and supporters who fund "km parrainés"
+
+## The Route (1,900 km)
+
+1. Saint-Maurice → Lausanne (Via Francigena, Valais)
+2. Lausanne → Geneva (Via Jacobi)
+3. Geneva → Le Puy-en-Velay (France)
+4. Le Puy → Conques → Figeac → Cahors (GR65 / Via Podiensis)
+5. Cahors → Saint-Jean-Pied-de-Port (Pyrenean foothills)
+6. SJPP → Pamplona → Logroño → Burgos → León (Camino Francés)
+7. León → O Cebreiro → Santiago de Compostela
+
+## Scientific Foundations
+
+### Neuroplasticity
+The brain's ability to form new connections at any age. Activated by sustained aerobic exercise, BDNF floods the hippocampus, creating optimal conditions for rewiring old trauma and addiction circuits.
+
+### ADHD Management Without Medication
+Long-distance walking regulates dopamine naturally. The repetitive, linear movement calms the hyperactive ADHD brain and provides the focus normally unavailable in sedentary environments.
+
+### Addiction Recovery
+Addiction hijacks the dopamine reward circuit. Walking reclaims this circuit by providing natural dopamine hits at sustained intervals, reducing the craving for external substances.
+
+### Nutrition Protocol
+Roland documents his nutritional protocol: protein intake (tyrosine for dopamine), magnesium + omega-3 (neural insulation), targeted supplementation (Vivomixx neo probiotics for gut-brain axis).
+
+## Coaching Services
+
+Roland Crettaz offers neuroscience-based coaching for:
+- Adults with ADHD (diagnosed or suspected)
+- People in addiction recovery
+- Burnout sufferers
+- Corporate teams (keynote: "Rewire Your Brain")
+- Individuals seeking radical life change
+
+### Packages
+- Personal coaching (1:1)
+- Corporate keynote speaking
+- Webinars and online programs
+- The Neuro-Odyssée Club (community of followers and clients)
+
+## Sponsorship Packages
+
+| Package | Price | Benefits |
+|---------|-------|---------|
+| Bronze | €250 | Logo on site, social mention |
+| Silver | €500 | Logo + article + newsletter |
+| Gold | €1,000 | Logo + article + podcast + coaching session |
+| Platinum | €2,500 | Full partner: visibility on all channels + conference |
+| Free donation | Any amount | Fund km parrainés |
+
+Official sponsor: Vivomixx neo (Mendes Swiss) — probiotics and digestive wellness.
+
+## FAQ
+
+**Q: Is this a real pilgrimage or a publicity stunt?**
+A: It is a genuine 1,900 km walk, rooted in personal transformation. Roland is a real person with real ADHD and recovery challenges. The journey is documented transparently.
+
+**Q: What is neuroplasticity?**
+A: The brain's scientifically proven ability to rewire itself by forming new neural connections. Long-distance walking is one of the most powerful triggers of this process.
+
+**Q: Can I donate without a company?**
+A: Yes. On the "Soutenir" page, individuals can donate from €5 and sponsor km of Roland's walk. Each km contributes to his progress counter.
+
+**Q: How can I follow the journey?**
+A: Via the live Journal on the website, Instagram @neuroodyssee, YouTube "La Neuro-Odyssée", and by joining Le Club Neuro-Odyssée.
+
+**Q: Who can benefit from Roland's coaching?**
+A: Adults feeling "stuck" — ADHD (diagnosed or not), recovering from addiction, burnout, or simply seeking to understand and optimize their brain chemistry.
+
+**Q: Is Roland medically supervised?**
+A: Yes. The walk and recovery protocol are conducted with medical awareness. Roland partners with Vivomixx neo (probiotics) and follows a nutritional protocol designed for long-distance athletic endurance.
+
+## Testimonials and Social Proof
+- Funded by supporters across Switzerland and France
+- Sponsors: Vivomixx neo, IAsmart.tech (web/AI)
+- Media coverage: in progress
+- Growing YouTube and Instagram following
+
+## Website Structure
+- Home (/) — Mission, live stats, sponsors, newsletter
+- Le Trajet (/trajet.html) — Full route map and stage breakdown
+- Préparation (/preparation.html) — Physical and mental prep protocol, gear, sponsors
+- Journal (/journal.html) — Live blog posts on neuroplasticity, ADHD, Compostela, training
+- Sponsoring (/sponsoring.html) — B2B partnership packages
+- Soutenir (/soutenir.html) — Individual donations and km sponsorship
+- Club (/club.html) — Supporter community
+- Contact (/contact.html) — Direct contact form
+
+## Creator
+🇨🇭 Built in Valais by IAsmart.tech — https://iasmart.tech

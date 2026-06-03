@@ -780,6 +780,7 @@ img {
 .tag-compostelle { background: rgba(45,140,122,0.12); color: var(--green-deep); }
 .tag-addictions { background: rgba(220,53,69,0.1); color: #c82333; }
 .tag-entrainement { background: rgba(102,16,242,0.1); color: #6610f2; }
+.tag-nutrition { background: rgba(230,120,50,0.12); color: #c45e10; }
 .tag-tous { background: rgba(45,140,122,0.12); color: var(--green-deep); }
 
 .filter-btn {
@@ -1531,6 +1532,20 @@ textarea.form-input {
 /* ============================================
    SOUTENIR PAGE — Donation components
    ============================================ */
+
+/* 5 colonnes desktop, 2 colonnes mobile avec 100€ pleine largeur */
+.don-amounts-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+@media (max-width: 640px) {
+  .don-amounts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .don-amounts-grid .don-amount-btn:nth-child(5) {
+    grid-column: 1 / -1;
+  }
+}
 
 .don-amount-btn {
   padding: 1rem;

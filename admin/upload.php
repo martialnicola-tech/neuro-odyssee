@@ -23,6 +23,20 @@ $content  = trim($_POST['content']  ?? '');
 $type     = trim($_POST['type']     ?? 'journal');
 $location = trim($_POST['location'] ?? '');
 $km       = trim($_POST['km']       ?? '');
+$youtube  = trim($_POST['youtube']  ?? '');
+$cropRaw  = trim($_POST['crop'] ?? '50');
+$crop     = is_numeric($cropRaw) ? max(0, min(100, (int)$cropRaw)) : 50;
+
+// Extraire l'ID YouTube depuis différents formats d'URL
+$youtubeId = '';
+if ($youtube) {
+    if (preg_match('/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/shorts\/|youtube\.com\/live\/)([a-zA-Z0-9_-]{11})/', $youtube, $m)) {
+        $youtubeId = $m[1];
+    } elseif (preg_match('/^[a-zA-Z0-9_-]{11}$/', $youtube)) {
+        // ID brut collé directement
+        $youtubeId = $youtube;
+    }
+}
 
 if (empty($title)) {
     header('Location: dashboard.php?error=Titre+obligatoire');
@@ -56,6 +70,8 @@ $post = [
     'location'   => htmlspecialchars($location),
     'km'         => htmlspecialchars($km),
     'images'     => $uploadedFiles,
+    'youtube'    => $youtubeId,
+    'crop'       => $crop,
     'created_at' => time(),
     'published'  => true,
 ];

@@ -1,0 +1,298 @@
+[
+  {
+    "key": "club_welcome",
+    "type": "club",
+    "delay_days": 0,
+    "actif": true,
+    "subject": "[J-140] Bienvenue dans le Club — le compte à rebours commence",
+    "body": "Bienvenue dans le Club Neuro-Odyssée, {prenom} !\n\n1 900 km. C'est la distance qui sépare Saint-Maurice de Santiago de Compostela. Et dans 140 jours, je pars.\n\nÀ travers cette série d'emails, tu vas vivre l'intégralité de l'aventure de l'intérieur — depuis la genèse du projet jusqu'à l'arrivée à Santiago. Les doutes, les peurs, le diagnostic TDAH, les neurosciences, l'entraînement, le départ, et chaque étape du chemin. Même si Roland est déjà en route, tu recevras toute l'histoire dans l'ordre, comme si tu y étais dès le premier jour.\n\nCe que tu vas recevoir en tant que membre du Club :\n\n  - La genèse du projet — comment et pourquoi tout a commencé\n  - Les coulisses de la préparation — J-140 jusqu'au départ\n  - Du contenu exclusif sur les neurosciences et le TDAH\n  - Un accès prioritaire aux futurs événements et au livre\n\nChaque email sera un jalon sur la route. Le compte à rebours est lancé.\n\nTu veux aller plus loin ? Découvre les packs de soutien et reçois des ebooks exclusifs :\nhttps://www.neuro-odyssee.com/soutenir.html\n\nOn se retrouve dans 7 jours.\n\nRoland Crettaz\nLa Neuro-Odyssée\nwww.neuro-odyssee.com\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour7",
+    "type": "club",
+    "delay_days": 7,
+    "actif": true,
+    "subject": "[J-133] L'idée — comment tout a commencé",
+    "body": "Salut {prenom},\n\nAvant de te parler du voyage, il faut que je te parle du moment où l'idée est née.\n\nC'était un dimanche soir. Un de ces dimanches où tu sens que la semaine qui arrive va être la même que la précédente. Que rien ne change. Que ton cerveau tourne en boucle sans jamais avancer.\n\nJ'étais sur YouTube — le TDAH classique, tu passes d'une vidéo à l'autre sans but — et je suis tombé sur un documentaire. Un type qui avait tout plaqué pour marcher le Camino de Santiago. Pas un sportif, pas un aventurier. Un gars ordinaire qui disait : « Après 800 km, mon cerveau ne fonctionnait plus pareil. »\n\nCette phrase m'a accroché. Parce que c'est exactement ce que je cherche depuis mon diagnostic : un moyen de faire fonctionner mon cerveau autrement.\n\nJ'ai commencé à chercher. Et c'est là que j'ai découvert les études sur la marche longue distance et la neuroplasticité. Le BDNF qui augmente. Le cortisol qui baisse. Les fonctions exécutives qui s'améliorent. Tout ce que le cerveau TDAH fait mal, la marche le répare.\n\nMais 800 km, ça me semblait pas assez. Si je fais ça, je le fais à fond. Saint-Maurice — Santiago. 1 900 km. Le protocole maximum.\n\n133 jours avant le départ. L'idée est plantée.\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour15",
+    "type": "club",
+    "delay_days": 15,
+    "actif": true,
+    "subject": "[J-125] Le diagnostic — le jour où tout s'est éclairé",
+    "body": "Hey {prenom},\n\nJe t'ai parlé du voyage. Mais il faut que je te parle de ce qui est arrivé avant. Le diagnostic.\n\nPendant 30 ans, j'ai cru que j'étais fainéant. Que je manquais de volonté. Que si je n'arrivais pas à finir mes projets, à me concentrer, à gérer mes émotions, c'était un problème de caractère.\n\nEt puis un médecin a posé le mot : TDAH. Trouble du Déficit de l'Attention avec Hyperactivité.\n\nCe jour-là, deux choses se sont passées en même temps :\n\n1. Un soulagement immense. Ce n'était pas de la fainéantise. C'était de la neurologie. Mon cerveau est câblé différemment — moins de dopamine dans le cortex préfrontal, moins de régulation exécutive, un système de récompense qui fonctionne en mode tout-ou-rien.\n\n2. Une colère sourde. Toutes ces années perdues. Les bulletins « peut mieux faire ». Les projets abandonnés. Les relations cassées par l'impulsivité. Tout ça parce que personne n'avait vu ce qui n'allait pas.\n\nLe diagnostic ne guérit rien. Mais il donne un cadre. Et surtout, il ouvre la porte à la question : « OK, mon cerveau fonctionne comme ça. Qu'est-ce que je fais maintenant ? »\n\nLa réponse, pour moi, c'est 1 900 km. Mais ça, tu le sais déjà.\n\nEt pour documenter tout ça — le voyage, les neurosciences, le TDAH — il fallait un outil à la hauteur. Pas un blog générique. Un vrai site construit pour cette aventure. C'est Martial, de iasmart.tech, qui a bâti neuro-odyssee.com avec moi. Le journal de bord, les emails que tu reçois en ce moment, l'espace Club, les ebooks — chaque brique a été pensée pour que tu puisses vivre le voyage de l'intérieur. Si un jour tu as un projet web à faire naître, c'est l'homme qu'il te faut.\n\n125 jours.\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour25",
+    "type": "club",
+    "delay_days": 25,
+    "actif": true,
+    "subject": "[J-115] Les neurosciences m'ont donné un espoir",
+    "body": "Salut {prenom},\n\nAprès le diagnostic, j'ai fait ce que tout cerveau TDAH fait : j'ai hyperfocusé. Pendant 3 semaines, j'ai lu tout ce que je trouvais sur les neurosciences du TDAH. Articles, études, livres. Jour et nuit.\n\nEt voilà ce que j'ai appris :\n\nLe cerveau TDAH n'est pas « cassé ». Il est câblé pour un monde qui n'existe plus — un monde où la survie dépendait de la réactivité, pas de la planification. L'hypervigilance, l'impulsivité, la recherche constante de stimulation... ce sont des atouts en milieu sauvage. En open space, c'est un handicap.\n\nMais — et c'est là que tout change — le cerveau adulte est plastique. La neuroplasticité, c'est la capacité du cerveau à se recâbler en réponse aux expériences. Et certaines expériences sont plus puissantes que d'autres.\n\nLa marche longue distance coche toutes les cases :\n  - Exercice soutenu → augmentation du BDNF (facteur de croissance neuronal)\n  - Réduction du stress → baisse du cortisol\n  - Monotonie constructive → renforcement des fonctions exécutives\n  - Nouveauté dosée → dopamine régulée (pas en pics, en flux)\n\nC'est pas de la pensée magique. C'est de la biologie. Et c'est ce qui m'a convaincu que ce voyage n'est pas une lubie — c'est un protocole.\n\n115 jours. La science est de mon côté.\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour35",
+    "type": "club",
+    "delay_days": 35,
+    "actif": true,
+    "subject": "[J-105] La décision — le moment où j'ai dit oui",
+    "body": "{prenom},\n\nIl y a eu un moment précis. Pas une réflexion progressive, pas une décision mûrie — un moment.\n\nJ'étais dans un train. Genève-Lausanne. 35 minutes. Et je regardais le lac par la fenêtre en pensant à rien. Ce qui, pour un cerveau TDAH, est presque impossible.\n\nEt d'un coup, dans ce rare moment de silence mental, la pensée est arrivée. Claire. Nette. Sans bruit autour :\n\n« Je vais marcher jusqu'à Santiago. »\n\nPas « je devrais ». Pas « ce serait bien ». « Je vais. »\n\nLes neurosciences ont un terme pour ça : l'« insight ». Ce moment où le cerveau, après avoir traité des informations en arrière-plan pendant des semaines, livre soudainement une conclusion. C'est le réseau du mode par défaut (default mode network) qui fait son travail — et il le fait mieux quand le cortex préfrontal est au repos.\n\nIroniquement, c'est le TDAH qui m'a donné ce moment. Mon cerveau vagabondait. Et dans ce vagabondage, il a trouvé la réponse.\n\nCe soir-là, j'ai ouvert une carte. Saint-Maurice — Santiago de Compostela. 1 900 km. Et j'ai commencé à tracer l'itinéraire.\n\n105 jours. La décision est prise. Il n'y a plus qu'à.\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour45",
+    "type": "club",
+    "delay_days": 45,
+    "actif": true,
+    "subject": "[J-95] Les premiers préparatifs — et le TDAH qui s'en mêle",
+    "body": "Salut {prenom},\n\nÇa fait 5 semaines que je prépare ce voyage. Et c'est un bordel monumental.\n\nPas le voyage en lui-même — l'itinéraire est simple : marcher vers l'ouest jusqu'à l'océan. Non, le bordel, c'est dans ma tête.\n\nLe cerveau TDAH est incapable de prioriser. Tout semble aussi urgent, aussi important. Résultat :\n\n  - J'ai passé 3 jours à choisir une lampe frontale (j'en ai commandé 4, renvoyé 3)\n  - L'itinéraire détaillé n'est fait qu'à 30%\n  - J'ai oublié de renouveler mon passeport (corrigé in extremis)\n  - Mon tableur de budget est magnifique — mais je n'ai pas encore réservé un seul hébergement\n\nC'est typique du TDAH : perfection sur les détails, chaos sur l'essentiel. Le cortex préfrontal, qui devrait hiérarchiser les tâches, n'arrive pas à distinguer « important » de « stimulant ».\n\nMa stratégie : j'ai demandé à quelqu'un de me faire une liste. Pas moi — quelqu'un d'autre. Parce que mon cerveau ne fait pas de bonnes listes. Il fait des listes excitantes. Ce n'est pas la même chose.\n\n95 jours. Ça prend forme. Doucement.\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour55",
+    "type": "club",
+    "delay_days": 55,
+    "actif": true,
+    "subject": "[J-85] Ce que ma famille pense (et ce qu'elle ne dit pas)",
+    "body": "Hey {prenom},\n\nMa mère pense que c'est dangereux. Mon père ne dit rien — ce qui est pire. Mes amis oscillent entre « t'es un malade, c'est génial » et « t'es un malade, fais-toi soigner ».\n\nEt puis il y a ceux qui connaissent le TDAH. Ceux qui savent que j'ai déjà annoncé 15 projets « qui allaient tout changer ». L'appli que j'allais développer. Le livre que j'allais écrire. Le business que j'allais lancer. Tous abandonnés entre la semaine 2 et la semaine 6, quand la dopamine retombe.\n\nJe lis dans leurs yeux : « On verra combien de temps ça dure, celui-là. »\n\nEt honnêtement, cette peur-là est la pire de toutes. Pas la peur des ampoules, des cols ou de la solitude. La peur de leur donner raison. De confirmer le stéréotype du TDAH qui ne finit jamais rien.\n\nMais il y a une différence cette fois. Les autres projets, je les faisais parce qu'ils m'excitaient. Celui-ci, je le fais parce que j'en ai besoin. La nuance est énorme pour un cerveau TDAH : la motivation extrinsèque (excitation) s'épuise. La motivation intrinsèque (besoin) tient.\n\nOn verra. 85 jours.\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour65",
+    "type": "club",
+    "delay_days": 65,
+    "actif": true,
+    "subject": "[J-75] La nuit où j'ai failli tout annuler",
+    "body": "Salut {prenom},\n\nJe vais te raconter quelque chose que je n'ai dit à personne.\n\nIl y a quelques jours, à 3h du matin, j'étais assis dans mon salon à fixer Google Maps. Saint-Maurice — Santiago. 1 900 km. La ligne bleue traversait la France entière. Et d'un coup, l'angoisse m'est tombée dessus comme une vague.\n\n« T'es fou. T'as un TDAH. T'arrives même pas à finir un bouquin, et tu veux marcher 1 900 km ? »\n\nC'est ça, le TDAH. Ce n'est pas juste « être distrait ». C'est un cerveau qui te sabote au moment exact où tu as besoin de croire en toi. Le cortex préfrontal — celui qui gère la planification et la confiance — fonctionne en sous-régime. Et à 3h du matin, il est au plus bas.\n\nJ'ai failli envoyer un message pour tout annuler. Et puis j'ai fait un truc que les neurosciences recommandent : j'ai écrit. Pas un plan, pas une liste — juste ce que je ressentais. Brut. Le simple fait d'écrire a activé d'autres circuits dans mon cerveau. Le cortex préfrontal s'est rallumé doucement. L'angoisse a reculé.\n\nJe ne dis pas que c'est parti. Je dis que j'ai trouvé un outil.\n\nSi toi aussi tu vis des moments comme ça — ces nuits où tout semble impossible — sache que tu n'es pas seul(e). Et que ton cerveau a des ressources que tu ne soupçonnes pas.\n\n75 jours.\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour71",
+    "type": "club",
+    "delay_days": 71,
+    "actif": true,
+    "subject": "[J-69] Mon TDAH ne veut pas que je parte",
+    "body": "Hey {prenom},\n\nMon cerveau me joue des tours. Et je vais être honnête avec toi : ces derniers jours, le TDAH a été brutal.\n\nTu sais ce que c'est, l'hyperfocus ? C'est quand le cerveau TDAH se fixe sur un sujet et ne lâche plus. Le problème, c'est qu'il choisit rarement le bon sujet. Cette semaine, au lieu de préparer le trajet, mon cerveau a décidé de passer 6 heures à regarder des vidéos de sacs à dos. 6 heures. Pour un sac à dos.\n\nEt pendant ce temps, la to-do list de la préparation s'allonge. L'entraînement prend du retard. Les doutes reviennent.\n\nLes neurosciences expliquent ça très bien : le TDAH est un déficit de régulation de l'attention, pas un déficit d'attention. Mon cerveau a TROP d'attention — il la met juste au mauvais endroit. Le système dopaminergique, qui devrait récompenser les tâches importantes, récompense les tâches stimulantes. Et comparer 47 sacs à dos, c'est plus stimulant que planifier 1 900 km d'itinéraire.\n\nLa parade ? Décomposer. Pas « préparer le voyage » — c'est trop gros, trop vague, zéro dopamine. Plutôt : « imprimer la carte de l'étape 1 ». Ça, mon cerveau peut le faire. Une micro-tâche à la fois.\n\nC'est lent. C'est frustrant. Mais ça avance.\n\nSi tu veux comprendre en profondeur comment le cerveau TDAH fonctionne (et comment le hacker), c'est dans les ebooks :\nhttps://www.neuro-odyssee.com/soutenir.html\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour80",
+    "type": "club",
+    "delay_days": 80,
+    "actif": true,
+    "subject": "[J-60] Pourquoi je fais ça (la vraie raison)",
+    "body": "Salut {prenom},\n\nOn me pose souvent la question : « Pourquoi 1 900 km à pied ? »\n\nJe donne toujours la réponse propre : les neurosciences, la neuroplasticité, prouver qu'un cerveau TDAH peut se transformer. C'est vrai. Mais c'est pas toute la vérité.\n\nLa vraie raison, c'est que j'étais au fond.\n\nDiagnostiqué TDAH tard. Des années à me demander pourquoi je n'arrivais pas à faire ce que les autres faisaient naturellement. Des projets commencés et jamais finis. Des relations abîmées par l'impulsivité. Une estime de moi en miettes.\n\nUn jour, j'ai lu un article sur un type qui avait marché l'Appalachian Trail après un burn-out. 3 500 km. Il disait : « Mon cerveau s'est réinitialisé. » Et ça m'a frappé. Pas comme une métaphore — comme une possibilité réelle.\n\nLes études le confirment : la marche longue distance augmente le BDNF, réduit le cortisol, améliore les fonctions exécutives. Pour un cerveau TDAH, c'est exactement ce qui manque. Pas un médicament — un protocole naturel, validé par la science.\n\nAlors voilà. Je pars parce que je n'ai plus rien à perdre. Et parce que les neurosciences me disent que ça peut marcher.\n\n60 jours avant le départ.\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour87",
+    "type": "club",
+    "delay_days": 87,
+    "actif": true,
+    "subject": "[J-53] L'entraînement — mon corps dit oui, mon cerveau dit non",
+    "body": "Salut {prenom},\n\nCette semaine j'ai fait ma plus longue sortie : 35 km en une journée. Les jambes ont tenu. Le dos aussi. Mais mon cerveau, lui, voulait arrêter au km 12.\n\nC'est un truc que les gens ne comprennent pas sur la marche longue distance : le corps s'adapte bien plus vite que le mental. Les muscles, les tendons, le cardio — tout ça suit un programme prévisible. Le cerveau, c'est une autre histoire.\n\nLe cerveau TDAH, encore plus. Parce que la marche longue est l'exact opposé de ce que le TDAH recherche : c'est lent, c'est répétitif, c'est monotone. Zéro stimulation nouvelle au km 15. Le cerveau TDAH hurle « ennui » et cherche une sortie.\n\nMais voici ce que j'ai découvert : si tu dépasses ce mur — le mur de l'ennui, pas celui de la fatigue — quelque chose se passe. Le cortex préfrontal lâche prise. Le mode par défaut du cerveau s'active. Et là, les idées viennent. Les connexions se font. Une sorte de méditation en mouvement.\n\nC'est exactement ce que les chercheurs décrivent comme le « flow state » — et c'est accessible aux cerveaux TDAH, à condition de dépasser la phase d'ennui.\n\n53 jours avant le départ. L'entraînement continue.\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour95",
+    "type": "club",
+    "delay_days": 95,
+    "actif": true,
+    "subject": "[J-45] Les gens pensent que je suis fou",
+    "body": "Hey {prenom},\n\n« T'es sûr que c'est raisonnable ? » « Et ton travail ? » « T'as pensé à tes genoux ? »\n\nDepuis que j'ai annoncé le projet, les réactions sont... mitigées. Ma famille est inquiète. Certains amis trouvent ça génial. D'autres pensent clairement que c'est une lubie de plus — un énième projet TDAH qui finira dans un tiroir.\n\nEt honnêtement ? Je comprends. Parce que c'est exactement ce que le TDAH fait. Des dizaines de projets enflammés qui s'éteignent en quelques semaines. Le cerveau TDAH est un générateur d'idées brillantes et un destructeur de suivi. La dopamine du début s'évapore, et il ne reste que l'effort — exactement ce que le TDAH gère le moins bien.\n\nAlors pourquoi cette fois serait différente ?\n\nParce que j'ai compris le mécanisme. Je sais maintenant que la dopamine du début va disparaître. Je sais que mon cerveau va me dire d'arrêter vers la 3ème semaine. Je sais que l'ennui va frapper au km 15 de chaque journée. Et j'ai des stratégies pour chaque obstacle.\n\nLa connaissance ne suffit pas — mais la connaissance + l'action répétée, si. C'est ça, la neuroplasticité appliquée.\n\n45 jours. Le sac est presque prêt. Les chaussures sont rodées. Le cerveau... on verra.\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour102",
+    "type": "club",
+    "delay_days": 102,
+    "actif": true,
+    "subject": "[J-38] La peur. Celle dont on ne parle pas.",
+    "body": "Salut {prenom},\n\nJe vais te parler d'un truc dont les aventuriers ne parlent jamais : la peur.\n\nPas la peur physique — ça, je gère. La peur de ne pas y arriver. La peur de confirmer ce que le TDAH me murmure depuis des années : « Tu ne finis jamais rien. »\n\nParce que si j'échoue — si j'abandonne au km 400 ou au km 800 — ça ne sera pas juste un voyage raté. Ça sera la preuve que mon cerveau a gagné. Que le TDAH est plus fort que ma volonté.\n\nLes neurosciences ont un terme pour ça : la « menace du stéréotype ». Quand tu appartiens à un groupe (TDAH, dans mon cas) et qu'on te dit que ce groupe échoue dans certaines tâches, ta performance diminue — même si tu es capable. Le cerveau sabote par anticipation.\n\nLa parade ? Reformuler. Ce voyage n'est pas un test avec « réussite » ou « échec ». Chaque kilomètre marché est un kilomètre gagné. Si j'arrive à Santiago, c'est extraordinaire. Si je m'arrête au km 1 200, c'est 1 200 km de neuroplasticité. Le cerveau ne perd jamais les bénéfices accumulés.\n\nÇa m'aide à dormir la nuit. Un peu.\n\n38 jours.\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour110",
+    "type": "club",
+    "delay_days": 110,
+    "actif": true,
+    "subject": "[J-30] Un mois avant le départ — tout devient réel",
+    "body": "{prenom},\n\n30 jours. Un mois. C'est tout ce qu'il reste.\n\nJ'ai fait la liste de ce qu'il me reste à préparer. Elle tient sur une demi-page. Les chaussures sont faites. Le sac est à 8,5 kg. Les étapes sont planifiées. L'entraînement est au maximum que mon corps peut encaisser.\n\nEt pourtant, il y a ce truc dans l'estomac. Ce nœud qui ne part pas.\n\nJ'ai appris que l'anxiété et l'excitation produisent exactement la même réaction chimique dans le cerveau. Même adrénaline, même cortisol, même rythme cardiaque. La seule différence, c'est l'étiquette que ton cortex préfrontal colle dessus.\n\nAlors j'essaie de coller la bonne étiquette : ce n'est pas de la peur, c'est de la préparation. Mon cerveau se met en mode combat. Et pour une fois, le TDAH aide — l'hypervigilance que je déteste au quotidien devient un atout quand il y a un vrai défi devant toi.\n\nDans 30 jours, je serai sur le chemin. Et tu recevras le premier email depuis la route.\n\nJe partage la préparation en vidéo :\nhttps://www.youtube.com/@NeurOdyssee\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour125",
+    "type": "club",
+    "delay_days": 125,
+    "actif": true,
+    "subject": "[J-15] 15 jours. Le cerveau bascule.",
+    "body": "Hey {prenom},\n\n15 jours avant le départ.\n\nQuelque chose a changé cette semaine. Le doute n'a pas disparu — mais il est devenu silencieux. Comme si mon cerveau avait accepté que ça allait arriver. Que c'était trop tard pour reculer.\n\nEn neurosciences, on appelle ça le « point de non-retour cognitif ». Le cerveau arrête de gaspiller de l'énergie à évaluer les alternatives et bascule en mode exécution. C'est le même mécanisme que quand un pilote s'engage sur la piste — à un certain point, il n'y a plus que la direction avant.\n\nConcrètement, ça veut dire :\n  - Je ne me demande plus SI je pars. Je me demande COMMENT optimiser chaque étape.\n  - Les nuits d'angoisse sont remplacées par des nuits de planification.\n  - Mon TDAH, pour une fois, est aligné — l'hyperfocus est sur le bon sujet.\n\nLe sac est bouclé. 8,2 kg. Les chaussures ont 150 km au compteur. L'itinéraire est gravé dans ma mémoire.\n\nDans 15 jours, le prochain email viendra de la route. Depuis quelque part entre Saint-Maurice et le premier col.\n\nLe journal de bord est prêt :\nhttps://www.neuro-odyssee.com/journal.html\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour133",
+    "type": "club",
+    "delay_days": 133,
+    "actif": true,
+    "subject": "[J-7] Une semaine. Les derniers doutes.",
+    "body": "Salut {prenom},\n\nDans 7 jours, je serai parti.\n\nHier soir, j'ai posé mon sac dans l'entrée. Prêt. Et je l'ai regardé pendant 10 minutes. Ce sac contient tout ce dont j'aurai besoin pour 90 jours. Toute ma vie tient dans 8 kilos.\n\nC'est vertigineux.\n\nMa mère m'a appelé. Elle m'a dit : « Tu reviens si ça va pas, hein ? » J'ai dit oui. Mais dans ma tête, j'ai pensé : « Non. Je reviens quand c'est fini. »\n\nPas par orgueil. Par nécessité. Parce que le cerveau TDAH a besoin de structures rigides pour fonctionner. Si je me laisse une porte de sortie, mon cerveau va la chercher dès le premier jour difficile. Et il y en aura beaucoup.\n\nLes études sur l'engagement montrent que les objectifs avec « clause de sortie » ont 40% moins de chances d'aboutir. Le cerveau qui sait qu'il peut abandonner se prépare inconsciemment à abandonner.\n\nAlors non, pas de plan B. Juste un plan A, 1 900 km, et un cerveau TDAH qui va devoir s'adapter.\n\n7 jours.\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour140",
+    "type": "club",
+    "delay_days": 140,
+    "actif": true,
+    "subject": "[J-0] Départ. Saint-Maurice. 1 900 km devant moi.",
+    "body": "{prenom},\n\nÇa y est. Je suis parti.\n\nCe matin, 6h30, Saint-Maurice. Le sac sur le dos. Les premières lueurs sur les montagnes du Valais. Et un cerveau qui — pour la première fois depuis des mois — est complètement silencieux.\n\nPas de doute. Pas d'angoisse. Pas de voix qui dit « tu ne vas pas y arriver ». Juste le bruit des pas sur le bitume. Et le compteur qui démarre.\n\n1 900 km devant moi.\n\nLes neurosciences ont un terme pour cet état : le « silence préfrontal ». Quand le corps s'engage dans une action intense et répétitive, le cortex préfrontal — celui qui doute, qui planifie, qui s'inquiète — se met en veille. Ce qui reste, c'est le présent. Le pas suivant. Le souffle. Le poids du sac.\n\nPour un cerveau TDAH qui n'arrête jamais de tourner, ce silence est un miracle.\n\nÀ partir de maintenant, chaque email viendra de la route. Avec le compteur qui descend. Les découvertes. Les galères. La science de ce qui se passe dans ma tête.\n\nLe journal de bord démarre aujourd'hui :\nhttps://www.neuro-odyssee.com/journal.html\n\nEt les vidéos depuis le chemin :\nhttps://www.youtube.com/@NeurOdyssee\n\n1 900 km. C'est parti.\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour155",
+    "type": "club",
+    "delay_days": 155,
+    "actif": true,
+    "subject": "[1 600 km restants] 2 semaines sur le chemin — premier bilan",
+    "body": "Salut {prenom},\n\n15 jours de marche. ~300 km. Compteur : 1 600 km restants.\n\nPremier bilan : mon corps tient. Mon cerveau, c'est une autre histoire.\n\nLes 5 premiers jours ont été euphoriques. Dopamine à fond. Chaque paysage était nouveau, chaque rencontre était stimulante. Le TDAH était au paradis — nouveauté permanente.\n\nEt puis le jour 6 est arrivé. La routine. Les mêmes gestes. Lever, marcher, manger, dormir. Et le cerveau TDAH a commencé à hurler : « C'est chiant. On fait autre chose. »\n\nC'est exactement le moment que je redoutais. Le moment où la dopamine de la nouveauté disparaît et où il ne reste que l'effort. Le BDNF augmente, les synapses se renforcent — mais le cerveau ne le sent pas. Il sent l'ennui.\n\nJ'ai tenu. Comment ? En décomposant. Pas « marcher jusqu'à Santiago ». Juste « arriver au prochain village ». Micro-objectifs. Micro-récompenses. C'est la seule stratégie qui marche avec un cerveau TDAH.\n\n1 600 km. On continue.\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour170",
+    "type": "club",
+    "delay_days": 170,
+    "actif": true,
+    "subject": "[1 200 km restants] Le mur. Je l'ai pris en pleine face.",
+    "body": "Hey {prenom},\n\nCompteur : 1 200 km restants. Un mois sur le chemin.\n\nJe vais être direct : j'ai voulu arrêter.\n\nPas une pensée passagère. Une vraie décision, prise à 23h dans un gîte pourri quelque part en France, les pieds en sang, le moral à zéro. J'ai ouvert mon téléphone pour chercher des billets de train pour rentrer.\n\nLes chercheurs appellent ça le « plateau ». Le moment où la motivation du début a disparu, où les résultats semblent stagner. Le cerveau dit : « À quoi bon ? »\n\nEt puis j'ai relu mes notes du jour 1. Ce que j'avais écrit avant de partir. Les raisons. La science. Le TDAH. Et surtout cette phrase : « Si tu abandonnes, ton cerveau aura gagné. »\n\nLe lendemain matin, j'ai marché. Pas parce que j'en avais envie. Parce que la motivation vient APRÈS l'action, pas avant. C'est ce que montrent les études sur la dopamine — et c'est la leçon la plus importante du chemin.\n\n1 200 km. Le plateau est derrière. La descente commence.\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour185",
+    "type": "club",
+    "delay_days": 185,
+    "actif": true,
+    "subject": "[900 km restants] Moins de la moitié. Le cerveau le sait.",
+    "body": "Salut {prenom},\n\nCompteur : 900 km. Moins de la moitié.\n\nQuelque chose a changé. Je ne sais pas exactement quand, mais le doute a disparu. Pas complètement — il rôde encore dans les coins. Mais il n'est plus aux commandes.\n\nLes neurosciences expliquent ça par l'« effet de gradient de but » : plus tu te rapproches de l'objectif, plus la motivation accélère. Le cerveau calcule en pourcentage restant, pas en distance absolue. Et quand tu passes sous les 50%, il bascule.\n\nMon TDAH aussi a changé. L'hyperfocus — cette capacité à me perdre pendant des heures dans un sujet — s'est réorienté. Au lieu de me distraire, il me porte. Je peux marcher 8 heures en pensant à un seul sujet. C'est... nouveau. Et incroyablement puissant.\n\n3 vérités du chemin :\n\n1. Le silence répare. 2h sans stimulation par jour, et la neurogenèse augmente dans l'hippocampe.\n2. La fatigue clarifie. Quand le corps est épuisé, le cortex préfrontal lâche prise. Les idées arrivent.\n3. La communauté guérit. Savoir que vous êtes là change ma chimie cérébrale. Ocytocine.\n\nSi tu veux soutenir les derniers 900 km :\nhttps://www.neuro-odyssee.com/soutenir.html\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour200",
+    "type": "club",
+    "delay_days": 200,
+    "actif": true,
+    "subject": "[600 km restants] Le cerveau TDAH que j'avais au départ n'existe plus",
+    "body": "Hey {prenom},\n\nCompteur : 600 km. L'équivalent Genève-Milan. La fin se dessine.\n\n60 jours de marche. Et je réalise un truc : le cerveau avec lequel je suis parti n'est plus le même. Ce n'est pas une métaphore — c'est de la neuroplasticité mesurée en kilomètres.\n\nCe qui a changé :\n  - La tolérance à l'ennui. Mon seuil a explosé. Ce qui m'aurait fait fuir il y a 2 mois me semble normal.\n  - Le silence. Mon cerveau TDAH, qui fuyait le silence, le recherche maintenant. C'est devenu un besoin.\n  - La capacité à finir. Pour la première fois de ma vie, je suis en train de terminer quelque chose d'énorme. Et mon cerveau l'enregistre.\n\nCe dernier point est crucial. Le cerveau TDAH a un « déficit de preuves » — il ne croit pas qu'il peut finir les choses parce qu'il n'a jamais eu la preuve. Chaque projet abandonné renforce la croyance. Ce voyage est en train de créer la preuve inverse.\n\n600 km. Je vais finir. Et mon cerveau le sait.\n\nTout est dans le journal de bord :\nhttps://www.neuro-odyssee.com/journal.html\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour215",
+    "type": "club",
+    "delay_days": 215,
+    "actif": true,
+    "subject": "[300 km restants] La dernière ligne droite",
+    "body": "Salut {prenom},\n\nCompteur : 300 km. 10 jours de marche. Santiago est là, quelque part devant.\n\nL'anticipation de la récompense. C'est ce que les neurosciences décrivent quand le système dopaminergique s'emballe à l'approche du but. Chaque pas est plus chargé de sens. Chaque kilomètre pèse plus lourd.\n\nEt le TDAH ? Il fait quelque chose d'inattendu : il ne veut plus que ça finisse. Ce cerveau qui voulait tout arrêter au km 400 est maintenant terrifié par la fin. Parce que sur le chemin, il a trouvé un équilibre. Un rythme. Une structure. Et il sait que le retour à la vie « normale » va le déstabiliser.\n\nLes chercheurs appellent ça le « paradoxe de la complétion ». L'objectif qui te terrorisait te manque dès qu'il est atteint.\n\nMais chaque chose en son temps. 300 km d'abord.\n\nLes dernières étapes en direct :\nhttps://www.youtube.com/@NeurOdyssee\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "club_jour230",
+    "type": "club",
+    "delay_days": 230,
+    "actif": true,
+    "subject": "[0 km] Santiago. 1 900 km. C'est fait.",
+    "body": "{prenom},\n\nCompteur : 0 km.\n\nJe suis à Santiago. 1 900 km. ~90 jours de marche. Un cerveau qui n'est plus le même.\n\nJe t'écris depuis la place de l'Obradoiro, devant la cathédrale. Autour de moi, des pèlerins pleurent, rient, s'effondrent. Et moi, je suis assis par terre, et je ne ressens... rien. Un grand calme. Comme si le silence préfrontal du jour 1 était revenu — mais cette fois, en permanence.\n\nLes neurosciences ont un terme pour le vide qui suit l'accomplissement : le « post-achievement blues ». Le système dopaminergique, en surrégime pendant 90 jours, se retrouve soudainement sans direction. C'est normal. Ça passera.\n\nMais ce qui ne passera pas : les circuits construits en marchant. La tolérance à l'inconfort. Le silence comme refuge. L'écriture comme outil. La preuve — gravée dans mes synapses — que je peux finir quelque chose.\n\nPour un cerveau TDAH, cette preuve vaut plus que tous les médicaments du monde.\n\nMerci, {prenom}. D'avoir été là depuis le début. D'avoir cru en ce projet quand moi-même je n'y croyais pas. De faire partie de cette communauté.\n\nCe n'est pas la fin. Le livre est en cours. De nouvelles aventures se préparent. Et le Club continue.\n\n0 km. On a réussi.\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "nl_welcome",
+    "type": "newsletter",
+    "delay_days": 0,
+    "actif": true,
+    "subject": "[J-140] Bienvenue — le compte à rebours commence",
+    "body": "Merci pour ton inscription à la newsletter de La Neuro-Odyssée, {prenom} !\n\n1 900 km. C'est la distance que Roland va parcourir à pied, de Saint-Maurice (Suisse) jusqu'à Santiago de Compostela.\n\nÀ travers cette série d'emails, tu vas découvrir toute l'aventure depuis le début — la genèse du projet, le diagnostic TDAH, les neurosciences, la préparation, les doutes, et puis le départ et chaque étape du chemin. Même si Roland est déjà en route, tu recevras l'histoire complète dans l'ordre, comme si tu étais là dès le premier jour.\n\nTu recevras régulièrement :\n\n  - Les actualités du périple — du compte à rebours au compteur kilométrique\n  - Des articles sur les neurosciences, le TDAH et la reconstruction\n  - Les nouvelles vidéos et publications du journal de bord\n\nTu veux aller plus loin ? Rejoins le Club Neuro-Odyssée pour les coulisses et le contenu exclusif :\nhttps://www.neuro-odyssee.com/club.html\n\nPremier vrai email dans 7 jours.\n\nRoland Crettaz\nLa Neuro-Odyssée\nwww.neuro-odyssee.com\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "nl_jour7",
+    "type": "newsletter",
+    "delay_days": 7,
+    "actif": true,
+    "subject": "[J-133] Comment l'idée est née",
+    "body": "Salut {prenom},\n\nAvant de te parler du voyage, il faut que je te parle du moment où l'idée est née.\n\nUn dimanche soir, sur YouTube — le TDAH classique, tu passes d'une vidéo à l'autre — je suis tombé sur un documentaire. Un type qui avait tout plaqué pour marcher le Camino. Il disait : « Après 800 km, mon cerveau ne fonctionnait plus pareil. »\n\nCette phrase m'a accroché. J'ai commencé à chercher. Et j'ai découvert les études sur la marche longue distance et la neuroplasticité. Le BDNF qui augmente. Le cortisol qui baisse. Tout ce que le cerveau TDAH fait mal, la marche le répare.\n\nMais 800 km, pas assez. Saint-Maurice — Santiago. 1 900 km. Le protocole maximum.\n\nTu veux suivre la préparation de plus près ? Le Club donne accès aux coulisses :\nhttps://www.neuro-odyssee.com/club.html\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "nl_jour15",
+    "type": "newsletter",
+    "delay_days": 15,
+    "actif": true,
+    "subject": "[J-125] Le diagnostic TDAH — le jour où tout s'est éclairé",
+    "body": "Hey {prenom},\n\nPendant 30 ans, j'ai cru que j'étais fainéant. Que je manquais de volonté. Et puis un médecin a posé le mot : TDAH.\n\nDeux choses se sont passées ce jour-là : un soulagement immense (ce n'était pas de la fainéantise, c'était de la neurologie) et une colère sourde (toutes ces années perdues).\n\nLe diagnostic ne guérit rien. Mais il ouvre la porte à la question : « Mon cerveau fonctionne comme ça. Qu'est-ce que je fais maintenant ? »\n\nLa réponse : 1 900 km. Et les neurosciences pour comprendre pourquoi ça peut marcher.\n\nEt pour raconter tout ça, il fallait un vrai outil. C'est Martial de iasmart.tech qui a construit neuro-odyssee.com sur mesure — journal de bord, emails automatiques, espace Club, ebooks. Si tu as un projet web, c'est l'homme qu'il te faut.\n\nLe journal de bord :\nhttps://www.neuro-odyssee.com/journal.html\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "nl_jour30",
+    "type": "newsletter",
+    "delay_days": 30,
+    "actif": true,
+    "subject": "[J-110] Les neurosciences donnent espoir",
+    "body": "Salut {prenom},\n\nAprès le diagnostic, j'ai hyperfocusé sur les neurosciences du TDAH. 3 semaines à tout lire.\n\nCe que j'ai appris : le cerveau TDAH n'est pas « cassé ». Il est câblé pour un monde qui n'existe plus. Mais — et c'est là que tout change — le cerveau adulte est plastique. Il peut se recâbler.\n\nLa marche longue distance coche toutes les cases :\n  - Exercice soutenu → augmentation du BDNF\n  - Réduction du stress → baisse du cortisol\n  - Monotonie constructive → renforcement des fonctions exécutives\n\nC'est pas de la pensée magique. C'est de la biologie.\n\nLes ebooks du projet détaillent tout ça :\nhttps://www.neuro-odyssee.com/soutenir.html\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "nl_jour45",
+    "type": "newsletter",
+    "delay_days": 45,
+    "actif": true,
+    "subject": "[J-95] La préparation — et le TDAH qui s'en mêle",
+    "body": "Hey {prenom},\n\nÇa fait des semaines que je prépare ce voyage. Et c'est un bordel monumental.\n\nLe cerveau TDAH est incapable de prioriser. J'ai passé 3 jours à choisir une lampe frontale, mais l'itinéraire n'est fait qu'à 30%. Perfection sur les détails, chaos sur l'essentiel.\n\nMa stratégie : j'ai demandé à quelqu'un d'autre de me faire une liste. Parce que mon cerveau ne fait pas de bonnes listes — il fait des listes excitantes. Ce n'est pas la même chose.\n\n95 jours avant le départ.\n\nTu veux les coulisses complètes ? Le Club :\nhttps://www.neuro-odyssee.com/club.html\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "nl_jour65",
+    "type": "newsletter",
+    "delay_days": 65,
+    "actif": true,
+    "subject": "[J-75] Roland a failli tout annuler",
+    "body": "Salut {prenom},\n\nÀ 3h du matin, j'ai failli envoyer un message pour tout annuler. 1 900 km à pied avec un TDAH ? La voix dans ma tête disait : « T'es fou. T'arrives même pas à finir un bouquin. »\n\nC'est ça, le TDAH. Un cerveau qui sabote au moment où tu as le plus besoin de croire en toi. Le cortex préfrontal fonctionne en sous-régime — et à 3h du matin, il est au plus bas.\n\nMais j'ai fait un truc que les neurosciences recommandent : écrire. Pas un plan — juste ce que je ressentais. Et le simple fait d'écrire a réactivé d'autres circuits. L'angoisse a reculé.\n\nLe départ approche. Les coulisses sont dans le Club :\nhttps://www.neuro-odyssee.com/club.html\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "nl_jour80",
+    "type": "newsletter",
+    "delay_days": 80,
+    "actif": true,
+    "subject": "[J-60] Pourquoi je fais ça (la vraie raison)",
+    "body": "Salut {prenom},\n\n« Pourquoi 1 900 km à pied ? »\n\nLa réponse propre : les neurosciences, la neuroplasticité. La vraie raison : j'étais au fond. Diagnostiqué TDAH tard. Des projets jamais finis. Une estime de moi en miettes.\n\nUn jour, j'ai lu un article sur un type qui avait marché 3 500 km après un burn-out. Il disait : « Mon cerveau s'est réinitialisé. » Et les études le confirment.\n\n60 jours avant le départ.\n\nLes ebooks pour comprendre la science :\nhttps://www.neuro-odyssee.com/soutenir.html\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "nl_jour95",
+    "type": "newsletter",
+    "delay_days": 95,
+    "actif": true,
+    "subject": "[J-45] Les gens pensent que je suis fou",
+    "body": "Hey {prenom},\n\n« T'es sûr que c'est raisonnable ? » Depuis que j'ai annoncé le projet, les réactions sont mitigées. Certains trouvent ça génial. D'autres pensent que c'est une lubie de plus — un énième projet TDAH.\n\nEt je comprends. La dopamine du début s'évapore toujours. Mais cette fois, j'ai compris le mécanisme. Et j'ai des stratégies pour chaque obstacle.\n\n45 jours. Le sac est presque prêt.\n\nLes ebooks sur le TDAH et la neuroplasticité :\nhttps://www.neuro-odyssee.com/soutenir.html\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "nl_jour110",
+    "type": "newsletter",
+    "delay_days": 110,
+    "actif": true,
+    "subject": "[J-30] Un mois avant le départ",
+    "body": "Salut {prenom},\n\n30 jours avant le départ. Tout devient réel.\n\nLe sac est à 8,5 kg. Les chaussures sont rodées. Et il y a ce nœud dans l'estomac qui ne part pas.\n\nL'anxiété et l'excitation produisent la même réaction chimique dans le cerveau. La seule différence, c'est l'étiquette que le cortex préfrontal colle dessus.\n\nDans 30 jours, les emails viendront de la route.\n\nSi tu veux vivre le voyage de l'intérieur — le Club :\nhttps://www.neuro-odyssee.com/club.html\n\nLa préparation en vidéo :\nhttps://www.youtube.com/@NeurOdyssee\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "nl_jour125",
+    "type": "newsletter",
+    "delay_days": 125,
+    "actif": true,
+    "subject": "[J-15] 15 jours avant le départ",
+    "body": "Hey {prenom},\n\n15 jours. Le compte à rebours accélère.\n\nLe doute s'est tu cette semaine. Le cerveau a basculé en mode exécution — le « point de non-retour cognitif ». Plus de SI, que des COMMENT.\n\nLe sac est bouclé. 8,2 kg. Les chaussures ont 150 km. L'itinéraire est dans la tête.\n\nDans 15 jours, le prochain email viendra de la route.\n\nLe journal de bord va démarrer :\nhttps://www.neuro-odyssee.com/journal.html\n\nLes coulisses dans le Club :\nhttps://www.neuro-odyssee.com/club.html\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "nl_jour140",
+    "type": "newsletter",
+    "delay_days": 140,
+    "actif": true,
+    "subject": "[J-0] C'est parti. Saint-Maurice. 1 900 km.",
+    "body": "{prenom},\n\nÇa y est. Ce matin, 6h30, Saint-Maurice. Le sac sur le dos. Les premières lueurs sur les montagnes du Valais.\n\n1 900 km devant moi.\n\nÀ partir de maintenant, chaque email viendra de la route. Avec le compteur qui descend.\n\nLe journal de bord commence aujourd'hui :\nhttps://www.neuro-odyssee.com/journal.html\n\nLes vidéos depuis le chemin :\nhttps://www.youtube.com/@NeurOdyssee\n\nEt si tu veux vivre ça de l'intérieur — le Club :\nhttps://www.neuro-odyssee.com/club.html\n\n1 900 km. C'est parti.\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "nl_jour170",
+    "type": "newsletter",
+    "delay_days": 170,
+    "actif": true,
+    "subject": "[1 200 km restants] J'ai voulu arrêter",
+    "body": "Salut {prenom},\n\nCompteur : 1 200 km restants. Un mois sur le chemin.\n\nJ'ai voulu arrêter. Pas une pensée passagère — une vraie décision, à 23h dans un gîte, les pieds en sang.\n\nLes chercheurs appellent ça le « plateau ». Et puis j'ai relu mes notes du jour 1. Et cette phrase : « Si tu abandonnes, ton cerveau aura gagné. »\n\nLe lendemain matin, j'ai marché. Parce que la motivation vient APRÈS l'action.\n\nLe journal de bord :\nhttps://www.neuro-odyssee.com/journal.html\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "nl_jour200",
+    "type": "newsletter",
+    "delay_days": 200,
+    "actif": true,
+    "subject": "[600 km restants] Le cerveau a changé",
+    "body": "Hey {prenom},\n\nCompteur : 600 km restants.\n\n60 jours de marche. Et le cerveau avec lequel je suis parti n'est plus le même.\n\nCe qui a changé :\n  - La tolérance à l'ennui a explosé\n  - Le silence est devenu un besoin\n  - Pour la première fois, je suis en train de finir quelque chose d'énorme\n\nLe cerveau TDAH a un « déficit de preuves ». Ce voyage crée la preuve.\n\nSoutenir les derniers 600 km :\nhttps://www.neuro-odyssee.com/soutenir.html\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  },
+  {
+    "key": "nl_jour230",
+    "type": "newsletter",
+    "delay_days": 230,
+    "actif": true,
+    "subject": "[0 km] Santiago. C'est fait.",
+    "body": "Salut {prenom},\n\nCompteur : 0 km. Santiago. 1 900 km. ~90 jours de marche.\n\nJe suis à la place de l'Obradoiro. Un grand calme. La preuve — gravée dans mes synapses — qu'un cerveau TDAH peut finir quelque chose.\n\nMerci d'avoir suivi cette aventure. Le livre est en cours.\n\nSoutenir la suite :\nhttps://www.neuro-odyssee.com/soutenir.html\n\nRejoindre la communauté :\nhttps://www.neuro-odyssee.com/club.html\n\n0 km. On a réussi.\n\nRoland\n\n---\nSe désinscrire : {unsub_url}"
+  }
+]

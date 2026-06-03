@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — La Neuro-Odyssée</title>
+  <meta name="description" content="Contactez Roland Crettaz pour un partenariat, une collaboration ou pour en savoir plus sur la Neuro-Odyssée.">
+  <meta property="og:url" content="https://www.neuro-odyssee.com/contact.html">
+  <meta property="og:title" content="Contact — La Neuro-Odyssée">
+  <meta property="og:image" content="https://www.neuro-odyssee.com/images/roland-crettaz.jpg">
+  <link rel="canonical" href="https://www.neuro-odyssee.com/contact.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'green-deep': '#1E6B5E', 'green-mid': '#2D8C7A',
+            'blue-ocean': '#3B9BB0', 'gold': '#F0A500',
+            'cream': '#F8F6F1', 'dark': '#1a2332',
+          },
+          fontFamily: {
+            'serif': ['Cormorant Garamond', 'Georgia', 'serif'],
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-cream">
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="nav-glass">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="nav-logo" style="line-height:0; display:flex; align-items:center;">
+        <svg viewBox="0 0 320 80" height="42" xmlns="http://www.w3.org/2000/svg" style="height:42px;width:auto;display:block;overflow:visible;">
+          <g transform="translate(0,0) scale(0.8)">
+            <circle cx="50" cy="50" r="48" fill="#1E6B5E"/>
+            <circle cx="50" cy="50" r="48" fill="none" stroke="#2D8C7A" stroke-width="1.5" opacity="0.5"/>
+            <path d="M 22 68 C 22 44,42 44,50 50 C 58 56,78 56,78 32" stroke="white" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+            <circle cx="34" cy="48" r="2.2" fill="white" opacity="0.35"/>
+            <circle cx="66" cy="52" r="2.2" fill="white" opacity="0.35"/>
+            <circle cx="22" cy="68" r="5.5" fill="white" opacity="0.9"/>
+            <circle cx="22" cy="68" r="3" fill="#1E6B5E"/>
+            <circle cx="50" cy="50" r="4.5" fill="white" opacity="0.6"/>
+            <circle cx="50" cy="50" r="2" fill="#1E6B5E"/>
+            <circle cx="78" cy="32" r="7" fill="#F0A500"/>
+            <circle cx="78" cy="32" r="3.5" fill="white" opacity="0.4"/>
+            <path d="M78 28.5 L79 31 L81.5 31 L79.5 32.8 L80.3 35.5 L78 33.8 L75.7 35.5 L76.5 32.8 L74.5 31 L77 31 Z" fill="white" opacity="0.85"/>
+          </g>
+          <g transform="translate(88,0)" font-family="Georgia,'Times New Roman',serif">
+            <text x="0" y="30" font-size="14" font-style="italic" fill="#2D8C7A" letter-spacing="1" opacity="0.9">La</text>
+            <text x="0" y="54" font-size="26" font-weight="700" fill="#1E6B5E" letter-spacing="2">NEURO</text>
+            <line x1="0" y1="58" x2="148" y2="58" stroke="#F0A500" stroke-width="1.5" opacity="0.7"/>
+            <text x="0" y="74" font-size="18" font-weight="400" fill="#1a2332" letter-spacing="4">ODYSSÉE</text>
+          </g>
+        </svg>
+      </a>
+      <div class="nav-desktop hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link" data-i18n="nav.home">Accueil</a>
+        <a href="trajet.html" class="nav-link" data-i18n="nav.trajet">Le Trajet</a>
+        <a href="preparation.html" class="nav-link" data-i18n="nav.preparation">Préparation</a>
+        <a href="sponsoring.html" class="nav-link" data-i18n="nav.sponsoring">Sponsoring</a>
+        <a href="media.html" class="nav-link" data-page="media.html">Médias</a>
+        <a href="journal.html" class="nav-link" data-i18n="nav.journal">Journal</a>
+        <a href="soutenir.html" class="btn-primary text-sm py-2 px-5" data-i18n="nav.soutenir">Soutenir</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="lang-switcher hidden md:flex">
+          <button class="lang-btn active" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="it">IT</button>
+          <button class="lang-btn" data-lang="de">DE</button>
+        </div>
+        <button id="hamburger" class="hamburger md:hidden" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    
+  <!-- SPONSORS TICKER -->
+  <div id="sponsorsTicker" style="background:#f8f9fa; border-bottom:1px solid rgba(0,0,0,0.1); padding:0.5rem 0; overflow:hidden; position:relative; z-index:40; min-height:40px;">
+    <div style="position:absolute;left:0;top:0;bottom:0;width:4rem;background:linear-gradient(to right,#f8f9fa,transparent);z-index:2;pointer-events:none;"></div>
+    <div style="position:absolute;right:0;top:0;bottom:0;width:4rem;background:linear-gradient(to left,#f8f9fa,transparent);z-index:2;pointer-events:none;"></div>
+    <div id="sponsorsTrack" style="display:inline-flex;align-items:center;white-space:nowrap;padding-left:50%;"></div>
+  </div>
+  <script>
+  (function() {
+    var nav = document.getElementById('navbar');
+    var ticker = document.getElementById('sponsorsTicker');
+    if (nav && ticker) {
+      ticker.style.marginTop = nav.offsetHeight + 'px';
+    }
+  })();
+  </script>
+  <style>
+    #sponsorsTrack { animation: sponsorScroll 20s linear infinite; }
+    #sponsorsTrack:hover { animation-play-state: paused; }
+    @keyframes sponsorScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  </style>
+  <script>
+  (function() {
+    fetch('/api/sponsors.php')
+      .then(function(r){ return r.json(); })
+      .then(function(sponsors) {
+        if (!sponsors || !sponsors.length) return;
+        var track = document.getElementById('sponsorsTrack');
+        if (!track) return;
+        var all = sponsors.concat(sponsors);
+        track.style.paddingLeft = '0';
+        track.innerHTML = all.map(function(s) {
+          var logo = s.logo ? '<img src="' + s.logo + '" alt="' + s.name + '" style="max-height:28px;max-width:80px;object-fit:contain;vertical-align:middle;mix-blend-mode:multiply;">' : '';
+          var inner = '<span style="display:inline-flex;align-items:center;gap:0.4rem;">' + logo + '<span style="font-size:0.75rem;font-weight:700;color:#1a2332;">' + s.name + '</span></span>';
+          var dot = '<span style="color:rgba(0,0,0,0.2);margin:0 1.5rem;">·</span>';
+          return s.url
+            ? '<a href="' + s.url + '" target="_blank" rel="noopener" style="text-decoration:none;padding:0 0.5rem;">' + inner + '</a>' + dot
+            : '<span style="padding:0 0.5rem;">' + inner + '</span>' + dot;
+        }).join('');
+        track.style.animationDuration = Math.max(12, sponsors.length * 7) + 's';
+      }).catch(function(){});
+  })();
+  </script>
+
+  <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+      <div class="p-6 space-y-4">
+        <a href="index.html" class="mobile-nav-link" data-i18n="nav.home">Accueil</a>
+        <a href="trajet.html" class="mobile-nav-link" data-i18n="nav.trajet">Le Trajet</a>
+        <a href="preparation.html" class="mobile-nav-link" data-i18n="nav.preparation">Préparation</a>
+        <a href="sponsoring.html" class="mobile-nav-link" data-i18n="nav.sponsoring">Sponsoring</a>
+        <a href="media.html" class="mobile-nav-link">Médias</a>
+        <a href="journal.html" class="mobile-nav-link" data-i18n="nav.journal">Journal</a>
+        <a href="soutenir.html" class="btn-primary block text-center mt-4" data-i18n="nav.soutenir">Soutenir</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="py-28 px-6 text-center" style="background:linear-gradient(180deg, #f0f7f5 0%, var(--cream) 100%); padding-top:8rem;">
+    <span class="section-label justify-center">Contact</span>
+    <h1 class="section-title mt-3" data-i18n="contact.title">Écrivez à Roland</h1>
+    <p class="section-subtitle mx-auto mt-4 text-center" data-i18n="contact.subtitle">
+      Une question, un partenariat, un projet commun ? Roland répond personnellement dans les 24h.
+    </p>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="py-16 px-6">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+
+      <!-- Info cards -->
+      <div class="space-y-6">
+        <div class="reveal" style="background:white; border-radius:1rem; padding:2rem; box-shadow:0 4px 20px rgba(0,0,0,0.06);">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-xl" style="background:linear-gradient(135deg,#e8f4f0,#d0ebe4);">✉️</div>
+            <div>
+              <div class="font-semibold" style="color:var(--dark);" data-i18n="contact.email_label">Email direct</div>
+              <a href="mailto:roland@neuro-odyssee.com" style="color:var(--green-mid); font-size:0.9rem;">roland@neuro-odyssee.com</a>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed" style="color:var(--text-light);" data-i18n="contact.email_text">Pour les partenariats, demandes médias, et questions sur le projet.</p>
+        </div>
+
+        <div class="reveal" style="background:white; border-radius:1rem; padding:2rem; box-shadow:0 4px 20px rgba(0,0,0,0.06);">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-xl" style="background:linear-gradient(135deg,#fff8e6,#fdeec5);">📸</div>
+            <div>
+              <div class="font-semibold" style="color:var(--dark);">Instagram</div>
+              <a href="https://www.instagram.com/la_neuro_odyssee" target="_blank" rel="noopener" style="color:var(--green-mid); font-size:0.9rem;">@la_neuro_odyssee</a>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed" style="color:var(--text-light);" data-i18n="contact.insta_text">Suivez la préparation au quotidien et envoyez un DM.</p>
+        </div>
+
+        <div class="reveal" style="background:white; border-radius:1rem; padding:2rem; box-shadow:0 4px 20px rgba(0,0,0,0.06);">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-xl" style="background:linear-gradient(135deg,#fde8e8,#f9c0c0);">▶️</div>
+            <div>
+              <div class="font-semibold" style="color:var(--dark);">YouTube</div>
+              <a href="https://www.youtube.com/@LaNeuro-Odyssee" target="_blank" rel="noopener" style="color:var(--green-mid); font-size:0.9rem;">@LaNeuro-Odyssee</a>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed" style="color:var(--text-light);" data-i18n="contact.youtube_text">Les vidéos de préparation et les futurs épisodes du périple.</p>
+        </div>
+
+        <div class="reveal" style="background:linear-gradient(135deg,#1E6B5E,#2D8C7A); border-radius:1rem; padding:2rem; color:white;">
+          <h3 class="font-serif text-xl mb-2" data-i18n="contact.sponsor_title">Vous êtes une entreprise ?</h3>
+          <p class="text-sm leading-relaxed mb-4" style="color:rgba(255,255,255,0.75);" data-i18n="contact.sponsor_text">Découvrez les formules de parrainage km et les opportunités de visibilité sur 1 900 km.</p>
+          <a href="sponsoring.html" class="btn-secondary" style="font-size:0.85rem;" data-i18n="contact.sponsor_cta">Voir les formules sponsoring</a>
+        </div>
+      </div>
+
+      <!-- Contact form -->
+      <div class="reveal">
+        <div style="background:white; border-radius:1rem; padding:2.5rem; box-shadow:0 4px 20px rgba(0,0,0,0.06);">
+          <h2 class="font-serif text-2xl mb-6" style="color:var(--dark);" data-i18n="contact.form_title">Envoyer un message</h2>
+
+          <div id="contactSuccess" style="display:none; background:rgba(45,140,122,0.1); border:1px solid var(--green-mid); border-radius:0.75rem; padding:1.25rem; margin-bottom:1.5rem; color:var(--green-deep);">
+            <i class="fa-solid fa-circle-check mr-2"></i>
+            <span data-i18n="contact.success">Message envoyé ! Roland vous répondra dans les 24h.</span>
+          </div>
+
+          <div id="contactError" style="display:none; background:rgba(220,53,69,0.08); border:1px solid #dc3545; border-radius:0.75rem; padding:1.25rem; margin-bottom:1.5rem; color:#c82333;">
+            <i class="fa-solid fa-circle-exclamation mr-2"></i>
+            <span data-i18n="contact.error">Une erreur est survenue. Réessayez ou écrivez directement à roland@neuro-odyssee.com</span>
+          </div>
+
+          <form id="contactForm" class="space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm font-semibold mb-1.5" style="color:var(--dark);" data-i18n="contact.field_name">Prénom *</label>
+                <input type="text" id="cPrenom" required placeholder="Roland" style="width:100%; padding:0.75rem 1rem; border:1.5px solid rgba(0,0,0,0.12); border-radius:0.75rem; font-size:0.95rem; outline:none; transition:border-color 0.2s; background:var(--cream);" onfocus="this.style.borderColor='var(--green-mid)'" onblur="this.style.borderColor='rgba(0,0,0,0.12)'">
+              </div>
+              <div>
+                <label class="block text-sm font-semibold mb-1.5" style="color:var(--dark);" data-i18n="contact.field_company">Entreprise (optionnel)</label>
+                <input type="text" id="cEntreprise" placeholder="Ma Société SA" style="width:100%; padding:0.75rem 1rem; border:1.5px solid rgba(0,0,0,0.12); border-radius:0.75rem; font-size:0.95rem; outline:none; transition:border-color 0.2s; background:var(--cream);" onfocus="this.style.borderColor='var(--green-mid)'" onblur="this.style.borderColor='rgba(0,0,0,0.12)'">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-semibold mb-1.5" style="color:var(--dark);" data-i18n="contact.field_email">Email *</label>
+              <input type="email" id="cEmail" required placeholder="vous@exemple.com" style="width:100%; padding:0.75rem 1rem; border:1.5px solid rgba(0,0,0,0.12); border-radius:0.75rem; font-size:0.95rem; outline:none; transition:border-color 0.2s; background:var(--cream);" onfocus="this.style.borderColor='var(--green-mid)'" onblur="this.style.borderColor='rgba(0,0,0,0.12)'">
+            </div>
+
+            <div>
+              <label class="block text-sm font-semibold mb-1.5" style="color:var(--dark);" data-i18n="contact.field_phone">Téléphone (optionnel)</label>
+              <input type="tel" id="cTelephone" placeholder="+41 79 000 00 00" style="width:100%; padding:0.75rem 1rem; border:1.5px solid rgba(0,0,0,0.12); border-radius:0.75rem; font-size:0.95rem; outline:none; transition:border-color 0.2s; background:var(--cream);" onfocus="this.style.borderColor='var(--green-mid)'" onblur="this.style.borderColor='rgba(0,0,0,0.12)'">
+            </div>
+
+            <div>
+              <label class="block text-sm font-semibold mb-1.5" style="color:var(--dark);" data-i18n="contact.field_subject">Sujet *</label>
+              <select id="cSujet" required style="width:100%; padding:0.75rem 1rem; border:1.5px solid rgba(0,0,0,0.12); border-radius:0.75rem; font-size:0.95rem; outline:none; transition:border-color 0.2s; background:var(--cream); color:var(--dark);" onfocus="this.style.borderColor='var(--green-mid)'" onblur="this.style.borderColor='rgba(0,0,0,0.12)'">
+                <option value="" data-i18n="contact.subject_default">Choisir un sujet...</option>
+                <option value="sponsoring" data-i18n="contact.subject_sponsoring">Partenariat / Sponsoring</option>
+                <option value="media" data-i18n="contact.subject_media">Presse / Médias</option>
+                <option value="coaching" data-i18n="contact.subject_coaching">Accompagnement personnel</option>
+                <option value="conference" data-i18n="contact.subject_conference">Conférence / Intervention</option>
+                <option value="autre" data-i18n="contact.subject_other">Autre</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-semibold mb-1.5" style="color:var(--dark);" data-i18n="contact.field_message">Message *</label>
+              <textarea id="cMessage" required rows="5" placeholder="Décrivez votre demande..." style="width:100%; padding:0.75rem 1rem; border:1.5px solid rgba(0,0,0,0.12); border-radius:0.75rem; font-size:0.95rem; outline:none; transition:border-color 0.2s; background:var(--cream); resize:vertical;" onfocus="this.style.borderColor='var(--green-mid)'" onblur="this.style.borderColor='rgba(0,0,0,0.12)'"></textarea>
+            </div>
+
+            <button type="submit" id="contactBtn" class="btn-green w-full justify-center" style="width:100%;">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span data-i18n="contact.send">Envoyer mon message</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12" style="border-bottom:1px solid rgba(255,255,255,0.08);">
+        <div class="md:col-span-2">
+          <div class="footer-logo">La <span>Neuro</span>-Odyssée</div>
+          <p class="mt-3 text-sm leading-relaxed" style="color:rgba(255,255,255,0.5); max-width:320px;" data-i18n="footer.tagline">
+            1 900 km pour se reconstruire — De St-Maurice à Santiago de Compostela
+          </p>
+          <div class="flex gap-3 mt-6">
+            <a href="https://www.youtube.com/@LaNeuro-Odyssee" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.instagram.com/la_neuro_odyssee" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-title" data-i18n="footer.nav_title">Navigation</div>
+          <a href="index.html" class="footer-link" data-i18n="nav.home">Accueil</a>
+          <a href="trajet.html" class="footer-link" data-i18n="nav.trajet">Le Trajet</a>
+          <a href="journal.html" class="footer-link" data-i18n="nav.journal">Journal</a>
+          <a href="sponsoring.html" class="footer-link" data-i18n="nav.sponsoring">Sponsoring</a>
+          <a href="soutenir.html" class="footer-link" data-i18n="nav.soutenir">Soutenir</a>
+        </div>
+        <div>
+          <div class="footer-title" data-i18n="footer.contact_title">Contact</div>
+          <a href="mailto:roland@neuro-odyssee.com" class="footer-link">
+            <i class="fa-solid fa-envelope mr-2" style="font-size:0.75rem;"></i>
+            roland@neuro-odyssee.com
+          </a>
+          <a href="https://www.instagram.com/la_neuro_odyssee" target="_blank" class="footer-link">
+            <i class="fa-brands fa-instagram mr-2" style="font-size:0.75rem;"></i>
+            @la_neuro_odyssee
+          </a>
+          <a href="https://www.youtube.com/@LaNeuro-Odyssee" target="_blank" class="footer-link">
+            <i class="fa-brands fa-youtube mr-2" style="font-size:0.75rem;"></i>
+            @LaNeuro-Odyssee
+          </a>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div class="text-sm" style="color:rgba(255,255,255,0.35);">
+          © <span class="current-year"></span> neuro-odyssee.com — <span data-i18n="footer.rights">Tous droits réservés.</span>
+        </div>
+        <div class="text-sm" style="color:rgba(255,255,255,0.25);">
+          Fait avec passion en Valais 🇨🇭 · <a href="https://iasmart.tech" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.35); text-decoration:underline;">iasmart.tech</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var btn = document.getElementById('contactBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Envoi...';
+
+      var data = {
+        prenom:     document.getElementById('cPrenom').value,
+        entreprise: document.getElementById('cEntreprise').value,
+        email:      document.getElementById('cEmail').value,
+        telephone:  document.getElementById('cTelephone').value,
+        sujet:      document.getElementById('cSujet').value,
+        message:    document.getElementById('cMessage').value
+      };
+
+      try {
+        var res = await fetch('payment/contact.php', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(data)
+        });
+        var json = await res.json();
+        if (json.success) {
+          document.getElementById('contactSuccess').style.display = 'block';
+          document.getElementById('contactError').style.display = 'none';
+          document.getElementById('contactForm').reset();
+        } else {
+          throw new Error(json.error || 'Erreur');
+        }
+      } catch(err) {
+        document.getElementById('contactError').style.display = 'block';
+        document.getElementById('contactSuccess').style.display = 'none';
+      }
+
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> <span>Envoyer mon message</span>';
+    });
+  </script>
+</body>
+</html>

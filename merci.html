@@ -89,6 +89,21 @@
       </a>
     </div>
 
+    <!-- Bloc newsletter -->
+    <div style="margin-top:2rem; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:0.75rem; padding:1.25rem;">
+      <div style="font-size:0.75rem; font-weight:700; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem;">📘 Ebook gratuit</div>
+      <p style="font-size:0.85rem; color:rgba(255,255,255,0.6); margin-bottom:0.75rem;">Recevez l'ebook de Roland offert : <em>Tu fais tout bien. Alors pourquoi tu t'effondres ?</em></p>
+      <form id="merciNewsletter" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <input type="email" name="email" placeholder="Votre email" required
+          style="flex:1; min-width:180px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:0.55rem 0.9rem; color:white; font-size:0.85rem; outline:none;">
+        <button type="submit"
+          style="background:#F0A500; color:#1a2332; border:none; border-radius:6px; padding:0.55rem 1rem; font-size:0.82rem; font-weight:700; cursor:pointer; white-space:nowrap;">
+          Recevoir →
+        </button>
+      </form>
+      <p id="merciNewsletterMsg" style="font-size:0.75rem; min-height:1rem; margin-top:0.4rem; color:rgba(255,255,255,0.5);"></p>
+    </div>
+
     <!-- Formulaire témoignage -->
     <div id="temoignage-section" style="margin-top:2rem; border-top:1px solid rgba(255,255,255,0.08); padding-top:1.75rem;">
       <p style="font-size:0.85rem; color:rgba(255,255,255,0.45); margin-bottom:1rem;">
@@ -188,6 +203,8 @@
       document.head.appendChild(style);
     });
   </script>
+  <script src="js/newsletter.js"></script>
+  <script>initNewsletterForm('merciNewsletter');</script>
 
 </body>
 </html>

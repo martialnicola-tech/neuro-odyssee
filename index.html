@@ -5,9 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="i18n-title" content="hero.tagline">
   <title>La Neuro-Odyssée — 1 900 km pour se reconstruire</title>
-  <meta name="description" content="Roland Crettaz marche 1 900 km de St-Maurice à Santiago de Compostela pour se reconstruire après un TDAH et des addictions. Rejoignez l'aventure.">
-  <meta name="og:title" content="La Neuro-Odyssée">
-  <meta name="og:description" content="1 900 km pour re-câbler un cerveau — De St-Maurice à Santiago de Compostela">
+  <meta name="description" content="Roland Crettaz, coach neurosciences (Valais 🇨🇭), marche 1 900 km de St-Maurice à Santiago pour se reconstruire après un TDAH et des addictions. Soutenez l'aventure.">
+  <meta property="og:title" content="La Neuro-Odyssée — 1 900 km pour recâbler un cerveau">
+  <meta property="og:description" content="Roland Crettaz marche 1 900 km de la Suisse à Santiago de Compostela. TDAH, addictions, neuroplasticité : une reconstruction documentée en temps réel.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.neuro-odyssee.com/">
+  <meta property="og:image" content="https://www.neuro-odyssee.com/images/roland-crettaz.jpg">
+  <meta property="og:site_name" content="La Neuro-Odyssée">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="La Neuro-Odyssée — 1 900 km pour recâbler un cerveau">
+  <meta name="twitter:description" content="Roland Crettaz marche 1 900 km de la Suisse à Santiago. TDAH, addictions, neuroplasticité : reconstruction en temps réel.">
+  <meta name="twitter:image" content="https://www.neuro-odyssee.com/images/roland-crettaz.jpg">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -43,13 +52,110 @@
     }
   </script>
 
-  <!-- Custom CSS -->
-  <meta property="og:url" content="https://www.neuro-odyssee.com/">
-  <meta property="og:image" content="https://www.neuro-odyssee.com/images/roland-crettaz.jpg">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="La Neuro-Odyssée">
   <link rel="canonical" href="https://www.neuro-odyssee.com/">
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.neuro-odyssee.com/#roland",
+        "name": "Roland Crettaz",
+        "url": "https://www.neuro-odyssee.com",
+        "image": "https://www.neuro-odyssee.com/images/roland-crettaz.jpg",
+        "description": "Coach neurosciences, marcheur 1 900 km Santiago, auteur, conférencier. Spécialiste TDAH, addictions et neuroplasticité. Basé en Valais, Suisse.",
+        "jobTitle": "Coach neurosciences & conférencier",
+        "knowsAbout": ["Neuroplasticité", "TDAH", "Addictions", "Neurosciences", "Chemin de Compostelle", "Nutrition cérébrale"],
+        "knowsLanguage": ["fr", "de", "en"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Saint-Maurice",
+          "addressRegion": "Valais",
+          "addressCountry": "CH"
+        },
+        "sameAs": [
+          "https://www.instagram.com/neuroodyssee",
+          "https://www.youtube.com/@neuroodyssee"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.neuro-odyssee.com/#website",
+        "url": "https://www.neuro-odyssee.com",
+        "name": "La Neuro-Odyssée",
+        "description": "1 900 km de Saint-Maurice à Santiago de Compostela pour reconstruire un cerveau. Journal de bord, neuroplasticité, TDAH, addictions.",
+        "inLanguage": ["fr", "en", "de", "it"],
+        "publisher": { "@id": "https://www.neuro-odyssee.com/#roland" }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.neuro-odyssee.com/#coaching",
+        "name": "Coaching neurosciences — Roland Crettaz",
+        "provider": { "@id": "https://www.neuro-odyssee.com/#roland" },
+        "description": "Coaching personnalisé basé sur les neurosciences pour adultes TDAH, personnes en sortie d'addiction et victimes de burnout. Conférences d'entreprise sur la résilience.",
+        "serviceType": "Coaching neurosciences",
+        "areaServed": ["CH", "FR", "BE"],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Services Roland Crettaz",
+          "itemListElement": [
+            { "@type": "Offer", "name": "Coaching individuel TDAH & addictions", "priceCurrency": "EUR" },
+            { "@type": "Offer", "name": "Conférence entreprise — Neuroplasticité & résilience", "priceCurrency": "EUR" },
+            { "@type": "Offer", "name": "Parrainage km Neuro-Odyssée", "price": "5", "priceCurrency": "EUR" }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce que la Neuro-Odyssée ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La Neuro-Odyssée est un défi de 1 900 km à pied de Saint-Maurice (Suisse) à Santiago de Compostela, réalisé par Roland Crettaz pour se reconstruire après un diagnostic tardif de TDAH et des addictions, en s'appuyant sur la neuroplasticité."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce que la neuroplasticité ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La neuroplasticité est la capacité prouvée du cerveau à former de nouvelles connexions neuronales à tout âge. La marche intensive déclenche la production de BDNF, une protéine qui favorise la création de nouveaux circuits cérébraux."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment soutenir la Neuro-Odyssée ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Vous pouvez parrainer des kilomètres dès 5 €, faire un don libre, ou devenir partenaire entreprise (Bronze, Argent, Or, Platine) via la page Soutenir ou Sponsoring."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Roland Crettaz propose-t-il du coaching ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui. Roland propose un coaching individuel basé sur les neurosciences pour les adultes TDAH, les personnes en sortie d'addiction et les victimes de burnout, ainsi que des conférences en entreprise."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel est le parcours de la Neuro-Odyssée ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le parcours de 1 900 km passe par Saint-Maurice, Lausanne, Genève, Le Puy-en-Velay, Conques, Cahors, Saint-Jean-Pied-de-Port, Pampelune, Burgos, León jusqu'à Santiago de Compostela."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="bg-cream">
 
@@ -89,8 +195,10 @@
         <a href="index.html" class="nav-link" data-page="index.html" data-i18n="nav.home">Accueil</a>
         <a href="trajet.html" class="nav-link" data-page="trajet.html" data-i18n="nav.trajet">Le Trajet</a>
         <a href="preparation.html" class="nav-link" data-page="preparation.html" data-i18n="nav.preparation">Préparation</a>
-        <a href="sponsoring.html" class="nav-link" data-page="sponsoring.html" data-i18n="nav.sponsoring">Sponsoring</a>
         <a href="journal.html" class="nav-link" data-page="journal.html" data-i18n="nav.journal">Journal</a>
+        <a href="club.html" class="nav-link" data-i18n="nav.club">Club</a>
+        <a href="sponsoring.html" class="nav-link" data-page="sponsoring.html" data-i18n="nav.sponsoring">Sponsoring</a>
+        <a href="media.html" class="nav-link" data-page="media.html">Médias</a>
         <a href="soutenir.html" class="btn-primary text-sm py-2 px-5" data-i18n="nav.soutenir">Soutenir</a>
       </div>
 
@@ -110,6 +218,50 @@
     </div>
   </nav>
 
+  
+  <!-- SPONSORS TICKER -->
+  <div id="sponsorsTicker" style="background:#f8f9fa; border-bottom:1px solid rgba(0,0,0,0.1); padding:0.5rem 0; overflow:hidden; position:relative; z-index:40; min-height:40px;">
+    <div style="position:absolute;left:0;top:0;bottom:0;width:4rem;background:linear-gradient(to right,#f8f9fa,transparent);z-index:2;pointer-events:none;"></div>
+    <div style="position:absolute;right:0;top:0;bottom:0;width:4rem;background:linear-gradient(to left,#f8f9fa,transparent);z-index:2;pointer-events:none;"></div>
+    <div id="sponsorsTrack" style="display:inline-flex;align-items:center;white-space:nowrap;padding-left:50%;"></div>
+  </div>
+  <script>
+  (function() {
+    var nav = document.getElementById('navbar');
+    var ticker = document.getElementById('sponsorsTicker');
+    if (nav && ticker) {
+      ticker.style.marginTop = nav.offsetHeight + 'px';
+    }
+  })();
+  </script>
+  <style>
+    #sponsorsTrack { animation: sponsorScroll 20s linear infinite; }
+    #sponsorsTrack:hover { animation-play-state: paused; }
+    @keyframes sponsorScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  </style>
+  <script>
+  (function() {
+    fetch('/api/sponsors.php')
+      .then(function(r){ return r.json(); })
+      .then(function(sponsors) {
+        if (!sponsors || !sponsors.length) return;
+        var track = document.getElementById('sponsorsTrack');
+        if (!track) return;
+        var all = sponsors.concat(sponsors);
+        track.style.paddingLeft = '0';
+        track.innerHTML = all.map(function(s) {
+          var logo = s.logo ? '<img src="' + s.logo + '" alt="' + s.name + '" style="max-height:28px;max-width:80px;object-fit:contain;vertical-align:middle;mix-blend-mode:multiply;">' : '';
+          var inner = '<span style="display:inline-flex;align-items:center;gap:0.4rem;">' + logo + '<span style="font-size:0.75rem;font-weight:700;color:#1a2332;">' + s.name + '</span></span>';
+          var dot = '<span style="color:rgba(0,0,0,0.2);margin:0 1.5rem;">·</span>';
+          return s.url
+            ? '<a href="' + s.url + '" target="_blank" rel="noopener" style="text-decoration:none;padding:0 0.5rem;">' + inner + '</a>' + dot
+            : '<span style="padding:0 0.5rem;">' + inner + '</span>' + dot;
+        }).join('');
+        track.style.animationDuration = Math.max(12, sponsors.length * 7) + 's';
+      }).catch(function(){});
+  })();
+  </script>
+
   <!-- Mobile Menu -->
   <div id="mobileMenu" class="mobile-menu">
     <button id="mobileMenuClose" class="absolute top-6 right-6 text-white text-2xl" aria-label="Fermer">
@@ -118,8 +270,10 @@
     <a href="index.html" class="mobile-nav-link" data-i18n="nav.home">Accueil</a>
     <a href="trajet.html" class="mobile-nav-link" data-i18n="nav.trajet">Le Trajet</a>
     <a href="preparation.html" class="mobile-nav-link" data-i18n="nav.preparation">Préparation</a>
-    <a href="sponsoring.html" class="mobile-nav-link" data-i18n="nav.sponsoring">Sponsoring</a>
     <a href="journal.html" class="mobile-nav-link" data-i18n="nav.journal">Journal</a>
+    <a href="club.html" class="mobile-nav-link" data-i18n="nav.club">Club</a>
+    <a href="sponsoring.html" class="mobile-nav-link" data-i18n="nav.sponsoring">Sponsoring</a>
+    <a href="media.html" class="mobile-nav-link">Médias</a>
     <a href="soutenir.html" class="mobile-nav-link" data-i18n="nav.soutenir">Soutenir</a>
     <!-- Mobile Lang -->
     <div class="lang-switcher mt-4">
@@ -182,7 +336,7 @@
         </a>
         <a href="soutenir.html" class="btn-secondary">
           <i class="fa-solid fa-heart"></i>
-          <span data-i18n="hero.cta_don">Faire un Don</span>
+          <span data-i18n="hero.cta_don">Soutenir le Projet</span>
         </a>
       </div>
 
@@ -209,22 +363,62 @@
   </section>
 
   <!-- ============================================
-       STATS BAR
+       SPONSORS TICKER — Bandeau défilant (corps de page)
+       ============================================ -->
+  <div id="sponsorsTickerBody" style="display:none; background:#fff; border-top:1px solid rgba(0,0,0,0.07); border-bottom:1px solid rgba(0,0,0,0.07); padding:0.6rem 0; overflow:hidden; position:relative;">
+    <div style="position:absolute;left:0;top:0;bottom:0;width:5rem;background:linear-gradient(to right,#fff,transparent);z-index:2;pointer-events:none;"></div>
+    <div style="position:absolute;right:0;top:0;bottom:0;width:5rem;background:linear-gradient(to left,#fff,transparent);z-index:2;pointer-events:none;"></div>
+    <div id="sponsorsTrackBody" style="display:inline-flex;align-items:center;gap:0;white-space:nowrap;"></div>
+  </div>
+  <style>
+    #sponsorsTrackBody { animation: sponsorScroll 18s linear infinite; }
+    #sponsorsTrackBody:hover { animation-play-state: paused; }
+  </style>
+  <script>
+    (function() {
+      fetch('/api/sponsors.php')
+        .then(function(r) { return r.json(); })
+        .then(function(sponsors) {
+          if (!sponsors || !sponsors.length) return;
+          var ticker = document.getElementById('sponsorsTickerBody');
+          var track  = document.getElementById('sponsorsTrackBody');
+          var all = sponsors.concat(sponsors);
+          track.innerHTML = all.map(function(s) {
+            var logoHtml = s.logo
+              ? '<img src="' + s.logo + '" alt="' + s.name + '" style="max-height:32px;max-width:90px;object-fit:contain;vertical-align:middle;mix-blend-mode:multiply;">'
+              : '';
+            var inner = '<span style="display:inline-flex;align-items:center;gap:0.5rem;">'
+              + logoHtml
+              + '<span style="font-size:0.78rem;font-weight:700;color:#1a2332;letter-spacing:-0.01em;">' + s.name + '</span>'
+              + '</span>';
+            var sep = '<span style="color:rgba(0,0,0,0.15);font-size:1rem;margin:0 1.5rem;">·</span>';
+            return s.url
+              ? '<a href="' + s.url + '" target="_blank" rel="noopener" style="text-decoration:none;padding:0 1rem;">' + inner + '</a>' + sep
+              : '<span style="padding:0 1rem;">' + inner + '</span>' + sep;
+          }).join('');
+          ticker.style.display = 'block';
+          track.style.animationDuration = Math.max(10, sponsors.length * 6) + 's';
+        }).catch(function() {});
+    })();
+  </script>
+
+  <!-- ============================================
+       STATS BAR — Le Défi
        ============================================ -->
   <section id="stats" class="stats-bar">
     <div class="max-w-5xl mx-auto px-6">
       <div class="flex flex-col md:flex-row items-center justify-center">
         <div class="stat-item flex-1">
-          <span class="stat-number" data-stat="km_paraines" data-suffix=" km" id="stat-km">0 km</span>
-          <span class="stat-label" data-i18n="stats.km_parraines">km parrainés</span>
+          <span class="stat-number" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:2.8rem; font-weight:700; color:var(--gold);">1 900 km</span>
+          <span class="stat-label">Le Défi</span>
         </div>
         <div class="stat-item flex-1">
-          <span class="stat-number" data-stat="sponsors" id="stat-sponsors">0</span>
-          <span class="stat-label" data-i18n="stats.sponsors">sponsors</span>
+          <span class="stat-number" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:2.8rem; font-weight:700; color:var(--gold);">79 jours</span>
+          <span class="stat-label">De Marche</span>
         </div>
         <div class="stat-item flex-1">
-          <span class="stat-number" data-stat="collectes" data-suffix=" €" id="stat-collectes">0 €</span>
-          <span class="stat-label" data-i18n="stats.collectes">collectés</span>
+          <span class="stat-number" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:2.8rem; font-weight:700; color:var(--gold);">1 objectif</span>
+          <span class="stat-label">Santiago de Compostela</span>
         </div>
       </div>
     </div>
@@ -371,27 +565,22 @@
         </p>
       </div>
 
-      <!-- Progress bar -->
+      <!-- Barre de parcours visuelle -->
       <div class="reveal">
         <div class="flex justify-between items-center mb-3">
           <span class="progress-label" style="color:var(--gold);">
-            <span data-target="0" data-duration="2000">0</span> <span data-i18n="progress.km_parraines">km parrainés</span>
+            <i class="fa-solid fa-location-dot mr-1"></i> St-Maurice (Suisse)
           </span>
           <span class="progress-label" style="color:rgba(255,255,255,0.5);">
-            1 900 <span data-i18n="progress.km_total">km au total</span>
+            Santiago de Compostela <i class="fa-solid fa-star ml-1" style="color:var(--gold);"></i>
           </span>
         </div>
-        <div class="progress-track" style="background:rgba(255,255,255,0.08);">
-          <div class="progress-bar" data-progress="0" style="min-width:4px;"></div>
+        <div class="progress-track" style="background:rgba(255,255,255,0.08); position:relative;">
+          <div class="progress-bar" style="width:0.53%; min-width:12px; background:linear-gradient(90deg,var(--green-mid),var(--gold)); transition:width 2s ease;"></div>
         </div>
-        <div class="flex justify-between items-center mt-4">
-          <div>
-            <span class="text-xl font-bold" style="color:var(--gold);">0 %</span>
-            <span class="text-sm ml-2" style="color:rgba(255,255,255,0.5);" data-i18n="progress.tiers_parcourus">du trajet parrainé</span>
-          </div>
-          <div style="color:rgba(255,255,255,0.35); font-size:0.8rem; font-style:italic;">
-            St-Maurice → Santiago de Compostela
-          </div>
+        <div class="text-center mt-4">
+          <span class="text-lg font-bold" style="color:var(--gold);">10 km</span>
+          <span class="text-sm ml-2" style="color:rgba(255,255,255,0.5);" data-i18n="progress.sponsored_label">déjà parrainés sur 1 900 km</span>
         </div>
       </div>
 
@@ -416,6 +605,56 @@
           <div class="text-xs mb-1" style="color:var(--gold);">km 1 900 ✦</div>
           <div class="h-1 rounded" style="background:rgba(240,165,0,0.3);"></div>
           <div class="text-xs mt-1" style="color:var(--gold);">Santiago ⭐</div>
+        </div>
+      </div>
+
+      <!-- Témoignages sponsors -->
+      <div class="mt-14 reveal">
+        <h3 class="text-center font-serif text-2xl mb-8" style="color:rgba(255,255,255,0.85);" data-i18n="progress.testimonials_title">Ils soutiennent la Neuro-Odyssée</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <!-- Témoignage 1 -->
+          <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:1rem; padding:1.5rem;">
+            <div class="flex items-center gap-3 mb-3">
+              <div style="width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg, #2D8C7A, #3B9BB0); display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:0.9rem;">SB</div>
+              <div>
+                <div style="color:white; font-weight:600; font-size:0.9rem;">Sophie B.</div>
+                <div style="color:rgba(255,255,255,0.4); font-size:0.75rem;">3 km parrainés</div>
+              </div>
+            </div>
+            <p style="color:rgba(255,255,255,0.6); font-size:0.85rem; line-height:1.7; font-style:italic;" data-i18n="progress.testimonial_1">
+              « Mon frère a un TDAH. Quand j'ai découvert le projet de Roland, j'ai compris que quelqu'un allait enfin montrer que ce n'est pas une fatalité. 3 km, c'est symbolique, mais c'est mon pas à moi. »
+            </p>
+          </div>
+
+          <!-- Témoignage 2 -->
+          <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:1rem; padding:1.5rem;">
+            <div class="flex items-center gap-3 mb-3">
+              <div style="width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg, #F0A500, #b87a00); display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:0.9rem;">MC</div>
+              <div>
+                <div style="color:white; font-weight:600; font-size:0.9rem;">Marc C.</div>
+                <div style="color:rgba(255,255,255,0.4); font-size:0.75rem;">5 km parrainés</div>
+              </div>
+            </div>
+            <p style="color:rgba(255,255,255,0.6); font-size:0.85rem; line-height:1.7; font-style:italic;" data-i18n="progress.testimonial_2">
+              « J'ai moi-même arrêté l'alcool il y a 8 ans. Je sais ce que ça coûte. Quand un homme décide de transformer sa douleur en quelque chose d'aussi beau, on soutient. Point. »
+            </p>
+          </div>
+
+          <!-- Témoignage 3 -->
+          <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:1rem; padding:1.5rem;">
+            <div class="flex items-center gap-3 mb-3">
+              <div style="width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg, #1E6B5E, #2D8C7A); display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:0.9rem;">LR</div>
+              <div>
+                <div style="color:white; font-weight:600; font-size:0.9rem;">Laurence R.</div>
+                <div style="color:rgba(255,255,255,0.4); font-size:0.75rem;">2 km parrainés</div>
+              </div>
+            </div>
+            <p style="color:rgba(255,255,255,0.6); font-size:0.85rem; line-height:1.7; font-style:italic;" data-i18n="progress.testimonial_3">
+              « Je suis neuropsychologue et ce projet me parle profondément. La marche longue distance est un outil thérapeutique sous-estimé. Bravo Roland pour cette démarche, je suivrai chaque étape. »
+            </p>
+          </div>
+
         </div>
       </div>
 
@@ -723,6 +962,49 @@
   </section>
 
   <!-- ============================================
+       PRESSE / MÉDIAS — ILS EN PARLENT
+       ============================================ -->
+  <section class="py-24 px-6" style="background:var(--cream);">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="section-label justify-center" style="color:var(--green-mid);" data-i18n="media_home.label">Ils en parlent</span>
+        <h2 class="section-title mt-3" data-i18n="media_home.title">La Neuro-Odyssée dans les médias</h2>
+        <p class="section-subtitle mx-auto mt-4 text-center" data-i18n="media_home.subtitle">La presse relaie l'aventure de Roland Crettaz.</p>
+      </div>
+
+      <!-- Featured press card -->
+      <a href="article-carrefour.html" class="reveal press-card-home"
+         style="display:grid; grid-template-columns:auto 1fr; gap:2rem; align-items:center; background:white; border:1px solid rgba(0,0,0,0.08); border-radius:1.5rem; padding:2rem; max-width:760px; margin:0 auto; text-decoration:none; box-shadow:var(--shadow-md); transition:transform .3s, box-shadow .3s;">
+        <div style="flex-shrink:0; width:140px; border-radius:10px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,0.15);">
+          <img src="images/article-carrefour-neuro-odyssee-page1.jpg" alt="Article du journal Le Carrefour N°248 sur la Neuro-Odyssée de Roland Crettaz" loading="lazy" style="width:100%; display:block;">
+        </div>
+        <div>
+          <div style="display:inline-flex; align-items:center; gap:0.4rem; background:rgba(30,107,94,0.1); border:1px solid rgba(30,107,94,0.25); border-radius:20px; padding:0.2rem 0.75rem; margin-bottom:0.6rem;">
+            <span style="width:6px; height:6px; background:var(--green-deep); border-radius:50%; display:inline-block;"></span>
+            <span style="font-size:0.68rem; font-weight:700; color:var(--green-deep); letter-spacing:0.08em; text-transform:uppercase;" data-i18n="media_home.badge">Le Carrefour · N°248 · Mai 2026</span>
+          </div>
+          <h3 class="font-serif" style="font-size:1.5rem; font-weight:700; color:var(--dark); margin-bottom:0.45rem; line-height:1.2;" data-i18n="media_home.article_title">1900 kilomètres pour re-câbler le cerveau</h3>
+          <p style="font-size:0.88rem; color:var(--text-light); line-height:1.6; margin-bottom:0.8rem;" data-i18n="media_home.article_text">Une rencontre de deux pages avec Roland Crettaz, suivie de l'entretien « Dix questions à… ».</p>
+          <span style="display:inline-flex; align-items:center; gap:0.5rem; color:var(--green-mid); font-weight:600; font-size:0.85rem;">
+            <span data-i18n="media_home.read">Lire l'article</span> <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </a>
+
+      <div class="text-center mt-10 reveal">
+        <a href="media.html" class="btn-secondary">
+          <i class="fa-regular fa-newspaper"></i>
+          <span data-i18n="media_home.cta">Voir tous les médias</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <style>
+    .press-card-home:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+    @media (max-width: 560px) { .press-card-home { grid-template-columns:1fr !important; justify-items:center; text-align:center; } .press-card-home img { max-width:160px; } }
+  </style>
+
+  <!-- ============================================
        SPONSORS PREVIEW
        ============================================ -->
   <section class="py-24 px-6 bg-white">
@@ -737,15 +1019,22 @@
 
       <!-- Sponsor logo grid -->
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-12 reveal">
-        <!-- 6 placeholder sponsor slots -->
-        <div class="img-placeholder-light rounded-xl" style="aspect-ratio:3/2; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.5rem; padding:1rem;">
-          <i class="fa-regular fa-image text-2xl" style="color:rgba(45,140,122,0.3);"></i>
-          <span class="text-xs font-semibold" style="color:rgba(45,140,122,0.5);" data-i18n="sponsors_preview.empty_slot">Votre logo</span>
-        </div>
-        <div class="img-placeholder-light rounded-xl" style="aspect-ratio:3/2; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.5rem; padding:1rem;">
-          <i class="fa-regular fa-image text-2xl" style="color:rgba(45,140,122,0.3);"></i>
-          <span class="text-xs font-semibold" style="color:rgba(45,140,122,0.5);" data-i18n="sponsors_preview.empty_slot">Votre logo</span>
-        </div>
+        <!-- Sponsor slots -->
+        <a href="https://neo.vivomixx.eu" target="_blank" rel="noopener" class="rounded-xl" style="aspect-ratio:auto; display:flex; flex-direction:column; align-items:center; justify-content:center; background:white; border:1px solid rgba(0,0,0,0.08); padding:0.75rem; gap:0.4rem; text-decoration:none;">
+          <img src="images/sponsors/web_vivomixx_neo_inline1.png" alt="Vivomixx neo — Mendes Swiss" style="max-width:100%; max-height:50px; object-fit:contain;">
+          <span style="font-size:0.7rem; font-weight:600; color:var(--dark); text-align:center; line-height:1.3;">Vivomixx neo</span>
+          <span style="font-size:0.65rem; color:var(--text-light); text-align:center; line-height:1.3;">Probiotiques et bien-être digestif</span>
+        </a>
+        <a href="https://www.iasmart.tech" target="_blank" rel="noopener" class="rounded-xl" style="aspect-ratio:auto; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#0d0d1a; border:1px solid rgba(0,0,0,0.08); padding:0.75rem; gap:0.4rem; text-decoration:none;">
+          <img src="images/sponsors/iasmart_logo.jpg" alt="IAsmart.tech" style="max-width:100%; max-height:50px; object-fit:contain; border-radius:4px;">
+          <span style="font-size:0.7rem; font-weight:600; color:#fff; text-align:center; line-height:1.3;">IAsmart.tech</span>
+          <span style="font-size:0.65rem; color:rgba(255,255,255,0.6); text-align:center; line-height:1.3;">Agence Web & Intelligence Artificielle</span>
+        </a>
+        <a href="https://cellula-pharm.com/fr/" target="_blank" rel="noopener" class="rounded-xl" style="aspect-ratio:auto; display:flex; flex-direction:column; align-items:center; justify-content:center; background:white; border:1px solid rgba(0,0,0,0.08); padding:0.75rem; gap:0.4rem; text-decoration:none;">
+          <img src="images/sponsors/logo_cellula_pharm.jpg" alt="Cellula Pharm" style="max-width:100%; max-height:50px; object-fit:contain;">
+          <span style="font-size:0.7rem; font-weight:600; color:var(--dark); text-align:center; line-height:1.3;">Cellula Pharm</span>
+          <span style="font-size:0.65rem; color:var(--text-light); text-align:center; line-height:1.3;">Cellular Health Laboratory</span>
+        </a>
         <div class="img-placeholder-light rounded-xl" style="aspect-ratio:3/2; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.5rem; padding:1rem;">
           <i class="fa-regular fa-image text-2xl" style="color:rgba(45,140,122,0.3);"></i>
           <span class="text-xs font-semibold" style="color:rgba(45,140,122,0.5);" data-i18n="sponsors_preview.empty_slot">Votre logo</span>
@@ -766,10 +1055,10 @@
 
       <!-- Tier preview badges -->
       <div class="flex flex-wrap justify-center gap-3 mb-10 reveal">
-        <span style="background:linear-gradient(135deg,#fdf3e7,#fff9f0); border:1.5px solid #cd7f32; color:#cd7f32; font-size:0.8rem; font-weight:700; padding:0.4rem 1rem; border-radius:0.5rem;">🥉 <span data-i18n="sponsors_preview.tier_bronze">Bronze — dès 10 €</span></span>
-        <span style="background:linear-gradient(135deg,#f5f6f7,#eef0f2); border:1.5px solid #a8b2be; color:#7a8895; font-size:0.8rem; font-weight:700; padding:0.4rem 1rem; border-radius:0.5rem;">🥈 <span data-i18n="sponsors_preview.tier_silver">Argent — dès 510 €</span></span>
-        <span style="background:linear-gradient(135deg,#fffbf0,#fff8e1); border:1.5px solid var(--gold); color:#b87a00; font-size:0.8rem; font-weight:700; padding:0.4rem 1rem; border-radius:0.5rem;">🥇 <span data-i18n="sponsors_preview.tier_gold">Or — dès 2 010 €</span></span>
-        <span style="background:linear-gradient(135deg,#f0f4ff,#e8f0fe); border:1.5px solid #7b93d3; color:#5c77c8; font-size:0.8rem; font-weight:700; padding:0.4rem 1rem; border-radius:0.5rem;">💎 <span data-i18n="sponsors_preview.tier_platinum">Platine — dès 5 000 €</span></span>
+        <span style="background:linear-gradient(135deg,#fdf3e7,#fff9f0); border:1.5px solid #cd7f32; color:#cd7f32; font-size:0.8rem; font-weight:700; padding:0.4rem 1rem; border-radius:0.5rem;">🥉 <span data-i18n="sponsors_preview.tier_bronze">Bronze — 1 à 50 km</span></span>
+        <span style="background:linear-gradient(135deg,#f5f6f7,#eef0f2); border:1.5px solid #a8b2be; color:#7a8895; font-size:0.8rem; font-weight:700; padding:0.4rem 1rem; border-radius:0.5rem;">🥈 <span data-i18n="sponsors_preview.tier_silver">Argent — 51 à 200 km</span></span>
+        <span style="background:linear-gradient(135deg,#fffbf0,#fff8e1); border:1.5px solid var(--gold); color:#b87a00; font-size:0.8rem; font-weight:700; padding:0.4rem 1rem; border-radius:0.5rem;">🥇 <span data-i18n="sponsors_preview.tier_gold">Or — 201 à 500 km</span></span>
+        <span style="background:linear-gradient(135deg,#f0f4ff,#e8f0fe); border:1.5px solid #7b93d3; color:#5c77c8; font-size:0.8rem; font-weight:700; padding:0.4rem 1rem; border-radius:0.5rem;">💎 <span data-i18n="sponsors_preview.tier_platinum">Platine — 500+ km</span></span>
       </div>
 
       <div class="text-center reveal">
@@ -780,6 +1069,37 @@
       </div>
     </div>
   </section>
+
+  <!-- ============================================
+       NEWSLETTER — EBOOK GRATUIT
+       ============================================ -->
+  <section class="py-20 px-6" style="background:linear-gradient(135deg,#1E6B5E 0%,#164f45 100%);">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <div style="font-size:3rem; margin-bottom:1rem;">📘</div>
+      <span class="section-label justify-center" style="color:rgba(255,255,255,0.5);" data-i18n="newsletter.label">Ebook offert</span>
+      <h2 class="section-title mt-3" style="color:white;" data-i18n="newsletter.title">Tu fais tout bien.<br>Alors pourquoi tu t'effondres ?</h2>
+      <p style="color:rgba(255,255,255,0.45); font-style:italic; margin-top:0.5rem; font-size:0.9rem;" data-i18n="newsletter.book_sub">5 clés pour comprendre la surcharge mentale et reprendre le contrôle</p>
+      <p class="mt-5 mb-8" style="color:rgba(255,255,255,0.65); font-size:0.95rem; line-height:1.8; max-width:480px; margin-left:auto; margin-right:auto;" data-i18n="newsletter.subtitle">
+        Inscrivez-vous à la newsletter de Roland et recevez cet ebook immédiatement — gratuit, sans engagement.
+      </p>
+
+      <form id="newsletterForm" style="display:flex; flex-direction:column; gap:0.75rem; max-width:440px; margin:0 auto;">
+        <input type="text" id="newsletterPrenom" name="prenom" placeholder="Votre prénom (optionnel)"
+          style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:8px; padding:0.85rem 1.1rem; color:white; font-size:0.95rem; outline:none;"
+          data-i18n-placeholder="newsletter.prenom_placeholder">
+        <div style="display:flex; gap:0.6rem;">
+          <input type="email" id="newsletterEmail" name="email" placeholder="Votre adresse email" required
+            style="flex:1; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:8px; padding:0.85rem 1.1rem; color:white; font-size:0.95rem; outline:none;"
+            data-i18n-placeholder="newsletter.email_placeholder">
+          <button type="submit" id="newsletterBtn"
+            style="background:#F0A500; color:#1a2332; border:none; border-radius:8px; padding:0.85rem 1.5rem; font-size:0.9rem; font-weight:700; cursor:pointer; white-space:nowrap; transition:opacity 0.2s;"
+            data-i18n="newsletter.cta">Recevoir l'ebook</button>
+        </div>
+        <p id="newsletterMsg" style="font-size:0.85rem; min-height:1.2rem; color:rgba(255,255,255,0.7);"></p>
+      </form>
+    </div>
+  </section>
+
 
   <!-- ============================================
        FOOTER
@@ -801,6 +1121,18 @@
             <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
           </div>
+          <div class="mt-6">
+            <div style="margin-bottom:0.6rem;"><div style="font-size:0.7rem; font-weight:700; color:rgba(255,255,255,0.35); text-transform:uppercase; letter-spacing:0.1em;">📘 Ebook offert</div><div style="font-size:0.82rem; font-style:italic; color:rgba(255,255,255,0.65); margin-top:0.2rem; line-height:1.4;">« Tu fais tout bien.<br>Alors pourquoi tu t'effondres&nbsp;? »</div></div>
+            <form id="footerNewsletter_index" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+              <input type="email" name="email" placeholder="Votre email" required
+                style="flex:1; min-width:160px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:0.5rem 0.75rem; color:white; font-size:0.82rem; outline:none;">
+              <button type="submit"
+                style="background:#F0A500; color:#1a2332; border:none; border-radius:6px; padding:0.5rem 1rem; font-size:0.8rem; font-weight:700; cursor:pointer; white-space:nowrap;">
+                Recevoir →
+              </button>
+            </form>
+            <p id="footerNewsletter_indexMsg" style="font-size:0.75rem; min-height:1rem; margin-top:0.4rem; color:rgba(255,255,255,0.5);"></p>
+          </div>
         </div>
 
         <!-- Navigation -->
@@ -808,8 +1140,8 @@
           <div class="footer-title" data-i18n="footer.nav_title">Navigation</div>
           <a href="index.html" class="footer-link" data-i18n="nav.home">Accueil</a>
           <a href="trajet.html" class="footer-link" data-i18n="nav.trajet">Le Trajet</a>
-          <a href="sponsoring.html" class="footer-link" data-i18n="nav.sponsoring">Sponsoring</a>
           <a href="journal.html" class="footer-link" data-i18n="nav.journal">Journal</a>
+          <a href="sponsoring.html" class="footer-link" data-i18n="nav.sponsoring">Sponsoring</a>
           <a href="soutenir.html" class="footer-link" data-i18n="nav.soutenir">Soutenir</a>
         </div>
 
@@ -837,7 +1169,7 @@
           © <span class="current-year"></span> <span data-i18n="footer.website">neuro-odyssee.com</span> — <span data-i18n="footer.rights">Tous droits réservés.</span>
         </div>
         <div class="text-sm" style="color:rgba(255,255,255,0.25);">
-          Fait avec passion en Valais 🇨🇭 · <a href="https://iasmart.tech" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.35); text-decoration:underline; text-underline-offset:3px;">iasmart.tech</a> · <a href="admin/" style="color:rgba(255,255,255,0.55); font-size:0.85rem; text-decoration:none;" title="Espace Roland">admin</a>
+          🇨🇭 Créé en Valais par <a href="https://iasmart.tech" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.45); text-decoration:underline; text-underline-offset:3px;">IAsmart.tech</a> · <a href="admin/" style="color:rgba(255,255,255,0.55); font-size:0.85rem; text-decoration:none;" title="Espace Roland">admin</a>
         </div>
       </div>
     </div>
@@ -846,5 +1178,10 @@
   <!-- Scripts -->
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/newsletter.js"></script>
+  <script>
+    initNewsletterForm('newsletterForm');
+    initNewsletterForm('footerNewsletter_index');
+  </script>
 </body>
 </html>

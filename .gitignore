@@ -1,4 +1,9 @@
 payment/config.php
+api/config.php
 data/temoignages.json
 data/posts.json
 data/stats.json
+
+# macOS
+.DS_Store
+**/.DS_Store

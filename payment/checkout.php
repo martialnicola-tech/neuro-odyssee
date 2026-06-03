@@ -9,6 +9,7 @@ require_once 'config.php';
 // Validation
 $data   = json_decode(file_get_contents('php://input'), true);
 $amount = isset($data['amount']) ? intval($data['amount']) : 0;
+$pack   = isset($data['pack']) ? preg_replace('/[^a-z]/', '', $data['pack']) : '';
 
 if ($amount < 1 || $amount > 10000) {
     http_response_code(400);
@@ -16,27 +17,40 @@ if ($amount < 1 || $amount > 10000) {
     exit;
 }
 
-// Appel API Stripe via cURL (pas de SDK nécessaire)
-$payload = [
-    'payment_method_types[0]'                        => 'card',
-    'line_items[0][price_data][currency]'            => 'eur',
-    'line_items[0][price_data][product_data][name]'  => 'Don — La Neuro-Odyssée',
-    'line_items[0][price_data][product_data][description]' => 'Soutien au périple de 1 900 km de Roland Crettaz',
-    'line_items[0][price_data][unit_amount]'         => $amount * 100, // en centimes
-    'line_items[0][quantity]'                        => '1',
-    'mode'                       => 'payment',
-    'success_url'                => SITE_URL . '/merci.html?type=don&montant=' . $amount,
-    'cancel_url'                 => SITE_URL . '/soutenir.html?annule=1',
-    'metadata[type]'             => 'don',
-    'metadata[montant_eur]'      => $amount,
+$packNames = [
+    'bronze'  => 'Pack Bronze — ½ km — La Neuro-Odyssée',
+    'argent'  => 'Pack Argent — 1 km — La Neuro-Odyssée',
+    'or'      => 'Pack Or — 5 km — La Neuro-Odyssée',
+    'platine' => 'Pack Platine — 10 km — La Neuro-Odyssée',
 ];
+$description = $pack && isset($packNames[$pack])
+    ? $packNames[$pack]
+    : 'Don — La Neuro-Odyssée';
 
-$ch = curl_init('https://api.stripe.com/v1/checkout/sessions');
+// Mollie: amount.value doit être une string avec 2 décimales
+$amountValue = number_format($amount, 2, '.', '');
+
+$payload = json_encode([
+    'amount'      => ['currency' => 'EUR', 'value' => $amountValue],
+    'description' => $description,
+    'redirectUrl' => SITE_URL . '/merci.html?type=don&montant=' . $amount . ($pack ? '&pack=' . $pack : ''),
+    'cancelUrl'   => SITE_URL . '/soutenir.html?annule=1',
+    'webhookUrl'  => SITE_URL . '/payment/webhook.php',
+    'metadata'    => [
+        'type'        => $pack ? 'pack' : 'don',
+        'pack'        => $pack ?: 'libre',
+        'montant_eur' => $amount,
+    ],
+]);
+
+$ch = curl_init('https://api.mollie.com/v2/payments');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($payload));
-curl_setopt($ch, CURLOPT_USERPWD, STRIPE_SECRET_KEY . ':');
-curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/x-www-form-urlencoded']);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Content-Type: application/json',
+    'Authorization: Bearer ' . MOLLIE_API_KEY,
+]);
 
 $response = curl_exec($ch);
 $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -44,9 +58,12 @@ curl_close($ch);
 
 $result = json_decode($response, true);
 
-if ($httpCode === 200 && isset($result['url'])) {
-    echo json_encode(['url' => $result['url']]);
+if ($httpCode === 201 && isset($result['_links']['checkout']['href'])) {
+    echo json_encode(['url' => $result['_links']['checkout']['href']]);
 } else {
     http_response_code(500);
-    echo json_encode(['error' => 'Erreur Stripe', 'detail' => $result['error']['message'] ?? '']);
+    echo json_encode([
+        'error'  => 'Erreur Mollie',
+        'detail' => $result['detail'] ?? $result['title'] ?? 'Erreur inconnue',
+    ]);
 }

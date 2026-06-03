@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Soutenir — La Neuro-Odyssée</title>
-  <meta name="description" content="Soutenez Roland Crettaz dans son périple de 1 900 km vers Santiago de Compostela. Faites un don pour financer la logistique, l'équipement et le documentaire.">
+  <meta name="description" content="Soutenez Roland Crettaz dans son périple de 1 900 km vers Santiago de Compostela. Choisissez votre pack de soutien et recevez des guides exclusifs.">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -83,8 +83,10 @@
         <a href="index.html" class="nav-link" data-i18n="nav.home">Accueil</a>
         <a href="trajet.html" class="nav-link" data-i18n="nav.trajet">Le Trajet</a>
         <a href="preparation.html" class="nav-link" data-i18n="nav.preparation">Préparation</a>
-        <a href="sponsoring.html" class="nav-link" data-i18n="nav.sponsoring">Sponsoring</a>
         <a href="journal.html" class="nav-link" data-i18n="nav.journal">Journal</a>
+        <a href="club.html" class="nav-link">Club</a>
+        <a href="sponsoring.html" class="nav-link" data-i18n="nav.sponsoring">Sponsoring</a>
+        <a href="media.html" class="nav-link" data-page="media.html">Médias</a>
         <a href="soutenir.html" class="btn-primary text-sm py-2 px-5 active" data-i18n="nav.soutenir">Soutenir</a>
       </div>
       <div class="flex items-center gap-3">
@@ -101,12 +103,15 @@
       </div>
     </div>
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="mobile-menu">
+    <div id="mobileMenu" class="mobile-menu">
+      <button id="mobileMenuClose" class="absolute top-6 right-6 text-white text-2xl" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
       <a href="index.html" class="mobile-link" data-i18n="nav.home">Accueil</a>
       <a href="trajet.html" class="mobile-link" data-i18n="nav.trajet">Le Trajet</a>
       <a href="preparation.html" class="mobile-link" data-i18n="nav.preparation">Préparation</a>
-      <a href="sponsoring.html" class="mobile-link" data-i18n="nav.sponsoring">Sponsoring</a>
       <a href="journal.html" class="mobile-link" data-i18n="nav.journal">Journal</a>
+      <a href="club.html" class="mobile-link">Club</a>
+      <a href="sponsoring.html" class="mobile-link" data-i18n="nav.sponsoring">Sponsoring</a>
+<a href="media.html" class="mobile-link">Médias</a>
       <a href="soutenir.html" class="mobile-link" data-i18n="nav.soutenir">Soutenir</a>
       <div class="lang-switcher mt-4 justify-center flex">
         <button class="lang-btn active" data-lang="fr">FR</button>
@@ -118,6 +123,49 @@
     </div>
   </nav>
 
+  <!-- SPONSORS TICKER -->
+  <div id="sponsorsTicker" style="background:#f8f9fa; border-bottom:1px solid rgba(0,0,0,0.1); padding:0.5rem 0; overflow:hidden; position:relative; z-index:40; min-height:40px;">
+    <div style="position:absolute;left:0;top:0;bottom:0;width:4rem;background:linear-gradient(to right,#f8f9fa,transparent);z-index:2;pointer-events:none;"></div>
+    <div style="position:absolute;right:0;top:0;bottom:0;width:4rem;background:linear-gradient(to left,#f8f9fa,transparent);z-index:2;pointer-events:none;"></div>
+    <div id="sponsorsTrack" style="display:inline-flex;align-items:center;white-space:nowrap;padding-left:50%;"></div>
+  </div>
+  <script>
+  (function() {
+    var nav = document.getElementById('navbar');
+    var ticker = document.getElementById('sponsorsTicker');
+    if (nav && ticker) {
+      ticker.style.marginTop = nav.offsetHeight + 'px';
+    }
+  })();
+  </script>
+  <style>
+    #sponsorsTrack { animation: sponsorScroll 20s linear infinite; }
+    #sponsorsTrack:hover { animation-play-state: paused; }
+    @keyframes sponsorScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  </style>
+  <script>
+  (function() {
+    fetch('/api/sponsors.php')
+      .then(function(r){ return r.json(); })
+      .then(function(sponsors) {
+        if (!sponsors || !sponsors.length) return;
+        var track = document.getElementById('sponsorsTrack');
+        if (!track) return;
+        var all = sponsors.concat(sponsors);
+        track.style.paddingLeft = '0';
+        track.innerHTML = all.map(function(s) {
+          var logo = s.logo ? '<img src="' + s.logo + '" alt="' + s.name + '" style="max-height:28px;max-width:80px;object-fit:contain;vertical-align:middle;mix-blend-mode:multiply;">' : '';
+          var inner = '<span style="display:inline-flex;align-items:center;gap:0.4rem;">' + logo + '<span style="font-size:0.75rem;font-weight:700;color:#1a2332;">' + s.name + '</span></span>';
+          var dot = '<span style="color:rgba(0,0,0,0.2);margin:0 1.5rem;">·</span>';
+          return s.url
+            ? '<a href="' + s.url + '" target="_blank" rel="noopener" style="text-decoration:none;padding:0 0.5rem;">' + inner + '</a>' + dot
+            : '<span style="padding:0 0.5rem;">' + inner + '</span>' + dot;
+        }).join('');
+        track.style.animationDuration = Math.max(12, sponsors.length * 7) + 's';
+      }).catch(function(){});
+  })();
+  </script>
+
   <!-- ============================================
        HERO
        ============================================ -->
@@ -125,7 +173,7 @@
     <div class="relative z-10 max-w-3xl mx-auto">
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-6 reveal" style="background:rgba(240,165,0,0.15); color:var(--gold); border:1px solid rgba(240,165,0,0.3);">
         <i class="fa-solid fa-heart"></i>
-        <span>Espace Particuliers</span>
+        <span data-i18n="soutenir.hero_badge">Espace Particuliers</span>
       </div>
       <h1 class="font-serif text-5xl md:text-6xl text-white mb-6 reveal" data-i18n="soutenir.hero_title">
         Chaque Geste Compte
@@ -137,146 +185,307 @@
   </section>
 
   <!-- ============================================
-       IMPACT CALCULATOR
+       PACKS DE SOUTIEN
        ============================================ -->
-  <section class="py-20 px-6">
-    <div class="max-w-5xl mx-auto">
+  <section class="py-20 px-6" style="background:linear-gradient(135deg,#1E6B5E,#1a2332);">
+    <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14 reveal">
-        <span class="section-label justify-center" data-i18n="soutenir.impact_title">L'Impact de votre Don</span>
-        <p class="section-subtitle mx-auto mt-3 text-center" data-i18n="soutenir.impact_subtitle">
-          Visualisez concrètement ce que votre contribution permet de financer
-        </p>
+        <h2 class="font-serif text-4xl text-white mb-3" data-i18n="soutenir.packs_title">Choisissez votre Pack</h2>
+        <p style="color:rgba(255,255,255,0.6); max-width:600px; margin:0 auto;" data-i18n="soutenir.packs_subtitle">Chaque pack finance des kilomètres réels et vous offre un guide exclusif signé Roland</p>
       </div>
 
-      <!-- Impact cards -->
-      <div class="grid grid-cols-2 md:grid-cols-5 gap-4 reveal">
-        <div class="impact-card text-center p-6 rounded-2xl cursor-pointer" data-amount="5" style="background:white; border:2px solid #e8f4f0; transition:all 0.3s; box-shadow:0 2px 12px rgba(0,0,0,0.05);">
-          <div class="text-3xl mb-3">☕</div>
-          <div class="font-serif text-2xl font-bold" style="color:var(--green-deep);">5 €</div>
-          <div class="text-sm mt-1 font-medium" style="color:var(--text-light);">Un café</div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- PACK BRONZE — 15€ -->
+        <div class="reveal rounded-2xl overflow-hidden" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); backdrop-filter:blur(12px); display:flex; flex-direction:column;">
+          <div class="p-6 text-center" style="border-bottom:1px solid rgba(255,255,255,0.08);">
+            <div class="text-3xl mb-2">🥉</div>
+            <div class="text-xs font-bold uppercase tracking-wider mb-2" style="color:var(--gold);">Bronze</div>
+            <div class="font-serif text-4xl font-bold text-white">19 <span class="text-lg">€</span></div>
+            <div class="text-xs mt-1" style="color:rgba(255,255,255,0.5);">= 1 km financé</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="mb-4">
+              <div class="text-xs font-bold uppercase tracking-wider mb-3" style="color:var(--gold);">
+                <i class="fa-solid fa-file-pdf mr-1"></i> Vous recevez :
+              </div>
+              <div class="rounded-lg p-3 mb-2" style="background:rgba(240,165,0,0.1); border:1px solid rgba(240,165,0,0.2);">
+                <p class="text-sm font-semibold text-white leading-snug">"Pourquoi tu n'arrives pas à changer (et quoi faire)"</p>
+                <p class="text-xs mt-1" style="color:rgba(255,255,255,0.5);">Mécanisme du cerveau + 1 exercice de déclic</p>
+              </div>
+            </div>
+            <ul class="space-y-2 text-sm mb-6 flex-1" style="color:rgba(255,255,255,0.7);">
+              <li><i class="fa-solid fa-check mr-2" style="color:var(--gold);"></i>PDF exclusif (~20 pages)</li>
+              <li><i class="fa-solid fa-check mr-2" style="color:var(--gold);"></i>Nom sur le mur des soutiens</li>
+              <li><i class="fa-solid fa-check mr-2" style="color:var(--gold);"></i>Remerciement personnel</li>
+            </ul>
+            <button onclick="window.location.href='https://payment-links.mollie.com/payment/mNL6rg8rK9JTChL9R6VMa'" class="pack-btn w-full py-3 rounded-xl font-semibold text-sm transition-all" style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:white; cursor:pointer;">
+              Obtenir ce pack — 19 €
+            </button>
+            <div class="text-center mt-3">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://payment-links.mollie.com/payment/mNL6rg8rK9JTChL9R6VMa" alt="QR Bronze" style="width:90px; height:90px; border-radius:8px; opacity:0.85; display:block; margin:0 auto;">
+              <p style="font-size:0.65rem; color:rgba(255,255,255,0.3); margin-top:0.3rem;">Scanner pour payer</p>
+            </div>
+          </div>
         </div>
-        <div class="impact-card text-center p-6 rounded-2xl cursor-pointer" data-amount="10" style="background:white; border:2px solid #e8f4f0; transition:all 0.3s; box-shadow:0 2px 12px rgba(0,0,0,0.05);">
-          <div class="text-3xl mb-3">🍽️</div>
-          <div class="font-serif text-2xl font-bold" style="color:var(--green-deep);">10 €</div>
-          <div class="text-sm mt-1 font-medium" style="color:var(--text-light);">Un repas</div>
+
+        <!-- PACK ARGENT — 25€ -->
+        <div class="reveal animate-delay-1 rounded-2xl overflow-hidden" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); backdrop-filter:blur(12px); display:flex; flex-direction:column;">
+          <div class="p-6 text-center" style="border-bottom:1px solid rgba(255,255,255,0.08);">
+            <div class="text-3xl mb-2">🥈</div>
+            <div class="text-xs font-bold uppercase tracking-wider mb-2" style="color:#C0C0C0;">Argent</div>
+            <div class="font-serif text-4xl font-bold text-white">29 <span class="text-lg">€</span></div>
+            <div class="text-xs mt-1" style="color:rgba(255,255,255,0.5);">= 1,5 km financés</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="mb-4">
+              <div class="text-xs font-bold uppercase tracking-wider mb-3" style="color:#C0C0C0;">
+                <i class="fa-solid fa-file-pdf mr-1"></i> Vous recevez :
+              </div>
+              <div class="rounded-lg p-3 mb-2" style="background:rgba(240,165,0,0.1); border:1px solid rgba(240,165,0,0.2);">
+                <p class="text-sm font-semibold text-white leading-snug">"Comment casser un automatisme en 24h"</p>
+                <p class="text-xs mt-1" style="color:rgba(255,255,255,0.5);">Boucle comportementale + technique d'interruption</p>
+              </div>
+              <div class="rounded-lg p-3" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);">
+                <p class="text-xs" style="color:rgba(255,255,255,0.5);"><i class="fa-solid fa-plus mr-1" style="color:var(--gold);"></i>+ le PDF Bronze inclus</p>
+              </div>
+            </div>
+            <ul class="space-y-2 text-sm mb-6 flex-1" style="color:rgba(255,255,255,0.7);">
+              <li><i class="fa-solid fa-check mr-2" style="color:#C0C0C0;"></i>2 PDF exclusifs</li>
+              <li><i class="fa-solid fa-check mr-2" style="color:#C0C0C0;"></i>Nom sur le mur des soutiens</li>
+              <li><i class="fa-solid fa-check mr-2" style="color:#C0C0C0;"></i>Remerciement personnel</li>
+            </ul>
+            <button onclick="window.location.href='https://payment-links.mollie.com/payment/afmdkXDtA8XwLN9HZweQr'" class="pack-btn w-full py-3 rounded-xl font-semibold text-sm transition-all" style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:white; cursor:pointer;">
+              Obtenir ce pack — 29 €
+            </button>
+            <div class="text-center mt-3">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://payment-links.mollie.com/payment/afmdkXDtA8XwLN9HZweQr" alt="QR Argent" style="width:90px; height:90px; border-radius:8px; opacity:0.85; display:block; margin:0 auto;">
+              <p style="font-size:0.65rem; color:rgba(255,255,255,0.3); margin-top:0.3rem;">Scanner pour payer</p>
+            </div>
+          </div>
         </div>
-        <div class="impact-card text-center p-6 rounded-2xl cursor-pointer" data-amount="20" style="background:white; border:2px solid #e8f4f0; transition:all 0.3s; box-shadow:0 2px 12px rgba(0,0,0,0.05);">
-          <div class="text-3xl mb-3">🏠</div>
-          <div class="font-serif text-2xl font-bold" style="color:var(--green-deep);">20 €</div>
-          <div class="text-sm mt-1 font-medium" style="color:var(--text-light);">Une nuit en gîte</div>
+
+        <!-- PACK OR — 110€ (populaire) -->
+        <div class="reveal animate-delay-2 rounded-2xl overflow-hidden relative" style="background:rgba(255,255,255,0.08); border:2px solid var(--gold); backdrop-filter:blur(12px); display:flex; flex-direction:column;">
+          <div class="text-center py-1 text-xs font-bold uppercase tracking-widest" style="background:var(--gold); color:#1a2332;">Le plus choisi</div>
+          <div class="p-6 text-center" style="border-bottom:1px solid rgba(255,255,255,0.08);">
+            <div class="text-3xl mb-2">🥇</div>
+            <div class="text-xs font-bold uppercase tracking-wider mb-2" style="color:var(--gold);">Or</div>
+            <div class="font-serif text-4xl font-bold text-white">59 <span class="text-lg">€</span></div>
+            <div class="text-xs mt-1" style="color:rgba(255,255,255,0.5);">= 3 km financés</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="mb-4">
+              <div class="text-xs font-bold uppercase tracking-wider mb-3" style="color:var(--gold);">
+                <i class="fa-solid fa-file-pdf mr-1"></i> Vous recevez :
+              </div>
+              <div class="rounded-lg p-3 mb-2" style="background:rgba(240,165,0,0.15); border:1px solid rgba(240,165,0,0.3);">
+                <p class="text-sm font-semibold text-white leading-snug">"Le protocole reset mental 7 jours"</p>
+                <p class="text-xs mt-1" style="color:rgba(255,255,255,0.5);">Programme complet jour par jour</p>
+              </div>
+              <div class="rounded-lg p-3" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);">
+                <p class="text-xs" style="color:rgba(255,255,255,0.5);"><i class="fa-solid fa-plus mr-1" style="color:var(--gold);"></i>+ les 2 PDF Bronze & Argent inclus</p>
+              </div>
+            </div>
+            <ul class="space-y-2 text-sm mb-6 flex-1" style="color:rgba(255,255,255,0.7);">
+              <li><i class="fa-solid fa-check mr-2" style="color:var(--gold);"></i>3 PDF exclusifs</li>
+              <li><i class="fa-solid fa-check mr-2" style="color:var(--gold);"></i>Nom sur le mur des soutiens</li>
+              <li><i class="fa-solid fa-check mr-2" style="color:var(--gold);"></i>Accès au groupe privé</li>
+            </ul>
+            <button onclick="window.location.href='https://payment-links.mollie.com/payment/4tmYRsDLMSZV8ktMSgGk7'" class="pack-btn w-full py-3 rounded-xl font-bold text-sm transition-all" style="background:var(--gold); color:#1a2332; cursor:pointer; border:none;">
+              Obtenir ce pack — 59 €
+            </button>
+            <div class="text-center mt-3">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://payment-links.mollie.com/payment/4tmYRsDLMSZV8ktMSgGk7" alt="QR Or" style="width:90px; height:90px; border-radius:8px; opacity:0.85; display:block; margin:0 auto;">
+              <p style="font-size:0.65rem; color:rgba(255,255,255,0.3); margin-top:0.3rem;">Scanner pour payer</p>
+            </div>
+          </div>
         </div>
-        <div class="impact-card text-center p-6 rounded-2xl cursor-pointer" data-amount="50" style="background:white; border:2px solid #e8f4f0; transition:all 0.3s; box-shadow:0 2px 12px rgba(0,0,0,0.05);">
-          <div class="text-3xl mb-3">🎒</div>
-          <div class="font-serif text-2xl font-bold" style="color:var(--green-deep);">50 €</div>
-          <div class="text-sm mt-1 font-medium" style="color:var(--text-light);">Équipement</div>
+
+        <!-- PACK PLATINE — 220€ -->
+        <div class="reveal animate-delay-3 rounded-2xl overflow-hidden" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); backdrop-filter:blur(12px); display:flex; flex-direction:column;">
+          <div class="p-6 text-center" style="border-bottom:1px solid rgba(255,255,255,0.08);">
+            <div class="text-3xl mb-2">💎</div>
+            <div class="text-xs font-bold uppercase tracking-wider mb-2" style="color:#B9F2FF;">Platine</div>
+            <div class="font-serif text-4xl font-bold text-white">99 <span class="text-lg">€</span></div>
+            <div class="text-xs mt-1" style="color:rgba(255,255,255,0.5);">= 5 km financés</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="mb-4">
+              <div class="text-xs font-bold uppercase tracking-wider mb-3" style="color:#B9F2FF;">
+                <i class="fa-solid fa-file-pdf mr-1"></i> Vous recevez :
+              </div>
+              <div class="rounded-lg p-3 mb-2" style="background:rgba(185,242,255,0.1); border:1px solid rgba(185,242,255,0.2);">
+                <p class="text-sm font-semibold text-white leading-snug">"Reprendre le contrôle de son cerveau — méthode complète"</p>
+                <p class="text-xs mt-1" style="color:rgba(255,255,255,0.5);">Système complet + plan 30 jours (40-50 pages)</p>
+              </div>
+              <div class="rounded-lg p-3" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);">
+                <p class="text-xs" style="color:rgba(255,255,255,0.5);"><i class="fa-solid fa-plus mr-1" style="color:#B9F2FF;"></i>+ les 3 PDF Bronze, Argent & Or inclus</p>
+              </div>
+            </div>
+            <ul class="space-y-2 text-sm mb-6 flex-1" style="color:rgba(255,255,255,0.7);">
+              <li><i class="fa-solid fa-check mr-2" style="color:#B9F2FF;"></i>4 PDF exclusifs (le tout)</li>
+              <li><i class="fa-solid fa-check mr-2" style="color:#B9F2FF;"></i>Nom sur le mur des soutiens</li>
+              <li><i class="fa-solid fa-check mr-2" style="color:#B9F2FF;"></i>Accès au groupe privé</li>
+              <li><i class="fa-solid fa-check mr-2" style="color:#B9F2FF;"></i>Appel vidéo avec Roland</li>
+            </ul>
+            <button onclick="window.location.href='https://payment-links.mollie.com/payment/6sEFS7u6yCmPtkYCcPjYo'" class="pack-btn w-full py-3 rounded-xl font-bold text-sm transition-all" style="background:linear-gradient(135deg,#B9F2FF,#7dd3e8); color:#1a2332; cursor:pointer; border:none;">
+              Obtenir ce pack — 99 €
+            </button>
+            <div class="text-center mt-3">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://payment-links.mollie.com/payment/6sEFS7u6yCmPtkYCcPjYo" alt="QR Platine" style="width:90px; height:90px; border-radius:8px; opacity:0.85; display:block; margin:0 auto;">
+              <p style="font-size:0.65rem; color:rgba(255,255,255,0.3); margin-top:0.3rem;">Scanner pour payer</p>
+            </div>
+          </div>
         </div>
-        <div class="impact-card text-center p-6 rounded-2xl cursor-pointer" data-amount="100" style="background:white; border:2px solid #e8f4f0; transition:all 0.3s; box-shadow:0 2px 12px rgba(0,0,0,0.05);">
-          <div class="text-3xl mb-3">🎬</div>
-          <div class="font-serif text-2xl font-bold" style="color:var(--green-deep);">100 €</div>
-          <div class="text-sm mt-1 font-medium" style="color:var(--text-light);">Production vidéo</div>
+
+      </div>
+
+      <!-- ── MONTANT LIBRE ── -->
+      <div class="max-w-xl mx-auto mt-14 reveal">
+        <div class="rounded-2xl p-8 text-center" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); backdrop-filter:blur(12px);">
+          <div class="text-2xl mb-3">💝</div>
+          <h3 class="font-serif text-2xl text-white mb-2">Montant libre</h3>
+          <p class="text-sm mb-6" style="color:rgba(255,255,255,0.55);">Choisissez librement le montant de votre soutien.<br>
+            <span style="color:var(--gold);">Si votre contribution atteint un palier, vous recevez les guides correspondants !</span>
+          </p>
+          <div class="flex items-center justify-center gap-3 mb-4">
+            <div class="relative" style="max-width:160px;">
+              <input type="number" id="don-libre" min="1" max="10000" placeholder="25" class="w-full py-3 px-4 rounded-xl text-center text-xl font-bold" style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:white; outline:none; -moz-appearance:textfield;">
+              <span class="absolute right-4 top-1/2 -translate-y-1/2 font-bold" style="color:rgba(255,255,255,0.4);">€</span>
+            </div>
+            <a href="https://payment-links.mollie.com/payment/F5YrvhuTiX2vFdvYd2cT6" class="py-3 px-8 rounded-xl font-semibold text-sm" style="background:var(--gold); color:#1a2332; cursor:pointer; white-space:nowrap; text-decoration:none; display:inline-flex; align-items:center; gap:0.4rem;">
+              Valider <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+          <div class="mt-4">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://payment-links.mollie.com/payment/F5YrvhuTiX2vFdvYd2cT6" alt="QR Don libre" style="width:90px; height:90px; border-radius:8px; opacity:0.85; margin:0 auto; display:block;">
+            <p style="font-size:0.65rem; color:rgba(255,255,255,0.3); margin-top:0.3rem; text-align:center;">Scanner pour payer</p>
+          </div>
+          <div class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.35);">
+            <span style="color:rgba(255,255,255,0.5);">≥ 19 €</span> → 1 PDF &nbsp;·&nbsp;
+            <span style="color:rgba(255,255,255,0.5);">≥ 29 €</span> → 2 PDF &nbsp;·&nbsp;
+            <span style="color:rgba(255,255,255,0.5);">≥ 59 €</span> → 3 PDF &nbsp;·&nbsp;
+            <span style="color:rgba(255,255,255,0.5);">≥ 99 €</span> → 4 PDF
+          </div>
+        </div>
+      </div>
+
+      <!-- Consent checkbox -->
+      <div class="max-w-2xl mx-auto mt-10 reveal">
+        <label id="consent-label" class="flex items-start gap-3 cursor-pointer px-4 py-3 rounded-xl" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1);">
+          <input type="checkbox" id="consent-check" class="mt-1" style="accent-color:var(--gold); width:18px; height:18px; flex-shrink:0;">
+          <span class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.6);">
+            J'ai lu et j'accepte que mon soutien donne accès à du contenu numérique (guides PDF) livré par email. Conformément à la directive européenne 2011/83/UE, je renonce à mon droit de rétractation dès la réception du contenu.
+          </span>
+        </label>
+      </div>
+
+      <!-- Payment methods below packs -->
+      <div class="max-w-2xl mx-auto mt-12 reveal">
+        <div class="rounded-2xl p-6" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); backdrop-filter:blur(12px);">
+          <p class="text-sm font-semibold text-center mb-4" style="color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:0.1em;" data-i18n="soutenir.payment_title">Méthodes de Paiement</p>
+
+          <div class="space-y-3">
+            <!-- Stripe -->
+            <div class="flex items-center gap-4 px-5 py-3 rounded-xl" style="background:rgba(99,91,255,0.1); border:1px solid rgba(99,91,255,0.2);">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(99,91,255,0.3);">
+                <i class="fa-brands fa-stripe-s" style="color:#a29fff;"></i>
+              </div>
+              <div class="text-sm" style="color:rgba(255,255,255,0.7);" data-i18n="soutenir.payment_stripe_sub_full">Visa, Mastercard, AMEX — sécurisé SSL</div>
+            </div>
+
+            <!-- Twint -->
+            <button class="w-full flex items-center gap-4 px-5 py-3 rounded-xl transition-all" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:white; cursor:pointer;" onclick="document.getElementById('twint-detail').classList.toggle('hidden')">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center font-black text-xs" style="background:#000; color:white;">TW</div>
+              <div class="text-sm text-left" style="color:rgba(255,255,255,0.7);" data-i18n="soutenir.payment_twint">Twint</div>
+              <span class="ml-auto text-xs px-2 py-1 rounded-full font-semibold" style="background:rgba(45,140,122,0.3); color:#6de0c8;" data-i18n="soutenir.payment_twint_active">Disponible</span>
+            </button>
+            <div id="twint-detail" class="hidden rounded-xl p-5 text-center" style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1);">
+              <p style="color:rgba(255,255,255,0.6); font-size:0.85rem; margin-bottom:0.75rem;" data-i18n="soutenir.twint_instruction">Ouvrez votre app Twint → "Payer" → entrez le numéro :</p>
+              <div style="font-size:1.7rem; font-weight:900; letter-spacing:0.06em; color:#fff; font-family:monospace;">079 736 30 90</div>
+              <p style="color:rgba(255,255,255,0.35); font-size:0.78rem; margin-top:0.3rem;">Roland Crettaz</p>
+              <p style="color:rgba(255,255,255,0.45); font-size:0.78rem; margin-top:0.5rem;" data-i18n="soutenir.twint_mention">Mentionner <strong style="color:rgba(255,255,255,0.7);">ODYSSEE + votre pack</strong> dans le message</p>
+              <button onclick="navigator.clipboard.writeText('0797363090').then(()=>{this.textContent='Copié!'; setTimeout(()=>this.setAttribute('data-i18n-skip','1'),0)})" style="margin-top:0.85rem; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.8); border-radius:0.5rem; padding:0.45rem 1.2rem; font-size:0.82rem; cursor:pointer;" data-i18n="soutenir.twint_copy">Copier le numéro</button>
+            </div>
+
+            <!-- Virement -->
+            <button class="w-full flex items-center gap-4 px-5 py-3 rounded-xl transition-all" onclick="document.getElementById('iban-modal').classList.remove('hidden')" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:white; cursor:pointer;">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(45,140,122,0.3);">
+                <i class="fa-solid fa-building-columns" style="color:var(--green-mid);"></i>
+              </div>
+              <div class="text-sm text-left" style="color:rgba(255,255,255,0.7);" data-i18n="soutenir.payment_virement">Virement — IBAN sur demande</div>
+            </button>
+          </div>
+
+          <p class="text-center text-xs mt-4" style="color:rgba(255,255,255,0.3);" data-i18n="soutenir.payment_security">
+            <i class="fa-solid fa-lock mr-1"></i>
+            Paiements 100% sécurisés — PDF envoyé par email sous 24h
+          </p>
+        </div>
+      </div>
+      <!-- Legal disclaimer -->
+      <div class="max-w-2xl mx-auto mt-10 reveal">
+        <div class="rounded-xl p-5" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);">
+          <p class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.35);">
+            <i class="fa-solid fa-scale-balanced mr-1" style="color:rgba(255,255,255,0.25);"></i>
+            <strong style="color:rgba(255,255,255,0.45);">Mentions légales :</strong> Les packs de soutien donnent accès à du contenu numérique (guides PDF) livré par email dans les 24h suivant le paiement. Conformément à la directive européenne 2011/83/UE relative aux droits des consommateurs, le droit de rétractation de 14 jours ne s'applique pas à la fourniture de contenu numérique non fourni sur support matériel dont l'exécution a commencé avec l'accord du consommateur. En validant votre commande, vous reconnaissez renoncer expressément à votre droit de rétractation. Pour toute question : <a href="mailto:roland@neuro-odyssee.com" style="color:rgba(255,255,255,0.5); text-decoration:underline;">roland@neuro-odyssee.com</a>
+          </p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================
-       DONATION MODULE
+       LIVRE — LA FAIM DE VIVRE
        ============================================ -->
-  <section class="py-16 px-6" style="background:linear-gradient(135deg,#1E6B5E,#1a2332);">
-    <div class="max-w-2xl mx-auto">
-      <div class="text-center mb-10 reveal">
-        <h2 class="font-serif text-4xl text-white mb-3" data-i18n="soutenir.don_title">Choisissez votre Montant</h2>
-        <p style="color:rgba(255,255,255,0.6);" data-i18n="soutenir.don_subtitle">Chaque don, quel que soit son montant, est précieux</p>
+  <section class="py-24 px-6" style="background:linear-gradient(135deg,#f9f6f0 0%,#eef5f2 100%);">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <span class="section-label justify-center">L'Ebook de Roland</span>
+        <h2 class="section-title mt-3">Un ebook pour comprendre votre cerveau</h2>
       </div>
 
-      <div class="rounded-2xl p-8 reveal" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); backdrop-filter:blur(12px);">
-        <!-- Amount buttons -->
-        <div class="grid grid-cols-5 gap-3 mb-5">
-          <button class="don-amount-btn" data-amount="5">
-            <span class="block text-xl font-bold">5 €</span>
-            <span class="block text-xs mt-1 opacity-70">Un café</span>
-          </button>
-          <button class="don-amount-btn" data-amount="10">
-            <span class="block text-xl font-bold">10 €</span>
-            <span class="block text-xs mt-1 opacity-70">Un repas</span>
-          </button>
-          <button class="don-amount-btn active" data-amount="20">
-            <span class="block text-xl font-bold">20 €</span>
-            <span class="block text-xs mt-1 opacity-70">Une nuit en gîte</span>
-          </button>
-          <button class="don-amount-btn" data-amount="50">
-            <span class="block text-xl font-bold">50 €</span>
-            <span class="block text-xs mt-1 opacity-70">Équipement</span>
-          </button>
-          <button class="don-amount-btn" data-amount="100">
-            <span class="block text-xl font-bold">100 €</span>
-            <span class="block text-xs mt-1 opacity-70">Production vidéo</span>
-          </button>
-        </div>
+      <div class="flex flex-col md:flex-row gap-10 items-center reveal">
 
-        <!-- Custom amount -->
-        <div class="mb-8">
-          <label style="display:block; font-size:0.78rem; color:rgba(255,255,255,0.45); text-align:center; margin-bottom:0.5rem; letter-spacing:0.05em; text-transform:uppercase;">
-            — ou saisissez le montant de votre choix —
-          </label>
-          <div style="position:relative;">
-            <input
-              type="number"
-              id="don-custom"
-              min="1"
-              step="1"
-              placeholder="Votre montant (€)"
-              class="w-full px-4 py-3 rounded-xl text-white text-center text-lg font-semibold focus:outline-none"
-              style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2);"
-              oninput="this.value && document.querySelectorAll('.don-amount-btn').forEach(b=>b.classList.remove('active'))"
-            >
+        <!-- Couverture -->
+        <div class="flex-shrink-0" style="max-width:260px; width:100%;">
+          <div style="position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.25); border-radius:8px; overflow:hidden; transform:rotate(-1.5deg);">
+            <img src="images/livre_faim_de_vivre.jpg" alt="La Faim de Vivre — Quand le cerveau dérange, par Roland Crettaz" style="width:100%; display:block;">
           </div>
         </div>
 
-        <!-- Payment methods -->
-        <div class="space-y-3 mb-6">
-          <p class="text-sm font-semibold text-center mb-4" style="color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:0.1em;" data-i18n="soutenir.payment_title">Méthodes de Paiement</p>
+        <!-- Infos -->
+        <div class="flex-1">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4" style="background:rgba(30,107,94,0.1); color:var(--green-deep);">
+            📖 Disponible maintenant
+          </div>
+          <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color:var(--gold);">Noradrénaline · Sérotonine · Les deux autres piliers</p>
+          <h3 class="font-serif text-4xl md:text-5xl mb-1" style="color:var(--dark); line-height:1.1;">La Faim de Vivre</h3>
+          <p class="font-serif text-xl mb-5" style="color:var(--text-light); font-style:italic;">Quand le cerveau dérange</p>
 
-          <!-- Stripe — ACTIF -->
-          <button id="btn-stripe" onclick="payerStripe()" class="payment-btn w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all" style="background:rgba(99,91,255,0.15); border:1px solid rgba(99,91,255,0.4); color:white; cursor:pointer;">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(99,91,255,0.35);">
-              <i class="fa-brands fa-stripe-s text-lg" style="color:#a29fff;"></i>
-            </div>
-            <div class="text-left flex-1">
-              <div class="font-semibold">Carte bancaire</div>
-              <div class="text-xs" style="color:rgba(255,255,255,0.5);">Visa, Mastercard, AMEX — sécurisé SSL</div>
-            </div>
-            <span class="text-xs px-2 py-1 rounded-full font-semibold" style="background:rgba(99,91,255,0.3); color:#a29fff;">Payer</span>
-          </button>
+          <p class="mb-4 leading-relaxed" style="color:var(--text-light); font-size:0.95rem;">
+            J'ai mis des années à comprendre pourquoi je fonctionnais si différemment des autres. La réponse n'était pas dans mon caractère. Elle était dans mon cerveau.
+          </p>
+          <p class="mb-6 leading-relaxed" style="color:var(--text-light); font-size:0.95rem;">
+            Un ebook condensé de ce voyage — écrit par Roland Crettaz, Coach en Neurosciences Certifié et Nutrithérapeute Diplômé. Il ne prétend pas tout résoudre. Il prétend éclairer.
+          </p>
 
-          <!-- Twint -->
-          <button class="payment-btn w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all" style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); color:white;">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center font-black text-sm" style="background:rgba(0,0,0,0.3); color:white;">TW</div>
-            <div class="text-left flex-1">
-              <div class="font-semibold" data-i18n="soutenir.payment_twint">Twint</div>
-              <div class="text-xs" style="color:rgba(255,255,255,0.5);" data-i18n="soutenir.payment_twint_sub">Pour les résidents suisses</div>
-            </div>
-            <span class="text-xs px-2 py-1 rounded-full" style="background:rgba(240,165,0,0.2); color:var(--gold);" data-i18n="soutenir.payment_coming">Bientôt</span>
-          </button>
+          <blockquote style="border-left:3px solid var(--green-mid); padding:0.75rem 1.25rem; margin-bottom:1.5rem; background:rgba(45,140,122,0.07); border-radius:0 0.5rem 0.5rem 0; font-style:italic; color:var(--dark); font-size:0.95rem;">
+            "Le problème n'était pas moi. C'était le système que j'utilisais. Quand j'ai compris mon cerveau, tout a changé."
+          </blockquote>
 
-          <!-- Virement -->
-          <button class="payment-btn w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all" onclick="document.getElementById('iban-modal').classList.remove('hidden')" style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); color:white;">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(45,140,122,0.3);">
-              <i class="fa-solid fa-building-columns text-lg" style="color:var(--green-mid);"></i>
+          <div class="flex flex-wrap items-center gap-4">
+            <a href="/livre/" class="btn-primary" style="font-size:1rem; padding:0.85rem 2rem;">
+              <i class="fa-solid fa-book-open"></i>
+              Commander l'ebook
+            </a>
+            <div>
+              <div class="font-serif text-3xl font-bold" style="color:var(--dark);">39 <span class="text-base font-sans font-normal" style="color:var(--text-light);">CHF / €</span></div>
+              <div class="text-xs" style="color:var(--text-light);">Livraison incluse · Paiement sécurisé</div>
             </div>
-            <div class="text-left flex-1">
-              <div class="font-semibold" data-i18n="soutenir.payment_virement">Virement</div>
-              <div class="text-xs" style="color:rgba(255,255,255,0.5);" data-i18n="soutenir.payment_virement_sub">IBAN sur demande</div>
-            </div>
-            <i class="fa-solid fa-chevron-right" style="color:rgba(255,255,255,0.3); font-size:0.75rem;"></i>
-          </button>
+          </div>
         </div>
-
-        <!-- Security note -->
-        <p class="text-center text-xs" style="color:rgba(255,255,255,0.3);">
-          <i class="fa-solid fa-lock mr-1"></i>
-          Paiements 100% sécurisés — Vos données ne sont jamais stockées
-        </p>
       </div>
     </div>
   </section>
@@ -287,7 +496,7 @@
   <section class="py-20 px-6">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-14 reveal">
-        <span class="section-label justify-center" data-i18n="soutenir.utilisation_title">Vos Dons Servent À</span>
+        <span class="section-label justify-center" data-i18n="soutenir.utilisation_title">Votre Soutien Finance</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -364,8 +573,8 @@
   <section class="py-20 px-6" id="section-temoignages" style="background:#f0f7f5; display:none;">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-12 reveal">
-        <span class="section-label justify-center">Ils ont soutenu Roland</span>
-        <h2 class="section-title mt-3">Paroles de Donateurs</h2>
+        <span class="section-label justify-center" data-i18n="soutenir.testimonials_label">Ils ont soutenu Roland</span>
+        <h2 class="section-title mt-3" data-i18n="soutenir.testimonials_title">Paroles de Soutiens</h2>
       </div>
       <div id="temoignages-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
     </div>
@@ -403,6 +612,25 @@
   </section>
 
   <!-- ============================================
+       CLUB NEURO-ODYSSÉE — Newsletter
+       ============================================ -->
+  <section class="py-16 px-6" style="background:#f0f7f5;">
+    <div class="max-w-lg mx-auto text-center reveal">
+      <div class="text-3xl mb-3">📬</div>
+      <h3 class="font-serif text-2xl mb-2" style="color:var(--green-deep);">Rejoins le Club Neuro-Odyssée</h3>
+      <p class="text-sm mb-6" style="color:var(--text-light);">Newsletter exclusive, coulisses du chemin et réductions sur le futur livre.</p>
+      <form id="footer-club-form" class="flex flex-col sm:flex-row gap-3 justify-center items-center" style="flex-wrap:wrap;">
+        <input type="text" name="nom" placeholder="Ton prénom" required class="px-4 py-3 rounded-xl text-sm w-full sm:w-auto" style="border:1.5px solid #d0ebe4; outline:none; min-width:140px;">
+        <input type="email" name="email" placeholder="Ton email" required class="px-4 py-3 rounded-xl text-sm w-full sm:w-auto" style="border:1.5px solid #d0ebe4; outline:none; min-width:220px;">
+        <button type="submit" class="px-6 py-3 rounded-xl text-sm font-bold transition-all" style="background:var(--gold); color:#1a2332; border:none; cursor:pointer; white-space:nowrap;">
+          Rejoindre →
+        </button>
+      </form>
+      <div id="footer-club-msg" style="display:none; margin-top:0.75rem; font-size:0.85rem;"></div>
+    </div>
+  </section>
+
+  <!-- ============================================
        MERCI
        ============================================ -->
   <section class="py-16 px-6" style="background:linear-gradient(135deg,#1E6B5E,#1a2332,#3B9BB0);">
@@ -427,18 +655,30 @@
             1 900 km pour se reconstruire — De St-Maurice à Santiago de Compostela
           </p>
           <div class="flex gap-3 mt-6">
-            <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@LaNeuro-Odyssee" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.instagram.com/la_neuro_odyssee" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+          <div class="mt-6">
+            <div style="margin-bottom:0.6rem;"><div style="font-size:0.7rem; font-weight:700; color:rgba(255,255,255,0.35); text-transform:uppercase; letter-spacing:0.1em;">📘 Ebook offert</div><div style="font-size:0.82rem; font-style:italic; color:rgba(255,255,255,0.65); margin-top:0.2rem; line-height:1.4;">« Tu fais tout bien.<br>Alors pourquoi tu t'effondres&nbsp;? »</div></div>
+            <form id="footerNewsletter_soutenir" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+              <input type="email" name="email" placeholder="Votre email" required
+                style="flex:1; min-width:160px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:0.5rem 0.75rem; color:white; font-size:0.82rem; outline:none;">
+              <button type="submit"
+                style="background:#F0A500; color:#1a2332; border:none; border-radius:6px; padding:0.5rem 1rem; font-size:0.8rem; font-weight:700; cursor:pointer; white-space:nowrap;">
+                Recevoir →
+              </button>
+            </form>
+            <p id="footerNewsletter_soutenirMsg" style="font-size:0.75rem; min-height:1rem; margin-top:0.4rem; color:rgba(255,255,255,0.5);"></p>
           </div>
         </div>
         <div>
           <div class="footer-title" data-i18n="footer.nav_title">Navigation</div>
           <a href="index.html" class="footer-link" data-i18n="nav.home">Accueil</a>
           <a href="trajet.html" class="footer-link" data-i18n="nav.trajet">Le Trajet</a>
-          <a href="sponsoring.html" class="footer-link" data-i18n="nav.sponsoring">Sponsoring</a>
           <a href="journal.html" class="footer-link" data-i18n="nav.journal">Journal</a>
+          <a href="sponsoring.html" class="footer-link" data-i18n="nav.sponsoring">Sponsoring</a>
           <a href="soutenir.html" class="footer-link" data-i18n="nav.soutenir">Soutenir</a>
         </div>
         <div>
@@ -472,14 +712,14 @@
   <div id="iban-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center px-4" style="background:rgba(0,0,0,0.7);">
     <div class="rounded-2xl p-8 max-w-sm w-full text-center" style="background:#1a2e2a; border:1px solid rgba(255,255,255,0.1);">
       <div class="text-4xl mb-4">🏦</div>
-      <h3 class="font-serif text-2xl text-white mb-3">Virement Bancaire</h3>
-      <p class="text-sm mb-6" style="color:rgba(255,255,255,0.6);">Contactez Roland pour recevoir les coordonnées bancaires par email sécurisé.</p>
+      <h3 class="font-serif text-2xl text-white mb-3" data-i18n="soutenir.iban_title">Virement Bancaire</h3>
+      <p class="text-sm mb-6" style="color:rgba(255,255,255,0.6);" data-i18n="soutenir.iban_text">Contactez Roland pour recevoir les coordonnées bancaires par email sécurisé.</p>
       <a href="mailto:roland@neuro-odyssee.com?subject=Don%20par%20virement" class="btn-primary inline-flex mb-4">
         <i class="fa-solid fa-envelope"></i>
-        Contacter Roland
+        <span data-i18n="soutenir.iban_cta">Contacter Roland</span>
       </a>
       <br>
-      <button onclick="document.getElementById('iban-modal').classList.add('hidden')" class="text-sm mt-2" style="color:rgba(255,255,255,0.4);">Fermer</button>
+      <button onclick="document.getElementById('iban-modal').classList.add('hidden')" class="text-sm mt-2" style="color:rgba(255,255,255,0.4);" data-i18n="soutenir.iban_close">Fermer</button>
     </div>
   </div>
 
@@ -487,36 +727,7 @@
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 
-  <script>
-    // Impact card highlight
-    document.querySelectorAll('.impact-card').forEach(card => {
-      card.addEventListener('click', () => {
-        document.querySelectorAll('.impact-card').forEach(c => {
-          c.style.borderColor = '#e8f4f0';
-          c.style.transform = '';
-          c.style.boxShadow = '0 2px 12px rgba(0,0,0,0.05)';
-        });
-        card.style.borderColor = 'var(--green-mid)';
-        card.style.transform = 'translateY(-4px)';
-        card.style.boxShadow = '0 12px 32px rgba(30,107,94,0.2)';
-        const amount = card.dataset.amount;
-        const custom = document.getElementById('don-custom');
-        if (custom) custom.value = amount;
-        // Highlight matching amount btn
-        document.querySelectorAll('.don-amount-btn').forEach(b => b.classList.remove('active'));
-      });
-    });
-
-    // Amount buttons
-    document.querySelectorAll('.don-amount-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.don-amount-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const custom = document.getElementById('don-custom');
-        if (custom) custom.value = '';
-      });
-    });
-  </script>
+  <script>/* legacy impact cards removed */</script>
 
 <script>
 // ── Stripe Checkout ──────────────────────────────────────────
@@ -583,6 +794,127 @@ async function payerStripe() {
     btn.querySelector('.font-semibold').textContent = 'Carte bancaire';
   }
 }
+
+// ── Newsletter Club ──────────────────────────────────────────
+document.getElementById('footer-club-form')?.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('button[type=submit]');
+  const email = this.querySelector('[name=email]').value;
+  const nom = this.querySelector('[name=nom]').value;
+  const msgEl = document.getElementById('footer-club-msg');
+  btn.disabled = true;
+  btn.textContent = 'Inscription…';
+  try {
+    const res = await fetch('api/subscribe.php', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email, nom})
+    });
+    const data = await res.json();
+    if (data.ok) {
+      msgEl.textContent = '🎉 Bienvenue dans le Club !';
+      msgEl.style.color = '#1E6B5E';
+      msgEl.style.display = 'block';
+      this.reset();
+    } else { throw new Error(data.error || 'Erreur'); }
+  } catch(err) {
+    msgEl.textContent = '❌ ' + (err.message || 'Erreur');
+    msgEl.style.color = '#dc3232';
+    msgEl.style.display = 'block';
+  }
+  btn.disabled = false;
+  btn.textContent = 'Rejoindre →';
+});
+
+async function payerLibre() {
+  if (!checkConsent()) return;
+  const input = document.getElementById('don-libre');
+  const btn   = document.getElementById('btn-don-libre');
+  const montant = parseInt(input.value);
+
+  if (!montant || montant < 1) {
+    input.style.borderColor = '#ef4444';
+    input.focus();
+    return;
+  }
+  input.style.borderColor = 'rgba(255,255,255,0.2)';
+
+  const originalText = btn.innerHTML;
+  btn.disabled = true;
+  btn.textContent = 'Redirection…';
+
+  // Déterminer le pack selon le montant
+  let pack = 'libre';
+  if (montant >= 99)      pack = 'platine';
+  else if (montant >= 59) pack = 'or';
+  else if (montant >= 29) pack = 'argent';
+  else if (montant >= 19) pack = 'bronze';
+
+  try {
+    const res = await fetch('payment/checkout.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount: montant, pack: pack })
+    });
+    const data = await res.json();
+
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      alert('Erreur : ' + (data.detail || data.error || 'Réessaie dans un instant'));
+      btn.disabled = false;
+      btn.innerHTML = originalText;
+    }
+  } catch (e) {
+    alert('Connexion impossible. Vérifie ta connexion et réessaie.');
+    btn.disabled = false;
+    btn.innerHTML = originalText;
+  }
+}
+
+function checkConsent() {
+  const cb = document.getElementById('consent-check');
+  if (!cb.checked) {
+    const label = document.getElementById('consent-label');
+    label.style.borderColor = '#ef4444';
+    label.style.background = 'rgba(239,68,68,0.1)';
+    cb.focus();
+    setTimeout(() => { label.style.borderColor = 'rgba(255,255,255,0.1)'; label.style.background = 'rgba(255,255,255,0.04)'; }, 2500);
+    return false;
+  }
+  return true;
+}
+
+async function payerPack(pack, montant) {
+  if (!checkConsent()) return;
+  const btn = event.target;
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Redirection…';
+
+  try {
+    const res = await fetch('payment/checkout.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount: montant, pack: pack })
+    });
+    const data = await res.json();
+
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      alert('Erreur : ' + (data.detail || data.error || 'Réessaie dans un instant'));
+      btn.disabled = false;
+      btn.textContent = originalText;
+    }
+  } catch (e) {
+    alert('Connexion impossible. Vérifie ta connexion et réessaie.');
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
 </script>
+  <script src="js/newsletter.js"></script>
+  <script>initNewsletterForm('footerNewsletter_soutenir');</script>
 </body>
 </html>

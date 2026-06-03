@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Faim de Vivre — Ebook de Roland Crettaz</title>
+  <meta name="description" content="Quand le cerveau dérange — L'ebook de Roland Crettaz, Coach en Neurosciences. Comprenez enfin pourquoi votre cerveau fonctionne différemment.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:  #1E6B5E;
+      --green2: #2D8C7A;
+      --gold:   #F0A500;
+      --dark:   #1a2332;
+      --text:   #4b5563;
+      --cream:  #F8F6F1;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--dark); }
+    .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(135deg, #1a2332 0%, #1E6B5E 60%, #2D8C7A 100%);
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(240,165,0,0.15); color: var(--gold);
+      border: 1px solid rgba(240,165,0,0.3);
+      border-radius: 999px; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.08em; padding: 0.35rem 1rem; margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 8vw, 5.5rem); color: white; line-height: 1.05; margin-bottom: 0.5rem; }
+    .hero h1 em { color: var(--gold); font-style: italic; }
+    .hero-sub { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.2rem, 3vw, 1.6rem); color: rgba(255,255,255,0.7); font-style: italic; margin-bottom: 2.5rem; }
+    .hero-author { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+
+    /* ─── BOOK VISUAL ─── */
+    .book-wrap {
+      max-width: 880px; margin: 0 auto; padding: 0 1.5rem;
+      display: flex; flex-wrap: wrap; gap: 3rem; align-items: center;
+      padding-top: 3rem; padding-bottom: 4rem;
+    }
+    .book-cover {
+      flex-shrink: 0; max-width: 240px; width: 100%; margin: 0 auto;
+    }
+    .book-cover img {
+      width: 100%; border-radius: 6px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.22);
+      transform: rotate(-1.5deg);
+    }
+    .book-content { flex: 1; min-width: 260px; }
+    .tagline-kw { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .book-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); color: var(--dark); line-height: 1.1; margin-bottom: 0.4rem; }
+    .book-subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text); font-style: italic; margin-bottom: 1.5rem; }
+    .desc { color: var(--text); font-size: 0.95rem; line-height: 1.75; margin-bottom: 1rem; }
+    .quote {
+      border-left: 3px solid var(--green2); padding: 0.75rem 1.2rem;
+      background: rgba(45,140,122,0.07); border-radius: 0 0.5rem 0.5rem 0;
+      font-style: italic; color: var(--dark); font-size: 0.92rem; margin: 1.5rem 0;
+    }
+
+    /* ─── CHECKOUT FORM ─── */
+    .checkout-section {
+      background: linear-gradient(135deg, #1E6B5E, #1a2332);
+      padding: 4rem 1.5rem;
+    }
+    .checkout-box {
+      max-width: 480px; margin: 0 auto;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 1.25rem; padding: 2.5rem;
+      backdrop-filter: blur(12px);
+    }
+    .checkout-box h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: white; margin-bottom: 0.4rem; }
+    .checkout-box .price-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .price-big { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 700; color: var(--gold); }
+    .price-label { font-size: 0.78rem; color: rgba(255,255,255,0.45); line-height: 1.4; }
+    .form-group { margin-bottom: 0.9rem; }
+    .form-group input {
+      width: 100%; padding: 0.85rem 1rem; border-radius: 0.625rem;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08); color: white; font-size: 0.95rem;
+      outline: none; transition: border-color 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .form-group input::placeholder { color: rgba(255,255,255,0.35); }
+    .form-group input:focus { border-color: var(--gold); }
+    .btn-buy {
+      width: 100%; padding: 1rem; border: none; border-radius: 0.625rem;
+      background: var(--gold); color: var(--dark);
+      font-weight: 700; font-size: 1rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      transition: opacity 0.2s, transform 0.1s; margin-top: 0.5rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-buy:hover:not(:disabled) { opacity: 0.92; transform: translateY(-1px); }
+    .btn-buy:disabled { opacity: 0.55; cursor: not-allowed; }
+    .secure-note { text-align: center; font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 0.75rem; }
+    .error-msg { color: #fca5a5; font-size: 0.82rem; margin-top: 0.4rem; display: none; }
+
+    /* ─── WHAT'S INSIDE ─── */
+    .inside { max-width: 700px; margin: 0 auto; padding: 4rem 1.5rem; }
+    .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green2); margin-bottom: 0.75rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.5rem); color: var(--dark); margin-bottom: 1.5rem; }
+    .points { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+    .points li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.92rem; color: var(--text); line-height: 1.6; }
+    .points li::before { content: '✓'; color: var(--green2); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+    /* ─── FAILED NOTICE ─── */
+    .failed-notice {
+      display: none; max-width: 480px; margin: 0 auto 1.5rem;
+      background: rgba(220,38,38,0.12); border: 1px solid rgba(220,38,38,0.4);
+      border-radius: 0.75rem; padding: 1rem 1.25rem;
+      color: #fca5a5; font-size: 0.88rem; text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .book-cover { max-width: 180px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge"><i class="fa-solid fa-book-open"></i> Ebook PDF · Disponible maintenant</div>
+    <h1 class="serif">La <em>Faim</em><br>de Vivre</h1>
+    <p class="hero-sub">Quand le cerveau dérange</p>
+    <p class="hero-author">par <strong style="color:rgba(255,255,255,0.8);">Roland Crettaz</strong> — Coach en Neurosciences Certifié & Nutrithérapeute Diplômé</p>
+  </section>
+
+  <!-- BOOK + DESC -->
+  <div class="book-wrap">
+    <div class="book-cover">
+      <img src="../images/livre_faim_de_vivre.jpg" alt="La Faim de Vivre — Roland Crettaz">
+    </div>
+    <div class="book-content">
+      <p class="tagline-kw">Noradrénaline · Sérotonine · Les deux autres piliers</p>
+      <h2 class="book-title">Comprendre enfin votre cerveau</h2>
+      <p class="book-subtitle">et arrêter de vous battre contre vous-même</p>
+      <p class="desc">J'ai mis des années à comprendre pourquoi je fonctionnais si différemment des autres. Pourquoi les solutions qui marchaient pour tout le monde ne marchaient pas pour moi.</p>
+      <p class="desc">La réponse n'était pas dans mon caractère. Elle était dans <strong>mon cerveau</strong>.</p>
+      <div class="quote">
+        "Le problème n'était pas moi. C'était le système que j'utilisais.<br>Quand j'ai compris mon cerveau, tout a changé."
+      </div>
+      <p class="desc">Ce livre est le condensé de ce voyage. Il ne prétend pas tout résoudre. Il prétend <strong>éclairer</strong>. Et parfois, une lumière dans le noir, c'est tout ce dont on a besoin pour trouver le chemin.</p>
+    </div>
+  </div>
+
+  <!-- CE QUE VOUS ALLEZ DÉCOUVRIR -->
+  <section style="background:white; padding:4rem 1.5rem;">
+    <div class="inside" style="padding-top:0; padding-bottom:0;">
+      <p class="section-label">Contenu</p>
+      <h2 class="section-title">Ce que vous allez découvrir</h2>
+      <ul class="points">
+        <li>Pourquoi votre volonté n'est pas en cause — et ce qui l'est vraiment</li>
+        <li>Le rôle de la noradrénaline et de la sérotonine sur vos comportements</li>
+        <li>Comment le cerveau TDAH perçoit et réagit différemment au monde</li>
+        <li>Les 3 piliers neurologiques pour retrouver clarté et énergie</li>
+        <li>Un protocole nutritionnel adapté au cerveau sous effort prolongé</li>
+        <li>Des stratégies concrètes testées sur 1 900 km à pied</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CHECKOUT -->
+  <section class="checkout-section">
+    <div id="failedNotice" class="failed-notice">
+      <strong>⚠️ Paiement non abouti.</strong><br>Votre commande a été annulée. Vous pouvez réessayer ci-dessous.
+    </div>
+    <div class="checkout-box">
+      <h2>Commander l'ebook</h2>
+      <div class="price-row">
+        <div class="price-big">39 <span style="font-size:1.2rem;">€</span></div>
+        <div class="price-label">Accès immédiat<br>PDF téléchargeable · Paiement sécurisé Mollie</div>
+      </div>
+      <form id="checkoutForm">
+        <div class="form-group">
+          <input type="text" id="prenom" placeholder="Votre prénom" autocomplete="given-name">
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" placeholder="Votre email *" required autocomplete="email">
+        </div>
+        <button type="submit" class="btn-buy" id="buyBtn">
+          <i class="fa-solid fa-lock"></i>
+          Acheter — 39 €
+        </button>
+        <p id="formError" class="error-msg"></p>
+      </form>
+      <p class="secure-note">🔒 Paiement sécurisé · Carte, Virement, TWINT · Remboursement 14j</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#1a2332; padding:2rem 1.5rem; text-align:center;">
+    <p style="color:rgba(255,255,255,0.4); font-size:0.8rem;">
+      © 2025 La Neuro-Odyssée — Roland Crettaz &nbsp;·&nbsp;
+      <a href="../contact.html" style="color:rgba(255,255,255,0.5); text-decoration:none;">Contact</a>
+      &nbsp;·&nbsp;
+      🇨🇭 Créé en Valais par <a href="https://iasmart.tech" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.5); text-decoration:none;">IAsmart.tech</a>
+    </p>
+  </footer>
+
+  <script>
+  // Affiche le message d'erreur paiement si ?payment=failed
+  if (new URLSearchParams(location.search).get('payment') === 'failed') {
+    document.getElementById('failedNotice').style.display = 'block';
+    document.getElementById('failedNotice').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // Capture silencieuse dès que l'email est renseigné (abandon potentiel)
+  function captureLeadSilently() {
+    const email  = document.getElementById('email').value.trim();
+    const prenom = document.getElementById('prenom').value.trim();
+    if (!email || !email.includes('@')) return;
+    const fd = new FormData();
+    fd.append('email',  email);
+    fd.append('prenom', prenom);
+    fd.append('source', 'livre_prospect');
+    fetch('/api/lead-capture.php', { method: 'POST', body: fd }).catch(() => {});
+  }
+
+  document.getElementById('email').addEventListener('blur', captureLeadSilently);
+  document.getElementById('prenom').addEventListener('blur', function() {
+    // Capture aussi si prenom rempli après email
+    const email = document.getElementById('email').value.trim();
+    if (email && email.includes('@')) captureLeadSilently();
+  });
+
+  document.getElementById('checkoutForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const email  = document.getElementById('email').value.trim();
+    const prenom = document.getElementById('prenom').value.trim();
+    const btn    = document.getElementById('buyBtn');
+    const errEl  = document.getElementById('formError');
+
+    errEl.style.display = 'none';
+
+    if (!email || !email.includes('@')) {
+      errEl.textContent = 'Veuillez entrer un email valide.';
+      errEl.style.display = 'block';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Création du paiement…';
+
+    try {
+      const res  = await fetch('/api/mollie-create.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, prenom, items: ['livre_faim_de_vivre'], funnel_step: 'livre' }),
+      });
+      const data = await res.json();
+
+      if (!data.success || !data.checkout_url) throw new Error(data.error || 'Erreur serveur');
+
+      window.location.href = data.checkout_url;
+
+    } catch (err) {
+      errEl.textContent   = err.message || 'Une erreur est survenue. Réessayez.';
+      errEl.style.display = 'block';
+      btn.disabled        = false;
+      btn.innerHTML       = '<i class="fa-solid fa-lock"></i> Acheter — 39 €';
+    }
+  });
+  </script>
+
+</body>
+</html>
