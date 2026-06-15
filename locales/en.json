@@ -5,6 +5,7 @@
   },
   "nav": {
     "home": "Home",
+    "la_cause": "The Cause",
     "trajet": "The Route",
     "preparation": "Preparation",
     "sponsoring": "Sponsorship",
@@ -17,8 +18,8 @@
     "badge": "Departure August 21, 2026",
     "title_line1": "The Neuro-",
     "title_line2": "Odyssey",
-    "tagline": "1,900 km to rewire a brain",
-    "subtitle": "From St-Maurice (Switzerland) to Santiago de Compostela (Spain) — Roland Crettaz walks to prove that an ADHD brain and overcome addictions are not a life sentence.",
+    "tagline": "Atypical brain, compensating behaviors, rebuilding — it's all connected.<br>1,900 km to prove it.",
+    "subtitle": "Roland Crettaz is walking 1,900 km from St-Maurice to Santiago to show in real time that the brain can rebuild itself — and that what looks like weakness of character often hides a misunderstood way the brain works.",
     "cta_sponsor": "Become a Sponsor",
     "cta_don": "Support the Project",
     "scroll_hint": "Discover the project",
@@ -80,7 +81,8 @@
     "bio3": "Roland documents every step: YouTube videos, blog, and a book in preparation. His goal: to become a speaker to address businesses and mental health institutions.",
     "photo_quote": "\"Every step is therapy. The road gave me back to myself.\"",
     "quote_author": "— Roland Crettaz",
-    "cta_journal": "Read the Journal"
+    "cta_journal": "Read the Journal",
+    "story_assoc": "This project is also the first step toward something bigger: a structure dedicated to raising awareness and supporting people who live with an atypical way the brain works and its consequences. The association is in the works. The walk is where it begins."
   },
   "docu": {
     "section_label": "On Stage and On Screen",
@@ -523,5 +525,46 @@
     "rights": "All rights reserved.",
     "made_with": "Made with passion in Valais 🇨🇭",
     "website": "neuro-odyssee.com"
+  },
+  "lien": {
+    "label": "Understand",
+    "title": "Why it's all connected",
+    "p1": "The atypical brain (an ADHD way of working) naturally tries to make up for a lack of stimulation and emotional regulation. It isn't a lack of willpower. It's neurology.",
+    "p2": "Alcohol, medication, tobacco, overactivity, excessive risk-taking: these are responses to that lack. They are the brain's attempts to self-regulate with the tools it has on hand.",
+    "p3": "Once you understand that, everything changes. You stop fighting against yourself. You start understanding yourself.",
+    "p4": "That's the message Roland is carrying across these 1,900 km.",
+    "cta": "Discover the cause"
+  },
+  "cause": {
+    "meta_title": "The Cause — Why it's all connected",
+    "hero_label": "Understand",
+    "title": "Why it's all connected",
+    "subtitle": "What no one ever taught us about how the human brain works",
+    "s1_title": "The starting point: a brain searching for balance",
+    "s1_p1": "The human brain has one fundamental need: to feel regulated. In balance. Neither over-stimulated nor under-stimulated.",
+    "s1_p2": "In some people, this regulation system works differently. The brain struggles to maintain that balance on its own. It gets bored quickly, it races, it has trouble filtering information, staying organized, and moving from one emotion to the next without spilling over.",
+    "s1_p3": "This isn't a character flaw. It isn't laziness or a lack of willpower.",
+    "s1_p4": "It's a way the brain works. And it's far more common than people think.",
+    "s2_title": "What the brain does when it can't find balance",
+    "s2_p1": "When the brain can't find its balance naturally, it looks for shortcuts.",
+    "s2_p2": "Alcohol slows down what's overflowing. Unprescribed medication numbs what hurts. Cigarettes give the stream of thoughts a tiny pause. Overactivity, risk-taking, screens, food: all of them are ways for the brain to regulate itself with whatever tools it finds.",
+    "s2_p3": "These behaviors aren't weaknesses. They're imperfect solutions to a real neurological problem.",
+    "s2_p4": "The trouble is that these solutions create their own dependency — and you end up fighting against your own attempts to survive.",
+    "s3_title": "The connection no one makes",
+    "s3_p1": "For decades, the symptoms were treated separately.",
+    "s3_p2": "Alcohol use was treated without looking at what was driving it. Medication was prescribed without understanding why the person kept seeking more. Impulsive behaviors were judged without seeing the brain behind them.",
+    "s3_p3": "What neuroscience shows today is that, in many cases, it all comes from the same place: a brain that works differently, that was never given the right tools to regulate itself, and that did its best with what it had.",
+    "s3_p4": "Understanding that means you stop fighting yourself. It's the beginning of rebuilding.",
+    "s4_title": "What the walk sets out to prove",
+    "s4_p1": "Long-distance walking isn't a symbol chosen at random.",
+    "s4_p2": "Neuroscience studies show that regular, sustained physical effort promotes neurogenesis — the brain's ability to create new connections. Walking stimulates the production of proteins that support neuronal growth. It regulates the nervous system. It brings the body and brain back into a state of coherence.",
+    "s4_p3": "By walking 1,900 km, Roland isn't just crossing three countries. He's experiencing on himself what science describes: that the brain can reconfigure itself, at any age, after any fall.",
+    "s4_p4": "And he's documenting it in real time, so that this path isn't only his own.",
+    "s5_title": "And after the walk",
+    "s5_p1": "This project is the starting point of a wider vision.",
+    "s5_p2": "Too many people go through years of confusion, shame, and repeated failures without ever understanding why their brain works the way it does. Too many families search for answers without finding language that is accessible and kind.",
+    "s5_p3": "A structure dedicated to this awareness is in the works. It will draw on the documentary, the book, and the encounters made along the way to create concrete resources — workshops, content, support — for the people concerned and those close to them.",
+    "s5_p4": "The walk is its first act. Supporting the Neuro-Odyssée means supporting what comes next.",
+    "cta": "Support the project"
   }
 }

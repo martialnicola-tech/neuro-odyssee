@@ -5,6 +5,7 @@
   },
   "nav": {
     "home": "Startseite",
+    "la_cause": "Die Sache",
     "trajet": "Die Route",
     "preparation": "Vorbereitung",
     "sponsoring": "Sponsoring",
@@ -17,8 +18,8 @@
     "badge": "Abfahrt 21. August 2026",
     "title_line1": "Die Neuro-",
     "title_line2": "Odyssee",
-    "tagline": "1.900 km um ein Gehirn neu zu verdrahten",
-    "subtitle": "Von St-Maurice (Schweiz) nach Santiago de Compostela (Spanien) — Roland Crettaz geht, um zu beweisen, dass ein ADHS-Gehirn und überwundene Sucht kein Schicksal sind.",
+    "tagline": "Atypisches Gehirn, kompensatorische Verhaltensweisen, Wiederaufbau — alles hängt zusammen.<br>1900 km, um es zu beweisen.",
+    "subtitle": "Roland Crettaz wandert 1900 km von St-Maurice nach Santiago, um in Echtzeit zu zeigen, dass sich das Gehirn neu aufbauen kann — und dass hinter dem, was wie Charakterschwäche aussieht, oft eine missverstandene neurologische Funktionsweise steckt.",
     "cta_sponsor": "Sponsor werden",
     "cta_don": "Projekt unterstützen",
     "scroll_hint": "Das Projekt entdecken",
@@ -80,7 +81,8 @@
     "bio3": "Roland dokumentiert jeden Schritt: YouTube-Videos, Blog und ein Buch in Vorbereitung. Sein Ziel: Redner zu werden, um mit Unternehmen und Institutionen für psychische Gesundheit zu sprechen.",
     "photo_quote": "\"Jeder Schritt ist eine Therapie. Der Weg hat mich zu mir selbst zurückgebracht.\"",
     "quote_author": "— Roland Crettaz",
-    "cta_journal": "Das Tagebuch lesen"
+    "cta_journal": "Das Tagebuch lesen",
+    "story_assoc": "Dieses Projekt ist auch der erste Schritt zu etwas Größerem: einer Struktur, die der Sensibilisierung und Begleitung von Menschen gewidmet ist, die mit einer atypischen neurologischen Funktionsweise und ihren Folgen leben. Der Verein befindet sich in Vorbereitung. Die Wanderung ist der Ausgangspunkt."
   },
   "docu": {
     "section_label": "Auf der Bühne und auf dem Bildschirm",
@@ -523,5 +525,46 @@
     "rights": "Alle Rechte vorbehalten.",
     "made_with": "Mit Leidenschaft im Wallis gemacht 🇨🇭",
     "website": "neuro-odyssee.com"
+  },
+  "lien": {
+    "label": "Verstehen",
+    "title": "Warum alles zusammenhängt",
+    "p1": "Das atypische Gehirn (ADHS-Funktionsweise) versucht von Natur aus, einen Mangel an Stimulation und emotionaler Regulation auszugleichen. Das ist kein fehlender Wille. Das ist Neurologie.",
+    "p2": "Alkohol, Medikamente, Tabak, Übertätigkeit, übermäßiges Risikoverhalten: Das sind Antworten auf diesen Mangel. Versuche des Gehirns, sich mit den verfügbaren Mitteln selbst zu regulieren.",
+    "p3": "Wenn man das versteht, ändert sich alles. Man hört auf, gegen sich selbst zu kämpfen. Man beginnt, sich zu verstehen.",
+    "p4": "Diese Botschaft trägt Roland über diese 1900 km.",
+    "cta": "Die Sache entdecken"
+  },
+  "cause": {
+    "meta_title": "Die Sache — Warum alles zusammenhängt",
+    "hero_label": "Verstehen",
+    "title": "Warum alles zusammenhängt",
+    "subtitle": "Was uns niemand über die Funktionsweise des menschlichen Gehirns beigebracht hat",
+    "s1_title": "Der Ausgangspunkt: ein Gehirn, das nach Gleichgewicht sucht",
+    "s1_p1": "Das menschliche Gehirn hat ein grundlegendes Bedürfnis: sich reguliert zu fühlen. Im Gleichgewicht. Weder zu stark stimuliert noch zu wenig.",
+    "s1_p2": "Bei manchen Menschen funktioniert dieses Regulationssystem anders. Das Gehirn fällt es schwer, dieses Gleichgewicht von selbst zu halten. Es langweilt sich schnell, es überdreht, es hat Mühe, Informationen zu filtern, sich zu organisieren, von einer Emotion zur nächsten überzugehen, ohne überzulaufen.",
+    "s1_p3": "Das ist kein Charakterfehler. Das ist keine Faulheit und kein fehlender Wille.",
+    "s1_p4": "Es ist eine neurologische Funktionsweise. Und sie ist viel weiter verbreitet, als man denkt.",
+    "s2_title": "Was das Gehirn tut, wenn es kein Gleichgewicht findet",
+    "s2_p1": "Wenn das Gehirn sein Gleichgewicht nicht von selbst findet, sucht es nach Abkürzungen.",
+    "s2_p2": "Alkohol bremst, was überläuft. Nicht verschriebene Medikamente betäuben, was wehtut. Die Zigarette gibt dem Gedankenstrom eine winzige Pause. Übertätigkeit, Risikoverhalten, Bildschirme, Essen: lauter Wege, mit denen sich das Gehirn mit den Mitteln reguliert, die es findet.",
+    "s2_p3": "Diese Verhaltensweisen sind keine Schwächen. Es sind unvollkommene Lösungen für ein echtes neurologisches Problem.",
+    "s2_p4": "Das Problem ist, dass diese Lösungen ihre eigene Abhängigkeit schaffen — und dass man am Ende gegen die eigenen Überlebensversuche kämpft.",
+    "s3_title": "Der Zusammenhang, den niemand herstellt",
+    "s3_p1": "Jahrzehntelang hat man die Symptome getrennt behandelt.",
+    "s3_p2": "Man hat den Alkoholkonsum behandelt, ohne zu betrachten, was ihn auslöste. Man hat Medikamente verschrieben, ohne zu verstehen, warum die Person nach weiteren suchte. Man hat impulsive Verhaltensweisen verurteilt, ohne das Gehirn dahinter zu sehen.",
+    "s3_p3": "Was die Neurowissenschaften heute zeigen, ist, dass in vielen Fällen alles vom selben Ort ausgeht: einem Gehirn, das anders funktioniert, das nie die richtigen Mittel zur Selbstregulation bekommen hat und das mit dem, was es hatte, sein Bestes gegeben hat.",
+    "s3_p4": "Das zu verstehen heißt, aufzuhören, gegen sich selbst zu kämpfen. Es ist der Beginn des Wiederaufbaus.",
+    "s4_title": "Was die Wanderung beweisen soll",
+    "s4_p1": "Die Langstreckenwanderung ist kein zufällig gewähltes Symbol.",
+    "s4_p2": "Studien in den Neurowissenschaften zeigen, dass regelmäßige und anhaltende körperliche Anstrengung die Neurogenese fördert — die Fähigkeit des Gehirns, neue Verbindungen zu schaffen. Das Wandern regt die Produktion von Proteinen an, die das neuronale Wachstum unterstützen. Es reguliert das Nervensystem. Es versetzt Körper und Gehirn wieder in einen Zustand der Kohärenz.",
+    "s4_p3": "Indem er 1900 km wandert, durchquert Roland nicht nur drei Länder. Er erprobt an sich selbst, was die Wissenschaft beschreibt: dass sich das Gehirn in jedem Alter und nach jedem Sturz neu konfigurieren kann.",
+    "s4_p4": "Und er dokumentiert es in Echtzeit, damit dieser Weg nicht nur seiner allein ist.",
+    "s5_title": "Und nach der Wanderung",
+    "s5_p1": "Dieses Projekt ist der Ausgangspunkt einer größeren Vision.",
+    "s5_p2": "Zu viele Menschen durchleben Jahre der Verwirrung, der Scham und wiederholter Misserfolge, ohne je zu verstehen, warum ihr Gehirn so funktioniert, wie es funktioniert. Zu viele Familien suchen nach Antworten, ohne eine verständliche und wohlwollende Sprache zu finden.",
+    "s5_p3": "Eine Struktur, die dieser Sensibilisierung gewidmet ist, befindet sich in Vorbereitung. Sie wird sich auf den Dokumentarfilm, das Buch und die Begegnungen auf dem Weg stützen, um konkrete Ressourcen zu schaffen — Workshops, Inhalte, Begleitung — für die betroffenen Menschen und ihre Angehörigen.",
+    "s5_p4": "Die Wanderung ist der erste Akt davon. Die Neuro-Odyssée zu unterstützen heißt, das zu unterstützen, was danach kommt.",
+    "cta": "Das Projekt unterstützen"
   }
 }

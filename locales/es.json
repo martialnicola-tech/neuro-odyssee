@@ -5,6 +5,7 @@
   },
   "nav": {
     "home": "Inicio",
+    "la_cause": "La Causa",
     "trajet": "La Ruta",
     "preparation": "Preparación",
     "sponsoring": "Patrocinio",
@@ -17,8 +18,8 @@
     "badge": "Salida el 21 de agosto de 2026",
     "title_line1": "La Neuro-",
     "title_line2": "Odisea",
-    "tagline": "1.900 km para reconectar un cerebro",
-    "subtitle": "De St-Maurice (Suiza) a Santiago de Compostela (España) — Roland Crettaz camina para demostrar que un cerebro TDAH y las adicciones superadas no son una condena.",
+    "tagline": "Cerebro atípico, comportamientos compensatorios, reconstrucción — todo está conectado.<br>1900 km para demostrarlo.",
+    "subtitle": "Roland Crettaz camina 1900 km de St-Maurice a Santiago para demostrar en tiempo real que el cerebro puede reconstruirse — y que lo que parece debilidad de carácter a menudo esconde un funcionamiento neurológico mal entendido.",
     "cta_sponsor": "Convertirse en Patrocinador",
     "cta_don": "Apoyar el Proyecto",
     "scroll_hint": "Descubrir el proyecto",
@@ -80,7 +81,8 @@
     "bio3": "Roland documenta cada etapa: vídeos de YouTube, blog y un libro en preparación. Su objetivo: convertirse en conferenciante para hablar a empresas e instituciones de salud mental.",
     "photo_quote": "\"Cada paso es una terapia. El camino me devolvió a mí mismo.\"",
     "quote_author": "— Roland Crettaz",
-    "cta_journal": "Leer el Diario"
+    "cta_journal": "Leer el Diario",
+    "story_assoc": "Este proyecto es también el primer paso hacia algo más grande: una estructura dedicada a la sensibilización y al acompañamiento de las personas que viven con un funcionamiento neurológico atípico y sus consecuencias. La asociación está en preparación. La marcha es su punto de partida."
   },
   "docu": {
     "section_label": "En Escena y en Pantalla",
@@ -523,5 +525,46 @@
     "rights": "Todos los derechos reservados.",
     "made_with": "Hecho con pasión en el Valais 🇨🇭",
     "website": "neuro-odyssee.com"
+  },
+  "lien": {
+    "label": "Comprender",
+    "title": "Por qué todo está conectado",
+    "p1": "El cerebro atípico (funcionamiento TDAH) busca de forma natural compensar una falta de estimulación y de regulación emocional. No es falta de voluntad. Es neurología.",
+    "p2": "El alcohol, los medicamentos, el tabaco, la hiperactividad, la toma de riesgos excesiva: son respuestas a esa carencia. Intentos del cerebro de autorregularse con las herramientas disponibles.",
+    "p3": "Cuando entendemos esto, todo cambia. Dejamos de luchar contra nosotros mismos. Empezamos a comprendernos.",
+    "p4": "Este es el mensaje que Roland lleva en estos 1900 km.",
+    "cta": "Descubrir la causa"
+  },
+  "cause": {
+    "meta_title": "La Causa — Por qué todo está conectado",
+    "hero_label": "Comprender",
+    "title": "Por qué todo está conectado",
+    "subtitle": "Lo que nadie nos enseñó sobre el funcionamiento del cerebro humano",
+    "s1_title": "El punto de partida: un cerebro que busca el equilibrio",
+    "s1_p1": "El cerebro humano tiene una necesidad fundamental: sentirse regulado. En equilibrio. Ni demasiado estimulado, ni demasiado poco.",
+    "s1_p2": "En algunas personas, este sistema de regulación funciona de forma diferente. Al cerebro le cuesta mantener ese equilibrio de manera natural. Se aburre rápido, se acelera, le cuesta filtrar la información, organizarse, pasar de una emoción a otra sin desbordarse.",
+    "s1_p3": "No es un defecto de carácter. No es pereza ni falta de voluntad.",
+    "s1_p4": "Es un funcionamiento neurológico. Y está mucho más extendido de lo que creemos.",
+    "s2_title": "Lo que el cerebro hace cuando no encuentra el equilibrio",
+    "s2_p1": "Cuando el cerebro no encuentra su equilibrio de forma natural, busca atajos.",
+    "s2_p2": "El alcohol frena lo que se desborda. Los medicamentos no recetados adormecen lo que duele. El cigarrillo da una micropausa al flujo de pensamientos. La hiperactividad, la toma de riesgos, las pantallas, la comida: otras tantas formas que tiene el cerebro de regularse con las herramientas que encuentra.",
+    "s2_p3": "Estos comportamientos no son debilidades. Son soluciones imperfectas a un problema neurológico real.",
+    "s2_p4": "El problema es que estas soluciones crean su propia dependencia — y acabamos luchando contra nuestros propios intentos de supervivencia.",
+    "s3_title": "La conexión que nadie hace",
+    "s3_p1": "Durante décadas, se trataron los síntomas por separado.",
+    "s3_p2": "Se trató el consumo de alcohol sin mirar lo que lo provocaba. Se recetaron medicamentos sin entender por qué la persona buscaba otros. Se juzgaron los comportamientos impulsivos sin ver el cerebro que había detrás.",
+    "s3_p3": "Lo que la neurociencia muestra hoy es que, en muchos casos, todo parte del mismo lugar: un cerebro que funciona de forma diferente, que nunca recibió las herramientas adecuadas para regularse, y que hizo lo mejor que pudo con lo que tenía.",
+    "s3_p4": "Comprender esto es dejar de combatirse a uno mismo. Es el comienzo de la reconstrucción.",
+    "s4_title": "Lo que la marcha viene a demostrar",
+    "s4_p1": "La marcha de larga distancia no es un símbolo elegido al azar.",
+    "s4_p2": "Estudios de neurociencia muestran que el esfuerzo físico regular y prolongado favorece la neurogénesis — la capacidad del cerebro de crear nuevas conexiones. La marcha estimula la producción de proteínas que sostienen el crecimiento neuronal. Regula el sistema nervioso. Devuelve al cuerpo y al cerebro a un estado de coherencia.",
+    "s4_p3": "Al caminar 1900 km, Roland no solo atraviesa tres países. Experimenta en sí mismo lo que la ciencia describe: que el cerebro puede reconfigurarse, a cualquier edad, después de cualquier caída.",
+    "s4_p4": "Y lo documenta en tiempo real, para que este camino no sea solo el suyo.",
+    "s5_title": "Y después de la marcha",
+    "s5_p1": "Este proyecto es el punto de partida de una visión más amplia.",
+    "s5_p2": "Demasiadas personas atraviesan años de confusión, de vergüenza y de fracasos repetidos sin llegar a entender nunca por qué su cerebro funciona como funciona. Demasiadas familias buscan respuestas sin encontrar un lenguaje accesible y compasivo.",
+    "s5_p3": "Una estructura dedicada a esta sensibilización está en preparación. Se apoyará en el documental, el libro y los encuentros vividos en el camino para crear recursos concretos — talleres, contenidos, acompañamiento — destinados a las personas afectadas y a sus allegados.",
+    "s5_p4": "La marcha es su primer acto. Apoyar la Neuro-Odyssée es apoyar lo que viene después.",
+    "cta": "Apoyar el proyecto"
   }
 }
