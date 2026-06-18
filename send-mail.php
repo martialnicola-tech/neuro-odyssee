@@ -38,7 +38,7 @@ $envoye = mail('roland@neuro-odyssee.com', $sujet, $corps, $headers);
 
 if ($envoye) {
     $conf  = "Bonjour $name,\n\nMerci pour votre intérêt pour la Neuro-Odyssée !\nRoland vous répondra dans les 24h.\n\nÀ bientôt,\nRoland Crettaz\nwww.neuro-odyssee.com\n";
-    mail($email, "Votre demande — La Neuro-Odyssée", $conf,
+    mail($email, "Votre demande — Association Neuro-Odyssée", $conf,
         "From: Roland Crettaz <roland@neuro-odyssee.com>\r\nContent-Type: text/plain; charset=UTF-8\r\n");
     echo json_encode(['ok' => true]);
 } else {

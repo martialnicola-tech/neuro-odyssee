@@ -41,7 +41,7 @@ file_put_contents($file, json_encode($abonnes, JSON_PRETTY_PRINT | JSON_UNESCAPE
 $lien = 'https://neuro-odyssee.com/ebooks/ebook_neuro_odyssee_newsletter.pdf';
 $salutation = $prenom ? "Bonjour $prenom," : "Bonjour,";
 
-$sujet = "Votre ebook La Neuro-Odyssée";
+$sujet = "Votre ebook Association Neuro-Odyssée";
 
 $corps = '<!DOCTYPE html>
 <html lang="fr">
@@ -51,7 +51,7 @@ $corps = '<!DOCTYPE html>
 
     <!-- Header -->
     <div style="background:linear-gradient(135deg,#1E6B5E 0%,#2d8c7a 100%);padding:32px 40px;text-align:center;">
-      <div style="font-family:Georgia,serif;font-size:1.5rem;font-weight:700;color:white;letter-spacing:-0.02em;">La Neuro-Odyssée</div>
+      <div style="font-family:Georgia,serif;font-size:1.5rem;font-weight:700;color:white;letter-spacing:-0.02em;">Association Neuro-Odyssée</div>
       <div style="color:rgba(255,255,255,0.6);font-size:0.8rem;margin-top:4px;letter-spacing:0.1em;text-transform:uppercase;">Roland Crettaz · St-Maurice → Santiago</div>
     </div>
 
@@ -77,7 +77,7 @@ $corps = '<!DOCTYPE html>
     <!-- Footer -->
     <div style="background:#f8f6f1;padding:20px 40px;text-align:center;border-top:1px solid #e8e4db;">
       <p style="font-size:0.75rem;color:#aaa;margin:0;">
-        La Neuro-Odyssée · neuro-odyssee.com<br>
+        Association Neuro-Odyssée · neuro-odyssee.com<br>
         Vous recevez cet email car vous avez demandé l\'ebook sur notre site.
       </p>
     </div>
@@ -87,7 +87,7 @@ $corps = '<!DOCTYPE html>
 
 $headers  = "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-$headers .= "From: La Neuro-Odyssée <roland@neuro-odyssee.com>\r\n";
+$headers .= "From: Association Neuro-Odyssée <roland@neuro-odyssee.com>\r\n";
 $headers .= "Reply-To: roland@neuro-odyssee.com\r\n";
 
 $envoye = mail($email, $sujet, $corps, $headers);
@@ -95,6 +95,6 @@ $envoye = mail($email, $sujet, $corps, $headers);
 // Notifier Roland
 $notif = "Nouvel abonné newsletter : $prenom <$email> le " . date('d/m/Y à H:i');
 mail('roland@neuro-odyssee.com', "Nouvel abonné — Neuro-Odyssée", $notif,
-    "From: La Neuro-Odyssée <roland@neuro-odyssee.com>\r\n");
+    "From: Association Neuro-Odyssée <roland@neuro-odyssee.com>\r\n");
 
 echo json_encode(['success' => true, 'envoye' => $envoye]);

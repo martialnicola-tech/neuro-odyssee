@@ -1,6 +1,6 @@
 {
   "meta": {
-    "site_name": "La Neuro-Odissea",
+    "site_name": "Associazione Neuro-Odissea",
     "tagline": "1.900 km per ricostruirsi"
   },
   "nav": {
@@ -524,7 +524,8 @@
     "follow_title": "Seguire il Progetto",
     "rights": "Tutti i diritti riservati.",
     "made_with": "Fatto con passione nel Vallese 🇨🇭",
-    "website": "neuro-odyssee.com"
+    "website": "neuro-odyssee.com",
+    "legal": "Associazione Neuro-Odissea · Martigny (Vallese), Svizzera"
   },
   "lien": {
     "label": "Capire",
@@ -564,7 +565,7 @@
     "s5_p1": "Questo progetto è il punto di partenza di una visione più ampia.",
     "s5_p2": "Troppe persone attraversano anni di confusione, di vergogna e di fallimenti ripetuti senza mai capire perché il loro cervello funziona come funziona. Troppe famiglie cercano risposte senza trovare un linguaggio accessibile e accogliente.",
     "s5_p3": "Una struttura dedicata a questa sensibilizzazione è in fase di preparazione. Si baserà sul documentario, sul libro e sugli incontri fatti lungo il cammino per creare risorse concrete — laboratori, contenuti, accompagnamento — destinate alle persone coinvolte e ai loro cari.",
-    "s5_p4": "Il cammino ne è il primo atto. Sostenere la Neuro-Odyssée significa sostenere ciò che verrà dopo.",
+    "s5_p4": "Il cammino ne è il primo atto. Sostenere l'Associazione Neuro-Odyssée significa sostenere ciò che verrà dopo.",
     "cta": "Sostieni il progetto"
   }
 }

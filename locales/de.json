@@ -1,6 +1,6 @@
 {
   "meta": {
-    "site_name": "Die Neuro-Odyssee",
+    "site_name": "Verein Neuro-Odyssee",
     "tagline": "1.900 km zur Selbstwiederherstellung"
   },
   "nav": {
@@ -524,7 +524,8 @@
     "follow_title": "Das Projekt verfolgen",
     "rights": "Alle Rechte vorbehalten.",
     "made_with": "Mit Leidenschaft im Wallis gemacht 🇨🇭",
-    "website": "neuro-odyssee.com"
+    "website": "neuro-odyssee.com",
+    "legal": "Verein Neuro-Odyssée · Martigny (Wallis), Schweiz"
   },
   "lien": {
     "label": "Verstehen",
@@ -564,7 +565,7 @@
     "s5_p1": "Dieses Projekt ist der Ausgangspunkt einer größeren Vision.",
     "s5_p2": "Zu viele Menschen durchleben Jahre der Verwirrung, der Scham und wiederholter Misserfolge, ohne je zu verstehen, warum ihr Gehirn so funktioniert, wie es funktioniert. Zu viele Familien suchen nach Antworten, ohne eine verständliche und wohlwollende Sprache zu finden.",
     "s5_p3": "Eine Struktur, die dieser Sensibilisierung gewidmet ist, befindet sich in Vorbereitung. Sie wird sich auf den Dokumentarfilm, das Buch und die Begegnungen auf dem Weg stützen, um konkrete Ressourcen zu schaffen — Workshops, Inhalte, Begleitung — für die betroffenen Menschen und ihre Angehörigen.",
-    "s5_p4": "Die Wanderung ist der erste Akt davon. Die Neuro-Odyssée zu unterstützen heißt, das zu unterstützen, was danach kommt.",
+    "s5_p4": "Die Wanderung ist der erste Akt davon. Den Verein Neuro-Odyssée zu unterstützen heißt, das zu unterstützen, was danach kommt.",
     "cta": "Das Projekt unterstützen"
   }
 }

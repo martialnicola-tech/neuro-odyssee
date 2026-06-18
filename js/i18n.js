@@ -128,7 +128,7 @@ const I18N = {
       const key = titleKey.getAttribute('content');
       const translation = this.t(key);
       if (translation !== key) {
-        document.title = translation + ' — La Neuro-Odyssée';
+        document.title = translation + ' — Association Neuro-Odyssée';
       }
     }
   },

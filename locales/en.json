@@ -1,6 +1,6 @@
 {
   "meta": {
-    "site_name": "The Neuro-Odyssey",
+    "site_name": "The Neuro-Odyssey Association",
     "tagline": "1,900 km to rebuild yourself"
   },
   "nav": {
@@ -524,7 +524,8 @@
     "follow_title": "Follow the Project",
     "rights": "All rights reserved.",
     "made_with": "Made with passion in Valais 🇨🇭",
-    "website": "neuro-odyssee.com"
+    "website": "neuro-odyssee.com",
+    "legal": "Neuro-Odyssey Association · Martigny (Valais), Switzerland"
   },
   "lien": {
     "label": "Understand",
@@ -564,7 +565,7 @@
     "s5_p1": "This project is the starting point of a wider vision.",
     "s5_p2": "Too many people go through years of confusion, shame, and repeated failures without ever understanding why their brain works the way it does. Too many families search for answers without finding language that is accessible and kind.",
     "s5_p3": "A structure dedicated to this awareness is in the works. It will draw on the documentary, the book, and the encounters made along the way to create concrete resources — workshops, content, support — for the people concerned and those close to them.",
-    "s5_p4": "The walk is its first act. Supporting the Neuro-Odyssée means supporting what comes next.",
+    "s5_p4": "The walk is its first act. Supporting the Neuro-Odyssée Association means supporting what comes next.",
     "cta": "Support the project"
   }
 }

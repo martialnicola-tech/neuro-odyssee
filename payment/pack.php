@@ -22,13 +22,13 @@ if ($pack && isset($PACKS[$pack])) {
     // Pack fixe
     $amount      = $PACKS[$pack]['prix'];
     $km_label    = $PACKS[$pack]['km'];
-    $description = $PACKS[$pack]['label'] . ' — La Neuro-Odyssée';
+    $description = $PACKS[$pack]['label'] . ' — Association Neuro-Odyssée';
     $meta_type   = 'sponsoring_pack';
 } elseif ($km > 0) {
     // Montant calculé depuis le nombre de km
     $amount      = max(27, (int) round($km * PRIX_KM));
     $km_label    = $km;
-    $description = 'Parrainage ' . $km . ' km — La Neuro-Odyssée';
+    $description = 'Parrainage ' . $km . ' km — Association Neuro-Odyssée';
     $meta_type   = 'sponsoring_libre';
     $pack        = 'libre';
 } else {
