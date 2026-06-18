@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="i18n-title" content="cause.meta_title">
-  <title>La Cause — Pourquoi tout est lié | Association Neuro-Odyssée</title>
-  <meta name="description" content="Cerveau atypique, régulation émotionnelle et comportements compensatoires : ce que les neurosciences nous apprennent sur le lien entre fonctionnement neurologique et reconstruction. La cause de l'Association Neuro-Odyssée.">
-  <meta property="og:title" content="La Cause — Pourquoi tout est lié | Association Neuro-Odyssée">
-  <meta property="og:description" content="Ce que personne ne nous a appris sur le fonctionnement du cerveau humain : cerveau atypique, comportements compensatoires et reconstruction.">
+  <meta name="i18n-title" content="asso.meta_title">
+  <title>L'Association — Association Neuro-Odyssée</title>
+  <meta name="description" content="L'Association Neuro-Odyssée : association à but non lucratif basée à Martigny (Valais). Sa mission — sensibiliser et accompagner les personnes qui vivent avec un fonctionnement neurologique atypique et ses conséquences.">
+  <meta property="og:title" content="L'Association — Association Neuro-Odyssée">
+  <meta property="og:description" content="De l'aventure d'un homme à un projet pour tous : une association à but non lucratif pour sensibiliser et accompagner, bien au-delà des 1 900 km.">
   <meta property="og:image" content="https://www.neuro-odyssee.com/images/roland-crettaz.jpg">
-  <meta property="og:url" content="https://www.neuro-odyssee.com/la-cause.html">
-  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.neuro-odyssee.com/la-association.html">
+  <meta property="og:type" content="website">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -30,28 +30,33 @@
       } }
     }
   </script>
-  <link rel="canonical" href="https://www.neuro-odyssee.com/la-cause.html">
+  <link rel="canonical" href="https://www.neuro-odyssee.com/la-association.html">
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    .cause-section { padding: 4.5rem 1.5rem; }
-    .cause-inner { max-width: 720px; margin: 0 auto; }
-    .cause-num {
+    .asso-section { padding: 4.5rem 1.5rem; }
+    .asso-inner { max-width: 720px; margin: 0 auto; }
+    .asso-num {
       display: inline-flex; align-items: center; justify-content: center;
       width: 44px; height: 44px; border-radius: 50%; margin-bottom: 1.25rem;
       background: linear-gradient(135deg,#1E6B5E,#2D8C7A); color: #fff;
       font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700;
     }
-    .cause-h2 {
+    .asso-h2 {
       font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(1.7rem, 3.5vw, 2.3rem);
       font-weight: 700; color: #1a2332; line-height: 1.18; margin-bottom: 1.5rem;
     }
-    .cause-section p { font-size: 1.08rem; line-height: 1.85; color: #2d3748; margin-bottom: 1.4rem; }
-    .cause-section p:last-child { margin-bottom: 0; }
-    .cause-key {
+    .asso-section p { font-size: 1.08rem; line-height: 1.85; color: #2d3748; margin-bottom: 1.4rem; }
+    .asso-section p:last-child { margin-bottom: 0; }
+    .asso-key {
       font-family: 'Cormorant Garamond', serif; font-size: 1.45rem !important; font-weight: 700;
       color: #1E6B5E !important; line-height: 1.4 !important;
     }
+    .id-card { max-width: 620px; margin: 0 auto; background: #fff; border: 1px solid rgba(30,107,94,0.15); border-radius: 1.25rem; padding: 2rem 2.25rem; box-shadow: 0 10px 30px rgba(30,107,94,0.08); }
+    .id-row { display: flex; justify-content: space-between; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .id-row:last-child { border-bottom: none; }
+    .id-label { color: var(--text-light); font-size: 0.9rem; }
+    .id-value { color: #1a2332; font-weight: 600; font-size: 0.95rem; text-align: right; }
   </style>
 </head>
 <body class="bg-cream">
@@ -85,8 +90,8 @@
       </a>
       <div class="nav-desktop hidden md:flex items-center gap-6">
         <a href="index.html" class="nav-link" data-page="index.html" data-i18n="nav.home">Accueil</a>
-        <a href="la-cause.html" class="nav-link active" data-page="la-cause.html" data-i18n="nav.la_cause">La Cause</a>
-        <a href="la-association.html" class="nav-link" data-page="la-association.html" data-i18n="nav.association">L'Association</a>
+        <a href="la-cause.html" class="nav-link" data-page="la-cause.html" data-i18n="nav.la_cause">La Cause</a>
+        <a href="la-association.html" class="nav-link active" data-page="la-association.html" data-i18n="nav.association">L'Association</a>
         <a href="trajet.html" class="nav-link" data-page="trajet.html" data-i18n="nav.trajet">Le Trajet</a>
         <a href="preparation.html" class="nav-link" data-page="preparation.html" data-i18n="nav.preparation">Préparation</a>
         <a href="journal.html" class="nav-link" data-page="journal.html" data-i18n="nav.journal">Journal</a>
@@ -136,81 +141,102 @@
   <!-- HERO -->
   <header style="background:linear-gradient(135deg,#1a2332 0%,#1E6B5E 100%); padding:7rem 1.5rem 4.5rem; margin-top:0; text-align:center;">
     <div class="max-w-3xl mx-auto">
-      <span style="display:inline-block; font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#F0A500; margin-bottom:1.25rem;" data-i18n="cause.hero_label">Comprendre</span>
-      <h1 style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(2.4rem,6vw,4rem); font-weight:700; color:white; line-height:1.12; margin-bottom:1.25rem;" data-i18n="cause.title">Pourquoi tout est lié</h1>
-      <p style="font-size:1.15rem; color:rgba(255,255,255,0.78); max-width:600px; margin:0 auto; line-height:1.7; font-style:italic; font-family:'Cormorant Garamond',serif;" data-i18n="cause.subtitle">
-        Ce que personne ne nous a appris sur le fonctionnement du cerveau humain
+      <span style="display:inline-block; font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#F0A500; margin-bottom:1.25rem;" data-i18n="asso.hero_label">L'Association</span>
+      <h1 style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(2.4rem,6vw,4rem); font-weight:700; color:white; line-height:1.12; margin-bottom:1.25rem;" data-i18n="asso.title">L'Association Neuro-Odyssée</h1>
+      <p style="font-size:1.15rem; color:rgba(255,255,255,0.78); max-width:600px; margin:0 auto; line-height:1.7; font-style:italic; font-family:'Cormorant Garamond',serif;" data-i18n="asso.subtitle">
+        De l'aventure d'un homme à un projet pour tous.
       </p>
+      <div style="display:inline-flex; align-items:center; gap:0.5rem; margin-top:1.75rem; padding:0.45rem 1rem; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.18); border-radius:50px; font-size:0.78rem; color:rgba(255,255,255,0.85); font-weight:600;">
+        <i class="fa-solid fa-shield-heart" style="color:#F0A500;"></i>
+        <span data-i18n="asso.badge">Association à but non lucratif · Martigny (VS)</span>
+      </div>
     </div>
   </header>
 
   <!-- SECTION 1 -->
-  <section class="cause-section" style="background:#fff;">
-    <div class="cause-inner">
-      <div class="cause-num">1</div>
-      <h2 class="cause-h2" data-i18n="cause.s1_title">Le point de départ : un cerveau qui cherche l'équilibre</h2>
-      <p data-i18n="cause.s1_p1">Le cerveau humain a un besoin fondamental : se sentir régulé. En équilibre. Ni trop stimulé, ni pas assez.</p>
-      <p data-i18n="cause.s1_p2">Chez certaines personnes, ce système de régulation fonctionne différemment. Le cerveau a du mal à maintenir cet équilibre naturellement. Il s'ennuie vite, il s'emballe, il a du mal à filtrer les informations, à s'organiser, à passer d'une émotion à l'autre sans débordement.</p>
-      <p data-i18n="cause.s1_p3">Ce n'est pas un défaut de caractère. Ce n'est pas de la paresse ou du manque de volonté.</p>
-      <p class="cause-key" data-i18n="cause.s1_p4">C'est un fonctionnement neurologique. Et il est beaucoup plus répandu qu'on ne le croit.</p>
+  <section class="asso-section" style="background:#fff;">
+    <div class="asso-inner">
+      <div class="asso-num">1</div>
+      <h2 class="asso-h2" data-i18n="asso.s1_title">D'un projet personnel à une cause collective</h2>
+      <p data-i18n="asso.s1_p1">La Neuro-Odyssée est née du parcours d'un homme. Mais le message qu'elle porte dépasse largement une histoire individuelle.</p>
+      <p data-i18n="asso.s1_p2">Pour que ce message vive au-delà de la marche, il fallait une structure durable, transparente et indépendante. C'est pourquoi l'Association Neuro-Odyssée a vu le jour.</p>
+      <p class="asso-key" data-i18n="asso.s1_p3">Une association, ce n'est pas qu'un nom. C'est un engagement : continuer, après les 1 900 km, à aider celles et ceux qui en ont besoin.</p>
     </div>
   </section>
 
   <!-- SECTION 2 -->
-  <section class="cause-section" style="background:var(--cream);">
-    <div class="cause-inner">
-      <div class="cause-num">2</div>
-      <h2 class="cause-h2" data-i18n="cause.s2_title">Ce que le cerveau fait quand il ne trouve pas l'équilibre</h2>
-      <p data-i18n="cause.s2_p1">Quand le cerveau ne trouve pas son équilibre naturellement, il cherche des raccourcis.</p>
-      <p data-i18n="cause.s2_p2">L'alcool ralentit ce qui déborde. Les médicaments non prescrits engourdissent ce qui fait mal. La cigarette donne une micro-pause au flux de pensées. La suractivité, la prise de risque, les écrans, la nourriture : autant de façons pour le cerveau de se réguler avec les outils qu'il trouve.</p>
-      <p data-i18n="cause.s2_p3">Ces comportements ne sont pas des faiblesses. Ce sont des solutions imparfaites à un vrai problème neurologique.</p>
-      <p class="cause-key" data-i18n="cause.s2_p4">Le problème, c'est que ces solutions créent leur propre dépendance — et qu'on finit par se battre contre ses propres tentatives de survie.</p>
+  <section class="asso-section" style="background:var(--cream);">
+    <div class="asso-inner">
+      <div class="asso-num">2</div>
+      <h2 class="asso-h2" data-i18n="asso.s2_title">Notre mission</h2>
+      <p data-i18n="asso.s2_p1">Sensibiliser le grand public au lien entre fonctionnement neurologique atypique, régulation émotionnelle et comportements compensatoires — addictions, épuisement, perte de repères.</p>
+      <p data-i18n="asso.s2_p2">Accompagner les personnes concernées et leurs proches avec un langage accessible, sans jugement, fondé sur les neurosciences et sur le vécu.</p>
+      <p class="asso-key" data-i18n="asso.s2_p3">Faire comprendre qu'on ne se reconstruit pas en se battant contre soi-même, mais en comprenant comment on fonctionne.</p>
     </div>
   </section>
 
   <!-- SECTION 3 -->
-  <section class="cause-section" style="background:#fff;">
-    <div class="cause-inner">
-      <div class="cause-num">3</div>
-      <h2 class="cause-h2" data-i18n="cause.s3_title">Le lien que personne ne fait</h2>
-      <p data-i18n="cause.s3_p1">Pendant des décennies, on a traité les symptômes séparément.</p>
-      <p data-i18n="cause.s3_p2">On a soigné la consommation d'alcool sans regarder ce qui la provoquait. On a prescrit des médicaments sans comprendre pourquoi la personne en cherchait d'autres. On a jugé les comportements impulsifs sans voir le cerveau derrière.</p>
-      <p data-i18n="cause.s3_p3">Ce que les neurosciences montrent aujourd'hui, c'est que dans de nombreux cas, tout part du même endroit : un cerveau qui fonctionne différemment, qui n'a jamais reçu les bons outils pour se réguler, et qui a fait de son mieux avec ce qu'il avait.</p>
-      <p class="cause-key" data-i18n="cause.s3_p4">Comprendre ça, c'est cesser de se combattre. C'est le début de la reconstruction.</p>
+  <section class="asso-section" style="background:#fff;">
+    <div class="asso-inner">
+      <div class="asso-num">3</div>
+      <h2 class="asso-h2" data-i18n="asso.s3_title">Ce que nous construisons</h2>
+      <p data-i18n="asso.s3_p1">L'association s'appuiera sur le documentaire, le livre et les rencontres faites sur le chemin pour créer des ressources concrètes.</p>
+      <p data-i18n="asso.s3_p2">Ateliers, contenus pédagogiques, témoignages, accompagnement : des outils pour les personnes concernées comme pour les familles, les soignants et les entreprises.</p>
+      <p class="asso-key" data-i18n="asso.s3_p3">La marche en est le premier acte. Le reste se construit, pas à pas.</p>
     </div>
   </section>
 
   <!-- SECTION 4 -->
-  <section class="cause-section" style="background:var(--cream);">
-    <div class="cause-inner">
-      <div class="cause-num">4</div>
-      <h2 class="cause-h2" data-i18n="cause.s4_title">Ce que la marche vient prouver</h2>
-      <p data-i18n="cause.s4_p1">La marche longue distance n'est pas un symbole choisi au hasard.</p>
-      <p data-i18n="cause.s4_p2">Des études en neurosciences montrent que l'effort physique régulier et prolongé favorise la neurogenèse — la capacité du cerveau à créer de nouvelles connexions. La marche stimule la production de protéines qui soutiennent la croissance neuronale. Elle régule le système nerveux. Elle remet le corps et le cerveau dans un état de cohérence.</p>
-      <p data-i18n="cause.s4_p3">En marchant 1 900 km, Roland ne fait pas que traverser trois pays. Il expérimente sur lui-même ce que la science décrit : que le cerveau peut se reconfigurer, à tout âge, après n'importe quelle chute.</p>
-      <p class="cause-key" data-i18n="cause.s4_p4">Et il le documente en temps réel, pour que ce chemin ne soit pas seulement le sien.</p>
+  <section class="asso-section" style="background:var(--cream);">
+    <div class="asso-inner">
+      <div class="asso-num">4</div>
+      <h2 class="asso-h2" data-i18n="asso.s4_title">Transparence &amp; soutien</h2>
+      <p data-i18n="asso.s4_p1">L'Association Neuro-Odyssée est une association à but non lucratif, dont le siège est à Martigny, en Valais.</p>
+      <p data-i18n="asso.s4_p2">Chaque don sert directement le projet : documenter l'aventure en temps réel, créer les ressources, et accompagner les personnes concernées.</p>
+      <p class="asso-key" data-i18n="asso.s4_p3">Soutenir l'association, c'est rendre possible ce qui vient après la marche.</p>
     </div>
   </section>
 
-  <!-- SECTION 5 -->
-  <section class="cause-section" style="background:#fff;">
-    <div class="cause-inner">
-      <div class="cause-num">5</div>
-      <h2 class="cause-h2" data-i18n="cause.s5_title">Et après la marche</h2>
-      <p data-i18n="cause.s5_p1">Ce projet est le point de départ d'une vision plus large.</p>
-      <p data-i18n="cause.s5_p2">Trop de personnes traversent des années de confusion, de honte et d'échecs répétés sans jamais comprendre pourquoi leur cerveau fonctionne comme il fonctionne. Trop de familles cherchent des réponses sans trouver un langage accessible et bienveillant.</p>
-      <p data-i18n="cause.s5_p3">Une structure dédiée à cette sensibilisation est en préparation. Elle s'appuiera sur le documentaire, le livre, et les rencontres faites sur le chemin pour créer des ressources concrètes — ateliers, contenus, accompagnement — à destination des personnes concernées et de leurs proches.</p>
-      <p class="cause-key" data-i18n="cause.s5_p4">La marche en est le premier acte. Soutenir l'Association Neuro-Odyssée, c'est soutenir ce qui vient ensuite.</p>
+  <!-- IDENTITÉ -->
+  <section class="asso-section" style="background:#fff;">
+    <div class="asso-inner" style="text-align:center;">
+      <h2 class="asso-h2" style="text-align:center;" data-i18n="asso.id_title">Identité de l'association</h2>
     </div>
+    <div class="id-card" style="margin-top:1.5rem;">
+      <div class="id-row">
+        <span class="id-label" data-i18n="asso.id_name_l">Nom</span>
+        <span class="id-value">Association Neuro-Odyssée</span>
+      </div>
+      <div class="id-row">
+        <span class="id-label" data-i18n="asso.id_form_l">Forme juridique</span>
+        <span class="id-value" data-i18n="asso.id_form_v">Association à but non lucratif</span>
+      </div>
+      <div class="id-row">
+        <span class="id-label" data-i18n="asso.id_seat_l">Siège</span>
+        <span class="id-value">Martigny (Valais, Suisse)</span>
+      </div>
+      <div class="id-row">
+        <span class="id-label" data-i18n="asso.id_founder_l">Fondateur</span>
+        <span class="id-value">Roland Crettaz</span>
+      </div>
+      <div class="id-row">
+        <span class="id-label" data-i18n="asso.id_contact_l">Contact</span>
+        <span class="id-value"><a href="contact.html" style="color:var(--green-mid); text-decoration:none;">neuro-odyssee.com/contact</a></span>
+      </div>
+    </div>
+    <p style="max-width:620px; margin:1rem auto 0; text-align:center; font-size:0.82rem; color:var(--text-light); font-style:italic;" data-i18n="asso.id_note">
+      Statuts, numéro de registre et composition du comité seront publiés ici prochainement.
+    </p>
   </section>
   </article>
 
   <!-- CTA -->
   <section class="px-6" style="background:linear-gradient(135deg,#1E6B5E,#1a2332); padding:4.5rem 1.5rem; text-align:center;">
     <div class="max-w-2xl mx-auto">
+      <h2 style="font-family:'Cormorant Garamond',Georgia,serif; font-size:2rem; color:white; margin-bottom:1.5rem;" data-i18n="asso.cta_title">Soutenez l'association</h2>
       <a href="soutenir.html" class="btn-primary" style="font-size:1.05rem; padding:1rem 2.5rem;">
         <i class="fa-solid fa-heart"></i>
-        <span data-i18n="cause.cta">Soutenir le projet</span>
+        <span data-i18n="asso.cta">Soutenir l'association</span>
       </a>
     </div>
   </section>
@@ -219,7 +245,7 @@
   <footer style="background:#0f1520; color:rgba(255,255,255,0.4); padding:2.5rem 1.5rem; text-align:center; font-size:0.78rem;">
     <div style="margin-bottom:0.6rem;">
       <a href="index.html" style="color:rgba(255,255,255,0.4); text-decoration:none; margin:0 0.75rem;" data-i18n="nav.home">Accueil</a>
-      <a href="trajet.html" style="color:rgba(255,255,255,0.4); text-decoration:none; margin:0 0.75rem;" data-i18n="nav.trajet">Le Trajet</a>
+      <a href="la-cause.html" style="color:rgba(255,255,255,0.4); text-decoration:none; margin:0 0.75rem;" data-i18n="nav.la_cause">La Cause</a>
       <a href="journal.html" style="color:rgba(255,255,255,0.4); text-decoration:none; margin:0 0.75rem;" data-i18n="nav.journal">Journal</a>
       <a href="soutenir.html" style="color:rgba(255,255,255,0.4); text-decoration:none; margin:0 0.75rem;" data-i18n="nav.soutenir">Soutenir</a>
     </div>

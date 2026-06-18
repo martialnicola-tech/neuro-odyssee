@@ -12,7 +12,8 @@
     "journal": "Journal",
     "club": "Club",
     "soutenir": "Support",
-    "lang": "EN"
+    "lang": "EN",
+    "association": "The Association"
   },
   "hero": {
     "badge": "Departure August 21, 2026",
@@ -82,7 +83,8 @@
     "photo_quote": "\"Every step is therapy. The road gave me back to myself.\"",
     "quote_author": "— Roland Crettaz",
     "cta_journal": "Read the Journal",
-    "story_assoc": "This project is also the first step toward something bigger: a structure dedicated to raising awareness and supporting people who live with an atypical way the brain works and its consequences. The association is in the works. The walk is where it begins."
+    "story_assoc": "This project has given rise to a real structure: the Neuro-Odyssey Association, non-profit, based in Martigny (Valais). Its mission: to raise awareness and support people living with atypical neurological functioning and its consequences. The walk is only the first act.",
+    "assoc_cta": "Discover the association"
   },
   "docu": {
     "section_label": "On Stage and On Screen",
@@ -259,7 +261,8 @@
     "stat_partners": "Partners",
     "stat_km_total": "km to sponsor",
     "stat_km_avail": "km available",
-    "calc_desc_bronze": "Logo on the website + mention in YouTube videos"
+    "calc_desc_bronze": "Logo on the website + mention in YouTube videos",
+    "assoc_note": "You're supporting a non-profit association based in Martigny (VS)."
   },
   "journal": {
     "page_title": "Travel Journal",
@@ -312,7 +315,11 @@
     "training_mental_text": "Daily meditation, journaling, work with a coach. The mind must be as trained as the legs for 90 days of walking.",
     "day_badge": "Day",
     "day9_subtitle": "Training · Valais",
-    "day9_caption": "Training day 9 — Roland in Valais · Spring 2026"
+    "day9_caption": "Training day 9 — Roland in Valais · Spring 2026",
+    "assoc_tag": "Association",
+    "assoc_title": "The Neuro-Odyssey Association is born",
+    "assoc_excerpt": "One man's project becomes a collective cause: a non-profit association to raise awareness and support, far beyond the 1,900 km.",
+    "assoc_badge": "Featured"
   },
   "soutenir": {
     "page_title": "Support",
@@ -378,7 +385,8 @@
     "payment_twint_active": "Available",
     "twint_instruction": "Open your Twint app → \"Pay\" → enter the number:",
     "twint_copy": "Copy number",
-    "twint_mention": "✏️ Add <strong>ODYSSEE</strong> in the message"
+    "twint_mention": "✏️ Add <strong>ODYSSEE</strong> in the message",
+    "assoc_note": "Your donation supports a non-profit association based in Martigny (VS)."
   },
   "preparation": {
     "hero_badge": "BEFORE DEPARTURE",
@@ -567,5 +575,38 @@
     "s5_p3": "A structure dedicated to this awareness is in the works. It will draw on the documentary, the book, and the encounters made along the way to create concrete resources — workshops, content, support — for the people concerned and those close to them.",
     "s5_p4": "The walk is its first act. Supporting the Neuro-Odyssée Association means supporting what comes next.",
     "cta": "Support the project"
+  },
+  "asso": {
+    "meta_title": "The Association",
+    "hero_label": "The Association",
+    "title": "The Neuro-Odyssey Association",
+    "subtitle": "From one man's journey to a project for everyone.",
+    "badge": "Non-profit association · Martigny (VS)",
+    "s1_title": "From a personal project to a collective cause",
+    "s1_p1": "The Neuro-Odyssey was born from one man's journey. But the message it carries goes far beyond an individual story.",
+    "s1_p2": "For this message to live on beyond the walk, it needed a lasting, transparent and independent structure. That is why the Neuro-Odyssey Association was created.",
+    "s1_p3": "An association isn't just a name. It's a commitment: to keep helping those who need it, long after the 1,900 km.",
+    "s2_title": "Our mission",
+    "s2_p1": "Raising public awareness of the link between atypical neurological functioning, emotional regulation and compensatory behaviours — addictions, exhaustion, loss of bearings.",
+    "s2_p2": "Supporting the people concerned and their loved ones with accessible, non-judgemental language, grounded in neuroscience and lived experience.",
+    "s2_p3": "Showing that you don't rebuild yourself by fighting against yourself, but by understanding how you work.",
+    "s3_title": "What we are building",
+    "s3_p1": "The association will draw on the documentary, the book and the encounters made along the way to create concrete resources.",
+    "s3_p2": "Workshops, educational content, testimonies, support: tools for the people concerned as well as for families, caregivers and companies.",
+    "s3_p3": "The walk is the first act. The rest is built step by step.",
+    "s4_title": "Transparency & support",
+    "s4_p1": "The Neuro-Odyssey Association is a non-profit association, with its registered office in Martigny, Valais.",
+    "s4_p2": "Every donation goes directly to the project: documenting the adventure in real time, creating the resources, and supporting the people concerned.",
+    "s4_p3": "Supporting the association means making possible what comes after the walk.",
+    "id_title": "Association details",
+    "id_name_l": "Name",
+    "id_form_l": "Legal form",
+    "id_form_v": "Non-profit association",
+    "id_seat_l": "Registered office",
+    "id_founder_l": "Founder",
+    "id_contact_l": "Contact",
+    "id_note": "Statutes, registration number and committee members will be published here soon.",
+    "cta_title": "Support the association",
+    "cta": "Support the association"
   }
 }

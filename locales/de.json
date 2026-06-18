@@ -12,7 +12,8 @@
     "journal": "Tagebuch",
     "club": "Club",
     "soutenir": "Unterstützen",
-    "lang": "DE"
+    "lang": "DE",
+    "association": "Der Verein"
   },
   "hero": {
     "badge": "Abfahrt 21. August 2026",
@@ -82,7 +83,8 @@
     "photo_quote": "\"Jeder Schritt ist eine Therapie. Der Weg hat mich zu mir selbst zurückgebracht.\"",
     "quote_author": "— Roland Crettaz",
     "cta_journal": "Das Tagebuch lesen",
-    "story_assoc": "Dieses Projekt ist auch der erste Schritt zu etwas Größerem: einer Struktur, die der Sensibilisierung und Begleitung von Menschen gewidmet ist, die mit einer atypischen neurologischen Funktionsweise und ihren Folgen leben. Der Verein befindet sich in Vorbereitung. Die Wanderung ist der Ausgangspunkt."
+    "story_assoc": "Aus diesem Projekt ist eine echte Struktur entstanden: der gemeinnützige Verein Neuro-Odyssee mit Sitz in Martigny (Wallis). Seine Mission: Menschen mit atypischer neurologischer Funktionsweise und deren Folgen sensibilisieren und begleiten. Der Marsch ist nur der erste Akt.",
+    "assoc_cta": "Den Verein entdecken"
   },
   "docu": {
     "section_label": "Auf der Bühne und auf dem Bildschirm",
@@ -259,7 +261,8 @@
     "stat_partners": "Partner",
     "stat_km_total": "km zu sponsern",
     "stat_km_avail": "km verfügbar",
-    "calc_desc_bronze": "Logo auf der Website + Erwähnung in YouTube-Videos"
+    "calc_desc_bronze": "Logo auf der Website + Erwähnung in YouTube-Videos",
+    "assoc_note": "Sie unterstützen einen gemeinnützigen Verein mit Sitz in Martigny (VS)."
   },
   "journal": {
     "page_title": "Reisetagebuch",
@@ -312,7 +315,11 @@
     "training_mental_text": "Tägliche Meditation, Journaling, Arbeit mit einem Coach. Der Kopf muss genauso trainiert sein wie die Beine für 90 Tage Wandern.",
     "day_badge": "Tag",
     "day9_subtitle": "Training · Wallis",
-    "day9_caption": "Trainingstag 9 — Roland im Wallis · Frühling 2026"
+    "day9_caption": "Trainingstag 9 — Roland im Wallis · Frühling 2026",
+    "assoc_tag": "Verein",
+    "assoc_title": "Der Verein Neuro-Odyssee ist gegründet",
+    "assoc_excerpt": "Aus dem Projekt eines Mannes wird eine gemeinsame Sache: ein gemeinnütziger Verein, um zu sensibilisieren und zu begleiten — weit über die 1 900 km hinaus.",
+    "assoc_badge": "Im Fokus"
   },
   "soutenir": {
     "page_title": "Unterstützen",
@@ -378,7 +385,8 @@
     "payment_twint_active": "Verfügbar",
     "twint_instruction": "Twint-App öffnen → \"Zahlen\" → Nummer eingeben:",
     "twint_copy": "Nummer kopieren",
-    "twint_mention": "✏️ <strong>ODYSSEE</strong> in der Nachricht erwähnen"
+    "twint_mention": "✏️ <strong>ODYSSEE</strong> in der Nachricht erwähnen",
+    "assoc_note": "Ihre Spende unterstützt einen gemeinnützigen Verein mit Sitz in Martigny (VS)."
   },
   "preparation": {
     "hero_badge": "VOR DER ABREISE",
@@ -567,5 +575,38 @@
     "s5_p3": "Eine Struktur, die dieser Sensibilisierung gewidmet ist, befindet sich in Vorbereitung. Sie wird sich auf den Dokumentarfilm, das Buch und die Begegnungen auf dem Weg stützen, um konkrete Ressourcen zu schaffen — Workshops, Inhalte, Begleitung — für die betroffenen Menschen und ihre Angehörigen.",
     "s5_p4": "Die Wanderung ist der erste Akt davon. Den Verein Neuro-Odyssée zu unterstützen heißt, das zu unterstützen, was danach kommt.",
     "cta": "Das Projekt unterstützen"
+  },
+  "asso": {
+    "meta_title": "Der Verein",
+    "hero_label": "Der Verein",
+    "title": "Der Verein Neuro-Odyssee",
+    "subtitle": "Vom Abenteuer eines Mannes zu einem Projekt für alle.",
+    "badge": "Gemeinnütziger Verein · Martigny (VS)",
+    "s1_title": "Vom persönlichen Projekt zur gemeinsamen Sache",
+    "s1_p1": "Die Neuro-Odyssee entstand aus dem Werdegang eines Mannes. Doch die Botschaft, die sie trägt, geht weit über eine einzelne Geschichte hinaus.",
+    "s1_p2": "Damit diese Botschaft über den Marsch hinaus weiterlebt, brauchte es eine dauerhafte, transparente und unabhängige Struktur. Deshalb wurde der Verein Neuro-Odyssee gegründet.",
+    "s1_p3": "Ein Verein ist nicht nur ein Name. Er ist ein Versprechen: auch nach den 1 900 km denen weiter zu helfen, die es brauchen.",
+    "s2_title": "Unsere Mission",
+    "s2_p1": "Die Öffentlichkeit für den Zusammenhang zwischen atypischer neurologischer Funktionsweise, emotionaler Regulation und kompensatorischen Verhaltensweisen sensibilisieren — Süchte, Erschöpfung, Verlust der Orientierung.",
+    "s2_p2": "Die Betroffenen und ihre Angehörigen mit einer zugänglichen, wertfreien Sprache begleiten, gestützt auf Neurowissenschaft und gelebte Erfahrung.",
+    "s2_p3": "Verständlich machen, dass man sich nicht wiederaufbaut, indem man gegen sich selbst kämpft, sondern indem man versteht, wie man funktioniert.",
+    "s3_title": "Was wir aufbauen",
+    "s3_p1": "Der Verein wird sich auf den Dokumentarfilm, das Buch und die unterwegs gemachten Begegnungen stützen, um konkrete Ressourcen zu schaffen.",
+    "s3_p2": "Workshops, pädagogische Inhalte, Erfahrungsberichte, Begleitung: Werkzeuge für die Betroffenen wie auch für Familien, Fachpersonen und Unternehmen.",
+    "s3_p3": "Der Marsch ist der erste Akt. Der Rest entsteht Schritt für Schritt.",
+    "s4_title": "Transparenz & Unterstützung",
+    "s4_p1": "Der Verein Neuro-Odyssee ist ein gemeinnütziger Verein mit Sitz in Martigny, im Wallis.",
+    "s4_p2": "Jede Spende fließt direkt in das Projekt: das Abenteuer in Echtzeit dokumentieren, die Ressourcen schaffen und die Betroffenen begleiten.",
+    "s4_p3": "Den Verein zu unterstützen heißt, möglich zu machen, was nach dem Marsch kommt.",
+    "id_title": "Vereinsangaben",
+    "id_name_l": "Name",
+    "id_form_l": "Rechtsform",
+    "id_form_v": "Gemeinnütziger Verein",
+    "id_seat_l": "Sitz",
+    "id_founder_l": "Gründer",
+    "id_contact_l": "Kontakt",
+    "id_note": "Statuten, Registernummer und Vorstand werden hier in Kürze veröffentlicht.",
+    "cta_title": "Unterstützen Sie den Verein",
+    "cta": "Den Verein unterstützen"
   }
 }

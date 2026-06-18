@@ -12,7 +12,8 @@
     "journal": "Diario",
     "club": "Club",
     "soutenir": "Sostenere",
-    "lang": "IT"
+    "lang": "IT",
+    "association": "L'Associazione"
   },
   "hero": {
     "badge": "Partenza il 21 agosto 2026",
@@ -82,7 +83,8 @@
     "photo_quote": "\"Ogni passo è una terapia. Il cammino mi ha restituito a me stesso.\"",
     "quote_author": "— Roland Crettaz",
     "cta_journal": "Leggere il Diario",
-    "story_assoc": "Questo progetto è anche il primo passo verso qualcosa di più grande: una struttura dedicata alla sensibilizzazione e al sostegno delle persone che vivono con un funzionamento neurologico atipico e le sue conseguenze. L'associazione è in fase di preparazione. Il cammino ne è il punto di partenza."
+    "story_assoc": "Questo progetto ha dato vita a una vera struttura: l'Associazione Neuro-Odissea, senza scopo di lucro, con sede a Martigny (Vallese). La sua missione: sensibilizzare e accompagnare le persone che vivono con un funzionamento neurologico atipico e le sue conseguenze. La marcia ne è solo il primo atto.",
+    "assoc_cta": "Scopri l'associazione"
   },
   "docu": {
     "section_label": "Sul Palco e sullo Schermo",
@@ -259,7 +261,8 @@
     "stat_partners": "Partner",
     "stat_km_total": "km da patrocinare",
     "stat_km_avail": "km disponibili",
-    "calc_desc_bronze": "Logo sul sito + menzione nei video YouTube"
+    "calc_desc_bronze": "Logo sul sito + menzione nei video YouTube",
+    "assoc_note": "Sostieni un'associazione senza scopo di lucro con sede a Martigny (VS)."
   },
   "journal": {
     "page_title": "Diario di Bordo",
@@ -312,7 +315,11 @@
     "training_mental_text": "Meditazione quotidiana, journaling, lavoro con un coach. La mente deve essere allenata quanto le gambe per 90 giorni di cammino.",
     "day_badge": "Giorno",
     "day9_subtitle": "Allenamento · Vallese",
-    "day9_caption": "Giorno 9 di allenamento — Roland in Vallese · Primavera 2026"
+    "day9_caption": "Giorno 9 di allenamento — Roland in Vallese · Primavera 2026",
+    "assoc_tag": "Associazione",
+    "assoc_title": "È nata l'Associazione Neuro-Odissea",
+    "assoc_excerpt": "Il progetto di un uomo diventa una causa collettiva: un'associazione senza scopo di lucro per sensibilizzare e accompagnare, ben oltre i 1 900 km.",
+    "assoc_badge": "In evidenza"
   },
   "soutenir": {
     "page_title": "Sostenere",
@@ -378,7 +385,8 @@
     "payment_twint_active": "Disponibile",
     "twint_instruction": "Apri l'app Twint → \"Paga\" → inserisci il numero:",
     "twint_copy": "Copia il numero",
-    "twint_mention": "✏️ Indicare <strong>ODYSSEE</strong> nel messaggio"
+    "twint_mention": "✏️ Indicare <strong>ODYSSEE</strong> nel messaggio",
+    "assoc_note": "La tua donazione sostiene un'associazione senza scopo di lucro con sede a Martigny (VS)."
   },
   "preparation": {
     "hero_badge": "PRIMA DELLA PARTENZA",
@@ -567,5 +575,38 @@
     "s5_p3": "Una struttura dedicata a questa sensibilizzazione è in fase di preparazione. Si baserà sul documentario, sul libro e sugli incontri fatti lungo il cammino per creare risorse concrete — laboratori, contenuti, accompagnamento — destinate alle persone coinvolte e ai loro cari.",
     "s5_p4": "Il cammino ne è il primo atto. Sostenere l'Associazione Neuro-Odyssée significa sostenere ciò che verrà dopo.",
     "cta": "Sostieni il progetto"
+  },
+  "asso": {
+    "meta_title": "L'Associazione",
+    "hero_label": "L'Associazione",
+    "title": "L'Associazione Neuro-Odissea",
+    "subtitle": "Dall'avventura di un uomo a un progetto per tutti.",
+    "badge": "Associazione senza scopo di lucro · Martigny (VS)",
+    "s1_title": "Da progetto personale a causa collettiva",
+    "s1_p1": "La Neuro-Odissea è nata dal percorso di un uomo. Ma il messaggio che porta va ben oltre una storia individuale.",
+    "s1_p2": "Perché questo messaggio viva oltre la marcia, serviva una struttura duratura, trasparente e indipendente. Per questo è nata l'Associazione Neuro-Odissea.",
+    "s1_p3": "Un'associazione non è solo un nome. È un impegno: continuare, dopo i 1 900 km, ad aiutare chi ne ha bisogno.",
+    "s2_title": "La nostra missione",
+    "s2_p1": "Sensibilizzare il grande pubblico sul legame tra funzionamento neurologico atipico, regolazione emotiva e comportamenti compensatori — dipendenze, esaurimento, perdita di riferimenti.",
+    "s2_p2": "Accompagnare le persone interessate e i loro cari con un linguaggio accessibile, senza giudizio, fondato sulle neuroscienze e sul vissuto.",
+    "s2_p3": "Far capire che non ci si ricostruisce combattendo contro se stessi, ma comprendendo come si funziona.",
+    "s3_title": "Ciò che costruiamo",
+    "s3_p1": "L'associazione si baserà sul documentario, sul libro e sugli incontri fatti lungo il cammino per creare risorse concrete.",
+    "s3_p2": "Laboratori, contenuti educativi, testimonianze, accompagnamento: strumenti per le persone interessate così come per le famiglie, gli operatori sanitari e le aziende.",
+    "s3_p3": "La marcia ne è il primo atto. Il resto si costruisce, passo dopo passo.",
+    "s4_title": "Trasparenza e sostegno",
+    "s4_p1": "L'Associazione Neuro-Odissea è un'associazione senza scopo di lucro, con sede a Martigny, in Vallese.",
+    "s4_p2": "Ogni donazione va direttamente al progetto: documentare l'avventura in tempo reale, creare le risorse e accompagnare le persone interessate.",
+    "s4_p3": "Sostenere l'associazione significa rendere possibile ciò che viene dopo la marcia.",
+    "id_title": "Dati dell'associazione",
+    "id_name_l": "Nome",
+    "id_form_l": "Forma giuridica",
+    "id_form_v": "Associazione senza scopo di lucro",
+    "id_seat_l": "Sede",
+    "id_founder_l": "Fondatore",
+    "id_contact_l": "Contatto",
+    "id_note": "Statuto, numero di registro e composizione del comitato saranno pubblicati qui a breve.",
+    "cta_title": "Sostieni l'associazione",
+    "cta": "Sostieni l'associazione"
   }
 }

@@ -69,9 +69,10 @@
       </g>
     </svg>
       </a>
-      <div class="nav-desktop hidden md:flex items-center gap-8">
+      <div class="nav-desktop hidden md:flex items-center gap-6">
         <a href="index.html" class="nav-link" data-i18n="nav.home">Accueil</a>
         <a href="la-cause.html" class="nav-link" data-page="la-cause.html" data-i18n="nav.la_cause">La Cause</a>
+        <a href="la-association.html" class="nav-link" data-page="la-association.html" data-i18n="nav.association">L'Association</a>
         <a href="trajet.html" class="nav-link" data-i18n="nav.trajet">Le Trajet</a>
         <a href="preparation.html" class="nav-link" data-i18n="nav.preparation">Préparation</a>
         <a href="journal.html" class="nav-link active" data-i18n="nav.journal">Journal</a>
@@ -142,6 +143,7 @@
     <button id="mobileMenuClose" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
     <a href="index.html" class="mobile-nav-link" data-i18n="nav.home">Accueil</a>
     <a href="la-cause.html" class="mobile-nav-link" data-i18n="nav.la_cause">La Cause</a>
+    <a href="la-association.html" class="mobile-nav-link" data-i18n="nav.association">L'Association</a>
     <a href="trajet.html" class="mobile-nav-link" data-i18n="nav.trajet">Le Trajet</a>
     <a href="preparation.html" class="mobile-nav-link" data-i18n="nav.preparation">Préparation</a>
     <a href="journal.html" class="mobile-nav-link" data-i18n="nav.journal">Journal</a>
@@ -195,6 +197,37 @@
       <div id="dynamicPosts" class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12" style="display:none;"></div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blogGrid">
+
+        <!-- Annonce : L'Association Neuro-Odyssée est née -->
+        <article class="blog-card reveal" data-tag="association" style="grid-column:1 / -1; border:1px solid rgba(240,165,0,0.35);">
+          <a href="la-association.html" style="display:grid; grid-template-columns:minmax(0,260px) 1fr; gap:0; text-decoration:none; height:100%;" class="assoc-announce">
+            <div class="blog-card-image" style="min-height:200px;">
+              <div style="width:100%; height:100%; background:linear-gradient(135deg,#1a2332 0%,#1E6B5E 70%,#2D8C7A 100%); display:flex; align-items:center; justify-content:center;">
+                <div class="text-center text-white">
+                  <div style="font-size:3.5rem; opacity:0.9; margin-bottom:0.5rem;">🤝</div>
+                  <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.15em; opacity:0.6;" data-i18n="journal.assoc_tag">Association</div>
+                </div>
+              </div>
+            </div>
+            <div style="padding:1.75rem 2rem;">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="blog-tag" style="background:rgba(240,165,0,0.15); color:#b87a00;" data-i18n="journal.assoc_tag">Association</span>
+                <span style="font-size:0.65rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold);">★ <span data-i18n="journal.assoc_badge">À la une</span></span>
+              </div>
+              <h3 class="font-serif text-2xl mb-2 leading-snug" style="color:#1a2332;" data-i18n="journal.assoc_title">L'Association Neuro-Odyssée est née</h3>
+              <p class="text-sm leading-relaxed mb-4" style="color:var(--text-light);" data-i18n="journal.assoc_excerpt">
+                Le projet d'un homme devient une cause collective : une association à but non lucratif pour sensibiliser et accompagner, bien au-delà des 1 900 km.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2 text-xs" style="color:var(--text-light);">
+                  <span>18 juin 2026</span>
+                </div>
+                <span class="text-sm font-semibold" style="color:var(--green-mid);" data-i18n="journal.read_more">Lire la suite <i class="fa-solid fa-arrow-right ml-1" style="font-size:0.7rem;"></i></span>
+              </div>
+            </div>
+          </a>
+        </article>
+        <style>@media (max-width:640px){ .assoc-announce{ grid-template-columns:1fr !important; } }</style>
 
         <!-- Post 1: Neuroplasticité -->
         <article class="blog-card reveal" data-tag="neuroplasticite" data-post-id="neuro1">
