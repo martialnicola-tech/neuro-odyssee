@@ -144,6 +144,10 @@
     #sponsorsTrack { animation: sponsorScroll 20s linear infinite; }
     #sponsorsTrack:hover { animation-play-state: paused; }
     @keyframes sponsorScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    /* Champ "montant libre" : on masque les flèches natives (capricieuses selon le navigateur), saisie au clavier */
+    #don-libre { appearance: textfield; -webkit-appearance: textfield; }
+    #don-libre::-webkit-outer-spin-button,
+    #don-libre::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
   </style>
   <script>
   (function() {
