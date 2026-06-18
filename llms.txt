@@ -1,7 +1,7 @@
-# La Neuro-Odyssée
+# Association Neuro-Odyssée
 
 ## Identity
-- Name: La Neuro-Odyssée
+- Name: Association Neuro-Odyssée
 - Person: Roland Crettaz
 - URL: https://www.neuro-odyssee.com
 - Language: French (primary), English, German, Italian

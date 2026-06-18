@@ -89,11 +89,11 @@
 
   <!-- ═══ TEXTE (droite du logo) ════════════════════════ -->
 
-  <!-- "La" -->
+  <!-- "Association" -->
   <text x="440" y="246"
         font-family="Georgia, 'Times New Roman', serif"
-        font-size="34" font-style="italic"
-        fill="rgba(255,255,255,0.55)">La</text>
+        font-size="30" font-style="italic"
+        fill="rgba(255,255,255,0.55)">Association</text>
 
   <!-- "Neuro-Odyssée" -->
   <text x="440" y="350"
@@ -108,7 +108,7 @@
   <text x="440" y="424"
         font-family="Georgia, 'Times New Roman', serif"
         font-size="28" font-style="italic"
-        fill="rgba(255,255,255,0.72)">1 600 km pour re-câbler un cerveau marqué par le TDAH</text>
+        fill="rgba(255,255,255,0.72)">1 900 km pour re-câbler un cerveau marqué par le TDAH</text>
 
   <!-- Route -->
   <text x="440" y="472"

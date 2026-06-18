@@ -85,14 +85,14 @@
   <!-- L'icône occupe x=15..65 (50px), on commence le texte à x=74 -->
   <g font-family="'Cormorant Garamond', 'Cormorant', Georgia, 'Times New Roman', serif">
 
-    <!-- "La" — petit, italique, blanc -->
+    <!-- "Association" — petit, italique, blanc -->
     <text x="74" y="28"
-          font-size="13"
+          font-size="11"
           font-style="italic"
           font-weight="400"
           fill="white"
           opacity="0.75"
-          letter-spacing="1.5">La</text>
+          letter-spacing="1">Association</text>
 
     <!-- "Neuro" — gras, or -->
     <text x="74" y="50"
@@ -114,6 +114,6 @@
           font-weight="400"
           fill="white"
           opacity="0.50"
-          letter-spacing="0.8">1 600 km · Neuroplasticité · Compostelle</text>
+          letter-spacing="0.8">1 900 km · Neuroplasticité · Compostelle</text>
   </g>
 </svg>

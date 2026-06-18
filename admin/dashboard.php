@@ -13,7 +13,7 @@ $error   = $_GET['error'] ?? '';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>Publier — La Neuro-Odyssée</title>
+  <title>Publier — Association Neuro-Odyssée</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {

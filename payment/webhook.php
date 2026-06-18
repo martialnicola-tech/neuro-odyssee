@@ -1,6 +1,6 @@
 <?php
 /**
- * Mollie Webhook — La Neuro-Odyssée
+ * Mollie Webhook — Association Neuro-Odyssée
  * 1) Vérifie le statut du paiement via l'API Mollie
  * 2) Met à jour stats.json
  * 3) Envoie les PDF par email selon le pack acheté

@@ -24,7 +24,7 @@ if (isset($_SESSION['admin'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>Admin — La Neuro-Odyssée</title>
+  <title>Admin — Association Neuro-Odyssée</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -101,7 +101,7 @@ if (isset($_SESSION['admin'])) {
 <body>
   <div class="card">
     <div class="logo">🧭</div>
-    <h1>La Neuro-Odyssée</h1>
+    <h1>Association Neuro-Odyssée</h1>
     <p class="subtitle">Espace Roland — Publication</p>
 
     <?php if (!empty($error)): ?>

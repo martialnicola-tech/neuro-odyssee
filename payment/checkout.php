@@ -18,14 +18,14 @@ if ($amount < 1 || $amount > 10000) {
 }
 
 $packNames = [
-    'bronze'  => 'Pack Bronze — ½ km — La Neuro-Odyssée',
-    'argent'  => 'Pack Argent — 1 km — La Neuro-Odyssée',
-    'or'      => 'Pack Or — 5 km — La Neuro-Odyssée',
-    'platine' => 'Pack Platine — 10 km — La Neuro-Odyssée',
+    'bronze'  => 'Pack Bronze — ½ km — Association Neuro-Odyssée',
+    'argent'  => 'Pack Argent — 1 km — Association Neuro-Odyssée',
+    'or'      => 'Pack Or — 5 km — Association Neuro-Odyssée',
+    'platine' => 'Pack Platine — 10 km — Association Neuro-Odyssée',
 ];
 $description = $pack && isset($packNames[$pack])
     ? $packNames[$pack]
-    : 'Don — La Neuro-Odyssée';
+    : 'Don — Association Neuro-Odyssée';
 
 // Mollie: amount.value doit être une string avec 2 décimales
 $amountValue = number_format($amount, 2, '.', '');
