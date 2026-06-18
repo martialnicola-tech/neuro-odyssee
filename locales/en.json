@@ -587,7 +587,7 @@
     "s1_p2": "For this message to live on beyond the walk, it needed a lasting, transparent and independent structure. That is why the Neuro-Odyssey Association was created.",
     "s1_p3": "An association isn't just a name. It's a commitment: to keep helping those who need it, long after the 1,900 km.",
     "s2_title": "Our mission",
-    "s2_p1": "Raising public awareness of the link between atypical neurological functioning, emotional regulation and compensatory behaviours — addictions, exhaustion, loss of bearings.",
+    "s2_p1": "Raising awareness and supporting people who live with atypical neurological functioning and its consequences — ADHD, burnout, mental overload, addictions — and showing that rebuilding is possible at any age.",
     "s2_p2": "Supporting the people concerned and their loved ones with accessible, non-judgemental language, grounded in neuroscience and lived experience.",
     "s2_p3": "Showing that you don't rebuild yourself by fighting against yourself, but by understanding how you work.",
     "s3_title": "What we are building",
@@ -601,12 +601,14 @@
     "id_title": "Association details",
     "id_name_l": "Name",
     "id_form_l": "Legal form",
-    "id_form_v": "Non-profit association",
+    "id_form_v": "Non-profit association (art. 60 ff. Swiss Civil Code)",
     "id_seat_l": "Registered office",
     "id_founder_l": "Founder",
     "id_contact_l": "Contact",
-    "id_note": "Statutes, registration number and committee members will be published here soon.",
+    "id_note": "Statutes adopted on 17 June 2026 (Hertig & Marmy law firm, Martigny). The committee consists of a president and a secretary-treasurer; the association is bound by the joint signature of two committee members.",
     "cta_title": "Support the association",
-    "cta": "Support the association"
+    "cta": "Support the association",
+    "id_date_l": "Incorporated on",
+    "id_fee_l": "Membership fee"
   }
 }

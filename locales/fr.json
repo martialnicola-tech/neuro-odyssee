@@ -587,7 +587,7 @@
     "s1_p2": "Pour que ce message vive au-delà de la marche, il fallait une structure durable, transparente et indépendante. C'est pourquoi l'Association Neuro-Odyssée a vu le jour.",
     "s1_p3": "Une association, ce n'est pas qu'un nom. C'est un engagement : continuer, après les 1 900 km, à aider celles et ceux qui en ont besoin.",
     "s2_title": "Notre mission",
-    "s2_p1": "Sensibiliser le grand public au lien entre fonctionnement neurologique atypique, régulation émotionnelle et comportements compensatoires — addictions, épuisement, perte de repères.",
+    "s2_p1": "Sensibiliser et accompagner les personnes qui vivent avec un fonctionnement neurologique atypique et ses conséquences — TDAH, burn-out, surcharge mentale, addictions — et montrer que la reconstruction est possible à tout âge.",
     "s2_p2": "Accompagner les personnes concernées et leurs proches avec un langage accessible, sans jugement, fondé sur les neurosciences et sur le vécu.",
     "s2_p3": "Faire comprendre qu'on ne se reconstruit pas en se battant contre soi-même, mais en comprenant comment on fonctionne.",
     "s3_title": "Ce que nous construisons",
@@ -601,12 +601,14 @@
     "id_title": "Identité de l'association",
     "id_name_l": "Nom",
     "id_form_l": "Forme juridique",
-    "id_form_v": "Association à but non lucratif",
+    "id_form_v": "Association sans but lucratif (art. 60 ss CC suisse)",
     "id_seat_l": "Siège",
     "id_founder_l": "Fondateur",
     "id_contact_l": "Contact",
-    "id_note": "Statuts, numéro de registre et composition du comité seront publiés ici prochainement.",
+    "id_note": "Statuts adoptés le 17 juin 2026 (Étude Hertig & Marmy, Martigny). Le comité se compose d'une présidence et d'un secrétariat-caisse ; l'association est engagée par la signature collective de deux membres du comité.",
     "cta_title": "Soutenez l'association",
-    "cta": "Soutenir l'association"
+    "cta": "Soutenir l'association",
+    "id_date_l": "Constituée le",
+    "id_fee_l": "Cotisation"
   }
 }

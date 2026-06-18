@@ -587,7 +587,7 @@
     "s1_p2": "Para que este mensaje perdure más allá de la marcha, hacía falta una estructura duradera, transparente e independiente. Por eso nació la Asociación Neuro-Odisea.",
     "s1_p3": "Una asociación no es solo un nombre. Es un compromiso: seguir ayudando, después de los 1 900 km, a quienes lo necesitan.",
     "s2_title": "Nuestra misión",
-    "s2_p1": "Sensibilizar al público sobre el vínculo entre el funcionamiento neurológico atípico, la regulación emocional y los comportamientos compensatorios — adicciones, agotamiento, pérdida de referencias.",
+    "s2_p1": "Sensibilizar y acompañar a las personas que viven con un funcionamiento neurológico atípico y sus consecuencias — TDAH, burnout, sobrecarga mental, adicciones — y mostrar que la reconstrucción es posible a cualquier edad.",
     "s2_p2": "Acompañar a las personas afectadas y a sus allegados con un lenguaje accesible, sin juicios, basado en la neurociencia y en la experiencia vivida.",
     "s2_p3": "Hacer comprender que uno no se reconstruye luchando contra sí mismo, sino entendiendo cómo funciona.",
     "s3_title": "Lo que construimos",
@@ -601,12 +601,14 @@
     "id_title": "Datos de la asociación",
     "id_name_l": "Nombre",
     "id_form_l": "Forma jurídica",
-    "id_form_v": "Asociación sin ánimo de lucro",
+    "id_form_v": "Asociación sin ánimo de lucro (art. 60 ss CC suizo)",
     "id_seat_l": "Sede",
     "id_founder_l": "Fundador",
     "id_contact_l": "Contacto",
-    "id_note": "Los estatutos, el número de registro y la composición del comité se publicarán aquí próximamente.",
+    "id_note": "Estatutos adoptados el 17 de junio de 2026 (Bufete Hertig & Marmy, Martigny). El comité se compone de una presidencia y una secretaría-tesorería; la asociación queda vinculada por la firma colectiva de dos miembros del comité.",
     "cta_title": "Apoya a la asociación",
-    "cta": "Apoyar a la asociación"
+    "cta": "Apoyar a la asociación",
+    "id_date_l": "Constituida el",
+    "id_fee_l": "Cuota anual"
   }
 }

@@ -587,7 +587,7 @@
     "s1_p2": "Perché questo messaggio viva oltre la marcia, serviva una struttura duratura, trasparente e indipendente. Per questo è nata l'Associazione Neuro-Odissea.",
     "s1_p3": "Un'associazione non è solo un nome. È un impegno: continuare, dopo i 1 900 km, ad aiutare chi ne ha bisogno.",
     "s2_title": "La nostra missione",
-    "s2_p1": "Sensibilizzare il grande pubblico sul legame tra funzionamento neurologico atipico, regolazione emotiva e comportamenti compensatori — dipendenze, esaurimento, perdita di riferimenti.",
+    "s2_p1": "Sensibilizzare e accompagnare le persone che vivono con un funzionamento neurologico atipico e le sue conseguenze — ADHD, burnout, sovraccarico mentale, dipendenze — e mostrare che la ricostruzione è possibile a ogni età.",
     "s2_p2": "Accompagnare le persone interessate e i loro cari con un linguaggio accessibile, senza giudizio, fondato sulle neuroscienze e sul vissuto.",
     "s2_p3": "Far capire che non ci si ricostruisce combattendo contro se stessi, ma comprendendo come si funziona.",
     "s3_title": "Ciò che costruiamo",
@@ -601,12 +601,14 @@
     "id_title": "Dati dell'associazione",
     "id_name_l": "Nome",
     "id_form_l": "Forma giuridica",
-    "id_form_v": "Associazione senza scopo di lucro",
+    "id_form_v": "Associazione senza scopo di lucro (art. 60 ss CC svizzero)",
     "id_seat_l": "Sede",
     "id_founder_l": "Fondatore",
     "id_contact_l": "Contatto",
-    "id_note": "Statuto, numero di registro e composizione del comitato saranno pubblicati qui a breve.",
+    "id_note": "Statuto adottato il 17 giugno 2026 (Studio legale Hertig & Marmy, Martigny). Il comitato è composto da una presidenza e da un segretariato-cassa; l'associazione è vincolata dalla firma collettiva di due membri del comitato.",
     "cta_title": "Sostieni l'associazione",
-    "cta": "Sostieni l'associazione"
+    "cta": "Sostieni l'associazione",
+    "id_date_l": "Costituita il",
+    "id_fee_l": "Quota associativa"
   }
 }
