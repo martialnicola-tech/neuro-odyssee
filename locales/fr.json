@@ -524,7 +524,8 @@
     "follow_title": "Suivre le Projet",
     "rights": "Tous droits réservés.",
     "made_with": "Fait avec passion en Valais 🇨🇭",
-    "website": "neuro-odyssee.com"
+    "website": "neuro-odyssee.com",
+    "legal": "Association Neuro-Odyssée · Martigny (Valais), Suisse"
   },
   "lien": {
     "label": "Comprendre",
@@ -564,7 +565,7 @@
     "s5_p1": "Ce projet est le point de départ d'une vision plus large.",
     "s5_p2": "Trop de personnes traversent des années de confusion, de honte et d'échecs répétés sans jamais comprendre pourquoi leur cerveau fonctionne comme il fonctionne. Trop de familles cherchent des réponses sans trouver un langage accessible et bienveillant.",
     "s5_p3": "Une structure dédiée à cette sensibilisation est en préparation. Elle s'appuiera sur le documentaire, le livre, et les rencontres faites sur le chemin pour créer des ressources concrètes — ateliers, contenus, accompagnement — à destination des personnes concernées et de leurs proches.",
-    "s5_p4": "La marche en est le premier acte. Soutenir la Neuro-Odyssée, c'est soutenir ce qui vient ensuite.",
+    "s5_p4": "La marche en est le premier acte. Soutenir l'Association Neuro-Odyssée, c'est soutenir ce qui vient ensuite.",
     "cta": "Soutenir le projet"
   }
 }
