@@ -533,7 +533,8 @@
     "rights": "All rights reserved.",
     "made_with": "Made with passion in Valais 🇨🇭",
     "website": "neuro-odyssee.com",
-    "legal": "Neuro-Odyssey Association · Martigny (Valais), Switzerland"
+    "legal": "Neuro-Odyssey Association · Martigny (Valais), Switzerland",
+    "mentions": "Legal notice"
   },
   "lien": {
     "label": "Understand",
@@ -610,5 +611,33 @@
     "cta": "Support the association",
     "id_date_l": "Incorporated on",
     "id_fee_l": "Membership fee"
+  },
+  "legal": {
+    "meta_title": "Legal notice",
+    "hero_label": "Legal information",
+    "title": "Legal notice",
+    "subtitle": "Publisher, hosting and data protection for the neuro-odyssee.com website.",
+    "s1_title": "Site publisher",
+    "s1_p1": "This site is published by the <strong>Neuro-Odyssée</strong> association, a non-profit association within the meaning of articles 60 ff. of the Swiss Civil Code.",
+    "s1_p2": "Registered office: Martigny (Valais, Switzerland), c/o Me Blaise Marmy — Hertig & Marmy law firm, members of the Valais Bar.",
+    "s1_p3": "The association is bound by the joint signature of two committee members. Founder: Roland Crettaz.",
+    "s1_p4": "Contact: <a href='mailto:roland@neuro-odyssee.com'>roland@neuro-odyssee.com</a> — <a href='contact.html'>contact form</a>.",
+    "s2_title": "Hosting",
+    "s2_p1": "The site is hosted by <strong>Hostinger International Ltd</strong>, 61 Lordou Vironos Street, 6023 Larnaca, Cyprus — <a href='https://www.hostinger.com' target='_blank' rel='noopener'>hostinger.com</a>.",
+    "s3_title": "Intellectual property",
+    "s3_p1": "All site content (texts, photographs, logo, graphic elements) is protected by copyright. Any reproduction or reuse, in whole or in part, without prior written authorisation is prohibited.",
+    "s4_title": "Personal data protection",
+    "s4_p1": "The association only processes the data you voluntarily provide through the forms (contact, newsletter, support): surname, first name, email address and, where applicable, information related to a donation. It is used to answer your requests, manage your support and, with your consent, send you news about the project.",
+    "s4_p2": "This data is neither sold nor transferred to third parties for commercial purposes. It is processed in accordance with the Swiss Data Protection Act (FADP) and, for people located in the European Union, the GDPR.",
+    "s4_p3": "You have the right to access, rectify and delete your data. To exercise it, write to <a href='mailto:roland@neuro-odyssee.com'>roland@neuro-odyssee.com</a>.",
+    "s5_title": "Payments",
+    "s5_p1": "Donations and sponsorships are processed securely by the payment provider <strong>Mollie B.V.</strong> (Amsterdam, Netherlands). The association never has access to your bank card details, which are handled directly by Mollie.",
+    "s6_title": "Cookies & trackers",
+    "s6_p1": "This site uses no tracking cookies or advertising analytics tools. Only local storage (localStorage) remembers your display language; it allows no identification.",
+    "s7_title": "Liability",
+    "s7_p1": "The association strives to ensure the accuracy of the information published, without being able to guarantee it. It cannot be held liable for external links or for the use made of the site's information.",
+    "s8_title": "Site creation",
+    "s8_p1": "Design and development: <a href='https://iasmart.tech' target='_blank' rel='noopener'>IAsmart.tech</a> — 🇨🇭 made in Valais.",
+    "updated": "Last updated: June 2026."
   }
 }

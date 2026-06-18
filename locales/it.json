@@ -533,7 +533,8 @@
     "rights": "Tutti i diritti riservati.",
     "made_with": "Fatto con passione nel Vallese 🇨🇭",
     "website": "neuro-odyssee.com",
-    "legal": "Associazione Neuro-Odissea · Martigny (Vallese), Svizzera"
+    "legal": "Associazione Neuro-Odissea · Martigny (Vallese), Svizzera",
+    "mentions": "Note legali"
   },
   "lien": {
     "label": "Capire",
@@ -610,5 +611,33 @@
     "cta": "Sostieni l'associazione",
     "id_date_l": "Costituita il",
     "id_fee_l": "Quota associativa"
+  },
+  "legal": {
+    "meta_title": "Note legali",
+    "hero_label": "Informazioni legali",
+    "title": "Note legali",
+    "subtitle": "Editore, hosting e protezione dei dati del sito neuro-odyssee.com.",
+    "s1_title": "Editore del sito",
+    "s1_p1": "Il presente sito è pubblicato dall'associazione <strong>Neuro-Odyssée</strong>, associazione senza scopo di lucro ai sensi degli articoli 60 e seguenti del Codice civile svizzero.",
+    "s1_p2": "Sede: Martigny (Vallese, Svizzera), c/o Me Blaise Marmy — Studio legale Hertig & Marmy, avvocati del Foro del Vallese.",
+    "s1_p3": "L'associazione è vincolata dalla firma collettiva di due membri del comitato. Fondatore: Roland Crettaz.",
+    "s1_p4": "Contatto: <a href='mailto:roland@neuro-odyssee.com'>roland@neuro-odyssee.com</a> — <a href='contact.html'>modulo di contatto</a>.",
+    "s2_title": "Hosting",
+    "s2_p1": "Il sito è ospitato da <strong>Hostinger International Ltd</strong>, 61 Lordou Vironos Street, 6023 Larnaca, Cipro — <a href='https://www.hostinger.com' target='_blank' rel='noopener'>hostinger.com</a>.",
+    "s3_title": "Proprietà intellettuale",
+    "s3_p1": "Tutti i contenuti del sito (testi, fotografie, logo, elementi grafici) sono protetti dal diritto d'autore. È vietata qualsiasi riproduzione o riutilizzo, totale o parziale, senza previa autorizzazione scritta.",
+    "s4_title": "Protezione dei dati personali",
+    "s4_p1": "L'associazione tratta unicamente i dati che le trasmetti volontariamente tramite i moduli (contatto, newsletter, sostegno): cognome, nome, indirizzo e-mail e, se del caso, le informazioni relative a una donazione. Servono a rispondere alle tue richieste, gestire il tuo sostegno e, con il tuo consenso, inviarti notizie sul progetto.",
+    "s4_p2": "Questi dati non sono né venduti né ceduti a terzi per scopi commerciali. Sono trattati in conformità con la legge svizzera sulla protezione dei dati (LPD) e, per le persone situate nell'Unione europea, con il GDPR.",
+    "s4_p3": "Hai il diritto di accedere, rettificare ed eliminare i tuoi dati. Per esercitarlo, scrivi a <a href='mailto:roland@neuro-odyssee.com'>roland@neuro-odyssee.com</a>.",
+    "s5_title": "Pagamenti",
+    "s5_p1": "Le donazioni e le sponsorizzazioni sono trattate in modo sicuro dal fornitore di pagamento <strong>Mollie B.V.</strong> (Amsterdam, Paesi Bassi). L'associazione non ha mai accesso ai dati della tua carta, gestiti direttamente da Mollie.",
+    "s6_title": "Cookie e tracker",
+    "s6_p1": "Questo sito non utilizza cookie di tracciamento né strumenti di misurazione pubblicitaria. Solo un'archiviazione locale (localStorage) memorizza la lingua di visualizzazione; non consente alcuna identificazione.",
+    "s7_title": "Responsabilità",
+    "s7_p1": "L'associazione si impegna a garantire l'esattezza delle informazioni pubblicate, senza poterla garantire. Non può essere ritenuta responsabile per i link esterni o per l'uso fatto delle informazioni del sito.",
+    "s8_title": "Realizzazione del sito",
+    "s8_p1": "Progettazione e realizzazione: <a href='https://iasmart.tech' target='_blank' rel='noopener'>IAsmart.tech</a> — 🇨🇭 creato in Vallese.",
+    "updated": "Ultimo aggiornamento: giugno 2026."
   }
 }
