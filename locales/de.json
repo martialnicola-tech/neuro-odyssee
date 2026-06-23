@@ -24,7 +24,8 @@
     "cta_sponsor": "Sponsor werden",
     "cta_don": "Projekt unterstützen",
     "scroll_hint": "Das Projekt entdecken",
-    "countdown_label": " Tage bis zur Abfahrt"
+    "countdown_label": " Tage bis zur Abfahrt",
+    "cta_follow": "Das Abenteuer verfolgen"
   },
   "stats": {
     "km_parraines": "km gesponsert",
@@ -246,7 +247,7 @@
     "faq_a5": "Absolut! Auch Privatpersonen können sponsern. Die Seite Unterstützen bietet Pakete für Privatpersonen. Kontaktieren Sie uns direkt für ein personalisiertes Sponsoring.",
     "current_sponsors_title": "Unsere ersten Partner",
     "current_sponsors_empty": "Seien Sie unter den Ersten! Ihr Logo hier.",
-    "hero_badge": "22 € / km · Unternehmensformeln",
+    "hero_badge": "26 € / km · Unternehmensformeln",
     "hero_calc_btn": "Mein Sponsoring schätzen",
     "impact_doc_title": "Dokumentarfilm",
     "impact_doc_sub": "Logo im Abspann",

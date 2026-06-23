@@ -24,7 +24,8 @@
     "cta_sponsor": "Devenez Sponsor",
     "cta_don": "Soutenir le Projet",
     "scroll_hint": "Découvrir le projet",
-    "countdown_label": " jours avant le départ"
+    "countdown_label": " jours avant le départ",
+    "cta_follow": "Suivre l'aventure"
   },
   "stats": {
     "km_parraines": "km parrainés",
@@ -246,7 +247,7 @@
     "faq_a5": "Absolument ! Les particuliers peuvent aussi parrainer. La page Soutenir propose des packs adaptés aux particuliers. Contactez-nous directement pour un parrainage personnalisé.",
     "current_sponsors_title": "Nos Premiers Partenaires",
     "current_sponsors_empty": "Soyez parmi les premiers ! Votre logo ici.",
-    "hero_badge": "22 € / km · Formules entreprises",
+    "hero_badge": "26 € / km · Formules entreprises",
     "hero_calc_btn": "Estimer mon parrainage",
     "impact_doc_title": "Documentaire",
     "impact_doc_sub": "Logo au générique",

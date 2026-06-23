@@ -24,7 +24,8 @@
     "cta_sponsor": "Become a Sponsor",
     "cta_don": "Support the Project",
     "scroll_hint": "Discover the project",
-    "countdown_label": " days to departure"
+    "countdown_label": " days to departure",
+    "cta_follow": "Follow the journey"
   },
   "stats": {
     "km_parraines": "km sponsored",
@@ -246,7 +247,7 @@
     "faq_a5": "Absolutely! Individuals can sponsor too. The Support page offers packs for individuals. Contact us directly for personalized sponsorship.",
     "current_sponsors_title": "Our First Partners",
     "current_sponsors_empty": "Be among the first! Your logo here.",
-    "hero_badge": "€22 / km · Business Packages",
+    "hero_badge": "€26 / km · Business Packages",
     "hero_calc_btn": "Estimate my sponsorship",
     "impact_doc_title": "Documentary",
     "impact_doc_sub": "Logo in the credits",

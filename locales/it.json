@@ -24,7 +24,8 @@
     "cta_sponsor": "Diventa Sponsor",
     "cta_don": "Sostieni il Progetto",
     "scroll_hint": "Scopri il progetto",
-    "countdown_label": " giorni alla partenza"
+    "countdown_label": " giorni alla partenza",
+    "cta_follow": "Segui l'avventura"
   },
   "stats": {
     "km_parraines": "km sponsorizzati",
@@ -246,7 +247,7 @@
     "faq_a5": "Assolutamente! Anche i privati possono sponsorizzare. La pagina Sostenere offre formule adatte alle donazioni individuali. Contattaci direttamente per una sponsorizzazione personalizzata.",
     "current_sponsors_title": "I Nostri Primi Partner",
     "current_sponsors_empty": "Sii tra i primi! Il tuo logo qui.",
-    "hero_badge": "22 € / km · Formule aziendali",
+    "hero_badge": "26 € / km · Formule aziendali",
     "hero_calc_btn": "Stima la mia sponsorizzazione",
     "impact_doc_title": "Documentario",
     "impact_doc_sub": "Logo nei titoli di coda",

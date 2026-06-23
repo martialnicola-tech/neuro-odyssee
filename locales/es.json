@@ -24,7 +24,8 @@
     "cta_sponsor": "Convertirse en Patrocinador",
     "cta_don": "Apoyar el Proyecto",
     "scroll_hint": "Descubrir el proyecto",
-    "countdown_label": " días para la salida"
+    "countdown_label": " días para la salida",
+    "cta_follow": "Sigue la aventura"
   },
   "stats": {
     "km_parraines": "km patrocinados",
@@ -246,7 +247,7 @@
     "faq_a5": "¡Por supuesto! Los particulares también pueden patrocinar. La página de Apoyo ofrece fórmulas adaptadas a las donaciones individuales. Contáctenos directamente para un patrocinio personalizado.",
     "current_sponsors_title": "Nuestros Primeros Socios",
     "current_sponsors_empty": "¡Sea de los primeros! Su logo aquí.",
-    "hero_badge": "22 € / km · Fórmulas para empresas",
+    "hero_badge": "26 € / km · Fórmulas para empresas",
     "hero_calc_btn": "Estimar mi patrocinio",
     "impact_doc_title": "Documental",
     "impact_doc_sub": "Logo en los créditos",
