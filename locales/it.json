@@ -640,5 +640,15 @@
     "s8_title": "Realizzazione del sito",
     "s8_p1": "Progettazione e realizzazione: <a href='https://iasmart.tech' target='_blank' rel='noopener'>IAsmart.tech</a> — 🇨🇭 creato in Vallese.",
     "updated": "Ultimo aggiornamento: giugno 2026."
+  },
+  "community": {
+    "label": "Unisciti alla community",
+    "title": "Vivi l'avventura dall'interno",
+    "subtitle": "Iscriviti e ricevi ogni tappa, chiavi concrete sul cervello — e il tuo ebook in regalo subito.",
+    "value1": "Il dietro le quinte della preparazione e della marcia, in tempo reale",
+    "value2": "Chiavi concrete su cervello, ADHD e ricostruzione",
+    "value3": "Il tuo ebook « Tu fais tout bien… » in regalo all'iscrizione",
+    "no_spam": "Niente spam — 1 o 2 notizie al mese. Disiscrizione con un clic.",
+    "or_follow": "Oppure segui l'avventura ogni giorno:"
   }
 }

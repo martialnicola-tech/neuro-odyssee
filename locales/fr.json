@@ -640,5 +640,15 @@
     "s8_title": "Création du site",
     "s8_p1": "Conception et réalisation : <a href='https://iasmart.tech' target='_blank' rel='noopener'>IAsmart.tech</a> — 🇨🇭 créé en Valais.",
     "updated": "Dernière mise à jour : juin 2026."
+  },
+  "community": {
+    "label": "Rejoins la communauté",
+    "title": "Vis l'aventure de l'intérieur",
+    "subtitle": "Inscris-toi et reçois chaque étape, des clés concrètes sur le cerveau — et ton ebook offert immédiatement.",
+    "value1": "Les coulisses de la préparation et de la marche, en temps réel",
+    "value2": "Des clés concrètes sur le cerveau, le TDAH et la reconstruction",
+    "value3": "Ton ebook « Tu fais tout bien… » offert dès l'inscription",
+    "no_spam": "Pas de spam — 1 à 2 nouvelles par mois. Désinscription en un clic.",
+    "or_follow": "Ou suis l'aventure au quotidien :"
   }
 }

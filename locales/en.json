@@ -640,5 +640,15 @@
     "s8_title": "Site creation",
     "s8_p1": "Design and development: <a href='https://iasmart.tech' target='_blank' rel='noopener'>IAsmart.tech</a> — 🇨🇭 made in Valais.",
     "updated": "Last updated: June 2026."
+  },
+  "community": {
+    "label": "Join the community",
+    "title": "Live the journey from the inside",
+    "subtitle": "Sign up and get every stage, real insights about the brain — and your free ebook right away.",
+    "value1": "Behind the scenes of the preparation and the walk, in real time",
+    "value2": "Concrete keys on the brain, ADHD and rebuilding",
+    "value3": "Your ebook « Tu fais tout bien… » free when you sign up",
+    "no_spam": "No spam — 1 to 2 updates a month. Unsubscribe in one click.",
+    "or_follow": "Or follow the journey day by day:"
   }
 }

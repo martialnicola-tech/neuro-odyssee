@@ -612,11 +612,7 @@
           </span>
         </div>
         <div class="progress-track" style="background:rgba(255,255,255,0.08); position:relative;">
-          <div class="progress-bar" style="width:0.53%; min-width:12px; background:linear-gradient(90deg,var(--green-mid),var(--gold)); transition:width 2s ease;"></div>
-        </div>
-        <div class="text-center mt-4">
-          <span class="text-lg font-bold" style="color:var(--gold);">10 km</span>
-          <span class="text-sm ml-2" style="color:rgba(255,255,255,0.5);" data-i18n="progress.sponsored_label">déjà parrainés sur 1 900 km</span>
+          <div class="progress-bar" style="width:0%; min-width:12px; background:linear-gradient(90deg,var(--green-mid),var(--gold)); transition:width 2s ease;"></div>
         </div>
       </div>
 
@@ -1075,13 +1071,19 @@
        ============================================ -->
   <section class="py-20 px-6" style="background:linear-gradient(135deg,#1E6B5E 0%,#164f45 100%);">
     <div class="max-w-2xl mx-auto text-center reveal">
-      <div style="font-size:3rem; margin-bottom:1rem;">📘</div>
-      <span class="section-label justify-center" style="color:rgba(255,255,255,0.5);" data-i18n="newsletter.label">Ebook offert</span>
-      <h2 class="section-title mt-3" style="color:white;" data-i18n="newsletter.title">Tu fais tout bien.<br>Alors pourquoi tu t'effondres ?</h2>
-      <p style="color:rgba(255,255,255,0.45); font-style:italic; margin-top:0.5rem; font-size:0.9rem;" data-i18n="newsletter.book_sub">5 clés pour comprendre la surcharge mentale et reprendre le contrôle</p>
-      <p class="mt-5 mb-8" style="color:rgba(255,255,255,0.65); font-size:0.95rem; line-height:1.8; max-width:480px; margin-left:auto; margin-right:auto;" data-i18n="newsletter.subtitle">
-        Inscrivez-vous à la newsletter de Roland et recevez cet ebook immédiatement — gratuit, sans engagement.
+      <div style="font-size:3rem; margin-bottom:1rem;">🤝</div>
+      <span class="section-label justify-center" style="color:rgba(255,255,255,0.5);" data-i18n="community.label">Rejoins la communauté</span>
+      <h2 class="section-title mt-3" style="color:white;" data-i18n="community.title">Vis l'aventure de l'intérieur</h2>
+      <p class="mt-4 mb-7" style="color:rgba(255,255,255,0.65); font-size:0.95rem; line-height:1.8; max-width:520px; margin-left:auto; margin-right:auto;" data-i18n="community.subtitle">
+        Inscris-toi et reçois chaque étape, des clés concrètes sur le cerveau — et ton ebook offert immédiatement.
       </p>
+
+      <!-- Bénéfices -->
+      <div style="display:inline-flex; flex-direction:column; gap:0.6rem; text-align:left; margin-bottom:1.75rem;">
+        <div style="display:flex; align-items:flex-start; gap:0.6rem; color:rgba(255,255,255,0.85); font-size:0.92rem;"><i class="fa-solid fa-circle-check" style="color:#F0A500; margin-top:0.2rem;"></i> <span data-i18n="community.value1">Les coulisses de la préparation et de la marche, en temps réel</span></div>
+        <div style="display:flex; align-items:flex-start; gap:0.6rem; color:rgba(255,255,255,0.85); font-size:0.92rem;"><i class="fa-solid fa-circle-check" style="color:#F0A500; margin-top:0.2rem;"></i> <span data-i18n="community.value2">Des clés concrètes sur le cerveau, le TDAH et la reconstruction</span></div>
+        <div style="display:flex; align-items:flex-start; gap:0.6rem; color:rgba(255,255,255,0.85); font-size:0.92rem;"><i class="fa-solid fa-circle-check" style="color:#F0A500; margin-top:0.2rem;"></i> <span data-i18n="community.value3">Ton ebook « Tu fais tout bien… » offert dès l'inscription</span></div>
+      </div>
 
       <form id="newsletterForm" style="display:flex; flex-direction:column; gap:0.75rem; max-width:440px; margin:0 auto;">
         <input type="text" id="newsletterPrenom" name="prenom" placeholder="Votre prénom (optionnel)"
@@ -1096,7 +1098,18 @@
             data-i18n="newsletter.cta">Recevoir l'ebook</button>
         </div>
         <p id="newsletterMsg" style="font-size:0.85rem; min-height:1.2rem; color:rgba(255,255,255,0.7);"></p>
+        <p style="font-size:0.78rem; color:rgba(255,255,255,0.4);" data-i18n="community.no_spam">Pas de spam — 1 à 2 nouvelles par mois. Désinscription en un clic.</p>
       </form>
+
+      <!-- Suivre sur les réseaux -->
+      <div style="margin-top:2.25rem; padding-top:1.75rem; border-top:1px solid rgba(255,255,255,0.12);">
+        <p style="font-size:0.82rem; color:rgba(255,255,255,0.5); margin-bottom:0.9rem;" data-i18n="community.or_follow">Ou suis l'aventure au quotidien :</p>
+        <div style="display:flex; gap:0.75rem; justify-content:center;">
+          <a href="https://www.instagram.com/la_neuro_odyssee" target="_blank" rel="noopener" aria-label="Instagram" style="width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); display:inline-flex; align-items:center; justify-content:center; color:white; font-size:1.1rem; text-decoration:none;"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@LaNeuro-Odyssee" target="_blank" rel="noopener" aria-label="YouTube" style="width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); display:inline-flex; align-items:center; justify-content:center; color:white; font-size:1.1rem; text-decoration:none;"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.facebook.com/share/1FAdwFuzDW/" target="_blank" rel="noopener" aria-label="Facebook" style="width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); display:inline-flex; align-items:center; justify-content:center; color:white; font-size:1.1rem; text-decoration:none;"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+      </div>
     </div>
   </section>
 

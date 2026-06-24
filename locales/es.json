@@ -640,5 +640,15 @@
     "s8_title": "Creación del sitio",
     "s8_p1": "Diseño y desarrollo: <a href='https://iasmart.tech' target='_blank' rel='noopener'>IAsmart.tech</a> — 🇨🇭 creado en Valais.",
     "updated": "Última actualización: junio de 2026."
+  },
+  "community": {
+    "label": "Únete a la comunidad",
+    "title": "Vive la aventura desde dentro",
+    "subtitle": "Suscríbete y recibe cada etapa, claves concretas sobre el cerebro — y tu ebook de regalo al instante.",
+    "value1": "Tras las bambalinas de la preparación y la marcha, en tiempo real",
+    "value2": "Claves concretas sobre el cerebro, el TDAH y la reconstrucción",
+    "value3": "Tu ebook « Tu fais tout bien… » de regalo al suscribirte",
+    "no_spam": "Sin spam — 1 o 2 novedades al mes. Baja con un clic.",
+    "or_follow": "O sigue la aventura día a día:"
   }
 }

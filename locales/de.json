@@ -640,5 +640,15 @@
     "s8_title": "Erstellung der Website",
     "s8_p1": "Konzeption und Umsetzung: <a href='https://iasmart.tech' target='_blank' rel='noopener'>IAsmart.tech</a> — 🇨🇭 im Wallis erstellt.",
     "updated": "Letzte Aktualisierung: Juni 2026."
+  },
+  "community": {
+    "label": "Werde Teil der Community",
+    "title": "Erlebe das Abenteuer von innen",
+    "subtitle": "Melde dich an und erhalte jede Etappe, echte Einblicke ins Gehirn — und dein kostenloses E-Book sofort.",
+    "value1": "Hinter den Kulissen der Vorbereitung und des Marsches, in Echtzeit",
+    "value2": "Konkrete Schlüssel zu Gehirn, ADHS und Wiederaufbau",
+    "value3": "Dein E-Book « Tu fais tout bien… » gratis bei der Anmeldung",
+    "no_spam": "Kein Spam — 1 bis 2 Nachrichten pro Monat. Abmeldung mit einem Klick.",
+    "or_follow": "Oder folge dem Abenteuer täglich:"
   }
 }
