@@ -1,7 +1,8 @@
 {
   "meta": {
     "site_name": "Association Neuro-Odyssée",
-    "tagline": "1 900 km pour se reconstruire"
+    "tagline": "1 900 km pour se reconstruire",
+    "description_home": "1 900 km à pied de la Suisse à Santiago pour changer un regard : ce qu'on prend pour un manque de volonté est souvent un cerveau mal compris — et il peut se reconstruire. Soutenez la cause."
   },
   "nav": {
     "home": "Accueil",

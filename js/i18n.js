@@ -131,6 +131,17 @@ const I18N = {
         document.title = translation + ' — Association Neuro-Odyssée';
       }
     }
+
+    // Meta description
+    const descKey = document.querySelector('meta[name="i18n-desc"]');
+    if (descKey) {
+      const key = descKey.getAttribute('content');
+      const translation = this.t(key);
+      const descTag = document.querySelector('meta[name="description"]');
+      if (translation !== key && descTag) {
+        descTag.setAttribute('content', translation);
+      }
+    }
   },
 
   /**

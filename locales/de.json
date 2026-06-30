@@ -1,7 +1,8 @@
 {
   "meta": {
     "site_name": "Verein Neuro-Odyssee",
-    "tagline": "1.900 km zur Selbstwiederherstellung"
+    "tagline": "1.900 km zur Selbstwiederherstellung",
+    "description_home": "1 900 km zu Fuss von der Schweiz nach Santiago, um einen Blick zu verändern: Was wie ein Mangel an Willen aussieht, ist oft ein missverstandenes Gehirn — und es kann sich wieder aufbauen. Unterstützen Sie die Sache."
   },
   "nav": {
     "home": "Startseite",
