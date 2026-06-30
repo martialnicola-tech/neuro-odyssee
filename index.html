@@ -222,27 +222,27 @@
 
     /* === VERT GÉNÉREUX : hero + bandes alternées en vert, cartes blanches dessus === */
     .home .hero{background:linear-gradient(135deg,#15302B 0%,#1E6B5E 100%);}
-    .home .section--alt{background:linear-gradient(150deg,#15463C 0%,#1E6B5E 100%);}
-    .home .hero h1,.home .hero .sub,.home .section--alt h2{color:#FFFFFF;}
-    .home .hero .eyebrow,.home .hero .eyebrow b,.home .section--alt .eyebrow,.home .hero .sub b{color:#F4B53A;}
-    .home .hero .intro,.home .hero .sub,.home .section--alt p,.home .section--alt .lead{color:rgba(255,255,255,0.85);}
+    .home #mission{background:linear-gradient(150deg,#15463C 0%,#1E6B5E 100%);}
+    .home .hero h1,.home .hero .sub,.home #mission h2{color:#FFFFFF;}
+    .home .hero .eyebrow,.home .hero .eyebrow b,.home #mission .eyebrow,.home .hero .sub b{color:#F4B53A;}
+    .home .hero .intro,.home .hero .sub,.home #mission p,.home #mission .lead{color:rgba(255,255,255,0.85);}
     .home .hero .heroproof{color:#FFFFFF;}
-    .home .section--alt .key{color:#FFFFFF;border-left-color:#F0A500;}
-    .home .hero .btn--give,.home .section--alt .btn--give{background:#F0A500;border-color:#F0A500;color:#1a2332;}
-    .home .hero .btn--give:hover,.home .section--alt .btn--give:hover{background:#FFFFFF;border-color:#FFFFFF;color:#1a2332;}
-    .home .hero .btn--list,.home .section--alt .btn--list{color:#FFFFFF;border-color:rgba(255,255,255,0.55);}
-    .home .hero .btn--list:hover,.home .section--alt .btn--list:hover{border-color:#F0A500;color:#F4B53A;}
+    .home #mission .key{color:#FFFFFF;border-left-color:#F0A500;}
+    .home .hero .btn--give,.home #mission .btn--give{background:#F0A500;border-color:#F0A500;color:#1a2332;}
+    .home .hero .btn--give:hover,.home #mission .btn--give:hover{background:#FFFFFF;border-color:#FFFFFF;color:#1a2332;}
+    .home .hero .btn--list,.home #mission .btn--list{color:#FFFFFF;border-color:rgba(255,255,255,0.55);}
+    .home .hero .btn--list:hover,.home #mission .btn--list:hover{border-color:#F0A500;color:#F4B53A;}
     /* cartes/panels blancs sur fond vert : texte foncé conservé */
-    .home .section--alt .panel p{color:var(--text);}
-    .home .section--alt .panel .transp{color:var(--text-light);}
-    .home .section--alt .panel .btn--list{color:var(--green-deep);border-color:var(--green-deep);}
-    .home .section--alt .panel .btn--list:hover{border-color:var(--gold);color:var(--gold-deep);}
-    .home .section--alt .nmedia .src{color:var(--gold-deep);}
-    .home .section--alt .nmedia h3{color:var(--dark);}
-    .home .section--alt .nmedia p{color:var(--text-light);}
+    .home #mission .panel p{color:var(--text);}
+    .home #mission .panel .transp{color:var(--text-light);}
+    .home #mission .panel .btn--list{color:var(--green-deep);border-color:var(--green-deep);}
+    .home #mission .panel .btn--list:hover{border-color:var(--gold);color:var(--gold-deep);}
+    .home #mission .nmedia .src{color:var(--gold-deep);}
+    .home #mission .nmedia h3{color:var(--dark);}
+    .home #mission .nmedia p{color:var(--text-light);}
 
     @media (prefers-color-scheme: dark){
-      :root{ --paper:#141E1B; --paper-2:#102A25; --card:#1B2A25; --text:#E7EDEA; --text-light:#AEBDB7; --line:#2C3A35; }
+      .home{ --paper:#141E1B; --paper-2:#102A25; --card:#1B2A25; --text:#E7EDEA; --text-light:#AEBDB7; --line:#2C3A35; }
       .home{background:var(--paper);color:var(--text);}
       .home h1,.home h2,.home h3,.home .sub,.home .key,.stop .place,.sp b{color:#F3F6F4;}
       .home .eyebrow,.home .sub b,.home .heroproof,.parrainage__proof{color:#5BC0AC;}
