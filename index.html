@@ -220,27 +220,6 @@
     @media(max-width:560px){.news{padding:34px 24px;}}
 
 
-    /* === VERT GÉNÉREUX : hero + bandes alternées en vert, cartes blanches dessus === */
-    .home .hero{background:linear-gradient(135deg,#15302B 0%,#1E6B5E 100%);}
-    .home #mission{background:linear-gradient(150deg,#15463C 0%,#1E6B5E 100%);}
-    .home .hero h1,.home .hero .sub,.home #mission h2{color:#FFFFFF;}
-    .home .hero .eyebrow,.home .hero .eyebrow b,.home #mission .eyebrow,.home .hero .sub b{color:#F4B53A;}
-    .home .hero .intro,.home .hero .sub,.home #mission p,.home #mission .lead{color:rgba(255,255,255,0.85);}
-    .home .hero .heroproof{color:#FFFFFF;}
-    .home #mission .key{color:#FFFFFF;border-left-color:#F0A500;}
-    .home .hero .btn--give,.home #mission .btn--give{background:#F0A500;border-color:#F0A500;color:#1a2332;}
-    .home .hero .btn--give:hover,.home #mission .btn--give:hover{background:#FFFFFF;border-color:#FFFFFF;color:#1a2332;}
-    .home .hero .btn--list,.home #mission .btn--list{color:#FFFFFF;border-color:rgba(255,255,255,0.55);}
-    .home .hero .btn--list:hover,.home #mission .btn--list:hover{border-color:#F0A500;color:#F4B53A;}
-    /* cartes/panels blancs sur fond vert : texte foncé conservé */
-    .home #mission .panel p{color:var(--text);}
-    .home #mission .panel .transp{color:var(--text-light);}
-    .home #mission .panel .btn--list{color:var(--green-deep);border-color:var(--green-deep);}
-    .home #mission .panel .btn--list:hover{border-color:var(--gold);color:var(--gold-deep);}
-    .home #mission .nmedia .src{color:var(--gold-deep);}
-    .home #mission .nmedia h3{color:var(--dark);}
-    .home #mission .nmedia p{color:var(--text-light);}
-
     @media (prefers-color-scheme: dark){
       .home{ --paper:#141E1B; --paper-2:#102A25; --card:#1B2A25; --text:#E7EDEA; --text-light:#AEBDB7; --line:#2C3A35; }
       .home{background:var(--paper);color:var(--text);}
@@ -414,7 +393,7 @@
     </section>
 
     <!-- 6 · PARRAINER -->
-    <section class="section" id="parrainer">
+    <section class="section section--alt" id="parrainer">
       <div class="wrap">
         <p class="eyebrow" data-i18n="parrainer.eyebrow">Parrainer un kilomètre</p>
         <h2 data-i18n="parrainer.title">1 900 km à parcourir.</h2>
