@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="light dark">
+  <meta name="color-scheme" content="light">
   <meta name="i18n-title" content="meta.tagline">
   <title>Association Neuro-Odyssée — 1 900 km pour se reconstruire</title>
   <meta name="description" content="1 900 km à pied de la Suisse à Santiago pour changer un regard : ce qu'on prend pour un manque de volonté est souvent un cerveau mal compris — et il peut se reconstruire. Soutenez la cause.">
@@ -104,6 +104,7 @@
   <!-- Style refonte cause (accueil) -->
   <style>
     :root{
+      color-scheme:light;
       --gold-deep:#D4920A; --line:#E2DCCF;
       --paper:var(--cream); --paper-2:#ECF1EE; --card:#FFFFFF;
       --maxw-home:1080px;
@@ -220,15 +221,6 @@
     @media(max-width:560px){.news{padding:34px 24px;}}
 
 
-    @media (prefers-color-scheme: dark){
-      .home{ --paper:#141E1B; --paper-2:#102A25; --card:#1B2A25; --text:#E7EDEA; --text-light:#AEBDB7; --line:#2C3A35; }
-      .home{background:var(--paper);color:var(--text);}
-      .home h1,.home h2,.home h3,.home .sub,.home .key,.stop .place,.sp b{color:#F3F6F4;}
-      .home .eyebrow,.home .sub b,.home .heroproof,.parrainage__proof{color:#5BC0AC;}
-      .btn--list{color:#5BC0AC;border-color:#5BC0AC;}
-      .ncard,.panel,.sp,.nmedia,.tier{background:var(--card);border-color:var(--line);}
-      .parrainage__bar{background:#26352F;}
-    }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
   </style>
 </head>
