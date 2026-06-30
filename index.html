@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
   <meta name="i18n-title" content="meta.tagline">
   <title>Association Neuro-Odyssée — 1 900 km pour se reconstruire</title>
-  <meta name="description" content="Roland Crettaz marche 1 900 km de la Suisse à Santiago pour prouver que cerveau atypique et comportements compensatoires ne sont pas une fatalité. Neuroplasticité, reconstruction, espoir.">
+  <meta name="description" content="1 900 km à pied de la Suisse à Santiago pour changer un regard : ce qu'on prend pour un manque de volonté est souvent un cerveau mal compris — et il peut se reconstruire. Soutenez la cause.">
   <meta property="og:title" content="Association Neuro-Odyssée — 1 900 km pour le prouver">
-  <meta property="og:description" content="Roland Crettaz marche 1 900 km de la Suisse à Santiago pour démontrer que le cerveau peut se reconstruire. Neuroplasticité, reconstruction, espoir — documentés en temps réel.">
+  <meta property="og:description" content="Marcher 1 900 km de la Suisse à Santiago pour changer un regard sur le TDAH, les addictions et l'épuisement. Sensibiliser, accompagner, transmettre l'espoir.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.neuro-odyssee.com/">
   <meta property="og:image" content="https://www.neuro-odyssee.com/images/roland-crettaz.jpg">
   <meta property="og:site_name" content="Association Neuro-Odyssée">
   <meta property="og:locale" content="fr_FR">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Association Neuro-Odyssée — 1 900 km pour recâbler un cerveau">
-  <meta name="twitter:description" content="Roland Crettaz marche 1 900 km de la Suisse à Santiago pour prouver que le cerveau peut se reconstruire. Neuroplasticité, reconstruction, espoir.">
+  <meta name="twitter:title" content="Association Neuro-Odyssée — 1 900 km pour changer un regard">
+  <meta name="twitter:description" content="Marcher 1 900 km de la Suisse à Santiago pour sensibiliser au TDAH, aux addictions et à l'épuisement — et prouver que le cerveau se reconstruit.">
   <meta name="twitter:image" content="https://www.neuro-odyssee.com/images/roland-crettaz.jpg">
 
   <!-- Favicon -->
@@ -24,89 +25,57 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- Tailwind CSS -->
+  <!-- Tailwind CSS (nav/footer hérités) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'green-deep': '#1E6B5E',
-            'green-mid': '#2D8C7A',
-            'blue-ocean': '#3B9BB0',
-            'gold': '#F0A500',
-            'cream': '#F8F6F1',
-            'dark': '#1a2332',
-          },
-          fontFamily: {
-            'serif': ['Cormorant Garamond', 'Georgia', 'serif'],
-            'sans': ['Inter', 'system-ui', 'sans-serif'],
-          }
-        }
-      }
-    }
+    tailwind.config = { theme: { extend: {
+      colors: { 'green-deep':'#1E6B5E','green-mid':'#2D8C7A','blue-ocean':'#3B9BB0','gold':'#F0A500','cream':'#F8F6F1','dark':'#1a2332' },
+      fontFamily: { 'serif':['Cormorant Garamond','Georgia','serif'], 'sans':['Inter','system-ui','sans-serif'] }
+    } } }
   </script>
 
   <link rel="canonical" href="https://www.neuro-odyssee.com/">
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD (cause pure) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "NGO",
+        "@id": "https://www.neuro-odyssee.com/#association",
+        "name": "Association Neuro-Odyssée",
+        "url": "https://www.neuro-odyssee.com",
+        "logo": "https://www.neuro-odyssee.com/images/roland-crettaz.jpg",
+        "description": "Association à but non lucratif (Martigny, Valais) qui sensibilise et accompagne les personnes vivant avec un fonctionnement neurologique atypique et ses conséquences — TDAH, addictions, épuisement.",
+        "foundingDate": "2026-06-17",
+        "address": { "@type": "PostalAddress", "addressLocality": "Martigny", "addressRegion": "Valais", "addressCountry": "CH" },
+        "sameAs": [
+          "https://www.instagram.com/la_neuro_odyssee",
+          "https://www.youtube.com/@LaNeuro-Odyssee",
+          "https://www.facebook.com/share/1FAdwFuzDW/"
+        ]
+      },
+      {
         "@type": "Person",
         "@id": "https://www.neuro-odyssee.com/#roland",
         "name": "Roland Crettaz",
-        "url": "https://www.neuro-odyssee.com",
+        "description": "Fondateur de l'Association Neuro-Odyssée. Marcheur des 1 900 km de Saint-Maurice à Santiago de Compostela.",
         "image": "https://www.neuro-odyssee.com/images/roland-crettaz.jpg",
-        "description": "Coach neurosciences, marcheur 1 900 km Santiago, auteur, conférencier. Spécialiste TDAH, addictions et neuroplasticité. Basé en Valais, Suisse.",
-        "jobTitle": "Coach neurosciences & conférencier",
-        "knowsAbout": ["Neuroplasticité", "TDAH", "Addictions", "Neurosciences", "Chemin de Compostelle", "Nutrition cérébrale"],
-        "knowsLanguage": ["fr", "de", "en"],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Saint-Maurice",
-          "addressRegion": "Valais",
-          "addressCountry": "CH"
-        },
-        "sameAs": [
-          "https://www.instagram.com/neuroodyssee",
-          "https://www.youtube.com/@neuroodyssee"
-        ]
+        "memberOf": { "@id": "https://www.neuro-odyssee.com/#association" }
       },
       {
         "@type": "WebSite",
         "@id": "https://www.neuro-odyssee.com/#website",
         "url": "https://www.neuro-odyssee.com",
         "name": "Association Neuro-Odyssée",
-        "description": "1 900 km de Saint-Maurice à Santiago de Compostela pour reconstruire un cerveau. Journal de bord, neuroplasticité, TDAH, addictions.",
-        "inLanguage": ["fr", "en", "de", "it"],
-        "publisher": { "@id": "https://www.neuro-odyssee.com/#roland" }
-      },
-      {
-        "@type": "Service",
-        "@id": "https://www.neuro-odyssee.com/#coaching",
-        "name": "Coaching neurosciences — Roland Crettaz",
-        "provider": { "@id": "https://www.neuro-odyssee.com/#roland" },
-        "description": "Coaching personnalisé basé sur les neurosciences pour adultes TDAH, personnes en sortie d'addiction et victimes de burnout. Conférences d'entreprise sur la résilience.",
-        "serviceType": "Coaching neurosciences",
-        "areaServed": ["CH", "FR", "BE"],
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Services Roland Crettaz",
-          "itemListElement": [
-            { "@type": "Offer", "name": "Coaching individuel TDAH & addictions", "priceCurrency": "EUR" },
-            { "@type": "Offer", "name": "Conférence entreprise — Neuroplasticité & résilience", "priceCurrency": "EUR" },
-            { "@type": "Offer", "name": "Parrainage km Neuro-Odyssée", "price": "5", "priceCurrency": "EUR" }
-          ]
-        }
+        "description": "1 900 km de Saint-Maurice à Santiago de Compostela pour changer un regard sur le cerveau atypique. Sensibilisation, accompagnement, neuroplasticité.",
+        "inLanguage": ["fr", "en", "es", "it", "de"],
+        "publisher": { "@id": "https://www.neuro-odyssee.com/#association" }
       },
       {
         "@type": "FAQPage",
@@ -114,83 +83,205 @@
           {
             "@type": "Question",
             "name": "Qu'est-ce que la Neuro-Odyssée ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "La Neuro-Odyssée est un défi de 1 900 km à pied de Saint-Maurice (Suisse) à Santiago de Compostela, réalisé par Roland Crettaz pour se reconstruire après un diagnostic tardif de TDAH et des addictions, en s'appuyant sur la neuroplasticité."
-            }
+            "acceptedAnswer": { "@type": "Answer", "text": "La Neuro-Odyssée est une marche de 1 900 km de Saint-Maurice (Suisse) à Santiago de Compostela, portée par l'Association Neuro-Odyssée pour sensibiliser au fait qu'un TDAH, une addiction ou un épuisement ne sont pas un manque de volonté, et que le cerveau peut se reconstruire." }
           },
           {
             "@type": "Question",
             "name": "Qu'est-ce que la neuroplasticité ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "La neuroplasticité est la capacité prouvée du cerveau à former de nouvelles connexions neuronales à tout âge. La marche intensive déclenche la production de BDNF, une protéine qui favorise la création de nouveaux circuits cérébraux."
-            }
+            "acceptedAnswer": { "@type": "Answer", "text": "La neuroplasticité est la capacité prouvée du cerveau à former de nouvelles connexions neuronales à tout âge. La marche intensive déclenche la production de BDNF, une protéine qui favorise la création de nouveaux circuits cérébraux." }
           },
           {
             "@type": "Question",
             "name": "Comment soutenir l'Association Neuro-Odyssée ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Vous pouvez parrainer des kilomètres dès 5 €, faire un don libre, ou devenir partenaire entreprise (Bronze, Argent, Or, Platine) via la page Soutenir ou Sponsoring."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Roland Crettaz propose-t-il du coaching ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Oui. Roland propose un coaching individuel basé sur les neurosciences pour les adultes TDAH, les personnes en sortie d'addiction et les victimes de burnout, ainsi que des conférences en entreprise."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Quel est le parcours de la Neuro-Odyssée ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Le parcours de 1 900 km passe par Saint-Maurice, Lausanne, Genève, Le Puy-en-Velay, Conques, Cahors, Saint-Jean-Pied-de-Port, Pampelune, Burgos, León jusqu'à Santiago de Compostela."
-            }
+            "acceptedAnswer": { "@type": "Answer", "text": "Vous pouvez parrainer des kilomètres, faire un don libre, ou devenir partenaire entreprise. Les dons financent exclusivement le projet et la mission de l'association." }
           }
         ]
       }
     ]
   }
   </script>
+
+  <!-- Style refonte cause (accueil) -->
+  <style>
+    :root{
+      --gold-deep:#D4920A; --line:#E2DCCF;
+      --paper:var(--cream); --paper-2:#ECF1EE; --card:#FFFFFF;
+      --maxw-home:1080px;
+    }
+    /* Boutons escalier — 2 styles */
+    .btn--give{display:inline-block;font-family:'Inter',sans-serif;font-size:16px;font-weight:600;text-decoration:none;cursor:pointer;border-radius:8px;background:var(--green-deep);color:#fff;padding:16px 26px;border:2px solid var(--green-deep);transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;}
+    .btn--give:hover{background:var(--gold);border-color:var(--gold);color:var(--dark);transform:translateY(-2px);}
+    .btn--list{display:inline-block;font-family:'Inter',sans-serif;font-size:16px;font-weight:600;text-decoration:none;cursor:pointer;border-radius:8px;background:transparent;color:var(--green-deep);padding:14px 22px;border:2px solid var(--green-deep);transition:transform .15s ease, color .15s ease, border-color .15s ease;}
+    .btn--list:hover{border-color:var(--gold);color:var(--gold-deep);transform:translateY(-2px);}
+    .btn--give:focus-visible,.btn--list:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+
+    .home{font-family:'Inter',system-ui,sans-serif;color:var(--text);font-size:18px;line-height:1.65;background:var(--paper);}
+    .home .wrap{max-width:var(--maxw-home);margin:0 auto;padding:0 28px;}
+    .home .eyebrow{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--green-deep);margin:0 0 24px;}
+    .home .eyebrow b{color:var(--gold-deep);font-weight:600;}
+    .home h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(3rem,7vw,5.4rem);line-height:1.02;letter-spacing:-.01em;color:var(--dark);margin:0 0 26px;max-width:15ch;}
+    .home h2{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(2.3rem,5vw,3.6rem);line-height:1.06;color:var(--dark);margin:0 0 24px;max-width:22ch;}
+    .home h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.55rem;color:var(--dark);margin:14px 0 8px;}
+    .home p{margin:0 0 16px;}
+    .home .actions{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:8px;}
+    .home .section{padding:88px 0;}
+    .home .section--alt{background:var(--paper-2);}
+    .home .lead{max-width:56ch;color:var(--text-light);margin:0 0 42px;}
+    .home .sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.8vw,1.9rem);line-height:1.3;max-width:30ch;margin:0 0 22px;color:var(--dark);}
+    .home .sub b{color:var(--green-deep);font-weight:600;}
+    .home .intro{max-width:46ch;color:var(--text-light);margin:0 0 34px;font-size:17px;}
+    .home .heroproof{margin:30px 0 0;font-size:14px;font-weight:600;color:var(--green-deep);}
+    .home .heroproof::before{content:"✦ ";color:var(--gold);}
+    .home .key{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;color:var(--dark);border-left:3px solid var(--gold);padding-left:20px;margin:24px 0;max-width:30ch;line-height:1.3;}
+
+    .home .stage{position:relative;}
+    .home .rail{position:absolute;left:calc((100vw - var(--maxw-home))/2 + 28px);top:0;bottom:0;width:2px;pointer-events:none;}
+    @media(max-width:1140px){.home .rail{left:28px;}}
+    .home .rail::before{content:"";position:absolute;left:0;top:0;width:2px;height:100%;background:linear-gradient(var(--gold) 0%, var(--gold) 65%, rgba(240,165,0,.12) 100%);}
+    .home .content{padding-left:64px;}
+    @media(max-width:680px){.home .content{padding-left:30px;}}
+    .home .hero{padding:60px 0 74px;}
+
+    .parrainage{margin-top:10px;max-width:540px;}
+    .parrainage__head{display:flex;justify-content:space-between;align-items:baseline;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:12px;}
+    .parrainage__count b{color:var(--gold-deep);font-size:15px;}
+    .parrainage__bar{position:relative;height:9px;border-radius:6px;background:#E4E9E6;overflow:hidden;}
+    .parrainage__fill{position:absolute;left:0;top:0;height:100%;background:linear-gradient(90deg,var(--green-mid),var(--gold));border-radius:6px;width:0;}
+    .parrainage__ends{display:flex;justify-content:space-between;margin-top:10px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-light);}
+    .parrainage__hint{margin:14px 0 0;font-size:14px;font-style:italic;color:var(--text-light);}
+    .parrainage__proof{margin:9px 0 0;font-size:13px;font-weight:600;color:var(--green-deep);}
+    .parrainage__proof::before{content:"✦ ";color:var(--gold);}
+    .tiers{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;max-width:600px;}
+    .tier{font-family:'Inter',sans-serif;font-size:13px;border:1px solid var(--line);border-radius:8px;padding:9px 13px;color:var(--text);background:var(--card);}
+    .tier b{color:var(--gold-deep);font-weight:600;}
+    .tier--free{border-style:dashed;color:var(--text-light);}
+
+    .finance{list-style:none;padding:0;margin:8px 0 30px;max-width:60ch;}
+    .finance li{position:relative;padding:13px 0 13px 30px;border-top:1px solid var(--line);color:var(--text);}
+    .finance li:last-child{border-bottom:1px solid var(--line);}
+    .finance li::before{content:"";position:absolute;left:2px;top:20px;width:8px;height:8px;border-radius:50%;background:var(--gold);}
+
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+    .cards--2{grid-template-columns:repeat(2,1fr);}
+    @media(max-width:760px){.cards,.cards--2{grid-template-columns:1fr;}}
+    .ncard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+    .ncard .ic{font-size:28px;line-height:1;}
+    .ncard p{margin:0;color:var(--text-light);font-size:16px;}
+    .ncard .tag{display:inline-block;margin-top:14px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--gold-deep);}
+    .ncard .tag.blue{color:var(--blue-ocean);}
+    .ncard .badge{font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-light);border:1px solid var(--line);padding:3px 8px;border-radius:20px;}
+    .ncard .price{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--green-deep);margin-top:12px;}
+    .ncard .price s{color:var(--text-light);font-size:1.1rem;font-weight:400;margin-left:8px;}
+
+    .route{position:relative;margin:46px 0 36px;}
+    .route__line{position:absolute;left:0;right:0;top:6px;height:2px;background:var(--line);}
+    .route__stops{display:flex;justify-content:space-between;position:relative;gap:8px;}
+    .stop{flex:1;text-align:center;}
+    .stop .pt{width:14px;height:14px;border-radius:50%;background:var(--card);border:2px solid var(--gold);margin:0 auto 12px;}
+    .stop.start .pt,.stop.end .pt{background:var(--gold);}
+    .stop .km{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--gold-deep);display:block;}
+    .stop .place{font-size:14px;color:var(--dark);display:block;margin-top:2px;}
+    @media(max-width:680px){.route__stops{flex-direction:column;gap:0;}.route__line{left:6px;right:auto;top:0;bottom:0;width:2px;height:auto;}.stop{display:flex;align-items:center;gap:14px;text-align:left;padding:10px 0;}.stop .pt{margin:0;}}
+
+    .roland{display:grid;grid-template-columns:.8fr 1.2fr;gap:42px;align-items:start;}
+    @media(max-width:760px){.roland{grid-template-columns:1fr;}}
+    .roland__img{width:100%;border-radius:14px;border:1px solid var(--line);background:var(--paper-2);aspect-ratio:4/5;object-fit:cover;object-position:center top;}
+    .pullquote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.5rem,3vw,2rem);line-height:1.3;color:var(--green-deep);border-left:3px solid var(--gold);padding-left:22px;margin:0 0 24px;}
+    .story p{max-width:60ch;}
+
+    .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:34px;max-width:780px;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+    .panel .transp{font-size:14px;color:var(--text-light);border-top:1px solid var(--line);margin-top:22px;padding-top:18px;}
+
+    .sponsors{display:flex;flex-wrap:wrap;gap:16px;margin:30px 0;}
+    .sp{flex:1 1 180px;min-height:88px;background:var(--card);border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px;}
+    .sp b{font-size:15px;color:var(--dark);}
+    .sp small{color:var(--text-light);font-size:12px;margin-top:4px;}
+    .sp-tiers{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 28px;font-size:13px;color:var(--text-light);}
+    .sp-tiers span b{color:var(--gold-deep);font-weight:600;}
+
+    .nmedia{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;max-width:720px;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+    .nmedia .src{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--gold-deep);}
+
+    .news{background:linear-gradient(135deg,#0F3D35,#1E6B5E);color:#F4F6F4;border-radius:18px;padding:50px;}
+    .news h2{color:#fff;}
+    .news p,.news li{color:#EAF2EF;}
+    .news .eyebrow{color:var(--gold);}
+    .news ul{list-style:none;padding:0;margin:0 0 28px;max-width:48ch;}
+    .news li{padding:8px 0 8px 26px;position:relative;}
+    .news li::before{content:"→";position:absolute;left:0;color:var(--gold);}
+    .news .field{display:flex;flex-wrap:wrap;gap:12px;max-width:520px;}
+    .news input{flex:1 1 240px;padding:14px 16px;border:1px solid rgba(255,255,255,.3);border-radius:8px;background:rgba(255,255,255,.1);color:#fff;font-size:15px;font-family:inherit;}
+    .news input::placeholder{color:#CFE0DB;}
+    .news .btn--give{background:var(--gold);border-color:var(--gold);color:var(--dark);}
+    .news .btn--give:hover{background:#fff;border-color:#fff;}
+    .news small{display:block;margin-top:14px;color:#CFE0DB;font-size:13px;}
+    .news .social{margin-top:24px;font-size:14px;color:#CFE0DB;}
+    .news .social a{color:var(--gold);text-decoration:none;margin-right:16px;}
+    @media(max-width:560px){.news{padding:34px 24px;}}
+
+
+    /* === VERT GÉNÉREUX : hero + bandes alternées en vert, cartes blanches dessus === */
+    .home .hero{background:linear-gradient(135deg,#15302B 0%,#1E6B5E 100%);}
+    .home .section--alt{background:linear-gradient(150deg,#15463C 0%,#1E6B5E 100%);}
+    .home .hero h1,.home .hero .sub,.home .section--alt h2{color:#FFFFFF;}
+    .home .hero .eyebrow,.home .hero .eyebrow b,.home .section--alt .eyebrow,.home .hero .sub b{color:#F4B53A;}
+    .home .hero .intro,.home .hero .sub,.home .section--alt p,.home .section--alt .lead{color:rgba(255,255,255,0.85);}
+    .home .hero .heroproof{color:#FFFFFF;}
+    .home .section--alt .key{color:#FFFFFF;border-left-color:#F0A500;}
+    .home .hero .btn--give,.home .section--alt .btn--give{background:#F0A500;border-color:#F0A500;color:#1a2332;}
+    .home .hero .btn--give:hover,.home .section--alt .btn--give:hover{background:#FFFFFF;border-color:#FFFFFF;color:#1a2332;}
+    .home .hero .btn--list,.home .section--alt .btn--list{color:#FFFFFF;border-color:rgba(255,255,255,0.55);}
+    .home .hero .btn--list:hover,.home .section--alt .btn--list:hover{border-color:#F0A500;color:#F4B53A;}
+    /* cartes/panels blancs sur fond vert : texte foncé conservé */
+    .home .section--alt .panel p{color:var(--text);}
+    .home .section--alt .panel .transp{color:var(--text-light);}
+    .home .section--alt .panel .btn--list{color:var(--green-deep);border-color:var(--green-deep);}
+    .home .section--alt .panel .btn--list:hover{border-color:var(--gold);color:var(--gold-deep);}
+    .home .section--alt .nmedia .src{color:var(--gold-deep);}
+    .home .section--alt .nmedia h3{color:var(--dark);}
+    .home .section--alt .nmedia p{color:var(--text-light);}
+
+    @media (prefers-color-scheme: dark){
+      :root{ --paper:#141E1B; --paper-2:#102A25; --card:#1B2A25; --text:#E7EDEA; --text-light:#AEBDB7; --line:#2C3A35; }
+      .home{background:var(--paper);color:var(--text);}
+      .home h1,.home h2,.home h3,.home .sub,.home .key,.stop .place,.sp b{color:#F3F6F4;}
+      .home .eyebrow,.home .sub b,.home .heroproof,.parrainage__proof{color:#5BC0AC;}
+      .btn--list{color:#5BC0AC;border-color:#5BC0AC;}
+      .ncard,.panel,.sp,.nmedia,.tier{background:var(--card);border-color:var(--line);}
+      .parrainage__bar{background:#26352F;}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+  </style>
 </head>
 <body class="bg-cream">
 
-  <!-- ============================================
-       NAVBAR
-       ============================================ -->
+  <!-- ============================================ NAVBAR ============================================ -->
   <nav id="navbar" class="nav-glass">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <!-- Logo -->
       <a href="index.html" class="nav-logo" style="line-height:0; display:flex; align-items:center;">
         <svg viewBox="0 0 320 80" height="42" xmlns="http://www.w3.org/2000/svg" style="height:42px;width:auto;display:block;overflow:visible;">
-      <g transform="translate(0,0) scale(0.8)">
-        <circle cx="50" cy="50" r="48" fill="#1E6B5E"/>
-        <circle cx="50" cy="50" r="48" fill="none" stroke="#2D8C7A" stroke-width="1.5" opacity="0.5"/>
-        <path d="M 22 68 C 22 44,42 44,50 50 C 58 56,78 56,78 32" stroke="white" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-        <circle cx="34" cy="48" r="2.2" fill="white" opacity="0.35"/>
-        <circle cx="66" cy="52" r="2.2" fill="white" opacity="0.35"/>
-        <circle cx="22" cy="68" r="5.5" fill="white" opacity="0.9"/>
-        <circle cx="22" cy="68" r="3" fill="#1E6B5E"/>
-        <circle cx="50" cy="50" r="4.5" fill="white" opacity="0.6"/>
-        <circle cx="50" cy="50" r="2" fill="#1E6B5E"/>
-        <circle cx="78" cy="32" r="7" fill="#F0A500"/>
-        <circle cx="78" cy="32" r="3.5" fill="white" opacity="0.4"/>
-        <path d="M78 28.5 L79 31 L81.5 31 L79.5 32.8 L80.3 35.5 L78 33.8 L75.7 35.5 L76.5 32.8 L74.5 31 L77 31 Z" fill="white" opacity="0.85"/>
-      </g>
-      <g transform="translate(88,0)" font-family="Georgia,'Times New Roman',serif">
-        <text x="0" y="30" font-size="14" font-style="italic" fill="#2D8C7A" letter-spacing="1" opacity="0.9">Association</text>
-        <text x="0" y="54" font-size="26" font-weight="700" fill="#1E6B5E" letter-spacing="2">NEURO</text>
-        <line x1="0" y1="58" x2="148" y2="58" stroke="#F0A500" stroke-width="1.5" opacity="0.7"/>
-        <text x="0" y="74" font-size="18" font-weight="400" fill="#1a2332" letter-spacing="4">ODYSSÉE</text>
-      </g>
-    </svg>
+          <g transform="translate(0,0) scale(0.8)">
+            <circle cx="50" cy="50" r="48" fill="#1E6B5E"/>
+            <circle cx="50" cy="50" r="48" fill="none" stroke="#2D8C7A" stroke-width="1.5" opacity="0.5"/>
+            <path d="M 22 68 C 22 44,42 44,50 50 C 58 56,78 56,78 32" stroke="white" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+            <circle cx="34" cy="48" r="2.2" fill="white" opacity="0.35"/>
+            <circle cx="66" cy="52" r="2.2" fill="white" opacity="0.35"/>
+            <circle cx="22" cy="68" r="5.5" fill="white" opacity="0.9"/>
+            <circle cx="22" cy="68" r="3" fill="#1E6B5E"/>
+            <circle cx="50" cy="50" r="4.5" fill="white" opacity="0.6"/>
+            <circle cx="50" cy="50" r="2" fill="#1E6B5E"/>
+            <circle cx="78" cy="32" r="7" fill="#F0A500"/>
+            <circle cx="78" cy="32" r="3.5" fill="white" opacity="0.4"/>
+            <path d="M78 28.5 L79 31 L81.5 31 L79.5 32.8 L80.3 35.5 L78 33.8 L75.7 35.5 L76.5 32.8 L74.5 31 L77 31 Z" fill="white" opacity="0.85"/>
+          </g>
+          <g transform="translate(88,0)" font-family="Georgia,'Times New Roman',serif">
+            <text x="0" y="30" font-size="14" font-style="italic" fill="#2D8C7A" letter-spacing="1" opacity="0.9">Association</text>
+            <text x="0" y="54" font-size="26" font-weight="700" fill="#1E6B5E" letter-spacing="2">NEURO</text>
+            <line x1="0" y1="58" x2="148" y2="58" stroke="#F0A500" stroke-width="1.5" opacity="0.7"/>
+            <text x="0" y="74" font-size="18" font-weight="400" fill="#1a2332" letter-spacing="4">ODYSSÉE</text>
+          </g>
+        </svg>
       </a>
-
-      <!-- Desktop Nav -->
       <div class="nav-desktop hidden md:flex items-center gap-6">
         <a href="index.html" class="nav-link" data-page="index.html" data-i18n="nav.home">Accueil</a>
         <a href="la-cause.html" class="nav-link" data-page="la-cause.html" data-i18n="nav.la_cause">La Cause</a>
@@ -203,8 +294,6 @@
         <a href="media.html" class="nav-link" data-page="media.html">Médias</a>
         <a href="soutenir.html" class="btn-primary text-sm py-2 px-5" data-i18n="nav.soutenir">Soutenir</a>
       </div>
-
-      <!-- Language Switcher + Hamburger -->
       <div class="flex items-center gap-3">
         <div class="lang-switcher hidden md:flex">
           <button class="lang-btn active" data-lang="fr">FR</button>
@@ -213,62 +302,14 @@
           <button class="lang-btn" data-lang="it">IT</button>
           <button class="lang-btn" data-lang="de">DE</button>
         </div>
-        <button id="hamburger" class="hamburger md:hidden" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
+        <button id="hamburger" class="hamburger md:hidden" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
 
-  
-  <!-- SPONSORS TICKER -->
-  <div id="sponsorsTicker" style="background:#f8f9fa; border-bottom:1px solid rgba(0,0,0,0.1); padding:0.5rem 0; overflow:hidden; position:relative; z-index:40; min-height:40px;">
-    <div style="position:absolute;left:0;top:0;bottom:0;width:4rem;background:linear-gradient(to right,#f8f9fa,transparent);z-index:2;pointer-events:none;"></div>
-    <div style="position:absolute;right:0;top:0;bottom:0;width:4rem;background:linear-gradient(to left,#f8f9fa,transparent);z-index:2;pointer-events:none;"></div>
-    <div id="sponsorsTrack" style="display:inline-flex;align-items:center;white-space:nowrap;padding-left:50%;"></div>
-  </div>
-  <script>
-  (function() {
-    var nav = document.getElementById('navbar');
-    var ticker = document.getElementById('sponsorsTicker');
-    if (nav && ticker) {
-      ticker.style.marginTop = nav.offsetHeight + 'px';
-    }
-  })();
-  </script>
-  <style>
-    #sponsorsTrack { animation: sponsorScroll 20s linear infinite; }
-    #sponsorsTrack:hover { animation-play-state: paused; }
-    @keyframes sponsorScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-  </style>
-  <script>
-  (function() {
-    fetch('/api/sponsors.php')
-      .then(function(r){ return r.json(); })
-      .then(function(sponsors) {
-        if (!sponsors || !sponsors.length) return;
-        var track = document.getElementById('sponsorsTrack');
-        if (!track) return;
-        var all = sponsors.concat(sponsors);
-        track.style.paddingLeft = '0';
-        track.innerHTML = all.map(function(s) {
-          var logo = s.logo ? '<img src="' + s.logo + '" alt="' + s.name + '" style="max-height:28px;max-width:80px;object-fit:contain;vertical-align:middle;mix-blend-mode:multiply;">' : '';
-          var inner = '<span style="display:inline-flex;align-items:center;gap:0.4rem;">' + logo + '<span style="font-size:0.75rem;font-weight:700;color:#1a2332;">' + s.name + '</span></span>';
-          var dot = '<span style="color:rgba(0,0,0,0.2);margin:0 1.5rem;">·</span>';
-          return s.url
-            ? '<a href="' + s.url + '" target="_blank" rel="noopener" style="text-decoration:none;padding:0 0.5rem;">' + inner + '</a>' + dot
-            : '<span style="padding:0 0.5rem;">' + inner + '</span>' + dot;
-        }).join('');
-        track.style.animationDuration = Math.max(12, sponsors.length * 7) + 's';
-      }).catch(function(){});
-  })();
-  </script>
-
   <!-- Mobile Menu -->
   <div id="mobileMenu" class="mobile-menu">
-    <button id="mobileMenuClose" class="absolute top-6 right-6 text-white text-2xl" aria-label="Fermer">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
+    <button id="mobileMenuClose" class="absolute top-6 right-6 text-white text-2xl" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
     <a href="index.html" class="mobile-nav-link" data-i18n="nav.home">Accueil</a>
     <a href="la-cause.html" class="mobile-nav-link" data-i18n="nav.la_cause">La Cause</a>
     <a href="la-association.html" class="mobile-nav-link" data-i18n="nav.association">L'Association</a>
@@ -279,7 +320,6 @@
     <a href="sponsoring.html" class="mobile-nav-link" data-i18n="nav.sponsoring">Sponsoring</a>
     <a href="media.html" class="mobile-nav-link">Médias</a>
     <a href="soutenir.html" class="mobile-nav-link" data-i18n="nav.soutenir">Soutenir</a>
-    <!-- Mobile Lang -->
     <div class="lang-switcher mt-4">
       <button class="lang-btn active" data-lang="fr" style="color:white; border-color:rgba(255,255,255,0.3);">FR</button>
       <button class="lang-btn" data-lang="en" style="color:rgba(255,255,255,0.6); border-color:rgba(255,255,255,0.2);">EN</button>
@@ -289,877 +329,243 @@
     </div>
   </div>
 
-  <!-- ============================================
-       HERO SECTION
-       ============================================ -->
-  <section class="hero-bg relative min-h-screen flex items-center justify-center overflow-hidden">
-    <div class="hero-pattern"></div>
-    <!-- Subtle mountain silhouette SVG -->
-    <svg class="absolute bottom-0 left-0 right-0 w-full opacity-20" viewBox="0 0 1440 200" preserveAspectRatio="none" style="z-index:1;">
-      <path d="M0,200 L0,120 L120,60 L240,100 L360,40 L480,80 L600,20 L720,70 L840,30 L960,80 L1080,50 L1200,90 L1320,55 L1440,80 L1440,200 Z" fill="rgba(255,255,255,0.05)"/>
-      <path d="M0,200 L0,150 L180,100 L360,130 L540,80 L720,110 L900,70 L1080,100 L1260,80 L1440,110 L1440,200 Z" fill="rgba(255,255,255,0.04)"/>
-    </svg>
+  <main class="home">
 
-    <div class="hero-content relative z-10 text-center px-6 max-w-5xl mx-auto pt-24 pb-16">
-      <!-- Badge date + compteur -->
-      <div class="flex flex-col items-center gap-3 mb-8 animate-fadeInUp">
-        <span class="hero-badge">
-          <i class="fa-regular fa-calendar-check"></i>
-          <span data-i18n="hero.badge">Départ le 21 août 2026</span>
-        </span>
-        <!-- Compteur de jours -->
-        <div id="countdown" style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.1); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.2); border-radius:999px; padding:6px 20px;">
-          <i class="fa-solid fa-hourglass-half" style="color:var(--gold); font-size:0.85rem;"></i>
-          <span style="color:rgba(255,255,255,0.9); font-size:0.9rem; font-weight:500;">
-            <span id="countdown-days" style="color:var(--gold); font-weight:700; font-size:1.1rem; font-family:'Cormorant Garamond',serif;">—</span>
-            <span data-i18n="hero.countdown_label"> jours avant le départ</span>
-          </span>
-        </div>
-      </div>
+    <div class="stage">
+      <div class="rail" aria-hidden="true"></div>
 
-      <!-- Title -->
-      <h1 class="hero-title animate-fadeInUp animate-delay-1">
-        <span data-i18n="hero.title_line1">La Neuro-</span><span class="accent" data-i18n="hero.title_line2">Odyssée</span>
-      </h1>
-
-      <!-- Tagline -->
-      <p class="hero-tagline mt-4 mb-6 animate-fadeInUp animate-delay-2" data-i18n-html="hero.tagline">
-        Cerveau atypique, comportements compensatoires, reconstruction — tout est lié.<br>1 900 km pour le prouver.
-      </p>
-
-      <!-- Subtitle -->
-      <p class="hero-subtitle mx-auto mb-10 animate-fadeInUp animate-delay-3" data-i18n="hero.subtitle">
-        Roland Crettaz marche 1 900 km de St-Maurice à Santiago pour démontrer en temps réel que le cerveau peut se reconstruire — et que ce qui ressemble à des faiblesses de caractère cache souvent un fonctionnement neurologique mal compris.
-      </p>
-
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp animate-delay-4">
-        <a href="club.html" class="btn-primary">
-          <i class="fa-solid fa-compass"></i>
-          <span data-i18n="hero.cta_follow">Suivre l'aventure</span>
-        </a>
-        <a href="soutenir.html" class="btn-secondary">
-          <i class="fa-solid fa-heart"></i>
-          <span data-i18n="hero.cta_don">Soutenir le Projet</span>
-        </a>
-      </div>
-
-      <!-- Route visual hint -->
-      <div class="mt-16 flex items-center justify-center gap-3 text-white opacity-60 animate-fadeInUp animate-delay-5">
-        <span style="font-size:0.8rem; letter-spacing:0.15em; text-transform:uppercase; font-weight:600;">St-Maurice 🇨🇭</span>
-        <div style="flex:1; max-width:200px; height:1px; background:linear-gradient(90deg, transparent, rgba(240,165,0,0.6), transparent);"></div>
-        <span style="color:var(--gold); font-size:0.85rem;">✦ 1 900 km ✦</span>
-        <div style="flex:1; max-width:200px; height:1px; background:linear-gradient(90deg, transparent, rgba(240,165,0,0.6), transparent);"></div>
-        <span style="font-size:0.8rem; letter-spacing:0.15em; text-transform:uppercase; font-weight:600;">Santiago 🇪🇸</span>
-      </div>
-
-      <!-- Scroll hint -->
-      <div class="mt-12 animate-fadeInUp animate-delay-6" style="opacity:0.5;">
-        <a href="#stats" style="color:white; display:inline-flex; flex-direction:column; align-items:center; gap:0.5rem; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase;">
-          <span data-i18n="hero.scroll_hint">Découvrir le projet</span>
-          <i class="fa-solid fa-chevron-down" style="animation: bounce 2s infinite;"></i>
-        </a>
-      </div>
-    </div>
-    <style>
-      @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
-    </style>
-  </section>
-
-  <!-- ============================================
-       SPONSORS TICKER — Bandeau défilant (corps de page)
-       ============================================ -->
-  <div id="sponsorsTickerBody" style="display:none; background:#fff; border-top:1px solid rgba(0,0,0,0.07); border-bottom:1px solid rgba(0,0,0,0.07); padding:0.6rem 0; overflow:hidden; position:relative;">
-    <div style="position:absolute;left:0;top:0;bottom:0;width:5rem;background:linear-gradient(to right,#fff,transparent);z-index:2;pointer-events:none;"></div>
-    <div style="position:absolute;right:0;top:0;bottom:0;width:5rem;background:linear-gradient(to left,#fff,transparent);z-index:2;pointer-events:none;"></div>
-    <div id="sponsorsTrackBody" style="display:inline-flex;align-items:center;gap:0;white-space:nowrap;"></div>
-  </div>
-  <style>
-    #sponsorsTrackBody { animation: sponsorScroll 18s linear infinite; }
-    #sponsorsTrackBody:hover { animation-play-state: paused; }
-  </style>
-  <script>
-    (function() {
-      fetch('/api/sponsors.php')
-        .then(function(r) { return r.json(); })
-        .then(function(sponsors) {
-          if (!sponsors || !sponsors.length) return;
-          var ticker = document.getElementById('sponsorsTickerBody');
-          var track  = document.getElementById('sponsorsTrackBody');
-          var all = sponsors.concat(sponsors);
-          track.innerHTML = all.map(function(s) {
-            var logoHtml = s.logo
-              ? '<img src="' + s.logo + '" alt="' + s.name + '" style="max-height:32px;max-width:90px;object-fit:contain;vertical-align:middle;mix-blend-mode:multiply;">'
-              : '';
-            var inner = '<span style="display:inline-flex;align-items:center;gap:0.5rem;">'
-              + logoHtml
-              + '<span style="font-size:0.78rem;font-weight:700;color:#1a2332;letter-spacing:-0.01em;">' + s.name + '</span>'
-              + '</span>';
-            var sep = '<span style="color:rgba(0,0,0,0.15);font-size:1rem;margin:0 1.5rem;">·</span>';
-            return s.url
-              ? '<a href="' + s.url + '" target="_blank" rel="noopener" style="text-decoration:none;padding:0 1rem;">' + inner + '</a>' + sep
-              : '<span style="padding:0 1rem;">' + inner + '</span>' + sep;
-          }).join('');
-          ticker.style.display = 'block';
-          track.style.animationDuration = Math.max(10, sponsors.length * 6) + 's';
-        }).catch(function() {});
-    })();
-  </script>
-
-  <!-- ============================================
-       STATS BAR — Le Défi
-       ============================================ -->
-  <section id="stats" class="stats-bar">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row items-center justify-center">
-        <div class="stat-item flex-1">
-          <span class="stat-number" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:2.8rem; font-weight:700; color:var(--gold);">1 900 km</span>
-          <span class="stat-label">Le Défi</span>
-        </div>
-        <div class="stat-item flex-1">
-          <span class="stat-number" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:2.8rem; font-weight:700; color:var(--gold);">79 jours</span>
-          <span class="stat-label">De Marche</span>
-        </div>
-        <div class="stat-item flex-1">
-          <span class="stat-number" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:2.8rem; font-weight:700; color:var(--gold);">1 objectif</span>
-          <span class="stat-label">Santiago de Compostela</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       LE PROJET — 3 CARDS
-       ============================================ -->
-  <section class="py-24 px-6" style="background:var(--cream);">
-    <div class="max-w-6xl mx-auto">
-      <!-- Section header -->
-      <div class="text-center mb-16 reveal">
-        <span class="section-label justify-center" data-i18n="projet.section_label">Le Projet</span>
-        <h2 class="section-title mt-3" data-i18n="projet.title">Un défi physique, neurologique et humain</h2>
-        <p class="section-subtitle mx-auto mt-4 text-center" data-i18n="projet.subtitle">
-          Trois dimensions d'un même voyage : repousser les limites du corps, démontrer la plasticité du cerveau, et transmettre un message d'espoir.
-        </p>
-      </div>
-
-      <!-- 3 Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Card 1: Le Défi -->
-        <div class="card-feature reveal animate-delay-1">
-          <div class="card-icon" style="background:rgba(30,107,94,0.1);">
-            <span data-i18n="projet.card1_icon">🧭</span>
+      <!-- 1 · HERO -->
+      <section class="hero">
+        <div class="wrap content">
+          <p class="eyebrow">Départ le 21 août 2026 · <b id="cd">— jours avant le départ</b></p>
+          <h1 data-i18n="hero.h1">Ce n'est jamais un manque de volonté.</h1>
+          <p class="sub" data-i18n-html="hero.sub">C'est un cerveau mal compris — et il peut se reconstruire. <b>1&nbsp;900&nbsp;km à pied</b>, de la Suisse à Santiago, pour le prouver.</p>
+          <p class="intro" data-i18n="hero.intro">Roland Crettaz a traversé les addictions, l'effondrement, la reconstruction. Aujourd'hui il marche pour dire que c'est possible — à tout âge, malgré tout.</p>
+          <div class="actions">
+            <a href="#parrainer" class="btn--give" data-i18n="hero.cta_give">Soutenir le projet</a>
+            <a href="#suivre" class="btn--list" data-i18n="hero.cta_follow">Pas encore prêt ? Suivre l'aventure →</a>
           </div>
-          <h3 class="font-serif text-2xl mb-3" data-i18n="projet.card1_title">Le Défi</h3>
-          <p class="text-sm leading-relaxed" style="color:var(--text-light);" data-i18n="projet.card1_text">
-            1 900 km à pied, seul, du Valais suisse à la côte galicienne. Traversée de trois pays, des Alpes aux Pyrénées, jusqu'à l'Atlantique. Une aventure humaine hors du commun.
-          </p>
-          <div class="mt-5 flex items-center gap-2 text-xs font-bold" style="color:var(--green-mid); letter-spacing:0.08em; text-transform:uppercase;">
-            <span>🇨🇭 → 🇫🇷 → 🇪🇸</span>
-          </div>
+          <p class="heroproof" id="heroProof"></p>
         </div>
+      </section>
 
-        <!-- Card 2: La Science -->
-        <div class="card-feature reveal animate-delay-2">
-          <div class="card-icon" style="background:rgba(59,155,176,0.1);">
-            <span data-i18n="projet.card2_icon">🧠</span>
-          </div>
-          <h3 class="font-serif text-2xl mb-3" data-i18n="projet.card2_title">La Science</h3>
-          <p class="text-sm leading-relaxed" style="color:var(--text-light);" data-i18n="projet.card2_text">
-            La neuroplasticité démontre que le cerveau se reconfigure tout au long de la vie. La marche intensive génère du BDNF — une protéine qui favorise la croissance neuronale.
-          </p>
-          <div class="mt-5 inline-flex items-center gap-2 text-xs font-bold px-3 py-1 rounded-full" style="background:rgba(59,155,176,0.1); color:var(--blue-ocean);">
-            <i class="fa-solid fa-dna"></i> <span data-i18n="projet.badge_neuro">Neuroplasticité</span>
-          </div>
+      <!-- 2 · MISSION -->
+      <section class="section section--alt" id="mission">
+        <div class="wrap content">
+          <p class="eyebrow" data-i18n="mission.eyebrow">La mission</p>
+          <h2 data-i18n="mission.title">Marcher 1 900 km pour changer un regard.</h2>
+          <p data-i18n="mission.p1">Trop de personnes vivant avec un TDAH, une addiction ou un épuisement s'entendent dire qu'elles manquent de volonté. C'est faux — et c'est ce qui les enferme.</p>
+          <p data-i18n="mission.p2">L'association Neuro-Odyssée existe pour le faire savoir : ce qu'on prend pour un défaut de caractère est souvent un cerveau qui cherche à se réguler. Et un cerveau, ça se comprend — et ça se reconstruit.</p>
+          <p class="key" data-i18n="mission.reframe">Chaque kilomètre parrainé transforme une conviction en preuve : on peut se relever, et on n'avance pas seul.</p>
+          <p data-i18n="mission.outro">La marche démarre le 21 août 2026. Le compteur, lui, démarre maintenant.</p>
+          <div class="actions"><a href="#roland" class="btn--list" data-i18n="mission.cta">Découvrir l'histoire →</a></div>
         </div>
-
-        <!-- Card 3: Le Message -->
-        <div class="card-feature reveal animate-delay-3">
-          <div class="card-icon" style="background:rgba(240,165,0,0.1);">
-            <span data-i18n="projet.card3_icon">💬</span>
-          </div>
-          <h3 class="font-serif text-2xl mb-3" data-i18n="projet.card3_title">Le Message</h3>
-          <p class="text-sm leading-relaxed" style="color:var(--text-light);" data-i18n="projet.card3_text">
-            TDAH, alcool, médicaments, tabac : Roland Crettaz a tout traversé. Aujourd'hui il marche pour dire que la reconstruction est possible — à tout âge, malgré tout.
-          </p>
-          <div class="mt-5 inline-flex items-center gap-2 text-xs font-bold px-3 py-1 rounded-full" style="background:rgba(240,165,0,0.1); color:#b87a00;">
-            <i class="fa-solid fa-seedling"></i> <span data-i18n="projet.badge_tdah">TDAH & Addictions</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- CTA -->
-      <div class="text-center mt-12 reveal">
-        <a href="trajet.html" class="btn-green">
-          <i class="fa-solid fa-map-location-dot"></i>
-          <span data-i18n="projet.learn_more">En savoir plus</span>
-        </a>
-      </div>
+      </section>
     </div>
-  </section>
 
-  <!-- ============================================
-       POURQUOI TOUT EST LIÉ
-       ============================================ -->
-  <section class="py-24 px-6" style="background:#1a2332;">
-    <div class="max-w-3xl mx-auto">
-      <div class="text-center mb-12 reveal">
-        <span class="section-label justify-center" style="color:var(--gold);" data-i18n="lien.label">Comprendre</span>
-        <h2 class="section-title mt-3" style="color:white;" data-i18n="lien.title">Pourquoi tout est lié</h2>
-      </div>
-      <div class="reveal" style="font-size:1.08rem; line-height:1.85; color:rgba(255,255,255,0.82);">
-        <p style="margin-bottom:1.5rem;" data-i18n="lien.p1">
-          Le cerveau atypique (fonctionnement TDAH) cherche naturellement à compenser un manque de stimulation et de régulation émotionnelle. Ce n'est pas un manque de volonté. C'est de la neurologie.
-        </p>
-        <p style="margin-bottom:1.5rem;" data-i18n="lien.p2">
-          L'alcool, les médicaments, le tabac, la suractivité, la prise de risque excessive : ce sont des réponses à ce manque. Des tentatives du cerveau de s'autoréguler avec les outils disponibles.
-        </p>
-        <p style="margin-bottom:1.5rem; font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:700; color:white; line-height:1.4;" data-i18n="lien.p3">
-          Quand on comprend ça, tout change. On arrête de se battre contre soi-même. On commence à se comprendre.
-        </p>
-        <p style="color:var(--gold); font-weight:600;" data-i18n="lien.p4">
-          C'est ce message que Roland porte sur ces 1 900 km.
-        </p>
-      </div>
-      <div class="text-center mt-10 reveal">
-        <a href="la-cause.html" class="btn-primary">
-          <i class="fa-solid fa-brain"></i>
-          <span data-i18n="lien.cta">Découvrir la cause</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       SECTION 3 DIMENSIONS
-       ============================================ -->
-  <section class="py-24 px-6 bg-cream">
-    <div class="max-w-6xl mx-auto">
-
-      <!-- Intro -->
-      <div class="text-center mb-14 reveal">
-        <span class="section-label justify-center" data-i18n="dimensions.section_label">Un défi en trois dimensions</span>
-        <h2 class="section-title mt-3" data-i18n="dimensions.title">Physique, Neurologique &amp; Humain</h2>
-        <p class="section-subtitle mx-auto mt-4 text-center" style="max-width:680px;" data-i18n="dimensions.subtitle">
-          Trois dimensions d'un même voyage : repousser les limites du corps, démontrer la plasticité du cerveau, et transmettre un message d'espoir.
-        </p>
-        <p class="mt-4 mx-auto" style="max-width:720px; font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-style:italic; color:var(--text-light); line-height:1.8;" data-i18n="dimensions.intro_italic">
-          En parcourant ces 1 900 km, Roland ne teste pas seulement son endurance — il explore la capacité du système nerveux à se réorganiser face à l'effort prolongé, transformant la marche en une véritable étude clinique à ciel ouvert.
-        </p>
-      </div>
-
-      <!-- 3 cartes -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-        <!-- Physique -->
-        <div class="reveal" style="background:white; border-radius:1.5rem; padding:2.5rem; box-shadow:0 4px 30px rgba(0,0,0,0.07); border-top:4px solid var(--green-mid);">
-          <div style="width:56px; height:56px; background:linear-gradient(135deg,#e8f4f0,#d0ebe4); border-radius:1rem; display:flex; align-items:center; justify-content:center; font-size:1.6rem; margin-bottom:1.25rem;">🏃</div>
-          <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:var(--dark); margin-bottom:0.75rem;" data-i18n="dimensions.card_physique_title">Physique</h3>
-          <p style="color:var(--text-light); font-size:0.93rem; line-height:1.8;" data-i18n="dimensions.card_physique_text">
-            Au-delà de la distance, c'est la gestion de la récupération métabolique sur plus de 80 jours de marche qui est en jeu. Chaque étape est une leçon d'adaptation du corps humain.
-          </p>
-        </div>
-
-        <!-- Neurologique -->
-        <div class="reveal" style="background:white; border-radius:1.5rem; padding:2.5rem; box-shadow:0 4px 30px rgba(0,0,0,0.07); border-top:4px solid var(--gold);">
-          <div style="width:56px; height:56px; background:linear-gradient(135deg,#fef9e7,#fdedb0); border-radius:1rem; display:flex; align-items:center; justify-content:center; font-size:1.6rem; margin-bottom:1.25rem;">🧠</div>
-          <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:var(--dark); margin-bottom:0.75rem;" data-i18n="dimensions.card_neuro_title">Neurologique</h3>
-          <p style="color:var(--text-light); font-size:0.93rem; line-height:1.8;" data-i18n="dimensions.card_neuro_text">
-            Le mouvement bipède répétitif favorise un état de "flow". Des études montrent que la marche longue distance stimule la neurogenèse et renforce la connectivité entre les hémisphères — un puissant régulateur émotionnel pour un cerveau TDAH.
-          </p>
-        </div>
-
-        <!-- Humain -->
-        <div class="reveal" style="background:white; border-radius:1.5rem; padding:2.5rem; box-shadow:0 4px 30px rgba(0,0,0,0.07); border-top:4px solid #3B9BB0;">
-          <div style="width:56px; height:56px; background:linear-gradient(135deg,#e8f4f8,#c8e8f0); border-radius:1rem; display:flex; align-items:center; justify-content:center; font-size:1.6rem; margin-bottom:1.25rem;">🌍</div>
-          <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:var(--dark); margin-bottom:0.75rem;" data-i18n="dimensions.card_humain_title">Humain</h3>
-          <p style="color:var(--text-light); font-size:0.93rem; line-height:1.8;" data-i18n="dimensions.card_humain_text">
-            Le passage de l'effort individuel à la résonance collective. Le message de Roland devient un moteur pour ceux qui le suivent, prouvant que la volonté peut remodeler la biologie — et l'espoir, se transmettre.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Wave divider -->
-  <div class="wave-divider" style="margin-top:-2px;">
-    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#1a2332"/>
-    </svg>
-  </div>
-
-  <!-- ============================================
-       PROGRESS SECTION
-       ============================================ -->
-  <section class="py-20 px-6" style="background:#1a2332;">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-10 reveal">
-        <span class="section-label justify-center" style="color:var(--green-mid);" data-i18n="progress.section_label">Kilomètres Parrainés</span>
-        <h2 class="section-title mt-3" style="color:white;" data-i18n="progress.hero_title">1 900 km à parcourir</h2>
-        <p class="section-subtitle mx-auto mt-4 text-center" style="color:rgba(255,255,255,0.6);" data-i18n="progress.hero_subtitle">
-          Chaque kilomètre parrainé rapproche Roland de Santiago — et finance la logistique, l'équipement et le documentaire.
-        </p>
-      </div>
-
-      <!-- Barre de parcours visuelle -->
-      <div class="reveal">
-        <div class="flex justify-between items-center mb-3">
-          <span class="progress-label" style="color:var(--gold);">
-            <i class="fa-solid fa-location-dot mr-1"></i> St-Maurice (Suisse)
-          </span>
-          <span class="progress-label" style="color:rgba(255,255,255,0.5);">
-            Santiago de Compostela <i class="fa-solid fa-star ml-1" style="color:var(--gold);"></i>
-          </span>
-        </div>
-        <div class="progress-track" style="background:rgba(255,255,255,0.08); position:relative;">
-          <div class="progress-bar" style="width:0%; min-width:12px; background:linear-gradient(90deg,var(--green-mid),var(--gold)); transition:width 2s ease;"></div>
-        </div>
-      </div>
-
-      <!-- Étapes jalons -->
-      <div class="grid grid-cols-4 gap-2 mt-8 reveal">
-        <div class="text-center">
-          <div class="text-xs mb-1" style="color:rgba(255,255,255,0.5);">km 400</div>
-          <div class="h-1 rounded" style="background:rgba(255,255,255,0.1);"></div>
-          <div class="text-xs mt-1" style="color:rgba(255,255,255,0.35);">Le Puy-en-Velay</div>
-        </div>
-        <div class="text-center">
-          <div class="text-xs mb-1" style="color:rgba(255,255,255,0.5);">km 800</div>
-          <div class="h-1 rounded" style="background:rgba(255,255,255,0.1);"></div>
-          <div class="text-xs mt-1" style="color:rgba(255,255,255,0.35);">Cahors</div>
-        </div>
-        <div class="text-center">
-          <div class="text-xs mb-1" style="color:rgba(255,255,255,0.5);">km 1 200</div>
-          <div class="h-1 rounded" style="background:rgba(255,255,255,0.1);"></div>
-          <div class="text-xs mt-1" style="color:rgba(255,255,255,0.35);">Pyrénées</div>
-        </div>
-        <div class="text-center">
-          <div class="text-xs mb-1" style="color:var(--gold);">km 1 900 ✦</div>
-          <div class="h-1 rounded" style="background:rgba(240,165,0,0.3);"></div>
-          <div class="text-xs mt-1" style="color:var(--gold);">Santiago ⭐</div>
-        </div>
-      </div>
-
-      <!-- CTA -->
-      <div class="text-center mt-10 reveal">
-        <a href="sponsoring.html" class="btn-primary">
-          <i class="fa-solid fa-route"></i>
-          <span data-i18n="progress.cta">Parrainer des kilomètres</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Wave divider (reversed) -->
-  <div class="wave-divider" style="margin-bottom:-2px;">
-    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path d="M0,30 C360,0 1080,60 1440,30 L1440,0 L0,0 Z" fill="#1a2332"/>
-    </svg>
-  </div>
-
-  <!-- ============================================
-       ROLAND BIO SECTION
-       ============================================ -->
-  <section class="py-24 px-6 bg-cream">
-    <div class="max-w-6xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-        <!-- Photo Roland -->
-        <div class="reveal-left">
-          <div class="relative">
-            <div class="rounded-2xl overflow-hidden" style="aspect-ratio:4/5; max-width:440px; margin:0 auto; box-shadow:0 20px 60px rgba(30,107,94,0.25);">
-              <img
-                src="images/roland-crettaz.jpg"
-                alt="Roland Crettaz, fondateur de l'Association Neuro-Odyssée, au bord du lac Léman avec les Alpes en arrière-plan"
-                style="width:100%; height:100%; object-fit:cover; object-position:center top;"
-                loading="lazy"
-              >
-            </div>
-            <!-- Decorative quote card -->
-            <div style="position:absolute; bottom:-2rem; right:-1rem; max-width:280px; background:white; border-radius:1rem; padding:1.25rem; box-shadow:0 10px 30px rgba(0,0,0,0.15); border-left:4px solid var(--gold);" class="hidden lg:block">
-              <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.95rem; color:var(--dark); line-height:1.6;" data-i18n="roland.photo_quote">"Chaque pas est une thérapie. Le chemin m'a rendu à moi-même."</p>
-              <div style="margin-top:0.75rem; font-size:0.75rem; font-weight:700; color:var(--green-mid);" data-i18n="roland.quote_author">— Roland Crettaz</div>
+    <!-- 3 · ROLAND -->
+    <section class="section" id="roland">
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="roland.section_label">L'homme derrière le projet</p>
+        <div class="roland">
+          <img class="roland__img" src="images/roland-crettaz.jpg" alt="Roland Crettaz, fondateur de l'Association Neuro-Odyssée, au bord du lac Léman" loading="lazy" onerror="this.style.display='none'">
+          <div class="story">
+            <p class="pullquote" data-i18n="roland.photo_quote">« Chaque pas est une thérapie. Le chemin m'a rendu à moi-même. »</p>
+            <p data-i18n="roland.story_1">Il y a plus de vingt ans, l'alcool faisait partie de mon quotidien. Trop. Alors j'ai arrêté — pas parce que c'était facile, mais parce que continuer coûtait plus cher que changer. Puis les médicaments ont pris la place. J'ai arrêté encore. Des années plus tard, le tabac.</p>
+            <p data-i18n="roland.story_2">Mais les addictions n'étaient qu'une partie de l'histoire. Il y a eu les problèmes financiers. Le divorce. Les moments où tout vacille à l'intérieur pendant qu'on fait semblant d'aller bien.</p>
+            <p data-i18n="roland.story_3">Au lieu de fuir, j'ai commencé à observer. À comprendre pourquoi on tombe, pourquoi on répète, pourquoi on sait sans arriver à faire autrement. Je me suis formé — en nutrition, en neurosciences. Et en chemin, j'ai découvert que je vis avec un TDAH. Pas un diagnostic qui enferme : une clé qui ouvre.</p>
+            <p class="key" data-i18n="roland.story_key">Ce n'est jamais un manque de volonté. C'est un fonctionnement global.</p>
+            <p data-i18n="roland.story_5b">Le chemin vers Compostelle n'est pas qu'un défi. C'est un symbole : celui de la reconstruction, de la preuve qu'après des chutes, on peut avancer. Pas à pas.</p>
+            <p data-i18n="roland.story_5c">Soutenir ce projet, ce n'est pas soutenir un homme qui marche. C'est soutenir un message : rien n'est figé, on peut se relever, et comprendre comment on fonctionne peut changer une vie. Ce chemin est le mien. Mais ce message est universel.</p>
+            <div class="actions" style="margin-top:8px;">
+              <a href="#parrainer" class="btn--give" data-i18n="hero.cta_give">Soutenir le projet</a>
+              <a href="#suivre" class="btn--list" data-i18n="roland.cta_follow">Suivre l'aventure →</a>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Bio text -->
-        <div class="reveal-right">
-          <span class="section-label" data-i18n="roland.section_label">L'Homme Derrière le Projet</span>
-          <h2 class="section-title mt-3" data-i18n="roland.title">Roland Crettaz</h2>
-          <p class="mt-4 leading-relaxed" style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--text-light); font-style:italic;" data-i18n="roland.subtitle">
-            Né en Valais, Roland a vécu des décennies avec un TDAH non diagnostiqué, cherchant à combler ce manque dans l'alcool, les médicaments et la cigarette.
-          </p>
-
-          <!-- Tags -->
-          <div class="flex flex-wrap gap-2 mt-6">
-            <span style="background:rgba(240,165,0,0.1); color:#b87a00; font-size:0.75rem; font-weight:700; padding:0.3rem 0.8rem; border-radius:1rem; text-transform:uppercase; letter-spacing:0.08em;">TDAH</span>
-            <span style="background:rgba(45,140,122,0.1); color:var(--green-deep); font-size:0.75rem; font-weight:700; padding:0.3rem 0.8rem; border-radius:1rem; text-transform:uppercase; letter-spacing:0.08em;">Addictions</span>
-            <span style="background:rgba(59,155,176,0.1); color:var(--blue-ocean); font-size:0.75rem; font-weight:700; padding:0.3rem 0.8rem; border-radius:1rem; text-transform:uppercase; letter-spacing:0.08em;">Neuroplasticité</span>
-            <span style="background:rgba(30,107,94,0.1); color:var(--green-deep); font-size:0.75rem; font-weight:700; padding:0.3rem 0.8rem; border-radius:1rem; text-transform:uppercase; letter-spacing:0.08em;">Compostelle</span>
-          </div>
-
-          <div class="mt-8">
-            <a href="#mon-histoire" class="btn-green">
-              <i class="fa-solid fa-arrow-down"></i>
-              <span data-i18n="roland.cta_story">Lire mon histoire</span>
-            </a>
-          </div>
+    <!-- 4 · ASSOCIATION -->
+    <section class="section section--alt" id="assoc">
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="asso.badge">Association à but non lucratif · Martigny (VS)</p>
+        <h2 data-i18n="assoc.home_title">Une vraie structure derrière la marche.</h2>
+        <div class="panel">
+          <p style="margin-top:0;" data-i18n="roland.story_assoc">Ce projet a donné naissance à l'Association Neuro-Odyssée, à but non lucratif, basée à Martigny (Valais). Sa mission : sensibiliser et accompagner les personnes qui vivent avec un fonctionnement neurologique atypique et ses conséquences. La marche n'en est que le premier acte.</p>
+          <p class="transp" data-i18n="assoc.transparency">L'Association Neuro-Odyssée (à but non lucratif, Martigny) sensibilise et accompagne. Les dons financent exclusivement le projet et la mission de l'association.</p>
+          <div class="actions"><a href="la-association.html" class="btn--list" data-i18n="roland.assoc_cta">Découvrir l'association →</a></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================
-       MON HISTOIRE — ROLAND'S FULL STORY
-       ============================================ -->
-  <section id="mon-histoire" class="py-24 px-6" style="background:white;">
-    <div class="max-w-3xl mx-auto">
-      <div class="text-center mb-16 reveal">
-        <span class="section-label justify-center">Mon Histoire</span>
-        <h2 class="section-title mt-3" data-i18n="roland.story_title">Ce qui m'a mené ici</h2>
+    <!-- 5 · LE PROJET -->
+    <section class="section">
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="projet.section_label">Le projet</p>
+        <h2 data-i18n="projet.title">Un défi physique, neurologique et humain.</h2>
+        <p class="lead" data-i18n="projet.subtitle">Trois dimensions d'un même voyage : repousser les limites du corps, démontrer la plasticité du cerveau, transmettre un message d'espoir.</p>
+        <div class="cards">
+          <div class="ncard"><div class="ic">🧭</div><h3 data-i18n="projet.card1_title">Le Défi</h3><p data-i18n="projet.card1_text">1 900 km à pied, du Valais suisse à la côte galicienne. Trois pays, des Alpes aux Pyrénées jusqu'à l'Atlantique.</p><span class="tag">🇨🇭 → 🇫🇷 → 🇪🇸</span></div>
+          <div class="ncard"><div class="ic">🧠</div><h3 data-i18n="projet.card2_title">La Science</h3><p data-i18n="projet.card2_text">La neuroplasticité montre que le cerveau se reconfigure toute la vie. La marche intensive génère du BDNF, qui favorise la croissance neuronale.</p><span class="tag blue" data-i18n="projet.badge_neuro">Neuroplasticité</span></div>
+          <div class="ncard"><div class="ic">💬</div><h3 data-i18n="projet.card3_title">Le Message</h3><p data-i18n="projet.card3_text">TDAH, alcool, médicaments, tabac : Roland a tout traversé. Aujourd'hui il marche pour dire que la reconstruction est possible — à tout âge.</p><span class="tag" data-i18n="projet.badge_tdah">TDAH &amp; Addictions</span></div>
+        </div>
       </div>
+    </section>
 
-      <div class="reveal" style="font-size:1.05rem; line-height:1.9; color:var(--text);">
+    <!-- 6 · PARRAINER -->
+    <section class="section" id="parrainer">
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="parrainer.eyebrow">Parrainer un kilomètre</p>
+        <h2 data-i18n="parrainer.title">1 900 km à parcourir.</h2>
+        <p class="lead" data-i18n="parrainer.lead">Chaque kilomètre parrainé rapproche Roland de Santiago — et finance la logistique, l'équipement et le documentaire.</p>
 
-        <!-- Acte 1 — La décision -->
-        <p style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:700; color:var(--dark); line-height:1.4;" data-i18n="roland.story_opening">
-          Il y a plus de vingt ans, j'ai pris une décision qui a changé ma vie.
-        </p>
-
-        <p class="mt-6" data-i18n="roland.story_1a">
-          À cette époque, l'alcool faisait partie de mon quotidien. Pas "un peu". Trop. Suffisamment pour comprendre que si je ne faisais rien… j'allais me perdre.
-        </p>
-
-        <p class="mt-4" style="font-weight:600; color:var(--dark);" data-i18n="roland.story_1b">Alors j'ai arrêté.</p>
-
-        <p class="mt-4" data-i18n="roland.story_1c">
-          Pas parce que c'était facile. Mais parce qu'à un moment, continuer coûte plus cher que changer.
-        </p>
-
-        <p class="mt-4" data-i18n="roland.story_1d">
-          Comme souvent, quand on enlève une addiction… une autre prend la place. Les médicaments sont arrivés. Pendant deux ans, j'ai avancé comme ça. Jusqu'au jour où j'ai compris que ce n'était pas une solution — juste une autre fuite.
-        </p>
-
-        <p class="mt-4" style="font-weight:600; color:var(--dark);" data-i18n="roland.story_1e">Alors j'ai arrêté. Encore.</p>
-
-        <p class="mt-4" data-i18n="roland.story_1f">Et des années plus tard, j'ai fait la même chose avec le tabac.</p>
-
-        <!-- Séparateur -->
-        <div style="width:60px; height:3px; background:var(--gold); margin:2.5rem auto; border-radius:2px;"></div>
-
-        <!-- Acte 2 — Les épreuves -->
-        <p data-i18n="roland.story_2a">
-          Mais la vérité, c'est que les addictions n'étaient qu'une partie de l'histoire.
-        </p>
-
-        <p class="mt-4" data-i18n="roland.story_2b">
-          Il y a eu les problèmes financiers. Les périodes où tout s'effondre et où tu ne sais plus comment t'en sortir.
-        </p>
-
-        <p class="mt-4" data-i18n="roland.story_2c">
-          Il y a eu le divorce. Les remises en question profondes. Les moments de solitude où tu te retrouves face à toi-même… sans échappatoire.
-        </p>
-
-        <p class="mt-4" data-i18n="roland.story_2d">
-          Des moments où tu encaisses. Où tu fais semblant d'aller bien. Où tu continues d'avancer… alors que tout à l'intérieur vacille.
-        </p>
-
-        <!-- Séparateur -->
-        <div style="width:60px; height:3px; background:var(--gold); margin:2.5rem auto; border-radius:2px;"></div>
-
-        <!-- Acte 3 — Le pivot -->
-        <p style="font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:700; color:var(--dark); line-height:1.4;" data-i18n="roland.story_3a">
-          Et c'est justement là que quelque chose s'est passé.
-        </p>
-
-        <p class="mt-6" data-i18n="roland.story_3b">
-          Au lieu de fuir… j'ai commencé à observer. À comprendre. Pourquoi on tombe. Pourquoi on répète. Pourquoi on sait… mais on n'arrive pas à faire autrement.
-        </p>
-
-        <p class="mt-4" style="font-weight:600; color:var(--dark);" data-i18n="roland.story_3c">
-          Je n'ai plus voulu "tenir". J'ai voulu comprendre l'humain.
-        </p>
-
-        <p class="mt-4" data-i18n="roland.story_3d">
-          Alors je me suis formé. En nutrition — pour comprendre l'impact du microbiote, de l'alimentation et de l'énergie sur le cerveau. En neurosciences — pour comprendre les comportements, les schémas, les blocages.
-        </p>
-
-        <p class="mt-4" data-i18n="roland.story_3e">
-          Et en chemin, j'ai découvert quelque chose sur moi-même : je vis avec un TDAH. Pas un diagnostic qui enferme — une clé qui ouvre. Parce qu'en comprenant mon propre fonctionnement, j'ai compris celui des autres.
-        </p>
-
-        <blockquote style="border-left:3px solid var(--gold); padding:1rem 1.25rem; margin:2rem 0; background:rgba(240,165,0,0.04); border-radius:0 0.5rem 0.5rem 0;">
-          <p style="font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-style:italic; color:var(--dark); font-weight:600;" data-i18n="roland.story_3f">
-            Ce n'est jamais un manque de volonté. C'est un fonctionnement global.
-          </p>
-        </blockquote>
-
-        <!-- Séparateur -->
-        <div style="width:60px; height:3px; background:var(--gold); margin:2.5rem auto; border-radius:2px;"></div>
-
-        <!-- Acte 4 — Aujourd'hui -->
-        <p data-i18n="roland.story_4a">
-          Aujourd'hui, tout ce que j'ai traversé n'est pas un poids. C'est devenu une force. C'est devenu mon métier.
-        </p>
-
-        <p class="mt-4" data-i18n="roland.story_4b">
-          J'accompagne des personnes qui se sentent bloquées, épuisées, perdues dans leurs pensées, leurs émotions ou leurs comportements. Des personnes qui veulent reprendre le contrôle. Retrouver de la clarté. Sortir de ce mode survie qui les enferme.
-        </p>
-
-        <!-- Séparateur -->
-        <div style="width:60px; height:3px; background:var(--gold); margin:2.5rem auto; border-radius:2px;"></div>
-
-        <!-- Acte 5 — Le projet -->
-        <p style="font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:700; color:var(--dark); line-height:1.4;" data-i18n="roland.story_5a">
-          Le projet vers Saint-Jacques-de-Compostelle n'est pas un simple défi.
-        </p>
-
-        <p class="mt-6" data-i18n="roland.story_5b">
-          C'est un symbole — celui du chemin, de la reconstruction, de la preuve que même après des chutes, on peut avancer. Pas à pas.
-        </p>
-
-        <p class="mt-4" data-i18n="roland.story_5c">
-          Si tu soutiens ce projet, tu ne soutiens pas juste un homme qui marche. Tu soutiens un message :
-        </p>
-
-        <blockquote style="border-left:3px solid var(--green-mid); padding:1rem 1.25rem; margin:2rem 0; background:rgba(30,107,94,0.04); border-radius:0 0.5rem 0.5rem 0;">
-          <p style="font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:600; color:var(--dark); line-height:1.7;" data-i18n="roland.story_5d">
-            Que rien n'est figé. Que l'on peut se relever, même après s'être perdu. Et que comprendre comment on fonctionne… peut changer toute une vie.
-          </p>
-        </blockquote>
-
-        <p class="mt-4" style="font-style:italic; color:var(--text-light);" data-i18n="roland.story_5e">
-          Peut-être que ce chemin est le mien. Mais ce message est universel.
-        </p>
-
-        <!-- Acte 6 — L'association -->
-        <div style="margin-top:2.5rem; padding:1.75rem 2rem; background:rgba(30,107,94,0.06); border:1px solid rgba(30,107,94,0.15); border-radius:1rem;">
-          <div style="display:inline-flex; align-items:center; gap:0.5rem; margin-bottom:0.9rem; padding:0.3rem 0.85rem; background:rgba(240,165,0,0.12); border:1px solid rgba(240,165,0,0.3); border-radius:50px; font-size:0.7rem; font-weight:700; color:#b87a00; letter-spacing:0.04em;">
-            <i class="fa-solid fa-shield-heart"></i>
-            <span data-i18n="asso.badge">Association à but non lucratif · Martigny (VS)</span>
+        <div class="parrainage" aria-label="objectif de parrainage">
+          <div class="parrainage__head">
+            <span id="parrLabel" data-i18n="parrainer.goal_label">Objectif du périple</span>
+            <span class="parrainage__count" id="parrCount"><b>1&nbsp;900</b> <span data-i18n="parrainer.goal_unit">km à financer</span></span>
           </div>
-          <p style="margin:0 0 1.1rem; color:var(--text); line-height:1.8;" data-i18n="roland.story_assoc">
-            Ce projet a donné naissance à une vraie structure : l'Association Neuro-Odyssée, à but non lucratif, basée à Martigny (Valais). Sa mission : sensibiliser et accompagner les personnes qui vivent avec un fonctionnement neurologique atypique et ses conséquences. La marche n'en est que le premier acte.
-          </p>
-          <a href="la-association.html" style="display:inline-flex; align-items:center; gap:0.5rem; color:var(--green-mid); font-weight:600; font-size:0.9rem; text-decoration:none;">
-            <span data-i18n="roland.assoc_cta">Découvrir l'association</span> <i class="fa-solid fa-arrow-right" style="font-size:0.75rem;"></i>
-          </a>
+          <div class="parrainage__bar"><span class="parrainage__fill" id="parrFill"></span></div>
+          <div class="parrainage__ends"><span>St-Maurice 🇨🇭</span><span>Santiago 🇪🇸</span></div>
+          <p class="parrainage__hint" id="parrHint"></p>
+          <p class="parrainage__proof" id="parrProof"></p>
         </div>
-      </div>
 
-      <!-- CTA -->
-      <div class="text-center mt-12 reveal">
-        <a href="soutenir.html" class="btn-green" style="font-size:1.1rem; padding:1rem 2.5rem;">
-          <i class="fa-solid fa-heart"></i>
-          <span data-i18n="roland.cta_support">Soutenir le projet</span>
-        </a>
-        <div class="mt-4">
-          <a href="journal.html" style="color:var(--green-mid); font-size:0.9rem; text-decoration:underline; text-underline-offset:3px;" data-i18n="roland.cta_journal">Lire le Journal</a>
-        </div>
-      </div>
-    </div>
-  </section>
-      </div>
-    </div>
-  </section>
+        <p style="font-weight:600;margin:38px 0 4px;color:var(--dark);" data-i18n="parrainer.finance_intro">Ce que finance votre parrainage</p>
+        <ul class="finance">
+          <li data-i18n="parrainer.fin1">Sensibiliser le grand public et les proches, étape après étape.</li>
+          <li data-i18n="parrainer.fin2">Soutenir les actions de l'association en faveur des cerveaux atypiques.</li>
+          <li data-i18n="parrainer.fin3">Porter le message au-delà des frontières — de la Suisse jusqu'à Santiago.</li>
+        </ul>
 
-  <!-- ============================================
-       DOCUMENTARY & BOOK — CINEMATIC BANNER
-       ============================================ -->
-  <section class="cinematic-banner py-24 px-6">
-    <div class="max-w-6xl mx-auto relative z-10">
-      <div class="text-center mb-16 reveal">
-        <span class="section-label justify-center" style="color:var(--green-mid);" data-i18n="docu.section_label">Sur Scène et à l'Écran</span>
-        <h2 class="section-title mt-3" style="color:white;" data-i18n="docu.title">Un Documentaire, Un Livre</h2>
-        <p class="section-subtitle mx-auto mt-4 text-center" style="color:rgba(255,255,255,0.6);" data-i18n="docu.subtitle">
-          Le voyage sera documenté en temps réel. Une œuvre qui raconte la reconstruction — pas seulement la marche.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Documentary -->
-        <div class="reveal" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:1rem; padding:2rem; backdrop-filter:blur(8px);">
-          <div class="mb-4 text-4xl">🎬</div>
-          <div class="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3" style="background:rgba(240,165,0,0.15); color:var(--gold); text-transform:uppercase; letter-spacing:0.1em;" data-i18n="docu.coming_soon">À venir</div>
-          <h3 class="font-serif text-2xl text-white mb-3" data-i18n="docu.docu_title">Le Documentaire</h3>
-          <p style="color:rgba(255,255,255,0.6); font-size:0.95rem; line-height:1.8;" data-i18n="docu.docu_text">
-            Caméra sur l'épaule, Roland filme son quotidien de marcheur : les aurores en montagne, les conversations avec d'autres pèlerins.
-          </p>
-          <!-- Video placeholder -->
-          <div class="yt-placeholder mt-5">
-            <div class="yt-play-btn">
-              <i class="fa-solid fa-play" style="margin-left:3px;"></i>
-            </div>
-            <div style="position:absolute; bottom:1rem; left:1rem; color:rgba(255,255,255,0.5); font-size:0.75rem;" data-i18n="docu.trailer_soon">Bande-annonce — bientôt</div>
+        <div class="route" aria-label="étapes du trajet">
+          <div class="route__line"></div>
+          <div class="route__stops">
+            <div class="stop start"><span class="pt"></span><span class="km">km 0</span><span class="place">St-Maurice 🇨🇭</span></div>
+            <div class="stop"><span class="pt"></span><span class="km">km 400</span><span class="place">Le Puy-en-Velay</span></div>
+            <div class="stop"><span class="pt"></span><span class="km">km 800</span><span class="place">Cahors</span></div>
+            <div class="stop"><span class="pt"></span><span class="km">km 1 200</span><span class="place">Pyrénées</span></div>
+            <div class="stop end"><span class="pt"></span><span class="km">km 1 900 ✦</span><span class="place">Santiago 🇪🇸</span></div>
           </div>
         </div>
 
-        <!-- Books column -->
-        <div class="reveal animate-delay-2 flex flex-col gap-5">
+        <div class="tiers">
+          <span class="tier">1 km — <b>CHF 25.–</b></span>
+          <span class="tier"><span data-i18n="parrainer.tier_step">une étape</span> · 25 km — <b>CHF 625.–</b></span>
+          <span class="tier"><span data-i18n="parrainer.tier_leg">un tronçon</span> · 100 km — <b>CHF 2 500.–</b></span>
+          <span class="tier tier--free" data-i18n="parrainer.tier_free">montant libre</span>
+        </div>
+        <div class="actions"><a href="soutenir.html" class="btn--give" data-i18n="hero.cta_give_km">Parrainer un kilomètre</a></div>
+      </div>
+    </section>
 
-          <!-- Future book — À venir -->
-          <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:1rem; padding:1.75rem; backdrop-filter:blur(8px);">
-            <div class="mb-3 text-3xl">📖</div>
-            <div class="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3" style="background:rgba(240,165,0,0.15); color:var(--gold); text-transform:uppercase; letter-spacing:0.1em;" data-i18n="docu.coming_soon">À venir</div>
-            <h3 class="font-serif text-xl text-white mb-2" data-i18n="docu.book_title">Le Livre du Périple</h3>
-            <p style="color:rgba(255,255,255,0.6); font-size:0.9rem; line-height:1.75;" data-i18n="docu.book_text">
-              Un récit de voyage intérieur autant qu'extérieur. Mêlant neuroscience vulgarisée et témoignage personnel — en cours d'écriture sur le chemin.
-            </p>
-          </div>
-
-          <!-- Divider with label -->
-          <div style="display:flex; align-items:center; gap:0.75rem;">
-            <div style="flex:1; height:1px; background:rgba(255,255,255,0.1);"></div>
-            <span style="font-size:0.7rem; color:rgba(255,255,255,0.3); text-transform:uppercase; letter-spacing:0.15em; white-space:nowrap;" data-i18n="docu.already_published">Déjà publié par Roland</span>
-            <div style="flex:1; height:1px; background:rgba(255,255,255,0.1);"></div>
-          </div>
-
-          <!-- Existing book — Disponible -->
-          <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:1rem; padding:1.75rem; backdrop-filter:blur(8px);">
-            <div class="flex gap-4 items-start">
-              <!-- Book cover flip -->
-              <div style="flex-shrink:0; width:90px; perspective:600px;">
-                <div id="bookFlip" style="position:relative; width:90px; height:135px; transform-style:preserve-3d; transition:transform 0.6s; cursor:pointer;" onclick="this.style.transform=this.style.transform.includes('180')?'':'rotateY(180deg)'">
-                  <img src="images/livre-couverture.jpg" alt="Voyage au cœur de la résilience — couverture" style="position:absolute; width:100%; height:100%; object-fit:cover; border-radius:0.4rem; box-shadow:0 6px 20px rgba(0,0,0,0.5); backface-visibility:hidden;">
-                  <img src="images/livre-dos.jpg" alt="Voyage au cœur de la résilience — dos" style="position:absolute; width:100%; height:100%; object-fit:cover; border-radius:0.4rem; box-shadow:0 6px 20px rgba(0,0,0,0.5); backface-visibility:hidden; transform:rotateY(180deg);">
-                </div>
-                <p style="font-size:0.6rem; color:rgba(255,255,255,0.2); text-align:center; margin-top:0.3rem;">↻ retourner</p>
-              </div>
-              <!-- Info -->
-              <div style="flex:1;">
-                <div class="inline-block px-2 py-0.5 rounded-full text-xs font-bold mb-2" style="background:rgba(45,140,122,0.25); color:#6de0c8; text-transform:uppercase; letter-spacing:0.08em;" data-i18n="docu.book_available">Disponible</div>
-                <h3 class="font-serif text-lg text-white mb-0.5 leading-snug" data-i18n="docu.book_title_real">Voyage au cœur de la résilience</h3>
-                <p style="color:rgba(255,255,255,0.3); font-size:0.74rem; margin-bottom:0.6rem; font-style:italic;" data-i18n="docu.book_subtitle_real">Un chemin vers l'énergie positive</p>
-                <p style="color:rgba(255,255,255,0.55); font-size:0.82rem; line-height:1.6;" data-i18n="docu.book_text_real">
-                  Un guide puissant pour se relever, retrouver sa clarté intérieure et avancer avec plus de sens et de force.
-                </p>
-                <div style="font-size:0.72rem; color:rgba(255,255,255,0.25); margin-top:0.5rem;">
-                  📅 <span data-i18n="docu.book_date_real">Déc. 2025</span> · 📄 342 <span data-i18n="docu.book_pages">pages</span>
-                </div>
-                <a href="https://amzn.eu/d/00fMSENV" target="_blank" rel="noopener" class="btn-primary mt-3 inline-flex" style="font-size:0.78rem; padding:0.5rem 1rem;">
-                  <i class="fa-brands fa-amazon"></i>
-                  <span data-i18n="docu.book_cta_real">Commander sur Amazon</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
+    <!-- 7 · DOCUMENTAIRE & LIVRE -->
+    <section class="section">
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="docu.section_label">Sur scène et à l'écran</p>
+        <h2 data-i18n="docu.title">Un documentaire, un livre.</h2>
+        <p class="lead" data-i18n="docu.subtitle">Le voyage sera documenté en temps réel. Une œuvre qui raconte la reconstruction — pas seulement la marche.</p>
+        <div class="cards cards--2">
+          <div class="ncard"><span class="badge" data-i18n="docu.coming_soon">À venir</span><h3 data-i18n="docu.docu_title">Le Documentaire</h3><p data-i18n="docu.docu_text">Caméra à l'épaule, Roland filme son quotidien de marcheur : les aurores en montagne, les rencontres avec d'autres pèlerins.</p><span class="tag" data-i18n="docu.trailer_soon">Bande-annonce — bientôt</span></div>
+          <div class="ncard"><span class="badge" data-i18n="docu.preorder_badge">Précommande</span><h3 data-i18n="docu.book_title">Le Livre du périple</h3><p data-i18n="docu.book_text">Un récit de voyage intérieur autant qu'extérieur, mêlant neuroscience vulgarisée et témoignage — écrit en chemin.</p><div class="price">CHF 29.90 <s>CHF 37.90</s></div><div class="actions" style="margin-top:12px;"><a href="soutenir.html" class="btn--give" style="padding:12px 20px;font-size:15px;" data-i18n="docu.preorder_cta">Précommander le livre</a></div></div>
         </div>
       </div>
+    </section>
 
-      <div class="text-center mt-10 reveal">
-        <a href="journal.html" class="btn-secondary">
-          <i class="fa-regular fa-bell"></i>
-          <span data-i18n="docu.cta_updates">Rester informé</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       PRESSE / MÉDIAS — ILS EN PARLENT
-       ============================================ -->
-  <section class="py-24 px-6" style="background:var(--cream);">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 reveal">
-        <span class="section-label justify-center" style="color:var(--green-mid);" data-i18n="media_home.label">Ils en parlent</span>
-        <h2 class="section-title mt-3" data-i18n="media_home.title">La Neuro-Odyssée dans les médias</h2>
-        <p class="section-subtitle mx-auto mt-4 text-center" data-i18n="media_home.subtitle">La presse relaie l'aventure de Roland Crettaz.</p>
-      </div>
-
-      <!-- Featured press card -->
-      <a href="article-carrefour.html" class="reveal press-card-home"
-         style="display:grid; grid-template-columns:auto 1fr; gap:2rem; align-items:center; background:white; border:1px solid rgba(0,0,0,0.08); border-radius:1.5rem; padding:2rem; max-width:760px; margin:0 auto; text-decoration:none; box-shadow:var(--shadow-md); transition:transform .3s, box-shadow .3s;">
-        <div style="flex-shrink:0; width:140px; border-radius:10px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,0.15);">
-          <img src="images/article-carrefour-neuro-odyssee-page1.jpg" alt="Article du journal Le Carrefour N°248 sur l'Association Neuro-Odyssée de Roland Crettaz" loading="lazy" style="width:100%; display:block;">
-        </div>
-        <div>
-          <div style="display:inline-flex; align-items:center; gap:0.4rem; background:rgba(30,107,94,0.1); border:1px solid rgba(30,107,94,0.25); border-radius:20px; padding:0.2rem 0.75rem; margin-bottom:0.6rem;">
-            <span style="width:6px; height:6px; background:var(--green-deep); border-radius:50%; display:inline-block;"></span>
-            <span style="font-size:0.68rem; font-weight:700; color:var(--green-deep); letter-spacing:0.08em; text-transform:uppercase;" data-i18n="media_home.badge">Le Carrefour · N°248 · Mai 2026</span>
-          </div>
-          <h3 class="font-serif" style="font-size:1.5rem; font-weight:700; color:var(--dark); margin-bottom:0.45rem; line-height:1.2;" data-i18n="media_home.article_title">1900 kilomètres pour re-câbler le cerveau</h3>
-          <p style="font-size:0.88rem; color:var(--text-light); line-height:1.6; margin-bottom:0.8rem;" data-i18n="media_home.article_text">Une rencontre de deux pages avec Roland Crettaz, suivie de l'entretien « Dix questions à… ».</p>
-          <span style="display:inline-flex; align-items:center; gap:0.5rem; color:var(--green-mid); font-weight:600; font-size:0.85rem;">
-            <span data-i18n="media_home.read">Lire l'article</span> <i class="fa-solid fa-arrow-right"></i>
-          </span>
-        </div>
-      </a>
-
-      <div class="text-center mt-10 reveal">
-        <a href="media.html" class="btn-secondary">
-          <i class="fa-regular fa-newspaper"></i>
-          <span data-i18n="media_home.cta">Voir tous les médias</span>
-        </a>
-      </div>
-    </div>
-  </section>
-  <style>
-    .press-card-home:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
-    @media (max-width: 560px) { .press-card-home { grid-template-columns:1fr !important; justify-items:center; text-align:center; } .press-card-home img { max-width:160px; } }
-  </style>
-
-  <!-- ============================================
-       SPONSORS PREVIEW
-       ============================================ -->
-  <section class="py-24 px-6 bg-white">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-14 reveal">
-        <span class="section-label justify-center" data-i18n="sponsors_preview.section_label">Nos Partenaires</span>
-        <h2 class="section-title mt-3" data-i18n="sponsors_preview.title">Rejoignez les Premiers Sponsors</h2>
-        <p class="section-subtitle mx-auto mt-4 text-center" data-i18n="sponsors_preview.subtitle">
-          Votre logo ici, sur le chemin de 1 900 km — dans les vidéos, dans le livre, dans le documentaire.
-        </p>
-      </div>
-
-      <!-- Sponsor logo grid -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-12 reveal">
-        <!-- Sponsor slots -->
-        <a href="https://neo.vivomixx.eu" target="_blank" rel="noopener" class="rounded-xl" style="aspect-ratio:auto; display:flex; flex-direction:column; align-items:center; justify-content:center; background:white; border:1px solid rgba(0,0,0,0.08); padding:0.75rem; gap:0.4rem; text-decoration:none;">
-          <img src="images/sponsors/web_vivomixx_neo_inline1.png" alt="Vivomixx neo — Mendes Swiss" style="max-width:100%; max-height:50px; object-fit:contain;">
-          <span style="font-size:0.7rem; font-weight:600; color:var(--dark); text-align:center; line-height:1.3;">Vivomixx neo</span>
-          <span style="font-size:0.65rem; color:var(--text-light); text-align:center; line-height:1.3;">Probiotiques et bien-être digestif</span>
-        </a>
-        <a href="https://www.iasmart.tech" target="_blank" rel="noopener" class="rounded-xl" style="aspect-ratio:auto; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#0d0d1a; border:1px solid rgba(0,0,0,0.08); padding:0.75rem; gap:0.4rem; text-decoration:none;">
-          <img src="images/sponsors/iasmart_logo.jpg" alt="IAsmart.tech" style="max-width:100%; max-height:50px; object-fit:contain; border-radius:4px;">
-          <span style="font-size:0.7rem; font-weight:600; color:#fff; text-align:center; line-height:1.3;">IAsmart.tech</span>
-          <span style="font-size:0.65rem; color:rgba(255,255,255,0.6); text-align:center; line-height:1.3;">Agence Web & Intelligence Artificielle</span>
-        </a>
-        <a href="https://cellula-pharm.com/fr/" target="_blank" rel="noopener" class="rounded-xl" style="aspect-ratio:auto; display:flex; flex-direction:column; align-items:center; justify-content:center; background:white; border:1px solid rgba(0,0,0,0.08); padding:0.75rem; gap:0.4rem; text-decoration:none;">
-          <img src="images/sponsors/logo_cellula_pharm.jpg" alt="Cellula Pharm" style="max-width:100%; max-height:50px; object-fit:contain;">
-          <span style="font-size:0.7rem; font-weight:600; color:var(--dark); text-align:center; line-height:1.3;">Cellula Pharm</span>
-          <span style="font-size:0.65rem; color:var(--text-light); text-align:center; line-height:1.3;">Cellular Health Laboratory</span>
-        </a>
-        <div class="img-placeholder-light rounded-xl" style="aspect-ratio:3/2; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.5rem; padding:1rem;">
-          <i class="fa-regular fa-image text-2xl" style="color:rgba(45,140,122,0.3);"></i>
-          <span class="text-xs font-semibold" style="color:rgba(45,140,122,0.5);" data-i18n="sponsors_preview.empty_slot">Votre logo</span>
-        </div>
-        <div class="img-placeholder-light rounded-xl" style="aspect-ratio:3/2; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.5rem; padding:1rem;">
-          <i class="fa-regular fa-image text-2xl" style="color:rgba(45,140,122,0.3);"></i>
-          <span class="text-xs font-semibold" style="color:rgba(45,140,122,0.5);" data-i18n="sponsors_preview.empty_slot">Votre logo</span>
-        </div>
-        <div class="img-placeholder-light rounded-xl" style="aspect-ratio:3/2; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.5rem; padding:1rem;">
-          <i class="fa-regular fa-image text-2xl" style="color:rgba(45,140,122,0.3);"></i>
-          <span class="text-xs font-semibold" style="color:rgba(45,140,122,0.5);" data-i18n="sponsors_preview.empty_slot">Votre logo</span>
-        </div>
-        <div class="img-placeholder-light rounded-xl" style="aspect-ratio:3/2; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.5rem; padding:1rem;">
-          <i class="fa-regular fa-image text-2xl" style="color:rgba(45,140,122,0.3);"></i>
-          <span class="text-xs font-semibold" style="color:rgba(45,140,122,0.5);" data-i18n="sponsors_preview.empty_slot">Votre logo</span>
+    <!-- 8 · MÉDIAS -->
+    <section class="section section--alt" id="media">
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="media_home.label">Ils en parlent</p>
+        <h2 data-i18n="media_home.title">La Neuro-Odyssée dans les médias.</h2>
+        <div class="nmedia">
+          <p class="src" data-i18n="media_home.badge">Le Carrefour · N°248 · Mai 2026</p>
+          <h3 style="margin-top:6px;" data-i18n="media_home.article_title">1 900 kilomètres pour re-câbler le cerveau</h3>
+          <p style="color:var(--text-light);margin:6px 0 0;" data-i18n="media_home.article_text">Une rencontre de deux pages avec Roland Crettaz, suivie de l'entretien « Dix questions à… ».</p>
+          <div class="actions"><a href="article-carrefour.html" class="btn--list" data-i18n="media_home.read">Lire l'article →</a></div>
         </div>
       </div>
+    </section>
 
-      <!-- Tier preview badges -->
-      <div class="flex flex-wrap justify-center gap-3 mb-10 reveal">
-        <span style="background:linear-gradient(135deg,#fdf3e7,#fff9f0); border:1.5px solid #cd7f32; color:#cd7f32; font-size:0.8rem; font-weight:700; padding:0.4rem 1rem; border-radius:0.5rem;">🥉 <span data-i18n="sponsors_preview.tier_bronze">Bronze — 1 à 50 km</span></span>
-        <span style="background:linear-gradient(135deg,#f5f6f7,#eef0f2); border:1.5px solid #a8b2be; color:#7a8895; font-size:0.8rem; font-weight:700; padding:0.4rem 1rem; border-radius:0.5rem;">🥈 <span data-i18n="sponsors_preview.tier_silver">Argent — 51 à 200 km</span></span>
-        <span style="background:linear-gradient(135deg,#fffbf0,#fff8e1); border:1.5px solid var(--gold); color:#b87a00; font-size:0.8rem; font-weight:700; padding:0.4rem 1rem; border-radius:0.5rem;">🥇 <span data-i18n="sponsors_preview.tier_gold">Or — 201 à 500 km</span></span>
-        <span style="background:linear-gradient(135deg,#f0f4ff,#e8f0fe); border:1.5px solid #7b93d3; color:#5c77c8; font-size:0.8rem; font-weight:700; padding:0.4rem 1rem; border-radius:0.5rem;">💎 <span data-i18n="sponsors_preview.tier_platinum">Platine — 500+ km</span></span>
-      </div>
-
-      <div class="text-center reveal">
-        <a href="sponsoring.html" class="btn-primary">
-          <i class="fa-solid fa-star"></i>
-          <span data-i18n="sponsors_preview.cta">Devenir Sponsor</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       NEWSLETTER — EBOOK GRATUIT
-       ============================================ -->
-  <section class="py-20 px-6" style="background:linear-gradient(135deg,#1E6B5E 0%,#164f45 100%);">
-    <div class="max-w-2xl mx-auto text-center reveal">
-      <div style="font-size:3rem; margin-bottom:1rem;">🤝</div>
-      <span class="section-label justify-center" style="color:rgba(255,255,255,0.5);" data-i18n="community.label">Rejoins la communauté</span>
-      <h2 class="section-title mt-3" style="color:white;" data-i18n="community.title">Vis l'aventure de l'intérieur</h2>
-      <p class="mt-4 mb-7" style="color:rgba(255,255,255,0.65); font-size:0.95rem; line-height:1.8; max-width:520px; margin-left:auto; margin-right:auto;" data-i18n="community.subtitle">
-        Inscris-toi et reçois chaque étape, des clés concrètes sur le cerveau — et ton ebook offert immédiatement.
-      </p>
-
-      <!-- Bénéfices -->
-      <div style="display:inline-flex; flex-direction:column; gap:0.6rem; text-align:left; margin-bottom:1.75rem;">
-        <div style="display:flex; align-items:flex-start; gap:0.6rem; color:rgba(255,255,255,0.85); font-size:0.92rem;"><i class="fa-solid fa-circle-check" style="color:#F0A500; margin-top:0.2rem;"></i> <span data-i18n="community.value1">Les coulisses de la préparation et de la marche, en temps réel</span></div>
-        <div style="display:flex; align-items:flex-start; gap:0.6rem; color:rgba(255,255,255,0.85); font-size:0.92rem;"><i class="fa-solid fa-circle-check" style="color:#F0A500; margin-top:0.2rem;"></i> <span data-i18n="community.value2">Des clés concrètes sur le cerveau, le TDAH et la reconstruction</span></div>
-        <div style="display:flex; align-items:flex-start; gap:0.6rem; color:rgba(255,255,255,0.85); font-size:0.92rem;"><i class="fa-solid fa-circle-check" style="color:#F0A500; margin-top:0.2rem;"></i> <span data-i18n="community.value3">Ton ebook « Tu fais tout bien… » offert dès l'inscription</span></div>
-      </div>
-
-      <form id="newsletterForm" style="display:flex; flex-direction:column; gap:0.75rem; max-width:440px; margin:0 auto;">
-        <input type="text" id="newsletterPrenom" name="prenom" placeholder="Votre prénom (optionnel)"
-          style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:8px; padding:0.85rem 1.1rem; color:white; font-size:0.95rem; outline:none;"
-          data-i18n-placeholder="newsletter.prenom_placeholder">
-        <div style="display:flex; gap:0.6rem;">
-          <input type="email" id="newsletterEmail" name="email" placeholder="Votre adresse email" required
-            style="flex:1; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:8px; padding:0.85rem 1.1rem; color:white; font-size:0.95rem; outline:none;"
-            data-i18n-placeholder="newsletter.email_placeholder">
-          <button type="submit" id="newsletterBtn"
-            style="background:#F0A500; color:#1a2332; border:none; border-radius:8px; padding:0.85rem 1.5rem; font-size:0.9rem; font-weight:700; cursor:pointer; white-space:nowrap; transition:opacity 0.2s;"
-            data-i18n="newsletter.cta">Recevoir l'ebook</button>
+    <!-- 9 · SPONSORS -->
+    <section class="section" id="sponsors">
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="sponsors.eyebrow">Partenaires</p>
+        <h2 data-i18n="sponsors.title">Ils soutiennent déjà la Neuro-Odyssée.</h2>
+        <p class="lead" data-i18n="sponsors.lead">Des partenaires engagés à nos côtés depuis le premier jour.</p>
+        <div class="sponsors">
+          <div class="sp"><b>Vivomixx neo</b><small>Probiotiques &amp; bien-être digestif</small></div>
+          <div class="sp"><b>IAsmart.tech</b><small>Agence Web &amp; IA</small></div>
+          <div class="sp"><b>Cellula Pharm</b><small>Cellular Health Laboratory</small></div>
         </div>
-        <p id="newsletterMsg" style="font-size:0.85rem; min-height:1.2rem; color:rgba(255,255,255,0.7);"></p>
-        <p style="font-size:0.78rem; color:rgba(255,255,255,0.4);" data-i18n="community.no_spam">Pas de spam — 1 à 2 nouvelles par mois. Désinscription en un clic.</p>
-      </form>
+        <h3 style="margin-top:46px;" data-i18n="sponsors.become_title">Devenir sponsor — parrainez des kilomètres</h3>
+        <p class="lead" style="margin-bottom:20px;" data-i18n="sponsors.become_lead">Votre logo sur le chemin de 1 900 km — dans les vidéos, le livre, le documentaire.</p>
+        <div class="sp-tiers">
+          <span>🥉 <b>Bronze</b> — 1 à 50 km</span><span>🥈 <b>Argent</b> — 51 à 200 km</span>
+          <span>🥇 <b>Or</b> — 201 à 500 km</span><span>💎 <b>Platine</b> — 500+ km</span>
+        </div>
+        <div class="actions"><a href="sponsoring.html" class="btn--list" data-i18n="sponsors.become_cta">Devenir sponsor →</a></div>
+      </div>
+    </section>
 
-      <!-- Suivre sur les réseaux -->
-      <div style="margin-top:2.25rem; padding-top:1.75rem; border-top:1px solid rgba(255,255,255,0.12);">
-        <p style="font-size:0.82rem; color:rgba(255,255,255,0.5); margin-bottom:0.9rem;" data-i18n="community.or_follow">Ou suis l'aventure au quotidien :</p>
-        <div style="display:flex; gap:0.75rem; justify-content:center;">
-          <a href="https://www.instagram.com/la_neuro_odyssee" target="_blank" rel="noopener" aria-label="Instagram" style="width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); display:inline-flex; align-items:center; justify-content:center; color:white; font-size:1.1rem; text-decoration:none;"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.youtube.com/@LaNeuro-Odyssee" target="_blank" rel="noopener" aria-label="YouTube" style="width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); display:inline-flex; align-items:center; justify-content:center; color:white; font-size:1.1rem; text-decoration:none;"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://www.facebook.com/share/1FAdwFuzDW/" target="_blank" rel="noopener" aria-label="Facebook" style="width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); display:inline-flex; align-items:center; justify-content:center; color:white; font-size:1.1rem; text-decoration:none;"><i class="fa-brands fa-facebook-f"></i></a>
+    <!-- 10 · SUIVRE -->
+    <section class="section" id="suivre">
+      <div class="wrap">
+        <div class="news">
+          <p class="eyebrow" data-i18n="community.label">Rejoindre la communauté</p>
+          <h2 data-i18n="community.title">Vis l'aventure de l'intérieur.</h2>
+          <ul>
+            <li data-i18n="community.value1">Les coulisses de la préparation et de la marche, en temps réel.</li>
+            <li data-i18n="community.value2b">Les avancées et les actions de l'association.</li>
+            <li data-i18n="community.value3b">Les étapes clés du chemin vers Santiago.</li>
+          </ul>
+          <form id="newsletterForm" class="field">
+            <input type="email" id="newsletterEmail" name="email" placeholder="Votre adresse e-mail" required aria-label="Votre adresse e-mail" data-i18n-placeholder="newsletter.email_placeholder">
+            <button type="submit" id="newsletterBtn" class="btn--give" data-i18n="community.cta">Suivre l'aventure</button>
+          </form>
+          <p id="newsletterMsg" style="min-height:1rem;margin:10px 0 0;color:#CFE0DB;font-size:13px;"></p>
+          <small data-i18n="community.no_spam">Pas de spam — 1 à 2 nouvelles par mois. Désinscription en un clic.</small>
+          <p class="social"><span data-i18n="community.or_follow">Ou suivez au quotidien :</span> <a href="https://www.instagram.com/la_neuro_odyssee" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@LaNeuro-Odyssee" target="_blank" rel="noopener">YouTube</a><a href="https://www.facebook.com/share/1FAdwFuzDW/" target="_blank" rel="noopener">Facebook</a></p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
+  </main>
 
-  <!-- ============================================
-       FOOTER
-       ============================================ -->
+  <!-- ============================================ FOOTER ============================================ -->
   <footer class="footer py-16 px-6">
     <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12" style="border-bottom:1px solid rgba(255,255,255,0.08);">
-
-        <!-- Brand -->
         <div class="md:col-span-2">
           <div class="footer-logo">Association <span>Neuro</span>-Odyssée</div>
           <p class="mt-3 text-sm leading-relaxed" style="color:rgba(255,255,255,0.5); max-width:320px;" data-i18n="footer.tagline">
             1 900 km pour se reconstruire — De St-Maurice à Santiago de Compostela
           </p>
-          <!-- Socials -->
           <div class="flex gap-3 mt-6">
             <a href="https://www.youtube.com/@LaNeuro-Odyssee" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
             <a href="https://www.instagram.com/la_neuro_odyssee" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.facebook.com/share/1FAdwFuzDW/" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            
-            
           </div>
           <div class="mt-6">
-            <div style="margin-bottom:0.6rem;"><div style="font-size:0.7rem; font-weight:700; color:rgba(255,255,255,0.35); text-transform:uppercase; letter-spacing:0.1em;">📘 Ebook offert</div><div style="font-size:0.82rem; font-style:italic; color:rgba(255,255,255,0.65); margin-top:0.2rem; line-height:1.4;">« Tu fais tout bien.<br>Alors pourquoi tu t'effondres&nbsp;? »</div></div>
+            <div style="font-size:0.78rem; font-weight:700; color:rgba(255,255,255,0.45); margin-bottom:0.4rem;" data-i18n="footer.news_title">Suivre l'aventure</div>
             <form id="footerNewsletter_index" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-              <input type="email" name="email" placeholder="Votre email" required
+              <input type="email" name="email" placeholder="Votre email" required data-i18n-placeholder="newsletter.email_placeholder"
                 style="flex:1; min-width:160px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:0.5rem 0.75rem; color:white; font-size:0.82rem; outline:none;">
               <button type="submit"
-                style="background:#F0A500; color:#1a2332; border:none; border-radius:6px; padding:0.5rem 1rem; font-size:0.8rem; font-weight:700; cursor:pointer; white-space:nowrap;">
-                Recevoir →
+                style="background:#F0A500; color:#1a2332; border:none; border-radius:6px; padding:0.5rem 1rem; font-size:0.8rem; font-weight:700; cursor:pointer; white-space:nowrap;" data-i18n="footer.news_cta">
+                Je suis →
               </button>
             </form>
             <p id="footerNewsletter_indexMsg" style="font-size:0.75rem; min-height:1rem; margin-top:0.4rem; color:rgba(255,255,255,0.5);"></p>
           </div>
         </div>
-
-        <!-- Navigation -->
         <div>
           <div class="footer-title" data-i18n="footer.nav_title">Navigation</div>
           <a href="index.html" class="footer-link" data-i18n="nav.home">Accueil</a>
+          <a href="la-cause.html" class="footer-link" data-i18n="nav.la_cause">La Cause</a>
           <a href="trajet.html" class="footer-link" data-i18n="nav.trajet">Le Trajet</a>
           <a href="journal.html" class="footer-link" data-i18n="nav.journal">Journal</a>
-          <a href="sponsoring.html" class="footer-link" data-i18n="nav.sponsoring">Sponsoring</a>
           <a href="soutenir.html" class="footer-link" data-i18n="nav.soutenir">Soutenir</a>
         </div>
-
-        <!-- Contact -->
         <div>
           <div class="footer-title" data-i18n="footer.contact_title">Contact</div>
           <a href="mailto:roland@neuro-odyssee.com" class="footer-link">
@@ -1168,7 +574,7 @@
           </a>
           <a href="https://www.instagram.com/la_neuro_odyssee" target="_blank" rel="noopener" class="footer-link">
             <i class="fa-brands fa-instagram mr-2" style="font-size:0.75rem;"></i>
-            <span data-i18n="footer.contact_instagram">@neuroodyssee</span>
+            <span data-i18n="footer.contact_instagram">@la_neuro_odyssee</span>
           </a>
           <a href="https://www.youtube.com/@LaNeuro-Odyssee" target="_blank" rel="noopener" class="footer-link">
             <i class="fa-brands fa-youtube mr-2" style="font-size:0.75rem;"></i>
@@ -1176,18 +582,16 @@
           </a>
         </div>
       </div>
-
-      <!-- Bottom bar -->
       <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
         <div class="text-sm" style="color:rgba(255,255,255,0.35);">
           © <span class="current-year"></span> <span data-i18n="footer.legal">Association Neuro-Odyssée · Martigny (Valais), Suisse</span> · <span data-i18n="footer.website">neuro-odyssee.com</span> — <span data-i18n="footer.rights">Tous droits réservés.</span>
         </div>
         <div class="text-sm" style="color:rgba(255,255,255,0.25);">
-          🇨🇭 Créé en Valais par <a href="https://iasmart.tech" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.45); text-decoration:underline; text-underline-offset:3px;">IAsmart.tech</a> · <a href="admin/" style="color:rgba(255,255,255,0.55); font-size:0.85rem; text-decoration:none;" title="Espace Roland">admin</a>
+          <span data-i18n="footer.credit">Réalisé par</span> <a href="https://iasmart.tech" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.45); text-decoration:underline; text-underline-offset:3px;">IAsmart.tech</a> · <a href="admin/" style="color:rgba(255,255,255,0.55); font-size:0.85rem; text-decoration:none;" title="Espace Roland">admin</a>
         </div>
       </div>
+      <div style="margin-top:0.85rem;"><a href="mentions-legales.html" data-i18n="footer.mentions" style="color:rgba(255,255,255,0.55); text-decoration:none; font-size:0.75rem;">Mentions légales</a></div>
     </div>
-  <div style="margin-top:0.85rem;"><a href="mentions-legales.html" data-i18n="footer.mentions" style="color:rgba(255,255,255,0.55); text-decoration:none; font-size:0.75rem;">Mentions légales</a></div>
   </footer>
 
   <!-- Scripts -->
@@ -1195,6 +599,34 @@
   <script src="js/main.js"></script>
   <script src="js/newsletter.js"></script>
   <script>
+    (function(){
+      var el=document.getElementById('cd'); if(!el) return;
+      var d=Math.max(0,Math.ceil((new Date('2026-08-21T00:00:00')-new Date())/86400000));
+      el.textContent=d+' jours avant le départ';
+    })();
+    (function(){
+      var kmFunded=0, supporters=3, kmGoal=1900, pricePerKm=25;
+      var preLaunch=(kmFunded<=0);
+      var chf=function(n){return 'CHF '+n.toLocaleString('fr-CH')+'.–';};
+      var fill=document.getElementById('parrFill'), label=document.getElementById('parrLabel'),
+          count=document.getElementById('parrCount'), hint=document.getElementById('parrHint'),
+          proof=document.getElementById('parrProof'), bar=document.querySelector('.parrainage__bar'),
+          heroProof=document.getElementById('heroProof');
+      var proofTxt = supporters>0 ? ('Déjà '+supporters+' partenaire'+(supporters>1?'s':'')+' à nos côtés.') : '';
+      if(heroProof){ if(proofTxt){heroProof.textContent=proofTxt;} else {heroProof.style.display='none';} }
+      if(proof){ if(proofTxt){proof.textContent=proofTxt;} else {proof.style.display='none';} }
+      if(!fill) return;
+      if(preLaunch){
+        if(label) label.textContent='Objectif du périple';
+        if(count) count.innerHTML='<b>1&nbsp;900</b> km à financer';
+        if(bar) bar.style.display='none'; if(hint) hint.style.display='none';
+      } else {
+        if(label) label.textContent='Kilomètres parrainés';
+        if(count) count.innerHTML='<b>'+kmFunded.toLocaleString('fr-CH')+'</b> / 1&nbsp;900 km';
+        fill.style.width=Math.max(kmFunded/kmGoal*100,2)+'%';
+        if(hint) hint.textContent='Encore '+(kmGoal-kmFunded).toLocaleString('fr-CH')+' km ('+chf((kmGoal-kmFunded)*pricePerKm)+') pour atteindre Santiago.';
+      }
+    })();
     initNewsletterForm('newsletterForm');
     initNewsletterForm('footerNewsletter_index');
   </script>

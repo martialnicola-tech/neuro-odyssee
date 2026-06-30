@@ -25,7 +25,12 @@
     "cta_don": "Soutenir le Projet",
     "scroll_hint": "Découvrir le projet",
     "countdown_label": " jours avant le départ",
-    "cta_follow": "Suivre l'aventure"
+    "cta_follow": "Pas encore prêt ? Suivre l'aventure →",
+    "h1": "Ce n'est jamais un manque de volonté.",
+    "sub": "C'est un cerveau mal compris — et il peut se reconstruire. <b>1 900 km à pied</b>, de la Suisse à Santiago, pour le prouver.",
+    "intro": "Roland Crettaz a traversé les addictions, l'effondrement, la reconstruction. Aujourd'hui il marche pour dire que c'est possible — à tout âge, malgré tout.",
+    "cta_give": "Soutenir le projet",
+    "cta_give_km": "Parrainer un kilomètre"
   },
   "stats": {
     "km_parraines": "km parrainés",
@@ -34,18 +39,18 @@
     "objectif": "Objectif"
   },
   "projet": {
-    "section_label": "Le Projet",
-    "title": "Un défi physique, neurologique et humain",
-    "subtitle": "Trois dimensions d'un même voyage : repousser les limites du corps, démontrer la plasticité du cerveau, et transmettre un message d'espoir.",
+    "section_label": "Le projet",
+    "title": "Un défi physique, neurologique et humain.",
+    "subtitle": "Trois dimensions d'un même voyage : repousser les limites du corps, démontrer la plasticité du cerveau, transmettre un message d'espoir.",
     "card1_icon": "🧭",
     "card1_title": "Le Défi",
-    "card1_text": "1 900 km à pied, seul, du Valais suisse à la côte galicienne. Traversée de trois pays, des Alpes aux Pyrénées, jusqu'à l'Atlantique. Une aventure humaine hors du commun.",
+    "card1_text": "1 900 km à pied, du Valais suisse à la côte galicienne. Trois pays, des Alpes aux Pyrénées jusqu'à l'Atlantique.",
     "card2_icon": "🧠",
     "card2_title": "La Science",
-    "card2_text": "La neuroplasticité démontre que le cerveau se reconfigure tout au long de la vie. La marche intensive génère du BDNF — une protéine qui favorise la croissance neuronale. Ce pèlerinage est une expérience neuroscientifique vivante.",
+    "card2_text": "La neuroplasticité montre que le cerveau se reconfigure toute la vie. La marche intensive génère du BDNF, qui favorise la croissance neuronale.",
     "card3_icon": "💬",
     "card3_title": "Le Message",
-    "card3_text": "TDAH, alcool, médicaments, tabac : Roland Crettaz a tout traversé. Aujourd'hui il marche pour dire que la reconstruction est possible — à tout âge, malgré tout.",
+    "card3_text": "TDAH, alcool, médicaments, tabac : Roland a tout traversé. Aujourd'hui il marche pour dire que la reconstruction est possible — à tout âge.",
     "learn_more": "En savoir plus",
     "badge_neuro": "Neuroplasticité",
     "badge_tdah": "TDAH & Addictions"
@@ -75,26 +80,33 @@
     "cta": "Parrainer des kilomètres"
   },
   "roland": {
-    "section_label": "L'Homme Derrière le Projet",
+    "section_label": "L'homme derrière le projet",
     "title": "Roland Crettaz",
     "subtitle": "Né en Valais, Roland a vécu des décennies avec un TDAH non diagnostiqué, cherchant à combler ce manque dans l'alcool, les médicaments et la cigarette.",
     "bio1": "Ce n'est qu'à 40 ans que tout s'est mis en place : le diagnostic du TDAH, la décision d'arrêter les substances, le long chemin de la reconstruction. Une thérapie, des lectures, des rencontres — et puis l'idée folle d'une marche de 1 900 km.",
     "bio2": "\"Le Chemin de Compostelle n'est pas une fuite. C'est un retour à moi-même. Chaque pas est un neurone qui se reconnecte, chaque étape une dépendance qu'on laisse derrière.\"",
     "bio3": "Roland documente chaque étape : vidéos YouTube, blog, et un livre en préparation. Son projet : devenir conférencier pour parler aux entreprises et aux institutions de santé mentale.",
-    "photo_quote": "\"Chaque pas est une thérapie. Le chemin m'a rendu à moi-même.\"",
+    "photo_quote": "« Chaque pas est une thérapie. Le chemin m'a rendu à moi-même. »",
     "quote_author": "— Roland Crettaz",
     "cta_journal": "Lire le Journal",
     "story_assoc": "Ce projet a donné naissance à une vraie structure : l'Association Neuro-Odyssée, à but non lucratif, basée à Martigny (Valais). Sa mission : sensibiliser et accompagner les personnes qui vivent avec un fonctionnement neurologique atypique et ses conséquences. La marche n'en est que le premier acte.",
-    "assoc_cta": "Découvrir l'association"
+    "assoc_cta": "Découvrir l'association",
+    "story_1": "Il y a plus de vingt ans, l'alcool faisait partie de mon quotidien. Trop. Alors j'ai arrêté — pas parce que c'était facile, mais parce que continuer coûtait plus cher que changer. Puis les médicaments ont pris la place. J'ai arrêté encore. Des années plus tard, le tabac.",
+    "story_2": "Mais les addictions n'étaient qu'une partie de l'histoire. Il y a eu les problèmes financiers. Le divorce. Les moments où tout vacille à l'intérieur pendant qu'on fait semblant d'aller bien.",
+    "story_3": "Au lieu de fuir, j'ai commencé à observer. À comprendre pourquoi on tombe, pourquoi on répète, pourquoi on sait sans arriver à faire autrement. Je me suis formé — en nutrition, en neurosciences. Et en chemin, j'ai découvert que je vis avec un TDAH. Pas un diagnostic qui enferme : une clé qui ouvre.",
+    "story_key": "Ce n'est jamais un manque de volonté. C'est un fonctionnement global.",
+    "story_5b": "Le chemin vers Compostelle n'est pas qu'un défi. C'est un symbole : celui de la reconstruction, de la preuve qu'après des chutes, on peut avancer. Pas à pas.",
+    "story_5c": "Soutenir ce projet, ce n'est pas soutenir un homme qui marche. C'est soutenir un message : rien n'est figé, on peut se relever, et comprendre comment on fonctionne peut changer une vie. Ce chemin est le mien. Mais ce message est universel.",
+    "cta_follow": "Suivre l'aventure →"
   },
   "docu": {
-    "section_label": "Sur Scène et à l'Écran",
-    "title": "Un Documentaire, Un Livre",
+    "section_label": "Sur scène et à l'écran",
+    "title": "Un documentaire, un livre.",
     "subtitle": "Le voyage sera documenté en temps réel. Une œuvre qui raconte la reconstruction — pas seulement la marche.",
     "docu_title": "Le Documentaire",
-    "docu_text": "Caméra sur l'épaule, Roland filme son quotidien de marcheur : les aurores en montagne, les conversations avec d'autres pèlerins, les moments de doute et de grâce. Un film sur la guérison par le mouvement.",
-    "book_title": "Le Livre",
-    "book_text": "Un récit de voyage intérieur autant qu'extérieur. Mêlant neuroscience vulgarisée et témoignage personnel, il s'adresse à tous ceux qui cherchent à se reconstruire.",
+    "docu_text": "Caméra à l'épaule, Roland filme son quotidien de marcheur : les aurores en montagne, les rencontres avec d'autres pèlerins.",
+    "book_title": "Le Livre du périple",
+    "book_text": "Un récit de voyage intérieur autant qu'extérieur, mêlant neuroscience vulgarisée et témoignage — écrit en chemin.",
     "coming_soon": "À venir",
     "trailer_soon": "Bande-annonce — bientôt",
     "cover_soon": "Couverture à venir",
@@ -107,7 +119,9 @@
     "book_pages": "pages",
     "book_lang": "Français",
     "book_cta_real": "Commander sur Amazon",
-    "already_published": "Déjà publié par Roland"
+    "already_published": "Déjà publié par Roland",
+    "preorder_badge": "Précommande",
+    "preorder_cta": "Précommander le livre"
   },
   "media_home": {
     "label": "Ils en parlent",
@@ -535,7 +549,10 @@
     "made_with": "Fait avec passion en Valais 🇨🇭",
     "website": "neuro-odyssee.com",
     "legal": "Association Neuro-Odyssée · Martigny (Valais), Suisse",
-    "mentions": "Mentions légales"
+    "mentions": "Mentions légales",
+    "news_title": "Suivre l'aventure",
+    "news_cta": "Je suis →",
+    "credit": "Réalisé par"
   },
   "lien": {
     "label": "Comprendre",
@@ -642,13 +659,51 @@
     "updated": "Dernière mise à jour : juin 2026."
   },
   "community": {
-    "label": "Rejoins la communauté",
-    "title": "Vis l'aventure de l'intérieur",
+    "label": "Rejoindre la communauté",
+    "title": "Vis l'aventure de l'intérieur.",
     "subtitle": "Inscris-toi et reçois chaque étape, des clés concrètes sur le cerveau — et ton ebook offert immédiatement.",
-    "value1": "Les coulisses de la préparation et de la marche, en temps réel",
+    "value1": "Les coulisses de la préparation et de la marche, en temps réel.",
     "value2": "Des clés concrètes sur le cerveau, le TDAH et la reconstruction",
     "value3": "Ton ebook « Tu fais tout bien… » offert dès l'inscription",
     "no_spam": "Pas de spam — 1 à 2 nouvelles par mois. Désinscription en un clic.",
-    "or_follow": "Ou suis l'aventure au quotidien :"
+    "or_follow": "Ou suivez au quotidien :",
+    "value2b": "Les avancées et les actions de l'association.",
+    "value3b": "Les étapes clés du chemin vers Santiago.",
+    "cta": "Suivre l'aventure"
+  },
+  "mission": {
+    "eyebrow": "La mission",
+    "title": "Marcher 1 900 km pour changer un regard.",
+    "p1": "Trop de personnes vivant avec un TDAH, une addiction ou un épuisement s'entendent dire qu'elles manquent de volonté. C'est faux — et c'est ce qui les enferme.",
+    "p2": "L'association Neuro-Odyssée existe pour le faire savoir : ce qu'on prend pour un défaut de caractère est souvent un cerveau qui cherche à se réguler. Et un cerveau, ça se comprend — et ça se reconstruit.",
+    "reframe": "Chaque kilomètre parrainé transforme une conviction en preuve : on peut se relever, et on n'avance pas seul.",
+    "outro": "La marche démarre le 21 août 2026. Le compteur, lui, démarre maintenant.",
+    "cta": "Découvrir l'histoire →"
+  },
+  "assoc": {
+    "home_title": "Une vraie structure derrière la marche.",
+    "transparency": "L'Association Neuro-Odyssée (à but non lucratif, Martigny) sensibilise et accompagne. Les dons financent exclusivement le projet et la mission de l'association."
+  },
+  "parrainer": {
+    "eyebrow": "Parrainer un kilomètre",
+    "title": "1 900 km à parcourir.",
+    "lead": "Chaque kilomètre parrainé rapproche Roland de Santiago — et finance la logistique, l'équipement et le documentaire.",
+    "goal_label": "Objectif du périple",
+    "goal_unit": "km à financer",
+    "finance_intro": "Ce que finance votre parrainage",
+    "fin1": "Sensibiliser le grand public et les proches, étape après étape.",
+    "fin2": "Soutenir les actions de l'association en faveur des cerveaux atypiques.",
+    "fin3": "Porter le message au-delà des frontières — de la Suisse jusqu'à Santiago.",
+    "tier_step": "une étape",
+    "tier_leg": "un tronçon",
+    "tier_free": "montant libre"
+  },
+  "sponsors": {
+    "eyebrow": "Partenaires",
+    "title": "Ils soutiennent déjà la Neuro-Odyssée.",
+    "lead": "Des partenaires engagés à nos côtés depuis le premier jour.",
+    "become_title": "Devenir sponsor — parrainez des kilomètres",
+    "become_lead": "Votre logo sur le chemin de 1 900 km — dans les vidéos, le livre, le documentaire.",
+    "become_cta": "Devenir sponsor →"
   }
 }
