@@ -25,7 +25,12 @@
     "cta_don": "Projekt unterstützen",
     "scroll_hint": "Das Projekt entdecken",
     "countdown_label": " Tage bis zur Abfahrt",
-    "cta_follow": "Das Abenteuer verfolgen"
+    "cta_follow": "Das Abenteuer verfolgen",
+    "cta_give": "Das Projekt unterstützen",
+    "cta_give_km": "Einen Kilometer sponsern",
+    "h1": "Es ist nie ein Mangel an Willen.",
+    "intro": "Roland Crettaz hat Suchterkrankungen, den Zusammenbruch und den Wiederaufbau durchlebt. Heute geht er, um zu zeigen, dass es möglich ist — in jedem Alter, trotz allem.",
+    "sub": "Es ist ein missverstandenes Gehirn — und es kann sich wieder aufbauen. <b>1 900 km zu Fuss</b>, von der Schweiz nach Santiago, um es zu beweisen."
   },
   "stats": {
     "km_parraines": "km gesponsert",
@@ -85,7 +90,14 @@
     "quote_author": "— Roland Crettaz",
     "cta_journal": "Das Tagebuch lesen",
     "story_assoc": "Aus diesem Projekt ist eine echte Struktur entstanden: der gemeinnützige Verein Neuro-Odyssee mit Sitz in Martigny (Wallis). Seine Mission: Menschen mit atypischer neurologischer Funktionsweise und deren Folgen sensibilisieren und begleiten. Der Marsch ist nur der erste Akt.",
-    "assoc_cta": "Den Verein entdecken"
+    "assoc_cta": "Den Verein entdecken",
+    "cta_follow": "Dem Abenteuer folgen →",
+    "story_1": "Vor mehr als zwanzig Jahren gehörte Alkohol zu meinem Alltag. Zu viel. Also hörte ich auf — nicht weil es leicht war, sondern weil das Weitermachen mehr kostete als die Veränderung. Dann traten Medikamente an seine Stelle. Ich hörte erneut auf. Jahre später der Tabak.",
+    "story_2": "Doch die Süchte waren nur ein Teil der Geschichte. Da waren die finanziellen Probleme. Die Scheidung. Die Momente, in denen innerlich alles wankt, während man vorgibt, dass es einem gut geht.",
+    "story_3": "Statt zu fliehen, begann ich zu beobachten. Zu verstehen, warum man fällt, warum man sich wiederholt, warum man weiss und es doch nicht anders schafft. Ich bildete mich weiter — in Ernährung, in Neurowissenschaften. Und unterwegs entdeckte ich, dass ich mit ADHS lebe. Keine Diagnose, die einsperrt: ein Schlüssel, der öffnet.",
+    "story_5b": "Der Weg nach Compostela ist nicht nur eine Herausforderung. Er ist ein Symbol: das des Wiederaufbaus, der Beweis, dass man nach Stürzen weitergehen kann. Schritt für Schritt.",
+    "story_5c": "Dieses Projekt zu unterstützen heisst nicht, einen Mann zu unterstützen, der geht. Es heisst, eine Botschaft zu unterstützen: Nichts ist festgelegt, man kann wieder aufstehen, und zu verstehen, wie man funktioniert, kann ein Leben verändern. Dieser Weg ist meiner. Doch diese Botschaft ist universell.",
+    "story_key": "Es ist nie ein Mangel an Willen. Es ist eine ganzheitliche Funktionsweise."
   },
   "docu": {
     "section_label": "Auf der Bühne und auf dem Bildschirm",
@@ -107,7 +119,9 @@
     "book_pages": "Seiten",
     "book_lang": "Französisch",
     "book_cta_real": "Bei Amazon bestellen",
-    "already_published": "Bereits veröffentlicht von Roland"
+    "already_published": "Bereits veröffentlicht von Roland",
+    "preorder_badge": "Vorbestellung",
+    "preorder_cta": "Das Buch vorbestellen"
   },
   "media_home": {
     "label": "Sie berichten darüber",
@@ -535,7 +549,10 @@
     "made_with": "Mit Leidenschaft im Wallis gemacht 🇨🇭",
     "website": "neuro-odyssee.com",
     "legal": "Verein Neuro-Odyssée · Martigny (Wallis), Schweiz",
-    "mentions": "Impressum"
+    "mentions": "Impressum",
+    "credit": "Erstellt von",
+    "news_cta": "Ich bin dabei →",
+    "news_title": "Dem Abenteuer folgen"
   },
   "lien": {
     "label": "Verstehen",
@@ -649,6 +666,44 @@
     "value2": "Konkrete Schlüssel zu Gehirn, ADHS und Wiederaufbau",
     "value3": "Dein E-Book « Tu fais tout bien… » gratis bei der Anmeldung",
     "no_spam": "Kein Spam — 1 bis 2 Nachrichten pro Monat. Abmeldung mit einem Klick.",
-    "or_follow": "Oder folge dem Abenteuer täglich:"
+    "or_follow": "Oder folge dem Abenteuer täglich:",
+    "cta": "Dem Abenteuer folgen",
+    "value2b": "Die Fortschritte und Aktionen des Vereins.",
+    "value3b": "Die wichtigsten Etappen des Wegs nach Santiago."
+  },
+  "assoc": {
+    "home_title": "Eine echte Organisation hinter dem Marsch.",
+    "transparency": "Der gemeinnützige Verein Neuro-Odyssée (Martigny) sensibilisiert und begleitet. Spenden finanzieren ausschliesslich das Projekt und die Mission des Vereins."
+  },
+  "mission": {
+    "cta": "Die Geschichte entdecken →",
+    "eyebrow": "Die Mission",
+    "outro": "Der Marsch beginnt am 21. August 2026. Der Zähler hingegen startet jetzt.",
+    "p1": "Zu vielen Menschen, die mit ADHS, einer Sucht oder einer Erschöpfung leben, wird gesagt, es fehle ihnen an Willen. Das ist falsch — und genau das hält sie gefangen.",
+    "p2": "Der Verein Neuro-Odyssée existiert, um das bekannt zu machen: Was wir für einen Charakterfehler halten, ist oft ein Gehirn, das sich zu regulieren versucht. Und ein Gehirn lässt sich verstehen — und wieder aufbauen.",
+    "reframe": "Jeder gesponserte Kilometer verwandelt eine Überzeugung in einen Beweis: Man kann wieder aufstehen, und man geht nicht allein.",
+    "title": "1 900 km gehen, um einen Blick zu verändern."
+  },
+  "parrainer": {
+    "eyebrow": "Einen Kilometer sponsern",
+    "fin1": "Die Öffentlichkeit und Angehörige sensibilisieren, Etappe für Etappe.",
+    "fin2": "Die Aktionen des Vereins für atypische Gehirne unterstützen.",
+    "fin3": "Die Botschaft über die Grenzen hinaustragen — von der Schweiz bis nach Santiago.",
+    "finance_intro": "Was Ihre Patenschaft finanziert",
+    "goal_label": "Ziel der Reise",
+    "goal_unit": "km zu finanzieren",
+    "lead": "Jeder gesponserte Kilometer bringt Roland Santiago näher — und finanziert Logistik, Ausrüstung und den Dokumentarfilm.",
+    "tier_free": "freier Betrag",
+    "tier_leg": "ein Teilstück",
+    "tier_step": "eine Etappe",
+    "title": "1 900 km zurückzulegen."
+  },
+  "sponsors": {
+    "become_cta": "Sponsor werden →",
+    "become_lead": "Ihr Logo entlang der 1 900 km — in den Videos, im Buch, im Dokumentarfilm.",
+    "become_title": "Sponsor werden — Kilometer sponsern",
+    "eyebrow": "Partner",
+    "lead": "Partner, die seit dem ersten Tag an unserer Seite engagiert sind.",
+    "title": "Sie unterstützen die Neuro-Odyssée bereits."
   }
 }

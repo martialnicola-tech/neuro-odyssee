@@ -25,7 +25,12 @@
     "cta_don": "Apoyar el Proyecto",
     "scroll_hint": "Descubrir el proyecto",
     "countdown_label": " días para la salida",
-    "cta_follow": "Sigue la aventura"
+    "cta_follow": "Sigue la aventura",
+    "cta_give": "Apoyar el proyecto",
+    "cta_give_km": "Apadrinar un kilómetro",
+    "h1": "Nunca es falta de voluntad.",
+    "intro": "Roland Crettaz ha atravesado las adicciones, el derrumbe y la reconstrucción. Hoy camina para decir que es posible — a cualquier edad, a pesar de todo.",
+    "sub": "Es un cerebro mal comprendido — y puede reconstruirse. <b>1.900 km a pie</b>, de Suiza a Santiago, para demostrarlo."
   },
   "stats": {
     "km_parraines": "km patrocinados",
@@ -85,7 +90,14 @@
     "quote_author": "— Roland Crettaz",
     "cta_journal": "Leer el Diario",
     "story_assoc": "Este proyecto ha dado lugar a una estructura real: la Asociación Neuro-Odisea, sin ánimo de lucro, con sede en Martigny (Valais). Su misión: sensibilizar y acompañar a las personas que viven con un funcionamiento neurológico atípico y sus consecuencias. La marcha es solo el primer acto.",
-    "assoc_cta": "Descubrir la asociación"
+    "assoc_cta": "Descubrir la asociación",
+    "cta_follow": "Seguir la aventura →",
+    "story_1": "Hace más de veinte años, el alcohol formaba parte de mi día a día. Demasiado. Así que lo dejé — no porque fuera fácil, sino porque seguir costaba más que cambiar. Luego los medicamentos ocuparon su lugar. Lo dejé de nuevo. Años más tarde, el tabaco.",
+    "story_2": "Pero las adicciones eran solo una parte de la historia. Hubo los problemas económicos. El divorcio. Los momentos en que todo se tambalea por dentro mientras finges estar bien.",
+    "story_3": "En lugar de huir, empecé a observar. A comprender por qué caemos, por qué repetimos, por qué sabemos sin lograr hacerlo de otra manera. Me formé — en nutrición, en neurociencia. Y por el camino descubrí que vivo con un TDAH. No un diagnóstico que encierra: una llave que abre.",
+    "story_5b": "El camino hacia Compostela no es solo un reto. Es un símbolo: el de la reconstrucción, la prueba de que tras las caídas se puede avanzar. Paso a paso.",
+    "story_5c": "Apoyar este proyecto no es apoyar a un hombre que camina. Es apoyar un mensaje: nada es inmutable, uno puede levantarse, y comprender cómo funcionamos puede cambiar una vida. Este camino es el mío. Pero este mensaje es universal.",
+    "story_key": "Nunca es falta de voluntad. Es un funcionamiento global."
   },
   "docu": {
     "section_label": "En Escena y en Pantalla",
@@ -107,7 +119,9 @@
     "book_pages": "páginas",
     "book_lang": "Francés",
     "book_cta_real": "Pedir en Amazon",
-    "already_published": "Ya publicado por Roland"
+    "already_published": "Ya publicado por Roland",
+    "preorder_badge": "Reserva",
+    "preorder_cta": "Reservar el libro"
   },
   "media_home": {
     "label": "Hablan de ello",
@@ -535,7 +549,10 @@
     "made_with": "Hecho con pasión en el Valais 🇨🇭",
     "website": "neuro-odyssee.com",
     "legal": "Asociación Neuro-Odisea · Martigny (Valais), Suiza",
-    "mentions": "Aviso legal"
+    "mentions": "Aviso legal",
+    "credit": "Creado por",
+    "news_cta": "Me apunto →",
+    "news_title": "Seguir la aventura"
   },
   "lien": {
     "label": "Comprender",
@@ -649,6 +666,44 @@
     "value2": "Claves concretas sobre el cerebro, el TDAH y la reconstrucción",
     "value3": "Tu ebook « Tu fais tout bien… » de regalo al suscribirte",
     "no_spam": "Sin spam — 1 o 2 novedades al mes. Baja con un clic.",
-    "or_follow": "O sigue la aventura día a día:"
+    "or_follow": "O sigue la aventura día a día:",
+    "cta": "Seguir la aventura",
+    "value2b": "Los avances y las acciones de la asociación.",
+    "value3b": "Las etapas clave del camino hacia Santiago."
+  },
+  "assoc": {
+    "home_title": "Una organización real detrás de la marcha.",
+    "transparency": "La Asociación Neuro-Odyssée (sin ánimo de lucro, Martigny) sensibiliza y acompaña. Las donaciones financian exclusivamente el proyecto y la misión de la asociación."
+  },
+  "mission": {
+    "cta": "Descubrir la historia →",
+    "eyebrow": "La misión",
+    "outro": "La marcha comienza el 21 de agosto de 2026. El contador, en cambio, empieza ahora.",
+    "p1": "A demasiadas personas que viven con un TDAH, una adicción o un agotamiento se les dice que les falta voluntad. Es falso — y es lo que las encierra.",
+    "p2": "La asociación Neuro-Odyssée existe para darlo a conocer: lo que tomamos por un defecto de carácter es a menudo un cerebro que busca regularse. Y un cerebro se puede comprender — y reconstruir.",
+    "reframe": "Cada kilómetro apadrinado transforma una convicción en prueba: uno puede levantarse, y no se avanza solo.",
+    "title": "Caminar 1.900 km para cambiar una mirada."
+  },
+  "parrainer": {
+    "eyebrow": "Apadrinar un kilómetro",
+    "fin1": "Sensibilizar al público y a los allegados, etapa tras etapa.",
+    "fin2": "Apoyar las acciones de la asociación a favor de los cerebros atípicos.",
+    "fin3": "Llevar el mensaje más allá de las fronteras — de Suiza hasta Santiago.",
+    "finance_intro": "Lo que financia su apadrinamiento",
+    "goal_label": "Objetivo del viaje",
+    "goal_unit": "km por financiar",
+    "lead": "Cada kilómetro apadrinado acerca a Roland a Santiago — y financia la logística, el equipamiento y el documental.",
+    "tier_free": "importe libre",
+    "tier_leg": "un tramo",
+    "tier_step": "una etapa",
+    "title": "1.900 km por recorrer."
+  },
+  "sponsors": {
+    "become_cta": "Hacerse patrocinador →",
+    "become_lead": "Su logotipo a lo largo de los 1.900 km — en los vídeos, el libro, el documental.",
+    "become_title": "Hágase patrocinador — apadrine kilómetros",
+    "eyebrow": "Colaboradores",
+    "lead": "Colaboradores comprometidos a nuestro lado desde el primer día.",
+    "title": "Ya apoyan la Neuro-Odyssée."
   }
 }

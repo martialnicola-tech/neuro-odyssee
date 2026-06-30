@@ -25,7 +25,12 @@
     "cta_don": "Support the Project",
     "scroll_hint": "Discover the project",
     "countdown_label": " days to departure",
-    "cta_follow": "Follow the journey"
+    "cta_follow": "Follow the journey",
+    "cta_give": "Support the project",
+    "cta_give_km": "Sponsor a kilometre",
+    "h1": "It's never a lack of willpower.",
+    "intro": "Roland Crettaz has been through addiction, collapse and rebuilding. Today he walks to show that recovery is possible — at any age, despite everything.",
+    "sub": "It's a misunderstood brain — and it can rebuild itself. <b>1,900 km on foot</b>, from Switzerland to Santiago, to prove it."
   },
   "stats": {
     "km_parraines": "km sponsored",
@@ -85,7 +90,14 @@
     "quote_author": "— Roland Crettaz",
     "cta_journal": "Read the Journal",
     "story_assoc": "This project has given rise to a real structure: the Neuro-Odyssey Association, non-profit, based in Martigny (Valais). Its mission: to raise awareness and support people living with atypical neurological functioning and its consequences. The walk is only the first act.",
-    "assoc_cta": "Discover the association"
+    "assoc_cta": "Discover the association",
+    "cta_follow": "Follow the journey →",
+    "story_1": "More than twenty years ago, alcohol was part of my daily life. Too much. So I stopped — not because it was easy, but because carrying on cost more than changing. Then medication took its place. I stopped again. Years later, tobacco.",
+    "story_2": "But addiction was only part of the story. There were the money problems. The divorce. The moments when everything wavers inside while you pretend to be fine.",
+    "story_3": "Instead of running away, I started to observe. To understand why we fall, why we repeat, why we know yet can't do otherwise. I trained — in nutrition, in neuroscience. And along the way, I discovered that I live with ADHD. Not a diagnosis that confines: a key that opens.",
+    "story_5b": "The road to Compostela is not just a challenge. It's a symbol: of rebuilding, of proof that after falling, you can move forward. Step by step.",
+    "story_5c": "Supporting this project isn't supporting a man who walks. It's supporting a message: nothing is fixed, you can rise again, and understanding how you work can change a life. This path is mine. But the message is universal.",
+    "story_key": "It's never a lack of willpower. It's how the whole system works."
   },
   "docu": {
     "section_label": "On Stage and On Screen",
@@ -107,7 +119,9 @@
     "book_pages": "pages",
     "book_lang": "French",
     "book_cta_real": "Order on Amazon",
-    "already_published": "Already published by Roland"
+    "already_published": "Already published by Roland",
+    "preorder_badge": "Pre-order",
+    "preorder_cta": "Pre-order the book"
   },
   "media_home": {
     "label": "In the media",
@@ -535,7 +549,10 @@
     "made_with": "Made with passion in Valais 🇨🇭",
     "website": "neuro-odyssee.com",
     "legal": "Neuro-Odyssey Association · Martigny (Valais), Switzerland",
-    "mentions": "Legal notice"
+    "mentions": "Legal notice",
+    "credit": "Built by",
+    "news_cta": "I'm in →",
+    "news_title": "Follow the journey"
   },
   "lien": {
     "label": "Understand",
@@ -649,6 +666,44 @@
     "value2": "Concrete keys on the brain, ADHD and rebuilding",
     "value3": "Your ebook « Tu fais tout bien… » free when you sign up",
     "no_spam": "No spam — 1 to 2 updates a month. Unsubscribe in one click.",
-    "or_follow": "Or follow the journey day by day:"
+    "or_follow": "Or follow the journey day by day:",
+    "cta": "Follow the journey",
+    "value2b": "The association's progress and initiatives.",
+    "value3b": "Key milestones on the road to Santiago."
+  },
+  "assoc": {
+    "home_title": "A real organization behind the walk.",
+    "transparency": "The Neuro-Odyssée Association (non-profit, Martigny) raises awareness and offers support. Donations exclusively fund the project and the association's mission."
+  },
+  "mission": {
+    "cta": "Discover the story →",
+    "eyebrow": "The mission",
+    "outro": "The walk begins on August 21, 2026. The countdown starts now.",
+    "p1": "Too many people living with ADHD, addiction or burnout are told they lack willpower. It's not true — and that belief is what traps them.",
+    "p2": "The Neuro-Odyssée association exists to spread the word: what we take for a character flaw is often a brain trying to regulate itself. And a brain can be understood — and rebuilt.",
+    "reframe": "Every sponsored kilometre turns a conviction into proof: you can get back up, and you don't move forward alone.",
+    "title": "Walking 1,900 km to change the way we see."
+  },
+  "parrainer": {
+    "eyebrow": "Sponsor a kilometre",
+    "fin1": "Raising awareness among the public and families, step after step.",
+    "fin2": "Supporting the association's work for atypical brains.",
+    "fin3": "Carrying the message across borders — from Switzerland to Santiago.",
+    "finance_intro": "What your sponsorship funds",
+    "goal_label": "Goal of the journey",
+    "goal_unit": "km to fund",
+    "lead": "Every sponsored kilometre brings Roland closer to Santiago — and funds logistics, equipment and the documentary.",
+    "tier_free": "free amount",
+    "tier_leg": "a leg",
+    "tier_step": "a stage",
+    "title": "1,900 km to walk."
+  },
+  "sponsors": {
+    "become_cta": "Become a sponsor →",
+    "become_lead": "Your logo along the 1,900 km route — in the videos, the book, the documentary.",
+    "become_title": "Become a sponsor — sponsor kilometres",
+    "eyebrow": "Partners",
+    "lead": "Partners committed by our side from day one.",
+    "title": "They already support Neuro-Odyssée."
   }
 }
