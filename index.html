@@ -202,21 +202,21 @@
     .nmedia{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;max-width:720px;box-shadow:0 1px 3px rgba(0,0,0,.06);}
     .nmedia .src{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--gold-deep);}
 
-    .news{background:linear-gradient(135deg,#0F3D35,#1E6B5E);color:#F4F6F4;border-radius:18px;padding:50px;}
-    .news h2{color:#fff;}
-    .news p,.news li{color:#EAF2EF;}
-    .news .eyebrow{color:var(--gold);}
+    .news{background:#FFFFFF;border:1px solid var(--line);color:var(--text);border-radius:18px;padding:50px;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+    .news h2{color:var(--dark);}
+    .news p,.news li{color:var(--text-light);}
+    .news .eyebrow{color:var(--green-deep);}
     .news ul{list-style:none;padding:0;margin:0 0 28px;max-width:48ch;}
     .news li{padding:8px 0 8px 26px;position:relative;}
-    .news li::before{content:"→";position:absolute;left:0;color:var(--gold);}
+    .news li::before{content:"→";position:absolute;left:0;color:var(--gold-deep);}
     .news .field{display:flex;flex-wrap:wrap;gap:12px;max-width:520px;}
-    .news input{flex:1 1 240px;padding:14px 16px;border:1px solid rgba(255,255,255,.3);border-radius:8px;background:rgba(255,255,255,.1);color:#fff;font-size:15px;font-family:inherit;}
-    .news input::placeholder{color:#CFE0DB;}
-    .news .btn--give{background:var(--gold);border-color:var(--gold);color:var(--dark);}
-    .news .btn--give:hover{background:#fff;border-color:#fff;}
-    .news small{display:block;margin-top:14px;color:#CFE0DB;font-size:13px;}
-    .news .social{margin-top:24px;font-size:14px;color:#CFE0DB;}
-    .news .social a{color:var(--gold);text-decoration:none;margin-right:16px;}
+    .news input{flex:1 1 240px;padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:#FFFFFF;color:var(--text);font-size:15px;font-family:inherit;}
+    .news input::placeholder{color:var(--text-light);}
+    .news .btn--give{background:var(--green-deep);border-color:var(--green-deep);color:#fff;}
+    .news .btn--give:hover{background:var(--gold);border-color:var(--gold);color:var(--dark);}
+    .news small{display:block;margin-top:14px;color:var(--text-light);font-size:13px;}
+    .news .social{margin-top:24px;font-size:14px;color:var(--text-light);}
+    .news .social a{color:var(--green-deep);text-decoration:none;margin-right:16px;}
     @media(max-width:560px){.news{padding:34px 24px;}}
 
 
@@ -501,7 +501,7 @@
             <input type="email" id="newsletterEmail" name="email" placeholder="Votre adresse e-mail" required aria-label="Votre adresse e-mail" data-i18n-placeholder="newsletter.email_placeholder">
             <button type="submit" id="newsletterBtn" class="btn--give" data-i18n="community.cta">Suivre l'aventure</button>
           </form>
-          <p id="newsletterMsg" style="min-height:1rem;margin:10px 0 0;color:#CFE0DB;font-size:13px;"></p>
+          <p id="newsletterMsg" style="min-height:1rem;margin:10px 0 0;color:var(--text-light);font-size:13px;"></p>
           <small data-i18n="community.no_spam">Pas de spam — 1 à 2 nouvelles par mois. Désinscription en un clic.</small>
           <p class="social"><span data-i18n="community.or_follow">Ou suivez au quotidien :</span> <a href="https://www.instagram.com/la_neuro_odyssee" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@LaNeuro-Odyssee" target="_blank" rel="noopener">YouTube</a><a href="https://www.facebook.com/share/1FAdwFuzDW/" target="_blank" rel="noopener">Facebook</a></p>
         </div>
