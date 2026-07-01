@@ -126,13 +126,6 @@
     .home .hero-stats .stat{display:flex;flex-direction:column;gap:4px;}
     .home .hero-stats .stat-num{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(2.1rem,4.5vw,3.1rem);line-height:1;color:#F0A500;}
     .home .hero-stats .stat-lbl{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.72);}
-    .home-ticker{position:relative;overflow:hidden;background:#F8F6F1;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;}
-    .home-ticker #sponsorsTrack{display:inline-flex;align-items:center;white-space:nowrap;will-change:transform;animation:homeSponsorScroll 30s linear infinite;}
-    .home-ticker:hover #sponsorsTrack{animation-play-state:paused;}
-    @keyframes homeSponsorScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-    .home-ticker .ticker-fade{position:absolute;top:0;bottom:0;width:4rem;z-index:2;pointer-events:none;}
-    .home-ticker .ticker-fade--l{left:0;background:linear-gradient(to right,#F8F6F1,transparent);}
-    .home-ticker .ticker-fade--r{right:0;background:linear-gradient(to left,#F8F6F1,transparent);}
     .home h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(2.3rem,5vw,3.9rem);line-height:1.05;letter-spacing:-.01em;color:var(--dark);margin:0 0 26px;max-width:16ch;}
     .home h2{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(2.3rem,5vw,3.6rem);line-height:1.06;color:var(--dark);margin:0 0 24px;max-width:22ch;}
     .home h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.55rem;color:var(--dark);margin:14px 0 8px;}
@@ -154,8 +147,8 @@
     .home .rail::before{content:"";position:absolute;left:0;top:0;width:2px;height:100%;background:linear-gradient(var(--gold) 0%, var(--gold) 65%, rgba(240,165,0,.12) 100%);}
     .home .content{padding-left:64px;}
     @media(max-width:680px){.home .content{padding-left:30px;}}
-    .home .hero{padding:150px 0 74px;}
-    @media(max-width:680px){.home .hero{padding:118px 0 54px;}}
+    .home .hero{padding:88px 0 74px;}
+    @media(max-width:680px){.home .hero{padding:56px 0 54px;}}
 
     .parrainage{margin-top:10px;max-width:540px;}
     .parrainage__head{display:flex;justify-content:space-between;align-items:baseline;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:12px;}
@@ -304,6 +297,49 @@
     </div>
   </nav>
 
+  <!-- SPONSORS TICKER -->
+  <div id="sponsorsTicker" style="background:#f8f9fa; border-bottom:1px solid rgba(0,0,0,0.1); padding:0.5rem 0; overflow:hidden; position:relative; z-index:40; min-height:40px;">
+    <div style="position:absolute;left:0;top:0;bottom:0;width:4rem;background:linear-gradient(to right,#f8f9fa,transparent);z-index:2;pointer-events:none;"></div>
+    <div style="position:absolute;right:0;top:0;bottom:0;width:4rem;background:linear-gradient(to left,#f8f9fa,transparent);z-index:2;pointer-events:none;"></div>
+    <div id="sponsorsTrack" style="display:inline-flex;align-items:center;white-space:nowrap;padding-left:50%;"></div>
+  </div>
+  <script>
+  (function() {
+    var nav = document.getElementById('navbar');
+    var ticker = document.getElementById('sponsorsTicker');
+    if (nav && ticker) {
+      ticker.style.marginTop = nav.offsetHeight + 'px';
+    }
+  })();
+  </script>
+  <style>
+    #sponsorsTrack { animation: sponsorScroll 20s linear infinite; }
+    #sponsorsTrack:hover { animation-play-state: paused; }
+    @keyframes sponsorScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  </style>
+  <script>
+  (function() {
+    fetch('/api/sponsors.php')
+      .then(function(r){ return r.json(); })
+      .then(function(sponsors) {
+        if (!sponsors || !sponsors.length) return;
+        var track = document.getElementById('sponsorsTrack');
+        if (!track) return;
+        var all = sponsors.concat(sponsors);
+        track.style.paddingLeft = '0';
+        track.innerHTML = all.map(function(s) {
+          var logo = s.logo ? '<img src="' + s.logo + '" alt="' + s.name + '" style="max-height:28px;max-width:80px;object-fit:contain;vertical-align:middle;mix-blend-mode:multiply;">' : '';
+          var inner = '<span style="display:inline-flex;align-items:center;gap:0.4rem;">' + logo + '<span style="font-size:0.75rem;font-weight:700;color:#1a2332;">' + s.name + '</span></span>';
+          var dot = '<span style="color:rgba(0,0,0,0.2);margin:0 1.5rem;">·</span>';
+          return s.url
+            ? '<a href="' + s.url + '" target="_blank" rel="noopener" style="text-decoration:none;padding:0 0.5rem;">' + inner + '</a>' + dot
+            : '<span style="padding:0 0.5rem;">' + inner + '</span>' + dot;
+        }).join('');
+        track.style.animationDuration = Math.max(12, sponsors.length * 7) + 's';
+      }).catch(function(){});
+  })();
+  </script>
+
   <!-- Mobile Menu -->
   <div id="mobileMenu" class="mobile-menu">
     <button id="mobileMenuClose" class="absolute top-6 right-6 text-white text-2xl" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
@@ -351,13 +387,6 @@
           </div>
         </div>
       </section>
-
-      <!-- Bandeau sponsors défilant -->
-      <div id="sponsorsTicker" class="home-ticker">
-        <div class="ticker-fade ticker-fade--l" aria-hidden="true"></div>
-        <div class="ticker-fade ticker-fade--r" aria-hidden="true"></div>
-        <div id="sponsorsTrack"></div>
-      </div>
 
       <!-- 2 · MISSION -->
       <section class="section section--alt" id="mission">
@@ -613,26 +642,6 @@
       var el=document.getElementById('statDays'); if(!el) return;
       var d=Math.max(0,Math.ceil((new Date('2026-08-21T00:00:00')-new Date())/86400000));
       el.textContent=d.toLocaleString('fr-CH');
-    })();
-    (function(){
-      var nav=document.getElementById('navbar'), hero=document.querySelector('.home .hero');
-      if(!nav||!hero) return;
-      function setPad(){ hero.style.paddingTop=(nav.offsetHeight+44)+'px'; }
-      setPad(); window.addEventListener('resize',setPad); window.addEventListener('load',setPad);
-    })();
-    (function(){
-      fetch('api/sponsors.php').then(function(r){return r.json();}).then(function(sponsors){
-        if(!sponsors||!sponsors.length) return;
-        var track=document.getElementById('sponsorsTrack'); if(!track) return;
-        var all=sponsors.concat(sponsors);
-        track.innerHTML=all.map(function(s){
-          var logo=s.logo?'<img src="'+s.logo+'" alt="'+s.name+'" style="max-height:26px;max-width:78px;object-fit:contain;vertical-align:middle;">':'';
-          var inner='<span style="display:inline-flex;align-items:center;gap:0.45rem;">'+logo+'<span style="font-size:0.78rem;font-weight:700;letter-spacing:.02em;color:#1a2332;">'+s.name+'</span></span>';
-          var dot='<span style="color:rgba(0,0,0,0.18);margin:0 1.6rem;">·</span>';
-          return s.url?'<a href="'+s.url+'" target="_blank" rel="noopener" style="text-decoration:none;padding:0 0.5rem;">'+inner+'</a>'+dot:'<span style="padding:0 0.5rem;">'+inner+'</span>'+dot;
-        }).join('');
-        track.style.animationDuration=Math.max(18,sponsors.length*8)+'s';
-      }).catch(function(){});
     })();
     (function(){
       var kmFunded=0, supporters=3, kmGoal=2200, pricePerKm=25;
