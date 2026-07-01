@@ -1,5 +1,5 @@
 /* ============================================
-   LA NEURO-ODYSSÉE — Main JavaScript
+   LA NEURO-ODYSSÉE, Main JavaScript
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // ============================================
-  // INTERSECTION OBSERVER — reveal animations
+  // INTERSECTION OBSERVER, reveal animations
   // ============================================
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function() {
         kmNextEl.innerHTML = `<span style="color:var(--gold); font-weight:600;">+${manque} km</span> pour atteindre le niveau <strong>${t.nextName}</strong>`;
         kmNextEl.style.display = 'block';
       } else if (t.next === null) {
-        kmNextEl.innerHTML = `<span style="color:var(--green-mid);">🏆 Niveau maximum — Partenaire Officiel</span>`;
+        kmNextEl.innerHTML = `<span style="color:var(--green-mid);">🏆 Niveau maximum, Partenaire Officiel</span>`;
         kmNextEl.style.display = 'block';
       } else {
         kmNextEl.style.display = 'none';
@@ -425,7 +425,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // ============================================
-  // CONTACT FORM (sponsoring / soutenir) — PHP Hostinger
+  // CONTACT FORM (sponsoring / soutenir), PHP Hostinger
   // ============================================
   const MAIL_ENDPOINT = 'send-mail.php';
 
@@ -468,7 +468,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       } catch (err) {
         if (btn) {
-          btn.innerHTML = '<i class="fa-solid fa-exclamation-triangle"></i> Erreur — réessayez';
+          btn.innerHTML = '<i class="fa-solid fa-exclamation-triangle"></i> Erreur, réessayez';
           btn.disabled = false;
           setTimeout(() => { btn.innerHTML = originalHTML; }, 4000);
         }
@@ -483,7 +483,7 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.addEventListener('click', function() {
       const platform = this.getAttribute('data-share');
       const url = encodeURIComponent(window.location.origin + '/');
-      const text = encodeURIComponent('Association Neuro-Odyssée — 2 200 km pour se reconstruire. Découvrez ce projet inspirant !');
+      const text = encodeURIComponent('Association Neuro-Odyssée, 2 200 km pour se reconstruire. Découvrez ce projet inspirant !');
 
       const shareUrls = {
         facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
@@ -513,7 +513,7 @@ document.addEventListener('DOMContentLoaded', function() {
     { min: 100, max: 199, icon: '📱', text: '1 semaine de communication et partage de contenu' },
     { min: 200, max: 499, icon: '🎬', text: 'Production d\'une vidéo du documentaire' },
     { min: 500, max: 999, icon: '📖', text: 'La rédaction d\'un chapitre du livre' },
-    { min: 1000, max: Infinity, icon: '🌟', text: 'Sponsor d\'une étape complète — impact exceptionnel !' }
+    { min: 1000, max: Infinity, icon: '🌟', text: 'Sponsor d\'une étape complète, impact exceptionnel !' }
   ];
 
   function updateImpactDisplay(amount) {

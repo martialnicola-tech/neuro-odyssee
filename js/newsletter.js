@@ -1,6 +1,6 @@
 /**
  * initNewsletterForm(formId)
- * Réutilisable sur toutes les pages — gère le submit d'un formulaire newsletter.
+ * Réutilisable sur toutes les pages, gère le submit d'un formulaire newsletter.
  * Le formulaire doit contenir des champs name="email" et (optionnel) name="prenom".
  * Le message de retour est affiché dans l'élément id="{formId}Msg".
  */
@@ -34,7 +34,7 @@ function initNewsletterForm(formId) {
       var data = await res.json();
 
       if (data.success) {
-        if (msgEl) { msgEl.style.color = '#6de0c8'; msgEl.textContent = '✓ Vérifiez votre boîte email — l\'ebook est en route !'; }
+        if (msgEl) { msgEl.style.color = '#6de0c8'; msgEl.textContent = '✓ Vérifiez votre boîte email, l\'ebook est en route !'; }
         emailInput.value = '';
         if (prenomInput) prenomInput.value = '';
         if (btn) { btn.disabled = false; btn.style.opacity = '1'; }

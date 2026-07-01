@@ -1,5 +1,5 @@
 /* ============================================
-   LA NEURO-ODYSSÉE — Interactive Leaflet Map
+   LA NEURO-ODYSSÉE, Interactive Leaflet Map
    ============================================ */
 
 const WAYPOINTS = [
@@ -10,7 +10,7 @@ const WAYPOINTS = [
     type: "start",
     km: 0,
     country: "🇨🇭",
-    desc: "Point de départ — Abbaye de St-Maurice, Valais · ViaJacobi"
+    desc: "Point de départ, Abbaye de St-Maurice, Valais · ViaJacobi"
   },
   {
     name: "Villeneuve",
@@ -18,7 +18,7 @@ const WAYPOINTS = [
     type: "stage",
     km: 28,
     country: "🇨🇭",
-    desc: "Rives du Léman — Entrée en Riviera vaudoise"
+    desc: "Rives du Léman, Entrée en Riviera vaudoise"
   },
   {
     name: "Montreux",
@@ -26,7 +26,7 @@ const WAYPOINTS = [
     type: "stage",
     km: 42,
     country: "🇨🇭",
-    desc: "Riviera vaudoise — Château de Chillon"
+    desc: "Riviera vaudoise, Château de Chillon"
   },
   {
     name: "Vevey",
@@ -34,7 +34,7 @@ const WAYPOINTS = [
     type: "stage",
     km: 48,
     country: "🇨🇭",
-    desc: "Bords du lac Léman — Vignobles de Lavaux (UNESCO)"
+    desc: "Bords du lac Léman, Vignobles de Lavaux (UNESCO)"
   },
   {
     name: "Lausanne",
@@ -42,7 +42,7 @@ const WAYPOINTS = [
     type: "major",
     km: 52,
     country: "🇨🇭",
-    desc: "Grande ville étape — Cathédrale gothique · Chemin de Romandie"
+    desc: "Grande ville étape, Cathédrale gothique · Chemin de Romandie"
   },
   {
     name: "Morges",
@@ -50,7 +50,7 @@ const WAYPOINTS = [
     type: "stage",
     km: 65,
     country: "🇨🇭",
-    desc: "Côte vaudoise — Château de Morges"
+    desc: "Côte vaudoise, Château de Morges"
   },
   {
     name: "Rolle",
@@ -58,7 +58,7 @@ const WAYPOINTS = [
     type: "stage",
     km: 78,
     country: "🇨🇭",
-    desc: "Villages viticoles — Gilly, Bursins"
+    desc: "Villages viticoles, Gilly, Bursins"
   },
   {
     name: "Nyon",
@@ -66,7 +66,7 @@ const WAYPOINTS = [
     type: "stage",
     km: 100,
     country: "🇨🇭",
-    desc: "Colonie romaine — Bords du lac et château"
+    desc: "Colonie romaine, Bords du lac et château"
   },
   {
     name: "Genève",
@@ -74,7 +74,7 @@ const WAYPOINTS = [
     type: "major",
     km: 122,
     country: "🇨🇭",
-    desc: "Fin de la ViaJacobi suisse — Départ Via Gebennensis vers Le Puy"
+    desc: "Fin de la ViaJacobi suisse, Départ Via Gebennensis vers Le Puy"
   },
   // ── FRANCE : Via Gebennensis puis GR 65 ──────────────────────────
   {
@@ -83,7 +83,7 @@ const WAYPOINTS = [
     type: "major",
     km: 472,
     country: "🇫🇷",
-    desc: "Porte officielle du GR 65 — Via Podiensis · Cathédrale du Rocher"
+    desc: "Porte officielle du GR 65, Via Podiensis · Cathédrale du Rocher"
   },
   {
     name: "Figeac",
@@ -91,7 +91,7 @@ const WAYPOINTS = [
     type: "stage",
     km: 650,
     country: "🇫🇷",
-    desc: "Lot — Ville médiévale sur les rives du Célé"
+    desc: "Lot, Ville médiévale sur les rives du Célé"
   },
   {
     name: "Cahors",
@@ -99,7 +99,7 @@ const WAYPOINTS = [
     type: "stage",
     km: 760,
     country: "🇫🇷",
-    desc: "Pont Valentré — Étape symbolique du chemin"
+    desc: "Pont Valentré, Étape symbolique du chemin"
   },
   {
     name: "Moissac",
@@ -107,7 +107,7 @@ const WAYPOINTS = [
     type: "stage",
     km: 850,
     country: "🇫🇷",
-    desc: "Abbaye Saint-Pierre — Chef-d'œuvre de l'art roman"
+    desc: "Abbaye Saint-Pierre, Chef-d'œuvre de l'art roman"
   },
   {
     name: "Condom",
@@ -115,7 +115,7 @@ const WAYPOINTS = [
     type: "stage",
     km: 940,
     country: "🇫🇷",
-    desc: "Gascogne — Cathédrale Saint-Pierre, Armagnac"
+    desc: "Gascogne, Cathédrale Saint-Pierre, Armagnac"
   },
   {
     name: "St-Jean-Pied-de-Port",
@@ -123,7 +123,7 @@ const WAYPOINTS = [
     type: "major",
     km: 1222,
     country: "🇫🇷",
-    desc: "Passage des Pyrénées — Dernière ville française du GR 65"
+    desc: "Passage des Pyrénées, Dernière ville française du GR 65"
   },
   // ── ESPAGNE : Camino Francés ──────────────────────────────────────
   {
@@ -132,7 +132,7 @@ const WAYPOINTS = [
     type: "stage",
     km: 1300,
     country: "🇪🇸",
-    desc: "Navarre, Pamplona — Entrée en Espagne"
+    desc: "Navarre, Pamplona, Entrée en Espagne"
   },
   {
     name: "Burgos",
@@ -140,7 +140,7 @@ const WAYPOINTS = [
     type: "major",
     km: 1520,
     country: "🇪🇸",
-    desc: "Cathédrale gothique — Cœur de la Castille"
+    desc: "Cathédrale gothique, Cœur de la Castille"
   },
   {
     name: "León",
@@ -148,7 +148,7 @@ const WAYPOINTS = [
     type: "stage",
     km: 1730,
     country: "🇪🇸",
-    desc: "Vitraux de la cathédrale — Avant-dernière grande étape"
+    desc: "Vitraux de la cathédrale, Avant-dernière grande étape"
   },
   {
     name: "Santiago de Compostela",
@@ -156,11 +156,11 @@ const WAYPOINTS = [
     type: "end",
     km: 2200,
     country: "🇪🇸",
-    desc: "Destination finale — La cathédrale du bout du monde · Buen Camino ✨"
+    desc: "Destination finale, La cathédrale du bout du monde · Buen Camino ✨"
   }
 ];
 
-// Current progress (km walked — 0 at start)
+// Current progress (km walked, 0 at start)
 const CURRENT_KM = 0;
 
 let mapInstance = null;
@@ -179,7 +179,7 @@ function initMap() {
   // Custom zoom control position
   L.control.zoom({ position: 'bottomright' }).addTo(mapInstance);
 
-  // Tile layer — CartoDB Positron (clean, minimal, perfect for routes)
+  // Tile layer, CartoDB Positron (clean, minimal, perfect for routes)
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
     subdomains: 'abcd',

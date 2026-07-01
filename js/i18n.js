@@ -1,5 +1,5 @@
 /* ============================================
-   LA NEURO-ODYSSÉE — i18n System
+   LA NEURO-ODYSSÉE, i18n System
    ============================================ */
 
 const I18N = {
@@ -128,7 +128,7 @@ const I18N = {
       const key = titleKey.getAttribute('content');
       const translation = this.t(key);
       if (translation !== key) {
-        document.title = translation + ' — Association Neuro-Odyssée';
+        document.title = translation + ', Association Neuro-Odyssée';
       }
     }
 

@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light">
   <meta name="i18n-title" content="meta.tagline">
-  <title>Association Neuro-Odyssée — 2 200 km pour se reconstruire</title>
-  <meta name="description" content="2 200 km à pied de la Suisse à Santiago pour changer un regard : ce qu'on prend pour un manque de volonté est souvent un cerveau mal compris — et il peut se reconstruire. Soutenez la cause.">
+  <title>Association Neuro-Odyssée, 2 200 km pour se reconstruire</title>
+  <meta name="description" content="2 200 km à pied de la Suisse à Santiago pour changer un regard : ce qu'on prend pour un manque de volonté est souvent un cerveau mal compris, et il peut se reconstruire. Soutenez la cause.">
   <meta name="i18n-desc" content="meta.description_home">
-  <meta property="og:title" content="Association Neuro-Odyssée — 2 200 km pour le prouver">
+  <meta property="og:title" content="Association Neuro-Odyssée, 2 200 km pour le prouver">
   <meta property="og:description" content="Marcher 2 200 km de la Suisse à Santiago pour changer un regard sur le TDAH, les addictions et l'épuisement. Sensibiliser, accompagner, transmettre l'espoir.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.neuro-odyssee.com/">
@@ -16,8 +16,8 @@
   <meta property="og:site_name" content="Association Neuro-Odyssée">
   <meta property="og:locale" content="fr_FR">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Association Neuro-Odyssée — 2 200 km pour changer un regard">
-  <meta name="twitter:description" content="Marcher 2 200 km de la Suisse à Santiago pour sensibiliser au TDAH, aux addictions et à l'épuisement — et prouver que le cerveau se reconstruit.">
+  <meta name="twitter:title" content="Association Neuro-Odyssée, 2 200 km pour changer un regard">
+  <meta name="twitter:description" content="Marcher 2 200 km de la Suisse à Santiago pour sensibiliser au TDAH, aux addictions et à l'épuisement, et prouver que le cerveau se reconstruit.">
   <meta name="twitter:image" content="https://www.neuro-odyssee.com/images/roland-crettaz.jpg">
 
   <!-- Favicon -->
@@ -52,7 +52,7 @@
         "name": "Association Neuro-Odyssée",
         "url": "https://www.neuro-odyssee.com",
         "logo": "https://www.neuro-odyssee.com/images/roland-crettaz.jpg",
-        "description": "Association à but non lucratif (Martigny, Valais) qui sensibilise et accompagne les personnes vivant avec un fonctionnement neurologique atypique et ses conséquences — TDAH, addictions, épuisement.",
+        "description": "Association à but non lucratif (Martigny, Valais) qui sensibilise et accompagne les personnes vivant avec un fonctionnement neurologique atypique et ses conséquences, TDAH, addictions, épuisement.",
         "foundingDate": "2026-06-17",
         "address": { "@type": "PostalAddress", "addressLocality": "Martigny", "addressRegion": "Valais", "addressCountry": "CH" },
         "sameAs": [
@@ -110,7 +110,7 @@
       --paper:var(--cream); --paper-2:#ECF1EE; --card:#FFFFFF;
       --maxw-home:1080px;
     }
-    /* Boutons escalier — 2 styles */
+    /* Boutons escalier, 2 styles */
     .btn--give{display:inline-block;font-family:'Inter',sans-serif;font-size:16px;font-weight:600;text-decoration:none;cursor:pointer;border-radius:8px;background:var(--green-deep);color:#fff;padding:16px 26px;border:2px solid var(--green-deep);transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;}
     .btn--give:hover{background:var(--gold);border-color:var(--gold);color:var(--dark);transform:translateY(-2px);}
     .btn--list{display:inline-block;font-family:'Inter',sans-serif;font-size:16px;font-weight:600;text-decoration:none;cursor:pointer;border-radius:8px;background:transparent;color:var(--green-deep);padding:14px 22px;border:2px solid var(--green-deep);transition:transform .15s ease, color .15s ease, border-color .15s ease;}
@@ -122,6 +122,17 @@
     .home .eyebrow{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--green-deep);margin:0 0 24px;}
     .home .eyebrow b{color:var(--gold-deep);font-weight:600;}
     .home .hero-brand{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.3rem,2.6vw,2rem);letter-spacing:.01em;color:#F0A500;margin:0 0 16px;}
+    .home .hero-stats{display:flex;flex-wrap:wrap;gap:40px;margin-top:40px;}
+    .home .hero-stats .stat{display:flex;flex-direction:column;gap:4px;}
+    .home .hero-stats .stat-num{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(2.1rem,4.5vw,3.1rem);line-height:1;color:#F0A500;}
+    .home .hero-stats .stat-lbl{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.72);}
+    .home-ticker{position:relative;overflow:hidden;background:#F8F6F1;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;}
+    .home-ticker #sponsorsTrack{display:inline-flex;align-items:center;white-space:nowrap;will-change:transform;animation:homeSponsorScroll 30s linear infinite;}
+    .home-ticker:hover #sponsorsTrack{animation-play-state:paused;}
+    @keyframes homeSponsorScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .home-ticker .ticker-fade{position:absolute;top:0;bottom:0;width:4rem;z-index:2;pointer-events:none;}
+    .home-ticker .ticker-fade--l{left:0;background:linear-gradient(to right,#F8F6F1,transparent);}
+    .home-ticker .ticker-fade--r{right:0;background:linear-gradient(to left,#F8F6F1,transparent);}
     .home h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(3rem,7vw,5.4rem);line-height:1.02;letter-spacing:-.01em;color:var(--dark);margin:0 0 26px;max-width:15ch;}
     .home h2{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(2.3rem,5vw,3.6rem);line-height:1.06;color:var(--dark);margin:0 0 24px;max-width:22ch;}
     .home h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.55rem;color:var(--dark);margin:14px 0 8px;}
@@ -224,7 +235,7 @@
 
 
 
-    /* Hero vert (cohérent avec les pages existantes) — corps reste clair */
+    /* Hero vert (cohérent avec les pages existantes), corps reste clair */
     .home .hero{background:linear-gradient(135deg,#1a2332 0%,#1E6B5E 100%);}
     .home .hero h1,.home .hero .sub{color:#FFFFFF;}
     .home .hero .eyebrow,.home .hero .eyebrow b,.home .hero .sub b{color:#F0A500;}
@@ -323,25 +334,37 @@
       <section class="hero">
         <div class="wrap content">
           <p class="hero-brand" data-i18n="hero.brand">L'Association Neuro-Odyssée</p>
-          <p class="eyebrow">Départ le 21 août 2026 · <b id="cd">— jours avant le départ</b></p>
+          <p class="eyebrow">Départ le 21 août 2026</p>
           <h1 data-i18n="hero.h1">Ce n'est jamais un manque de volonté.</h1>
-          <p class="sub" data-i18n-html="hero.sub">C'est un cerveau mal compris — et il peut se reconstruire. <b>2&nbsp;200&nbsp;km à pied</b>, de la Suisse à Santiago, pour le prouver.</p>
-          <p class="intro" data-i18n="hero.intro">Roland Crettaz a traversé les addictions, l'effondrement, la reconstruction. Aujourd'hui il marche pour dire que c'est possible — à tout âge, malgré tout.</p>
+          <p class="sub" data-i18n-html="hero.sub">C'est un cerveau mal compris, et il peut se reconstruire. <b>2&nbsp;200&nbsp;km à pied</b>, de la Suisse à Santiago, pour le prouver.</p>
+          <p class="intro" data-i18n="hero.intro">Roland Crettaz a traversé les addictions, l'effondrement, la reconstruction. Aujourd'hui il marche pour dire que c'est possible, à tout âge, malgré tout.</p>
           <div class="actions">
             <a href="#parrainer" class="btn--give" data-i18n="hero.cta_give">Soutenir le projet</a>
             <a href="#suivre" class="btn--list" data-i18n="hero.cta_follow">Pas encore prêt ? Suivre l'aventure →</a>
           </div>
           <p class="heroproof" id="heroProof"></p>
+          <div class="hero-stats">
+            <div class="stat"><span class="stat-num" id="statDays">…</span><span class="stat-lbl" data-i18n="stats.days">jours avant le départ</span></div>
+            <div class="stat"><span class="stat-num">2&nbsp;200</span><span class="stat-lbl" data-i18n="stats.km">kilomètres à pied</span></div>
+            <div class="stat"><span class="stat-num">32&nbsp;500</span><span class="stat-lbl" data-i18n="stats.deniv">mètres de dénivelé</span></div>
+          </div>
         </div>
       </section>
+
+      <!-- Bandeau sponsors défilant -->
+      <div id="sponsorsTicker" class="home-ticker">
+        <div class="ticker-fade ticker-fade--l" aria-hidden="true"></div>
+        <div class="ticker-fade ticker-fade--r" aria-hidden="true"></div>
+        <div id="sponsorsTrack"></div>
+      </div>
 
       <!-- 2 · MISSION -->
       <section class="section section--alt" id="mission">
         <div class="wrap content">
           <p class="eyebrow" data-i18n="mission.eyebrow">La mission</p>
           <h2 data-i18n="mission.title">Marcher 2 200 km pour changer un regard.</h2>
-          <p data-i18n="mission.p1">Trop de personnes vivant avec un TDAH, une addiction ou un épuisement s'entendent dire qu'elles manquent de volonté. C'est faux — et c'est ce qui les enferme.</p>
-          <p data-i18n="mission.p2">L'association Neuro-Odyssée existe pour le faire savoir : ce qu'on prend pour un défaut de caractère est souvent un cerveau qui cherche à se réguler. Et un cerveau, ça se comprend — et ça se reconstruit.</p>
+          <p data-i18n="mission.p1">Trop de personnes vivant avec un TDAH, une addiction ou un épuisement s'entendent dire qu'elles manquent de volonté. C'est faux, et c'est ce qui les enferme.</p>
+          <p data-i18n="mission.p2">L'association Neuro-Odyssée existe pour le faire savoir : ce qu'on prend pour un défaut de caractère est souvent un cerveau qui cherche à se réguler. Et un cerveau, ça se comprend, et ça se reconstruit.</p>
           <p class="key" data-i18n="mission.reframe">Chaque kilomètre parrainé transforme une conviction en preuve : on peut se relever, et on n'avance pas seul.</p>
           <p data-i18n="mission.outro">La marche démarre le 21 août 2026. Le compteur, lui, démarre maintenant.</p>
           <div class="actions"><a href="#roland" class="btn--list" data-i18n="mission.cta">Découvrir l'histoire →</a></div>
@@ -357,9 +380,9 @@
           <img class="roland__img" src="images/roland-crettaz.jpg" alt="Roland Crettaz, fondateur de l'Association Neuro-Odyssée, au bord du lac Léman" loading="lazy" onerror="this.style.display='none'">
           <div class="story">
             <p class="pullquote" data-i18n="roland.photo_quote">« Chaque pas est une thérapie. Le chemin m'a rendu à moi-même. »</p>
-            <p data-i18n="roland.story_1">Il y a plus de vingt ans, l'alcool faisait partie de mon quotidien. Trop. Alors j'ai arrêté — pas parce que c'était facile, mais parce que continuer coûtait plus cher que changer. Puis les médicaments ont pris la place. J'ai arrêté encore. Des années plus tard, le tabac.</p>
+            <p data-i18n="roland.story_1">Il y a plus de vingt ans, l'alcool faisait partie de mon quotidien. Trop. Alors j'ai arrêté, pas parce que c'était facile, mais parce que continuer coûtait plus cher que changer. Puis les médicaments ont pris la place. J'ai arrêté encore. Des années plus tard, le tabac.</p>
             <p data-i18n="roland.story_2">Mais les addictions n'étaient qu'une partie de l'histoire. Il y a eu les problèmes financiers. Le divorce. Les moments où tout vacille à l'intérieur pendant qu'on fait semblant d'aller bien.</p>
-            <p data-i18n="roland.story_3">Au lieu de fuir, j'ai commencé à observer. À comprendre pourquoi on tombe, pourquoi on répète, pourquoi on sait sans arriver à faire autrement. Je me suis formé — en nutrition, en neurosciences. Et en chemin, j'ai découvert que je vis avec un TDAH. Pas un diagnostic qui enferme : une clé qui ouvre.</p>
+            <p data-i18n="roland.story_3">Au lieu de fuir, j'ai commencé à observer. À comprendre pourquoi on tombe, pourquoi on répète, pourquoi on sait sans arriver à faire autrement. Je me suis formé, en nutrition, en neurosciences. Et en chemin, j'ai découvert que je vis avec un TDAH. Pas un diagnostic qui enferme : une clé qui ouvre.</p>
             <p class="key" data-i18n="roland.story_key">Ce n'est jamais un manque de volonté. C'est un fonctionnement global.</p>
             <p data-i18n="roland.story_5b">Le chemin vers Compostelle n'est pas qu'un défi. C'est un symbole : celui de la reconstruction, de la preuve qu'après des chutes, on peut avancer. Pas à pas.</p>
             <p data-i18n="roland.story_5c">Soutenir ce projet, ce n'est pas soutenir un homme qui marche. C'est soutenir un message : rien n'est figé, on peut se relever, et comprendre comment on fonctionne peut changer une vie. Ce chemin est le mien. Mais ce message est universel.</p>
@@ -394,7 +417,7 @@
         <div class="cards">
           <div class="ncard"><div class="ic">🧭</div><h3 data-i18n="projet.card1_title">Le Défi</h3><p data-i18n="projet.card1_text">2 200 km à pied, du Valais suisse à la côte galicienne. Trois pays, des Alpes aux Pyrénées jusqu'à l'Atlantique.</p><span class="tag">🇨🇭 → 🇫🇷 → 🇪🇸</span></div>
           <div class="ncard"><div class="ic">🧠</div><h3 data-i18n="projet.card2_title">La Science</h3><p data-i18n="projet.card2_text">La neuroplasticité montre que le cerveau se reconfigure toute la vie. La marche intensive génère du BDNF, qui favorise la croissance neuronale.</p><span class="tag blue" data-i18n="projet.badge_neuro">Neuroplasticité</span></div>
-          <div class="ncard"><div class="ic">💬</div><h3 data-i18n="projet.card3_title">Le Message</h3><p data-i18n="projet.card3_text">TDAH, alcool, médicaments, tabac : Roland a tout traversé. Aujourd'hui il marche pour dire que la reconstruction est possible — à tout âge.</p><span class="tag" data-i18n="projet.badge_tdah">TDAH &amp; Addictions</span></div>
+          <div class="ncard"><div class="ic">💬</div><h3 data-i18n="projet.card3_title">Le Message</h3><p data-i18n="projet.card3_text">TDAH, alcool, médicaments, tabac : Roland a tout traversé. Aujourd'hui il marche pour dire que la reconstruction est possible, à tout âge.</p><span class="tag" data-i18n="projet.badge_tdah">TDAH &amp; Addictions</span></div>
         </div>
       </div>
     </section>
@@ -404,7 +427,7 @@
       <div class="wrap">
         <p class="eyebrow" data-i18n="parrainer.eyebrow">Parrainer un kilomètre</p>
         <h2 data-i18n="parrainer.title">2 200 km à parcourir.</h2>
-        <p class="lead" data-i18n="parrainer.lead">Chaque kilomètre parrainé rapproche Roland de Santiago — et finance la logistique, l'équipement et le documentaire.</p>
+        <p class="lead" data-i18n="parrainer.lead">Chaque kilomètre parrainé rapproche Roland de Santiago, et finance la logistique, l'équipement et le documentaire.</p>
 
         <div class="parrainage" aria-label="objectif de parrainage">
           <div class="parrainage__head">
@@ -421,7 +444,7 @@
         <ul class="finance">
           <li data-i18n="parrainer.fin1">Sensibiliser le grand public et les proches, étape après étape.</li>
           <li data-i18n="parrainer.fin2">Soutenir les actions de l'association en faveur des cerveaux atypiques.</li>
-          <li data-i18n="parrainer.fin3">Porter le message au-delà des frontières — de la Suisse jusqu'à Santiago.</li>
+          <li data-i18n="parrainer.fin3">Porter le message au-delà des frontières, de la Suisse jusqu'à Santiago.</li>
         </ul>
 
         <div class="route" aria-label="étapes du trajet">
@@ -436,9 +459,9 @@
         </div>
 
         <div class="tiers">
-          <span class="tier">1 km — <b>CHF 25.–</b></span>
-          <span class="tier"><span data-i18n="parrainer.tier_step">une étape</span> · 25 km — <b>CHF 625.–</b></span>
-          <span class="tier"><span data-i18n="parrainer.tier_leg">un tronçon</span> · 100 km — <b>CHF 2 500.–</b></span>
+          <span class="tier">1 km, <b>CHF 25.–</b></span>
+          <span class="tier"><span data-i18n="parrainer.tier_step">une étape</span> · 25 km, <b>CHF 625.–</b></span>
+          <span class="tier"><span data-i18n="parrainer.tier_leg">un tronçon</span> · 100 km, <b>CHF 2 500.–</b></span>
           <span class="tier tier--free" data-i18n="parrainer.tier_free">montant libre</span>
         </div>
         <div class="actions"><a href="soutenir.html" class="btn--give" data-i18n="hero.cta_give_km">Parrainer un kilomètre</a></div>
@@ -450,10 +473,10 @@
       <div class="wrap">
         <p class="eyebrow" data-i18n="docu.section_label">Sur scène et à l'écran</p>
         <h2 data-i18n="docu.title">Un documentaire, un livre.</h2>
-        <p class="lead" data-i18n="docu.subtitle">Le voyage sera documenté en temps réel. Une œuvre qui raconte la reconstruction — pas seulement la marche.</p>
+        <p class="lead" data-i18n="docu.subtitle">Le voyage sera documenté en temps réel. Une œuvre qui raconte la reconstruction, pas seulement la marche.</p>
         <div class="cards cards--2">
-          <div class="ncard"><span class="badge" data-i18n="docu.coming_soon">À venir</span><h3 data-i18n="docu.docu_title">Le Documentaire</h3><p data-i18n="docu.docu_text">Caméra à l'épaule, Roland filme son quotidien de marcheur : les aurores en montagne, les rencontres avec d'autres pèlerins.</p><span class="tag" data-i18n="docu.trailer_soon">Bande-annonce — bientôt</span></div>
-          <div class="ncard"><span class="badge" data-i18n="docu.preorder_badge">Précommande</span><h3 data-i18n="docu.book_title">Le Livre du périple</h3><p data-i18n="docu.book_text">Un récit de voyage intérieur autant qu'extérieur, mêlant neuroscience vulgarisée et témoignage — écrit en chemin.</p><div class="price">CHF 29.90 <s>CHF 37.90</s></div><div class="actions" style="margin-top:12px;"><a href="payment/precommande-livre.php" class="btn--give" style="padding:12px 20px;font-size:15px;" data-i18n="docu.preorder_cta">Précommander le livre</a></div></div>
+          <div class="ncard"><span class="badge" data-i18n="docu.coming_soon">À venir</span><h3 data-i18n="docu.docu_title">Le Documentaire</h3><p data-i18n="docu.docu_text">Caméra à l'épaule, Roland filme son quotidien de marcheur : les aurores en montagne, les rencontres avec d'autres pèlerins.</p><span class="tag" data-i18n="docu.trailer_soon">Bande-annonce, bientôt</span></div>
+          <div class="ncard"><span class="badge" data-i18n="docu.preorder_badge">Précommande</span><h3 data-i18n="docu.book_title">Le Livre du périple</h3><p data-i18n="docu.book_text">Un récit de voyage intérieur autant qu'extérieur, mêlant neuroscience vulgarisée et témoignage, écrit en chemin.</p><div class="price">CHF 29.90 <s>CHF 37.90</s></div><div class="actions" style="margin-top:12px;"><a href="payment/precommande-livre.php" class="btn--give" style="padding:12px 20px;font-size:15px;" data-i18n="docu.preorder_cta">Précommander le livre</a></div></div>
         </div>
       </div>
     </section>
@@ -483,11 +506,11 @@
           <div class="sp"><b>IAsmart.tech</b><small>Agence Web &amp; IA</small></div>
           <div class="sp"><b>Cellula Pharm</b><small>Cellular Health Laboratory</small></div>
         </div>
-        <h3 style="margin-top:46px;" data-i18n="sponsors.become_title">Devenir sponsor — parrainez des kilomètres</h3>
-        <p class="lead" style="margin-bottom:20px;" data-i18n="sponsors.become_lead">Votre logo sur le chemin de 2 200 km — dans les vidéos, le livre, le documentaire.</p>
+        <h3 style="margin-top:46px;" data-i18n="sponsors.become_title">Devenir sponsor, parrainez des kilomètres</h3>
+        <p class="lead" style="margin-bottom:20px;" data-i18n="sponsors.become_lead">Votre logo sur le chemin de 2 200 km, dans les vidéos, le livre, le documentaire.</p>
         <div class="sp-tiers">
-          <span>🥉 <b>Bronze</b> — 1 à 50 km</span><span>🥈 <b>Argent</b> — 51 à 200 km</span>
-          <span>🥇 <b>Or</b> — 201 à 500 km</span><span>💎 <b>Platine</b> — 500+ km</span>
+          <span>🥉 <b>Bronze</b>, 1 à 50 km</span><span>🥈 <b>Argent</b>, 51 à 200 km</span>
+          <span>🥇 <b>Or</b>, 201 à 500 km</span><span>💎 <b>Platine</b>, 500+ km</span>
         </div>
         <div class="actions"><a href="sponsoring.html" class="btn--list" data-i18n="sponsors.become_cta">Devenir sponsor →</a></div>
       </div>
@@ -509,7 +532,7 @@
             <button type="submit" id="newsletterBtn" class="btn--give" data-i18n="community.cta">Suivre l'aventure</button>
           </form>
           <p id="newsletterMsg" style="min-height:1rem;margin:10px 0 0;color:var(--text-light);font-size:13px;"></p>
-          <small data-i18n="community.no_spam">Pas de spam — 1 à 2 nouvelles par mois. Désinscription en un clic.</small>
+          <small data-i18n="community.no_spam">Pas de spam, 1 à 2 nouvelles par mois. Désinscription en un clic.</small>
           <p class="social"><span data-i18n="community.or_follow">Ou suivez au quotidien :</span> <a href="https://www.instagram.com/la_neuro_odyssee" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@LaNeuro-Odyssee" target="_blank" rel="noopener">YouTube</a><a href="https://www.facebook.com/share/1FAdwFuzDW/" target="_blank" rel="noopener">Facebook</a></p>
         </div>
       </div>
@@ -524,7 +547,7 @@
         <div class="md:col-span-2">
           <div class="footer-logo">Association <span>Neuro</span>-Odyssée</div>
           <p class="mt-3 text-sm leading-relaxed" style="color:rgba(255,255,255,0.5); max-width:320px;" data-i18n="footer.tagline">
-            2 200 km pour se reconstruire — De St-Maurice à Santiago de Compostela
+            2 200 km pour se reconstruire, De St-Maurice à Santiago de Compostela
           </p>
           <div class="flex gap-3 mt-6">
             <a href="https://www.youtube.com/@LaNeuro-Odyssee" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
@@ -570,7 +593,7 @@
       </div>
       <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
         <div class="text-sm" style="color:rgba(255,255,255,0.35);">
-          © <span class="current-year"></span> <span data-i18n="footer.legal">Association Neuro-Odyssée · Martigny (Valais), Suisse</span> · <span data-i18n="footer.website">neuro-odyssee.com</span> — <span data-i18n="footer.rights">Tous droits réservés.</span>
+          © <span class="current-year"></span> <span data-i18n="footer.legal">Association Neuro-Odyssée · Martigny (Valais), Suisse</span> · <span data-i18n="footer.website">neuro-odyssee.com</span>, <span data-i18n="footer.rights">Tous droits réservés.</span>
         </div>
         <div class="text-sm" style="color:rgba(255,255,255,0.25);">
           <span data-i18n="footer.credit">Réalisé par</span> <a href="https://iasmart.tech" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.45); text-decoration:underline; text-underline-offset:3px;">IAsmart.tech</a> · <a href="admin/" style="color:rgba(255,255,255,0.55); font-size:0.85rem; text-decoration:none;" title="Espace Roland">admin</a>
@@ -586,9 +609,23 @@
   <script src="js/newsletter.js"></script>
   <script>
     (function(){
-      var el=document.getElementById('cd'); if(!el) return;
+      var el=document.getElementById('statDays'); if(!el) return;
       var d=Math.max(0,Math.ceil((new Date('2026-08-21T00:00:00')-new Date())/86400000));
-      el.textContent=d+' jours avant le départ';
+      el.textContent=d.toLocaleString('fr-CH');
+    })();
+    (function(){
+      fetch('api/sponsors.php').then(function(r){return r.json();}).then(function(sponsors){
+        if(!sponsors||!sponsors.length) return;
+        var track=document.getElementById('sponsorsTrack'); if(!track) return;
+        var all=sponsors.concat(sponsors);
+        track.innerHTML=all.map(function(s){
+          var logo=s.logo?'<img src="'+s.logo+'" alt="'+s.name+'" style="max-height:26px;max-width:78px;object-fit:contain;vertical-align:middle;">':'';
+          var inner='<span style="display:inline-flex;align-items:center;gap:0.45rem;">'+logo+'<span style="font-size:0.78rem;font-weight:700;letter-spacing:.02em;color:#1a2332;">'+s.name+'</span></span>';
+          var dot='<span style="color:rgba(0,0,0,0.18);margin:0 1.6rem;">·</span>';
+          return s.url?'<a href="'+s.url+'" target="_blank" rel="noopener" style="text-decoration:none;padding:0 0.5rem;">'+inner+'</a>'+dot:'<span style="padding:0 0.5rem;">'+inner+'</span>'+dot;
+        }).join('');
+        track.style.animationDuration=Math.max(18,sponsors.length*8)+'s';
+      }).catch(function(){});
     })();
     (function(){
       var kmFunded=0, supporters=3, kmGoal=2200, pricePerKm=25;
