@@ -154,7 +154,7 @@ const WAYPOINTS = [
     name: "Santiago de Compostela",
     coords: [42.8782, -8.5448],
     type: "end",
-    km: 1900,
+    km: 2200,
     country: "🇪🇸",
     desc: "Destination finale — La cathédrale du bout du monde · Buen Camino ✨"
   }
@@ -209,8 +209,8 @@ function initMap() {
     dashArray: null
   }).addTo(mapInstance);
 
-  // Animated dashes for "to walk" portion (if current km < 1900)
-  if (CURRENT_KM < 1900) {
+  // Animated dashes for "to walk" portion (if current km < 2200)
+  if (CURRENT_KM < 2200) {
     const futureStart = getCoordAtKm(CURRENT_KM);
     const futureCoords = WAYPOINTS
       .filter(w => w.km > CURRENT_KM)
@@ -249,7 +249,7 @@ function initMap() {
   });
 
   // Add current position marker (pulsing gold dot)
-  if (CURRENT_KM > 0 && CURRENT_KM < 1900) {
+  if (CURRENT_KM > 0 && CURRENT_KM < 2200) {
     addCurrentPositionMarker();
   }
 
@@ -361,7 +361,7 @@ function addCurrentPositionMarker() {
   marker.bindPopup(`
     <div style="padding: 4px 2px;">
       <div class="popup-title">📍 Position actuelle</div>
-      <div class="popup-km">km ${CURRENT_KM.toLocaleString('fr-FR')} / 1 900</div>
+      <div class="popup-km">km ${CURRENT_KM.toLocaleString('fr-FR')} / 2 200</div>
       <div style="margin-top: 0.4rem; font-size: 0.8rem; color: #718096;">Roland est ici</div>
     </div>
   `);
@@ -371,7 +371,7 @@ function addCurrentPositionMarker() {
 
 function getCoordAtKm(targetKm) {
   if (targetKm <= 0) return WAYPOINTS[0].coords;
-  if (targetKm >= 1900) return WAYPOINTS[WAYPOINTS.length - 1].coords;
+  if (targetKm >= 2200) return WAYPOINTS[WAYPOINTS.length - 1].coords;
 
   for (let i = 0; i < WAYPOINTS.length - 1; i++) {
     const a = WAYPOINTS[i];
@@ -417,7 +417,7 @@ function addMapLegend() {
         <div style="width:8px; height:8px; background:#2D8C7A; border-radius:50%; border:2px solid white;"></div> Étape
       </div>
       <div style="margin-top:0.5rem; padding-top:0.5rem; border-top:1px solid rgba(0,0,0,0.08); color:#1E6B5E; font-weight:600;">
-        1 900 km · 3 pays
+        2 200 km · 3 pays
       </div>
     `;
     return div;

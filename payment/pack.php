@@ -16,7 +16,7 @@ $PACKS = [
 ];
 
 $pack = preg_replace('/[^a-z]/', '', strtolower($_GET['pack'] ?? ''));
-$km   = isset($_GET['km']) ? max(1, min(1900, intval($_GET['km']))) : 0;
+$km   = isset($_GET['km']) ? max(1, min(2200, intval($_GET['km']))) : 0;
 
 if ($pack && isset($PACKS[$pack])) {
     // Pack fixe

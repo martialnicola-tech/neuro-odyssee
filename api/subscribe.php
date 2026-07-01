@@ -68,7 +68,7 @@ function envoyerBienvenueClub($email, $nom) {
     $body .= "Bienvenue dans le Club Neuro-Odyssee !\n\n";
     $body .= "Tu fais maintenant partie d'une communaute de personnes engagees dans le changement.\n\n";
     $body .= "Ce que tu vas recevoir en tant que membre du Club :\n\n";
-    $body .= "  - Les coulisses du periple de 1 900 km de Roland\n";
+    $body .= "  - Les coulisses du periple de 2 200 km de Roland\n";
     $body .= "  - Du contenu exclusif sur les neurosciences et le TDAH\n";
     $body .= "  - Des conseils pratiques pour reprendre le controle de ton cerveau\n";
     $body .= "  - Un acces prioritaire aux futurs evenements et au livre\n\n";

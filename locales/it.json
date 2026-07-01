@@ -1,8 +1,8 @@
 {
   "meta": {
     "site_name": "Associazione Neuro-Odissea",
-    "tagline": "1.900 km per ricostruirsi",
-    "description_home": "1.900 km a piedi dalla Svizzera a Santiago per cambiare uno sguardo: ciò che sembra mancanza di volontà è spesso un cervello frainteso — e può ricostruirsi. Sostenga la causa."
+    "tagline": "2.200 km per ricostruirsi",
+    "description_home": "2.200 km a piedi dalla Svizzera a Santiago per cambiare uno sguardo: ciò che sembra mancanza di volontà è spesso un cervello frainteso — e può ricostruirsi. Sostenga la causa."
   },
   "nav": {
     "home": "Home",
@@ -20,8 +20,8 @@
     "badge": "Partenza il 21 agosto 2026",
     "title_line1": "La Neuro-",
     "title_line2": "Odissea",
-    "tagline": "Cervello atipico, comportamenti compensatori, ricostruzione — è tutto collegato.<br>1900 km per dimostrarlo.",
-    "subtitle": "Roland Crettaz percorre a piedi 1900 km da St-Maurice a Santiago per dimostrare in tempo reale che il cervello può ricostruirsi — e che ciò che sembra una debolezza di carattere nasconde spesso un funzionamento neurologico mal compreso.",
+    "tagline": "Cervello atipico, comportamenti compensatori, ricostruzione — è tutto collegato.<br>2200 km per dimostrarlo.",
+    "subtitle": "Roland Crettaz percorre a piedi 2200 km da St-Maurice a Santiago per dimostrare in tempo reale che il cervello può ricostruirsi — e che ciò che sembra una debolezza di carattere nasconde spesso un funzionamento neurologico mal compreso.",
     "cta_sponsor": "Diventa Sponsor",
     "cta_don": "Sostieni il Progetto",
     "scroll_hint": "Scopri il progetto",
@@ -31,7 +31,8 @@
     "cta_give_km": "Sponsorizzi un chilometro",
     "h1": "Non è mai mancanza di volontà.",
     "intro": "Roland Crettaz ha attraversato le dipendenze, il crollo, la ricostruzione. Oggi cammina per dire che è possibile — a ogni età, nonostante tutto.",
-    "sub": "È un cervello frainteso — e può ricostruirsi. <b>1.900 km a piedi</b>, dalla Svizzera a Santiago, per dimostrarlo."
+    "sub": "È un cervello frainteso — e può ricostruirsi. <b>2.200 km a piedi</b>, dalla Svizzera a Santiago, per dimostrarlo.",
+    "brand": "L'Associazione Neuro-Odyssée"
   },
   "stats": {
     "km_parraines": "km sponsorizzati",
@@ -45,7 +46,7 @@
     "subtitle": "Tre dimensioni dello stesso viaggio: spingere i limiti del corpo, dimostrare la plasticità cerebrale e trasmettere un messaggio di speranza.",
     "card1_icon": "🧭",
     "card1_title": "La Sfida",
-    "card1_text": "1.900 km a piedi, da solo, dal Vallese svizzero alla costa galiziana. Attraversamento di tre paesi, dalle Alpi ai Pirenei, fino all'Atlantico. Un'avventura umana straordinaria.",
+    "card1_text": "2.200 km a piedi, da solo, dal Vallese svizzero alla costa galiziana. Attraversamento di tre paesi, dalle Alpi ai Pirenei, fino all'Atlantico. Un'avventura umana straordinaria.",
     "card2_icon": "🧠",
     "card2_title": "La Scienza",
     "card2_text": "La neuroplasticità dimostra che il cervello si riconfigura per tutta la vita. La camminata intensiva genera BDNF — una proteina che favorisce la crescita neuronale. Questo pellegrinaggio è un esperimento vivo di neuroscienze.",
@@ -60,7 +61,7 @@
     "section_label": "Una sfida in tre dimensioni",
     "title": "Fisico, Neurologico & Umano",
     "subtitle": "Tre dimensioni dello stesso viaggio: spingere i limiti del corpo, dimostrare la plasticità cerebrale e trasmettere un messaggio di speranza.",
-    "intro_italic": "Percorrendo questi 1.900 km, Roland non testa solo la sua resistenza — esplora la capacità del sistema nervoso di riorganizzarsi sotto sforzo prolungato, trasformando la camminata in un vero studio clinico a cielo aperto.",
+    "intro_italic": "Percorrendo questi 2.200 km, Roland non testa solo la sua resistenza — esplora la capacità del sistema nervoso di riorganizzarsi sotto sforzo prolungato, trasformando la camminata in un vero studio clinico a cielo aperto.",
     "card_physique_title": "Fisico",
     "card_physique_text": "Al di là della distanza, è la gestione del recupero metabolico su più di 80 giorni di cammino che è in gioco. Ogni tappa è una lezione sull'adattabilità del corpo umano.",
     "card_neuro_title": "Neurologico",
@@ -71,8 +72,8 @@
   "progress": {
     "section_label": "Chilometri Sponsorizzati",
     "title": "Obiettivo: 36.000 €",
-    "subtitle": "1.900 km × 22 € per chilometro — Ogni km sponsorizzato finanzia la logistica, le attrezzature e la produzione del documentario.",
-    "hero_title": "1.900 km da percorrere",
+    "subtitle": "2.200 km × 22 € per chilometro — Ogni km sponsorizzato finanzia la logistica, le attrezzature e la produzione del documentario.",
+    "hero_title": "2.200 km da percorrere",
     "hero_subtitle": "Ogni chilometro sponsorizzato avvicina Roland a Santiago — e finanzia la logistica, le attrezzature e il documentario.",
     "km_parraines": "km sponsorizzati",
     "km_total": "km totali",
@@ -84,7 +85,7 @@
     "section_label": "L'Uomo Dietro il Progetto",
     "title": "Roland Crettaz",
     "subtitle": "Nato nel Vallese, Roland ha vissuto decenni con un ADHD non diagnosticato, cercando di colmare quel vuoto nell'alcol, nei farmaci e nelle sigarette.",
-    "bio1": "Solo a 40 anni tutto si è chiarito: la diagnosi di ADHD, la decisione di smettere con le sostanze, il lungo cammino della ricostruzione. Terapia, letture, incontri — e poi l'idea folle di una camminata di 1.900 km.",
+    "bio1": "Solo a 40 anni tutto si è chiarito: la diagnosi di ADHD, la decisione di smettere con le sostanze, il lungo cammino della ricostruzione. Terapia, letture, incontri — e poi l'idea folle di una camminata di 2.200 km.",
     "bio2": "\"Il Cammino di Compostela non è una fuga. È un ritorno a me stesso. Ogni passo è un neurone che si riconnette, ogni tappa una dipendenza lasciata alle spalle.\"",
     "bio3": "Roland documenta ogni tappa: video YouTube, blog e un libro in preparazione. Il suo obiettivo: diventare conferenziere per parlare alle aziende e alle istituzioni di salute mentale.",
     "photo_quote": "\"Ogni passo è una terapia. Il cammino mi ha restituito a me stesso.\"",
@@ -129,7 +130,7 @@
     "title": "La Neuro-Odissea sui media",
     "subtitle": "La stampa racconta l'avventura di Roland Crettaz.",
     "badge": "Le Carrefour · N°248 · Maggio 2026",
-    "article_title": "1900 chilometri per ricablare il cervello",
+    "article_title": "2200 chilometri per ricablare il cervello",
     "article_text": "Un reportage di due pagine su Roland Crettaz, seguito dall'intervista «Dieci domande».",
     "read": "Leggi l'articolo",
     "cta": "Vedi tutti i media"
@@ -137,7 +138,7 @@
   "sponsors_preview": {
     "section_label": "I Nostri Partner",
     "title": "Unisciti ai Primi Sponsor",
-    "subtitle": "Il tuo logo qui, sui 1.900 km del cammino — nei video, nel libro, nel documentario.",
+    "subtitle": "Il tuo logo qui, sui 2.200 km del cammino — nei video, nel libro, nel documentario.",
     "empty_slot": "Il tuo logo",
     "tier_bronze": "Bronzo — da 10 €",
     "tier_silver": "Argento — da 510 €",
@@ -147,7 +148,7 @@
   },
   "trajet": {
     "page_title": "Il Percorso",
-    "hero_title": "1.900 km",
+    "hero_title": "2.200 km",
     "hero_subtitle": "St-Maurice → Santiago de Compostela",
     "hero_text": "Un cammino attraverso tre paesi, attraversando le Alpi, il Massiccio Centrale, i Pirenei e la meseta castigliana.",
     "section_map": "La Mappa del Periplo",
@@ -174,7 +175,7 @@
     "stat_days": "Giorni stimati",
     "stat_countries": "Paesi attraversati",
     "stat_elevation": "Dislivello stimato",
-    "stat_distance_val": "1.900 km",
+    "stat_distance_val": "2.200 km",
     "stat_days_val": "~90 giorni",
     "stat_countries_val": "3 (CH, FR, ES)",
     "stat_elevation_val": "~25.000 m",
@@ -273,7 +274,7 @@
     "impact_yt_title": "YouTube",
     "impact_yt_sub": "Menzione in ogni video",
     "tracker_title": "Avanzamento del patrocinio",
-    "tracker_label": "km adottati su 1.900",
+    "tracker_label": "km adottati su 2.200",
     "stat_partners": "Partner",
     "stat_km_total": "km da patrocinare",
     "stat_km_avail": "km disponibili",
@@ -305,7 +306,7 @@
     "post4_excerpt": "Perché le persone con ADHD sono statisticamente più a rischio di sviluppare dipendenze. E perché capire questo meccanismo è il primo passo verso la libertà.",
     "post4_tag": "addictions",
     "post5_title": "I miei 6 mesi di preparazione fisica per Compostela",
-    "post5_excerpt": "Non si camminano 1.900 km su un capriccio. Ecco il mio programma di allenamento progressivo, i miei errori, le mie vittorie e ciò che i miei piedi hanno imparato.",
+    "post5_excerpt": "Non si camminano 2.200 km su un capriccio. Ecco il mio programma di allenamento progressivo, i miei errori, le mie vittorie e ciò che i miei piedi hanno imparato.",
     "post5_tag": "entrainement",
     "post6_title": "La neuroplasticità spiegata a mia madre",
     "post6_excerpt": "Il cervello non è fisso. Si trasforma, guarisce e impara a qualsiasi età. Una spiegazione semplice di un concetto che ha cambiato la mia vita.",
@@ -321,7 +322,7 @@
     "newsletter_note": "Nessuno spam. Cancellazione facile in qualsiasi momento.",
     "training_label": "Allenamento",
     "training_title": "La Preparazione in Immagini",
-    "training_subtitle": "1.900 km non si improvvisano — ecco le settimane di preparazione fisica di Roland in Vallese",
+    "training_subtitle": "2.200 km non si improvvisano — ecco le settimane di preparazione fisica di Roland in Vallese",
     "training_caption": "Roland in allenamento — Vallese, Svizzera · Primavera 2026",
     "training_cardio_title": "Cardio lunga distanza",
     "training_cardio_text": "Uscite settimanali di 20-35 km per abituare il corpo alle lunghe distanze. Focus sulla gestione dello sforzo e sul recupero.",
@@ -334,7 +335,7 @@
     "day9_caption": "Giorno 9 di allenamento — Roland in Vallese · Primavera 2026",
     "assoc_tag": "Associazione",
     "assoc_title": "È nata l'Associazione Neuro-Odissea",
-    "assoc_excerpt": "Il progetto di un uomo diventa una causa collettiva: un'associazione senza scopo di lucro per sensibilizzare e accompagnare, ben oltre i 1 900 km.",
+    "assoc_excerpt": "Il progetto di un uomo diventa una causa collettiva: un'associazione senza scopo di lucro per sensibilizzare e accompagnare, ben oltre i 2 200 km.",
     "assoc_badge": "In evidenza"
   },
   "soutenir": {
@@ -408,7 +409,7 @@
     "hero_badge": "PRIMA DELLA PARTENZA",
     "hero_title": "La Preparazione",
     "hero_tagline": "Corpo, mente, nutrizione & attrezzatura",
-    "hero_subtitle_prefix": "6 mesi di preparazione intensiva per 1.900 km. Ecco come Roland prepara il suo corpo e la sua mente per la più grande sfida della sua vita.",
+    "hero_subtitle_prefix": "6 mesi di preparazione intensiva per 2.200 km. Ecco come Roland prepara il suo corpo e la sua mente per la più grande sfida della sua vita.",
     "stat_prep_label": "di preparazione",
     "stat_km_label": "percorsi",
     "stat_elev_label": "dislivello cumulato",
@@ -472,7 +473,7 @@
     "sponsor_slot_bag": "Zaino & attrezzatura",
     "sponsor_slot_nutrition": "Nutrizione trail",
     "equip_partner_title": "Diventa partner attrezzatura",
-    "equip_partner_text": "Il tuo prodotto testato in condizioni reali su 1.900 km. Visibilità nei video YouTube, nel libro e nel documentario. Contatta Roland per i dettagli.",
+    "equip_partner_text": "Il tuo prodotto testato in condizioni reali su 2.200 km. Visibilità nei video YouTube, nel libro e nel documentario. Contatta Roland per i dettagli.",
     "equip_tag_yt": "Video YouTube",
     "equip_tag_book": "Libro pubblicato",
     "equip_tag_docu": "Documentario",
@@ -539,7 +540,7 @@
     "form_error": "Si è verificato un errore. Riprova."
   },
   "footer": {
-    "tagline": "1.900 km per ricostruirsi — Da St-Maurice a Santiago de Compostela",
+    "tagline": "2.200 km per ricostruirsi — Da St-Maurice a Santiago de Compostela",
     "nav_title": "Navigazione",
     "contact_title": "Contatto",
     "contact_email": "roland@neuro-odyssee.com",
@@ -561,7 +562,7 @@
     "p1": "Il cervello atipico (funzionamento ADHD) cerca naturalmente di compensare una mancanza di stimolazione e di regolazione emotiva. Non è una mancanza di volontà. È neurologia.",
     "p2": "L'alcol, i farmaci, il tabacco, l'iperattività, l'eccessiva ricerca del rischio: sono risposte a questa mancanza. Tentativi del cervello di autoregolarsi con gli strumenti disponibili.",
     "p3": "Quando si capisce questo, tutto cambia. Si smette di combattere contro sé stessi. Si comincia a comprendersi.",
-    "p4": "È questo il messaggio che Roland porta lungo questi 1900 km.",
+    "p4": "È questo il messaggio che Roland porta lungo questi 2200 km.",
     "cta": "Scopri la causa"
   },
   "cause": {
@@ -587,7 +588,7 @@
     "s4_title": "Ciò che il cammino viene a dimostrare",
     "s4_p1": "Il cammino a lunga distanza non è un simbolo scelto a caso.",
     "s4_p2": "Studi nelle neuroscienze mostrano che lo sforzo fisico regolare e prolungato favorisce la neurogenesi — la capacità del cervello di creare nuove connessioni. Il cammino stimola la produzione di proteine che sostengono la crescita neuronale. Regola il sistema nervoso. Riporta il corpo e il cervello in uno stato di coerenza.",
-    "s4_p3": "Camminando per 1900 km, Roland non si limita ad attraversare tre paesi. Sperimenta su sé stesso ciò che la scienza descrive: che il cervello può riconfigurarsi, a qualsiasi età, dopo qualsiasi caduta.",
+    "s4_p3": "Camminando per 2200 km, Roland non si limita ad attraversare tre paesi. Sperimenta su sé stesso ciò che la scienza descrive: che il cervello può riconfigurarsi, a qualsiasi età, dopo qualsiasi caduta.",
     "s4_p4": "E lo documenta in tempo reale, affinché questo percorso non sia soltanto il suo.",
     "s5_title": "E dopo il cammino",
     "s5_p1": "Questo progetto è il punto di partenza di una visione più ampia.",
@@ -605,7 +606,7 @@
     "s1_title": "Da progetto personale a causa collettiva",
     "s1_p1": "La Neuro-Odissea è nata dal percorso di un uomo. Ma il messaggio che porta va ben oltre una storia individuale.",
     "s1_p2": "Perché questo messaggio viva oltre la marcia, serviva una struttura duratura, trasparente e indipendente. Per questo è nata l'Associazione Neuro-Odissea.",
-    "s1_p3": "Un'associazione non è solo un nome. È un impegno: continuare, dopo i 1 900 km, ad aiutare chi ne ha bisogno.",
+    "s1_p3": "Un'associazione non è solo un nome. È un impegno: continuare, dopo i 2 200 km, ad aiutare chi ne ha bisogno.",
     "s2_title": "La nostra missione",
     "s2_p1": "Sensibilizzare e accompagnare le persone che vivono con un funzionamento neurologico atipico e le sue conseguenze — ADHD, burnout, sovraccarico mentale, dipendenze — e mostrare che la ricostruzione è possibile a ogni età.",
     "s2_p2": "Accompagnare le persone interessate e i loro cari con un linguaggio accessibile, senza giudizio, fondato sulle neuroscienze e sul vissuto.",
@@ -683,7 +684,7 @@
     "p1": "A troppe persone che convivono con un ADHD, una dipendenza o un esaurimento viene detto che mancano di volontà. È falso — ed è ciò che le imprigiona.",
     "p2": "L'associazione Neuro-Odyssée esiste per farlo sapere: ciò che scambiamo per un difetto di carattere è spesso un cervello che cerca di regolarsi. E un cervello si può comprendere — e ricostruire.",
     "reframe": "Ogni chilometro sponsorizzato trasforma una convinzione in prova: ci si può rialzare, e non si avanza da soli.",
-    "title": "Camminare 1.900 km per cambiare uno sguardo."
+    "title": "Camminare 2.200 km per cambiare uno sguardo."
   },
   "parrainer": {
     "eyebrow": "Sponsorizzare un chilometro",
@@ -697,11 +698,11 @@
     "tier_free": "importo libero",
     "tier_leg": "un tratto",
     "tier_step": "una tappa",
-    "title": "1.900 km da percorrere."
+    "title": "2.200 km da percorrere."
   },
   "sponsors": {
     "become_cta": "Diventi sponsor →",
-    "become_lead": "Il suo logo lungo i 1.900 km — nei video, nel libro, nel documentario.",
+    "become_lead": "Il suo logo lungo i 2.200 km — nei video, nel libro, nel documentario.",
     "become_title": "Diventi sponsor — sponsorizzi dei chilometri",
     "eyebrow": "Partner",
     "lead": "Partner impegnati al nostro fianco fin dal primo giorno.",

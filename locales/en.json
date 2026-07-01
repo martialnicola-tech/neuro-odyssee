@@ -1,8 +1,8 @@
 {
   "meta": {
     "site_name": "The Neuro-Odyssey Association",
-    "tagline": "1,900 km to rebuild yourself",
-    "description_home": "1,900 km on foot from Switzerland to Santiago to change the way we see: what looks like a lack of willpower is often a misunderstood brain — and it can rebuild itself. Support the cause."
+    "tagline": "2,200 km to rebuild yourself",
+    "description_home": "2,200 km on foot from Switzerland to Santiago to change the way we see: what looks like a lack of willpower is often a misunderstood brain — and it can rebuild itself. Support the cause."
   },
   "nav": {
     "home": "Home",
@@ -20,8 +20,8 @@
     "badge": "Departure August 21, 2026",
     "title_line1": "The Neuro-",
     "title_line2": "Odyssey",
-    "tagline": "Atypical brain, compensating behaviors, rebuilding — it's all connected.<br>1,900 km to prove it.",
-    "subtitle": "Roland Crettaz is walking 1,900 km from St-Maurice to Santiago to show in real time that the brain can rebuild itself — and that what looks like weakness of character often hides a misunderstood way the brain works.",
+    "tagline": "Atypical brain, compensating behaviors, rebuilding — it's all connected.<br>2,200 km to prove it.",
+    "subtitle": "Roland Crettaz is walking 2,200 km from St-Maurice to Santiago to show in real time that the brain can rebuild itself — and that what looks like weakness of character often hides a misunderstood way the brain works.",
     "cta_sponsor": "Become a Sponsor",
     "cta_don": "Support the Project",
     "scroll_hint": "Discover the project",
@@ -31,7 +31,8 @@
     "cta_give_km": "Sponsor a kilometre",
     "h1": "It's never a lack of willpower.",
     "intro": "Roland Crettaz has been through addiction, collapse and rebuilding. Today he walks to show that recovery is possible — at any age, despite everything.",
-    "sub": "It's a misunderstood brain — and it can rebuild itself. <b>1,900 km on foot</b>, from Switzerland to Santiago, to prove it."
+    "sub": "It's a misunderstood brain — and it can rebuild itself. <b>2,200 km on foot</b>, from Switzerland to Santiago, to prove it.",
+    "brand": "The Neuro-Odyssée Association"
   },
   "stats": {
     "km_parraines": "km sponsored",
@@ -45,7 +46,7 @@
     "subtitle": "Three dimensions of the same journey: pushing the body's limits, demonstrating brain plasticity, and sharing a message of hope.",
     "card1_icon": "🧭",
     "card1_title": "The Challenge",
-    "card1_text": "1,900 km on foot, alone, from the Swiss Valais to the Galician coast. Crossing three countries, from the Alps to the Pyrenees, all the way to the Atlantic. An extraordinary human adventure.",
+    "card1_text": "2,200 km on foot, alone, from the Swiss Valais to the Galician coast. Crossing three countries, from the Alps to the Pyrenees, all the way to the Atlantic. An extraordinary human adventure.",
     "card2_icon": "🧠",
     "card2_title": "The Science",
     "card2_text": "Neuroplasticity shows that the brain reconfigures itself throughout life. Intensive walking generates BDNF — a protein that promotes neural growth. This pilgrimage is a living neuroscience experiment.",
@@ -60,7 +61,7 @@
     "section_label": "A three-dimensional challenge",
     "title": "Physical, Neurological & Human",
     "subtitle": "Three dimensions of the same journey: pushing the body's limits, demonstrating brain plasticity, and sharing a message of hope.",
-    "intro_italic": "By covering these 1,900 km, Roland is not only testing his endurance — he is exploring the capacity of the nervous system to reorganise under prolonged effort, turning walking into a genuine open-air clinical study.",
+    "intro_italic": "By covering these 2,200 km, Roland is not only testing his endurance — he is exploring the capacity of the nervous system to reorganise under prolonged effort, turning walking into a genuine open-air clinical study.",
     "card_physique_title": "Physical",
     "card_physique_text": "Beyond the distance, it is the management of metabolic recovery over more than 80 days of walking that is at stake. Each stage is a lesson in the adaptability of the human body.",
     "card_neuro_title": "Neurological",
@@ -71,8 +72,8 @@
   "progress": {
     "section_label": "Sponsored Kilometres",
     "title": "Goal: 36,000 €",
-    "subtitle": "1,900 km × €22 per kilometer — Each sponsored km funds logistics, equipment and documentary production.",
-    "hero_title": "1,900 km to cover",
+    "subtitle": "2,200 km × €22 per kilometer — Each sponsored km funds logistics, equipment and documentary production.",
+    "hero_title": "2,200 km to cover",
     "hero_subtitle": "Every sponsored kilometre brings Roland closer to Santiago — and funds the logistics, equipment and documentary.",
     "km_parraines": "km sponsored",
     "km_total": "km total",
@@ -84,7 +85,7 @@
     "section_label": "The Man Behind the Project",
     "title": "Roland Crettaz",
     "subtitle": "Born in Valais, Roland spent decades with undiagnosed ADHD, trying to fill the void through alcohol, medication and cigarettes.",
-    "bio1": "It was not until the age of 40 that everything clicked: the ADHD diagnosis, the decision to stop substances, the long road to reconstruction. Therapy, reading, encounters — and then the crazy idea of a 1,900 km walk.",
+    "bio1": "It was not until the age of 40 that everything clicked: the ADHD diagnosis, the decision to stop substances, the long road to reconstruction. Therapy, reading, encounters — and then the crazy idea of a 2,200 km walk.",
     "bio2": "\"The Camino de Compostela is not an escape. It is a return to myself. Every step is a neuron reconnecting, every stage an addiction left behind.\"",
     "bio3": "Roland documents every step: YouTube videos, blog, and a book in preparation. His goal: to become a speaker to address businesses and mental health institutions.",
     "photo_quote": "\"Every step is therapy. The road gave me back to myself.\"",
@@ -129,7 +130,7 @@
     "title": "The Neuro-Odyssey in the press",
     "subtitle": "The press is covering Roland Crettaz's adventure.",
     "badge": "Le Carrefour · No. 248 · May 2026",
-    "article_title": "1900 kilometres to rewire the brain",
+    "article_title": "2200 kilometres to rewire the brain",
     "article_text": "A two-page feature on Roland Crettaz, followed by the “Ten questions” interview.",
     "read": "Read the article",
     "cta": "See all media"
@@ -137,7 +138,7 @@
   "sponsors_preview": {
     "section_label": "Our Partners",
     "title": "Join the First Sponsors",
-    "subtitle": "Your logo here, on the 1,900 km journey — in the videos, in the book, in the documentary.",
+    "subtitle": "Your logo here, on the 2,200 km journey — in the videos, in the book, in the documentary.",
     "empty_slot": "Your logo",
     "tier_bronze": "Bronze — from €10",
     "tier_silver": "Silver — from €510",
@@ -147,7 +148,7 @@
   },
   "trajet": {
     "page_title": "The Route",
-    "hero_title": "1,900 km",
+    "hero_title": "2,200 km",
     "hero_subtitle": "St-Maurice → Santiago de Compostela",
     "hero_text": "A journey through three countries, crossing the Alps, the Massif Central, the Pyrenees and the Castilian meseta.",
     "section_map": "The Route Map",
@@ -174,7 +175,7 @@
     "stat_days": "Estimated days",
     "stat_countries": "Countries crossed",
     "stat_elevation": "Estimated elevation gain",
-    "stat_distance_val": "1,900 km",
+    "stat_distance_val": "2,200 km",
     "stat_days_val": "~90 days",
     "stat_countries_val": "3 (CH, FR, ES)",
     "stat_elevation_val": "~25,000 m",
@@ -273,7 +274,7 @@
     "impact_yt_title": "YouTube",
     "impact_yt_sub": "Mention in every video",
     "tracker_title": "Sponsorship progress",
-    "tracker_label": "km adopted out of 1,900",
+    "tracker_label": "km adopted out of 2,200",
     "stat_partners": "Partners",
     "stat_km_total": "km to sponsor",
     "stat_km_avail": "km available",
@@ -305,7 +306,7 @@
     "post4_excerpt": "Why people with ADHD are statistically more at risk of developing addictions. And why understanding this mechanism is the first step toward freedom.",
     "post4_tag": "addictions",
     "post5_title": "My 6-month physical preparation for Compostela",
-    "post5_excerpt": "You do not walk 1,900 km on a whim. Here is my progressive training program, my mistakes, my victories, and what my feet have learned.",
+    "post5_excerpt": "You do not walk 2,200 km on a whim. Here is my progressive training program, my mistakes, my victories, and what my feet have learned.",
     "post5_tag": "entrainement",
     "post6_title": "Neuroplasticity explained to my mother",
     "post6_excerpt": "The brain is not set in stone. It transforms, heals, and learns at any age. A simple explanation of a concept that changed my life.",
@@ -321,7 +322,7 @@
     "newsletter_note": "No spam. Easy unsubscribe at any time.",
     "training_label": "Training",
     "training_title": "Preparation in Pictures",
-    "training_subtitle": "1,900 km don't happen by chance — here are Roland's weeks of physical preparation in Valais",
+    "training_subtitle": "2,200 km don't happen by chance — here are Roland's weeks of physical preparation in Valais",
     "training_caption": "Roland training — Valais, Switzerland · Spring 2026",
     "training_cardio_title": "Long-distance cardio",
     "training_cardio_text": "Weekly outings of 20-35 km to condition the body for long distances. Focus on effort management and recovery.",
@@ -334,7 +335,7 @@
     "day9_caption": "Training day 9 — Roland in Valais · Spring 2026",
     "assoc_tag": "Association",
     "assoc_title": "The Neuro-Odyssey Association is born",
-    "assoc_excerpt": "One man's project becomes a collective cause: a non-profit association to raise awareness and support, far beyond the 1,900 km.",
+    "assoc_excerpt": "One man's project becomes a collective cause: a non-profit association to raise awareness and support, far beyond the 2,200 km.",
     "assoc_badge": "Featured"
   },
   "soutenir": {
@@ -408,7 +409,7 @@
     "hero_badge": "BEFORE DEPARTURE",
     "hero_title": "The Preparation",
     "hero_tagline": "Body, mind, nutrition & equipment",
-    "hero_subtitle_prefix": "6 months of intensive preparation for 1,900 km. Here is how Roland prepares his body and mind for the greatest challenge of his life.",
+    "hero_subtitle_prefix": "6 months of intensive preparation for 2,200 km. Here is how Roland prepares his body and mind for the greatest challenge of his life.",
     "stat_prep_label": "of preparation",
     "stat_km_label": "covered",
     "stat_elev_label": "cumulative elevation",
@@ -472,7 +473,7 @@
     "sponsor_slot_bag": "Pack & equipment",
     "sponsor_slot_nutrition": "Trail nutrition",
     "equip_partner_title": "Become an equipment partner",
-    "equip_partner_text": "Your product tested in real conditions over 1,900 km. Visibility in YouTube videos, the book and the documentary. Contact Roland for details.",
+    "equip_partner_text": "Your product tested in real conditions over 2,200 km. Visibility in YouTube videos, the book and the documentary. Contact Roland for details.",
     "equip_tag_yt": "YouTube videos",
     "equip_tag_book": "Published book",
     "equip_tag_docu": "Documentary",
@@ -539,7 +540,7 @@
     "form_error": "An error occurred. Please try again."
   },
   "footer": {
-    "tagline": "1,900 km to rebuild — From St-Maurice to Santiago de Compostela",
+    "tagline": "2,200 km to rebuild — From St-Maurice to Santiago de Compostela",
     "nav_title": "Navigation",
     "contact_title": "Contact",
     "contact_email": "roland@neuro-odyssee.com",
@@ -561,7 +562,7 @@
     "p1": "The atypical brain (an ADHD way of working) naturally tries to make up for a lack of stimulation and emotional regulation. It isn't a lack of willpower. It's neurology.",
     "p2": "Alcohol, medication, tobacco, overactivity, excessive risk-taking: these are responses to that lack. They are the brain's attempts to self-regulate with the tools it has on hand.",
     "p3": "Once you understand that, everything changes. You stop fighting against yourself. You start understanding yourself.",
-    "p4": "That's the message Roland is carrying across these 1,900 km.",
+    "p4": "That's the message Roland is carrying across these 2,200 km.",
     "cta": "Discover the cause"
   },
   "cause": {
@@ -587,7 +588,7 @@
     "s4_title": "What the walk sets out to prove",
     "s4_p1": "Long-distance walking isn't a symbol chosen at random.",
     "s4_p2": "Neuroscience studies show that regular, sustained physical effort promotes neurogenesis — the brain's ability to create new connections. Walking stimulates the production of proteins that support neuronal growth. It regulates the nervous system. It brings the body and brain back into a state of coherence.",
-    "s4_p3": "By walking 1,900 km, Roland isn't just crossing three countries. He's experiencing on himself what science describes: that the brain can reconfigure itself, at any age, after any fall.",
+    "s4_p3": "By walking 2,200 km, Roland isn't just crossing three countries. He's experiencing on himself what science describes: that the brain can reconfigure itself, at any age, after any fall.",
     "s4_p4": "And he's documenting it in real time, so that this path isn't only his own.",
     "s5_title": "And after the walk",
     "s5_p1": "This project is the starting point of a wider vision.",
@@ -605,7 +606,7 @@
     "s1_title": "From a personal project to a collective cause",
     "s1_p1": "The Neuro-Odyssey was born from one man's journey. But the message it carries goes far beyond an individual story.",
     "s1_p2": "For this message to live on beyond the walk, it needed a lasting, transparent and independent structure. That is why the Neuro-Odyssey Association was created.",
-    "s1_p3": "An association isn't just a name. It's a commitment: to keep helping those who need it, long after the 1,900 km.",
+    "s1_p3": "An association isn't just a name. It's a commitment: to keep helping those who need it, long after the 2,200 km.",
     "s2_title": "Our mission",
     "s2_p1": "Raising awareness and supporting people who live with atypical neurological functioning and its consequences — ADHD, burnout, mental overload, addictions — and showing that rebuilding is possible at any age.",
     "s2_p2": "Supporting the people concerned and their loved ones with accessible, non-judgemental language, grounded in neuroscience and lived experience.",
@@ -683,7 +684,7 @@
     "p1": "Too many people living with ADHD, addiction or burnout are told they lack willpower. It's not true — and that belief is what traps them.",
     "p2": "The Neuro-Odyssée association exists to spread the word: what we take for a character flaw is often a brain trying to regulate itself. And a brain can be understood — and rebuilt.",
     "reframe": "Every sponsored kilometre turns a conviction into proof: you can get back up, and you don't move forward alone.",
-    "title": "Walking 1,900 km to change the way we see."
+    "title": "Walking 2,200 km to change the way we see."
   },
   "parrainer": {
     "eyebrow": "Sponsor a kilometre",
@@ -697,11 +698,11 @@
     "tier_free": "free amount",
     "tier_leg": "a leg",
     "tier_step": "a stage",
-    "title": "1,900 km to walk."
+    "title": "2,200 km to walk."
   },
   "sponsors": {
     "become_cta": "Become a sponsor →",
-    "become_lead": "Your logo along the 1,900 km route — in the videos, the book, the documentary.",
+    "become_lead": "Your logo along the 2,200 km route — in the videos, the book, the documentary.",
     "become_title": "Become a sponsor — sponsor kilometres",
     "eyebrow": "Partners",
     "lead": "Partners committed by our side from day one.",

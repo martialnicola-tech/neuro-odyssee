@@ -191,14 +191,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const kmTierDesc = document.getElementById('kmTierDesc');
 
   function updateKmCalculator(km) {
-    km = Math.max(1, Math.min(1900, parseInt(km) || 1));
+    km = Math.max(1, Math.min(2200, parseInt(km) || 1));
     const price = Math.max(27, Math.round(km * 25.79)); // 490€ / 19 km = 25.79€/km
 
     if (kmPrice) kmPrice.textContent = price.toLocaleString('fr-FR') + ' €';
 
     // Update slider gradient
     if (kmSlider) {
-      const pct = (km / 1900) * 100;
+      const pct = (km / 2200) * 100;
       kmSlider.style.background = `linear-gradient(to right, var(--green-mid) 0%, var(--green-mid) ${pct}%, rgba(45,140,122,0.15) ${pct}%, rgba(45,140,122,0.15) 100%)`;
     }
 
@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
       { min: 19,  max: 56,  name: 'Bronze',  cls: 'bronze',   desc: 'Logo sur le site + mention dans les vidéos YouTube',                                       next: 57,  nextName: 'Argent'  },
       { min: 57,  max: 113, name: 'Argent',  cls: 'silver',   desc: 'Logo sur le site, documentaire, mention dans le livre + post réseaux sociaux',             next: 114, nextName: 'Or'      },
       { min: 114, max: 189, name: 'Or',      cls: 'gold',     desc: 'Logo premium, entretien exclusif, dédicace personnalisée + tous les avantages Argent',     next: 190, nextName: 'Platine' },
-      { min: 190, max: 1900,name: 'Platine', cls: 'platinum', desc: 'Partenaire officiel, co-branding, conférence dans votre entreprise + tous les avantages Or', next: null, nextName: null   },
+      { min: 190, max: 2200,name: 'Platine', cls: 'platinum', desc: 'Partenaire officiel, co-branding, conférence dans votre entreprise + tous les avantages Or', next: null, nextName: null   },
     ];
 
     const t = TIERS.find(t => km >= t.min && km <= t.max) || TIERS[TIERS.length - 1];
@@ -483,7 +483,7 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.addEventListener('click', function() {
       const platform = this.getAttribute('data-share');
       const url = encodeURIComponent(window.location.origin + '/');
-      const text = encodeURIComponent('Association Neuro-Odyssée — 1 900 km pour se reconstruire. Découvrez ce projet inspirant !');
+      const text = encodeURIComponent('Association Neuro-Odyssée — 2 200 km pour se reconstruire. Découvrez ce projet inspirant !');
 
       const shareUrls = {
         facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
@@ -567,10 +567,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (kmBar) {
         setTimeout(() => {
-          const pct = Math.min((kmTotal / 1900) * 100, 100);
+          const pct = Math.min((kmTotal / 2200) * 100, 100);
           kmBar.style.width = pct + '%';
           if (kmAdoptesEl)    kmAdoptesEl.textContent    = kmTotal.toLocaleString('fr-CH');
-          if (kmRestantsEl)   kmRestantsEl.textContent   = Math.max(0, 1900 - kmTotal).toLocaleString('fr-CH');
+          if (kmRestantsEl)   kmRestantsEl.textContent   = Math.max(0, 2200 - kmTotal).toLocaleString('fr-CH');
           if (nbPartenairesEl) nbPartenairesEl.textContent = sponsors;
         }, 400);
       }
