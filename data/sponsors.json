@@ -5,7 +5,10 @@
     "tagline": "Probiotiques et bien-être digestif",
     "logo": "images/sponsors/web_vivomixx_neo_inline1.png",
     "url": "https://neo.vivomixx.eu",
-    "pages": ["accueil", "preparation"],
+    "pages": [
+      "accueil",
+      "preparation"
+    ],
     "order": 1,
     "created_at": 1714000000
   },
@@ -15,7 +18,9 @@
     "tagline": "Agence Web & Intelligence Artificielle",
     "logo": "images/sponsors/iasmart_logo.jpg",
     "url": "https://www.iasmart.tech",
-    "pages": ["accueil"],
+    "pages": [
+      "accueil"
+    ],
     "order": 2,
     "created_at": 1714000000
   },
@@ -25,8 +30,24 @@
     "tagline": "Cellular Health Laboratory",
     "logo": "images/sponsors/logo_cellula_pharm.jpg",
     "url": "https://cellula-pharm.com/fr/",
-    "pages": ["accueil", "preparation"],
+    "pages": [
+      "accueil",
+      "preparation"
+    ],
     "order": 3,
     "created_at": 1747756800
+  },
+  {
+    "id": "chemins_compostelle",
+    "name": "Agence française des chemins de Compostelle",
+    "tagline": "Partenaire officiel",
+    "logo": "images/sponsors/chemins_compostelle.png",
+    "url": "",
+    "pages": [
+      "accueil",
+      "preparation"
+    ],
+    "order": 4,
+    "created_at": 1783026768
   }
 ]
