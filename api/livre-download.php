@@ -1,6 +1,6 @@
 <?php
 // ============================================
-// API — Enregistrement acheteur livre
+// API, Enregistrement acheteur livre
 // POST { email } → sauvegarde en DB + retourne token de téléchargement
 // ============================================
 header('Content-Type: application/json; charset=utf-8');

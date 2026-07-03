@@ -1,6 +1,6 @@
 <?php
 /**
- * Cron drip emails — La Neuro-Odyssee
+ * Cron drip emails, La Neuro-Odyssee
  * Execution quotidienne via Hostinger cron :
  *   php /path/to/api/cron-drip.php?token=neuro-drip-2026
  * Ou en HTTP (protege par token) :
@@ -12,7 +12,7 @@ declare(strict_types=1);
 $token = $_GET['token'] ?? $_SERVER['argv'][1] ?? '';
 if ($token !== 'neuro-drip-2026') {
     http_response_code(403);
-    echo "Acces refuse — token manquant ou invalide.\n";
+    echo "Acces refuse, token manquant ou invalide.\n";
     exit;
 }
 
@@ -30,7 +30,7 @@ if (!is_array($templates)) {
     exit(1);
 }
 
-// Exclure les templates jour 0 (welcome) — envoyes par subscribe.php
+// Exclure les templates jour 0 (welcome), envoyes par subscribe.php
 // et les templates inactifs
 $dripTemplates = array_filter($templates, function (array $tpl): bool {
     return ($tpl['delay_days'] > 0) && ($tpl['actif'] === true);
@@ -112,10 +112,10 @@ try {
                 $insert->execute([$subId, $tpl['key']]);
 
                 $sent++;
-                $log[] = "[OK] {$sub['email']} — {$tpl['key']}";
+                $log[] = "[OK] {$sub['email']}, {$tpl['key']}";
             } else {
                 $error++;
-                $log[] = "[FAIL] {$sub['email']} — {$tpl['key']}";
+                $log[] = "[FAIL] {$sub['email']}, {$tpl['key']}";
                 error_log("cron-drip: echec envoi {$sub['email']} template {$tpl['key']}");
             }
 
@@ -126,7 +126,7 @@ try {
 
     // Rapport
     $date = date('Y-m-d H:i:s');
-    echo "=== Cron drip — {$date} ===\n";
+    echo "=== Cron drip, {$date} ===\n";
     echo "Abonnes traites  : " . count($subscribers) . "\n";
     echo "Emails envoyes   : {$sent}\n";
     echo "Deja envoyes     : {$skip}\n";

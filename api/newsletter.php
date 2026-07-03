@@ -29,7 +29,7 @@ try {
     $check->execute([$email]);
 
     if ($check->fetch()) {
-        // Déjà inscrit — réactiver et mettre à jour le nom si fourni
+        // Déjà inscrit, réactiver et mettre à jour le nom si fourni
         if ($nom) {
             $db->prepare("UPDATE newsletter_subscribers SET actif = 1, nom = ?, updated_at = NOW() WHERE email = ?")->execute([$nom, $email]);
         } else {

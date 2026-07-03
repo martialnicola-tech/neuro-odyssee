@@ -1,6 +1,6 @@
 <?php
 /**
- * Sponsoring — Paiement Mollie
+ * Sponsoring, Paiement Mollie
  * Packs fixes : ?pack=bronze|argent|or|platine
  * Montant libre : ?km=50  (calculateur)
  */
@@ -9,10 +9,10 @@ require_once __DIR__ . '/config.php';
 const PRIX_KM = 25.79;   // € par km parrainé (490€ / 19 km = base Bronze)
 
 $PACKS = [
-    'bronze'  => ['prix' => 490,  'km' => 19,  'label' => 'Pack Bronze — 19 km'],
-    'argent'  => ['prix' => 1490, 'km' => 57,  'label' => 'Pack Argent — 57 km'],
-    'or'      => ['prix' => 2990, 'km' => 114, 'label' => 'Pack Or — 114 km'],
-    'platine' => ['prix' => 4990, 'km' => 190, 'label' => 'Pack Platine — 190 km'],
+    'bronze'  => ['prix' => 490,  'km' => 19,  'label' => 'Pack Bronze, 19 km'],
+    'argent'  => ['prix' => 1490, 'km' => 57,  'label' => 'Pack Argent, 57 km'],
+    'or'      => ['prix' => 2990, 'km' => 114, 'label' => 'Pack Or, 114 km'],
+    'platine' => ['prix' => 4990, 'km' => 190, 'label' => 'Pack Platine, 190 km'],
 ];
 
 $pack = preg_replace('/[^a-z]/', '', strtolower($_GET['pack'] ?? ''));
@@ -22,13 +22,13 @@ if ($pack && isset($PACKS[$pack])) {
     // Pack fixe
     $amount      = $PACKS[$pack]['prix'];
     $km_label    = $PACKS[$pack]['km'];
-    $description = $PACKS[$pack]['label'] . ' — Association Neuro-Odyssée';
+    $description = $PACKS[$pack]['label'] . ', Association Neuro-Odyssée';
     $meta_type   = 'sponsoring_pack';
 } elseif ($km > 0) {
     // Montant calculé depuis le nombre de km
     $amount      = max(27, (int) round($km * PRIX_KM));
     $km_label    = $km;
-    $description = 'Parrainage ' . $km . ' km — Association Neuro-Odyssée';
+    $description = 'Parrainage ' . $km . ' km, Association Neuro-Odyssée';
     $meta_type   = 'sponsoring_libre';
     $pack        = 'libre';
 } else {

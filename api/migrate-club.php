@@ -1,6 +1,6 @@
 <?php
 /**
- * Migration — Ajouter colonne 'club' à newsletter_subscribers
+ * Migration, Ajouter colonne 'club' à newsletter_subscribers
  * Exécuter une seule fois puis supprimer
  */
 require_once __DIR__ . '/config.php';

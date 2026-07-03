@@ -1,6 +1,6 @@
 <?php
 /**
- * API inscription newsletter — Club Neuro-Odyssée
+ * API inscription newsletter, Club Neuro-Odyssée
  * POST { email, nom? }
  */
 header('Content-Type: application/json; charset=utf-8');

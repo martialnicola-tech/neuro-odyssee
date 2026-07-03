@@ -1,6 +1,6 @@
 <?php
 /**
- * Installation BDD — exécuter une seule fois puis supprimer
+ * Installation BDD, exécuter une seule fois puis supprimer
  */
 require_once __DIR__ . '/config.php';
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Précommande du livre — Paiement Mollie
+ * Précommande du livre, Paiement Mollie
  * Montant fixe côté serveur : CHF 29.90 (prix de précommande)
  * Aucun paramètre client → pas de manipulation de montant possible.
  */
@@ -13,7 +13,7 @@ $amountValue = number_format(LIVRE_MONTANT, 2, '.', '');
 
 $payload = json_encode([
     'amount'      => ['currency' => LIVRE_DEVISE, 'value' => $amountValue],
-    'description' => 'Précommande — Le Livre du périple — Association Neuro-Odyssée',
+    'description' => 'Précommande, Le Livre du périple, Association Neuro-Odyssée',
     'redirectUrl' => SITE_URL . '/merci.html?type=precommande-livre',
     'cancelUrl'   => SITE_URL . '/index.html?annule=1#documentaire',
     'webhookUrl'  => SITE_URL . '/payment/webhook.php',

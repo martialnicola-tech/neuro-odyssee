@@ -1,6 +1,6 @@
 <?php
 /**
- * Migration — Table drip_emails_sent
+ * Migration, Table drip_emails_sent
  * Script one-time : creer la table de suivi des emails drip
  * Appeler une seule fois via navigateur ou CLI
  */
@@ -23,7 +23,7 @@ try {
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     ");
 
-    echo "OK — Table drip_emails_sent creee (ou deja existante).\n";
+    echo "OK, Table drip_emails_sent creee (ou deja existante).\n";
 
 } catch (PDOException $e) {
     http_response_code(500);

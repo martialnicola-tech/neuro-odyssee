@@ -41,7 +41,7 @@ $sql = [
 
 header('Content-Type: text/html; charset=utf-8');
 echo "<body style='font-family:monospace;background:#0d1117;color:#58a6ff;padding:40px'>";
-echo "<h2>Installation — Neuro-Odyssée Livre</h2>";
+echo "<h2>Installation, Neuro-Odyssée Livre</h2>";
 try {
     $db = db();
     foreach ($sql as $s) {

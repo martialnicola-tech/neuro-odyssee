@@ -1,6 +1,6 @@
 <?php
 /**
- * API publique — Retourne les posts publiés (JSON)
+ * API publique, Retourne les posts publiés (JSON)
  */
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');

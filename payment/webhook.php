@@ -1,13 +1,13 @@
 <?php
 /**
- * Mollie Webhook — Association Neuro-Odyssée
+ * Mollie Webhook, Association Neuro-Odyssée
  * 1) Vérifie le statut du paiement via l'API Mollie
  * 2) Met à jour stats.json
  * 3) Envoie les PDF par email selon le pack acheté
  */
 require_once 'config.php';
 
-// Répondre 200 immédiatement — Mollie n'attend pas
+// Répondre 200 immédiatement, Mollie n'attend pas
 http_response_code(200);
 echo json_encode(['ok' => true]);
 
@@ -149,7 +149,7 @@ function envoyerPdfPack($pack, $email, $name, $montant) {
     foreach ($pdfs as $pdf) {
         if (!file_exists($pdfDir . '/' . $pdf)) {
             mail('roland@neuro-odyssee.com',
-                '[URGENT] PDF manquant — ' . $pdf,
+                '[URGENT] PDF manquant, ' . $pdf,
                 "Client $email a payé le pack $pack ($montant EUR) mais $pdf introuvable.\nEnvoyer manuellement à : $email",
                 "From: noreply@neuro-odyssee.com\r\nContent-Type: text/plain; charset=UTF-8\r\n"
             );
@@ -163,7 +163,7 @@ function envoyerPdfPack($pack, $email, $name, $montant) {
     $pdfTitles  = [
         'pourquoi-tu-narrive-pas-a-changer.pdf'   => "Pourquoi tu n'arrives pas à changer (et quoi faire)",
         'comment-casser-un-automatisme-en-24h.pdf' => 'Comment casser un automatisme en 24h',
-        'protocole-reset-mental-7-jours.pdf'       => 'Le protocole reset mental — 7 jours',
+        'protocole-reset-mental-7-jours.pdf'       => 'Le protocole reset mental, 7 jours',
         'reprendre-le-controle-de-son-cerveau.pdf' => 'Reprendre le contrôle de son cerveau',
     ];
 
@@ -185,9 +185,9 @@ function envoyerPdfPack($pack, $email, $name, $montant) {
     }
     $message .= "--$boundary--";
 
-    mail($email, "Tes guides Neuro-Odyssée — Pack $packLabel", $message, $headers);
+    mail($email, "Tes guides Neuro-Odyssée, Pack $packLabel", $message, $headers);
     mail('roland@neuro-odyssee.com',
-        "[Neuro-Odyssée] Pack $packLabel — $name ($montant EUR)",
+        "[Neuro-Odyssée] Pack $packLabel, $name ($montant EUR)",
         "Nouveau soutien Pack $packLabel !\nClient : $name\nEmail : $email\nMontant : $montant EUR",
         "From: noreply@neuro-odyssee.com\r\nContent-Type: text/plain; charset=UTF-8\r\n"
     );

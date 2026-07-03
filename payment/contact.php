@@ -36,7 +36,7 @@ $sujets = [
 $sujetLabel = $sujets[$sujet] ?? $sujet;
 
 $to      = 'roland@neuro-odyssee.com';
-$subject = "Neuro-Odyssée — {$sujetLabel} de {$prenom}";
+$subject = "Neuro-Odyssée, {$sujetLabel} de {$prenom}";
 
 $body  = "Nouveau message via le site neuro-odyssee.com\n";
 $body .= "========================================\n\n";
@@ -57,11 +57,11 @@ $sent = mail($to, $subject, $body, $headers);
 
 if ($sent) {
     // Confirmation email to sender
-    $confirmSubject = "Votre message à Roland Crettaz — Association Neuro-Odyssée";
+    $confirmSubject = "Votre message à Roland Crettaz, Association Neuro-Odyssée";
     $confirmBody  = "Bonjour {$prenom},\n\n";
     $confirmBody .= "Merci pour votre message. Roland vous répondra dans les 24h.\n\n";
     $confirmBody .= "Votre message :\n--------------\n{$message}\n\n";
-    $confirmBody .= "---\nAssociation Neuro-Odyssée — neuro-odyssee.com\n";
+    $confirmBody .= "---\nAssociation Neuro-Odyssée, neuro-odyssee.com\n";
     $confirmHeaders  = "From: roland@neuro-odyssee.com\r\n";
     $confirmHeaders .= "X-Mailer: PHP/" . phpversion() . "\r\n";
     mail($email, $confirmSubject, $confirmBody, $confirmHeaders);

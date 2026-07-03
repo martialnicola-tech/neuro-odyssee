@@ -24,7 +24,7 @@ $abonnes = file_exists($file) ? json_decode(file_get_contents($file), true) : []
 // Vérifier doublon
 foreach ($abonnes as $a) {
     if ($a['email'] === $email) {
-        // Déjà inscrit — renvoyer l'ebook quand même
+        // Déjà inscrit, renvoyer l'ebook quand même
         break;
     }
 }
@@ -59,7 +59,7 @@ $corps = '<!DOCTYPE html>
     <div style="padding:36px 40px;">
       <p style="font-size:1rem;color:#1a2332;margin:0 0 1rem;">' . $salutation . '</p>
       <p style="font-size:0.95rem;color:#444;line-height:1.8;margin:0 0 1.5rem;">
-        Merci pour votre intérêt pour la Neuro-Odyssée. Votre ebook est prêt — cliquez sur le bouton ci-dessous pour le télécharger.
+        Merci pour votre intérêt pour la Neuro-Odyssée. Votre ebook est prêt, cliquez sur le bouton ci-dessous pour le télécharger.
       </p>
 
       <div style="text-align:center;margin:2rem 0;">
@@ -94,7 +94,7 @@ $envoye = mail($email, $sujet, $corps, $headers);
 
 // Notifier Roland
 $notif = "Nouvel abonné newsletter : $prenom <$email> le " . date('d/m/Y à H:i');
-mail('roland@neuro-odyssee.com', "Nouvel abonné — Neuro-Odyssée", $notif,
+mail('roland@neuro-odyssee.com', "Nouvel abonné, Neuro-Odyssée", $notif,
     "From: Association Neuro-Odyssée <roland@neuro-odyssee.com>\r\n");
 
 echo json_encode(['success' => true, 'envoye' => $envoye]);

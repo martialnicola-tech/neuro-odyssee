@@ -1,6 +1,16 @@
 Options -Indexes
 
-# Redirection non-www → www
+# Redirection non-www → www, sauf pour la home (pour permettre la vérif Meta)
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^neuro-odyssee\.com$ [NC]
+RewriteCond %{REQUEST_URI} !^/$
 RewriteRule ^(.*)$ https://www.neuro-odyssee.com/$1 [R=301,L]
+
+# En-têtes de sécurité
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>

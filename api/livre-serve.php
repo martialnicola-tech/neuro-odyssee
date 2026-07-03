@@ -1,6 +1,6 @@
 <?php
 // ============================================
-// API — Téléchargement sécurisé du livre PDF
+// API, Téléchargement sécurisé du livre PDF
 // GET ?t=TOKEN → sert le PDF + marque le téléchargement en DB
 // ============================================
 require_once __DIR__ . '/config.php';
