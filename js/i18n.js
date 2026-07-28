@@ -32,7 +32,7 @@ const I18N = {
         const src = scriptTag.getAttribute('src');
         base = src.replace(/js\/i18n\.js.*/, '');
       }
-      const res = await fetch(`${base}locales/${lang}.json`);
+      const res = await fetch(`${base}locales/${lang}.json?v=20260701`);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       this.translations[lang] = data;

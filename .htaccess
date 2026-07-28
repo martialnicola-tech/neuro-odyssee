@@ -13,4 +13,9 @@ RewriteRule ^(.*)$ https://www.neuro-odyssee.com/$1 [R=301,L]
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+  # Fichiers de langue/données : revalider à chaque fois (sinon traductions périmées en cache navigateur)
+  <FilesMatch "\.json$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
 </IfModule>
