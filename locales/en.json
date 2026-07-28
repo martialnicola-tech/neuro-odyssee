@@ -14,7 +14,8 @@
     "club": "Club",
     "soutenir": "Support",
     "lang": "EN",
-    "association": "The Association"
+    "association": "The Association",
+    "media": "Media"
   },
   "hero": {
     "badge": "Departure August 21, 2026",
@@ -743,5 +744,23 @@
     "subject_other": "Other",
     "field_message": "Message *",
     "send": "Send my message"
+  },
+  "media": {
+    "meta_title": "Media",
+    "hero_eyebrow": "They're talking about it",
+    "hero_title": "The Neuro-Odyssée<br><em style=\"color:#F0A500;\">in the media</em>",
+    "hero_sub": "Influencers, journalists and media partners who share Roland Crettaz's adventure.",
+    "inf_label": "Influencers",
+    "inf_title": "They share the adventure",
+    "jogarcia_bio": "A travel and outdoor influencer based in Valais, Jo Garcia has shared the Neuro-Odyssée Association with his community and posts behind-the-scenes of Roland Crettaz's adventure.",
+    "see_instagram": "Watch the Instagram video",
+    "press_label": "Press",
+    "press_title": "Articles & features",
+    "article_title": "2,200 kilometres to rewire the brain",
+    "article_excerpt": "A two-page feature with Roland Crettaz, followed by the “Ten questions to…” interview. His journey, from addiction to neuroplasticity, and the meaning of the walk to Santiago de Compostela.",
+    "read_article": "Read the article",
+    "cta_title": "Are you covering the Neuro-Odyssée?",
+    "cta_text": "Journalist, blogger or content creator, Roland is available for interviews, testimonials and media collaborations.",
+    "cta_button": "Contact Roland ↗"
   }
 }

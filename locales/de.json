@@ -14,7 +14,8 @@
     "club": "Club",
     "soutenir": "Unterstützen",
     "lang": "DE",
-    "association": "Der Verein"
+    "association": "Der Verein",
+    "media": "Medien"
   },
   "hero": {
     "badge": "Abfahrt 21. August 2026",
@@ -743,5 +744,23 @@
     "subject_other": "Andere",
     "field_message": "Nachricht *",
     "send": "Meine Nachricht senden"
+  },
+  "media": {
+    "meta_title": "Medien",
+    "hero_eyebrow": "Man spricht darüber",
+    "hero_title": "Die Neuro-Odyssée<br><em style=\"color:#F0A500;\">in den Medien</em>",
+    "hero_sub": "Influencer, Journalisten und Medienpartner, die Roland Crettaz' Abenteuer verbreiten.",
+    "inf_label": "Influencer",
+    "inf_title": "Sie teilen das Abenteuer",
+    "jogarcia_bio": "Reise- und Outdoor-Influencer aus dem Wallis: Jo Garcia hat den Verein Neuro-Odyssée in seiner Community bekannt gemacht und teilt Einblicke hinter die Kulissen von Roland Crettaz' Abenteuer.",
+    "see_instagram": "Instagram-Video ansehen",
+    "press_label": "Presse",
+    "press_title": "Artikel & Reportagen",
+    "article_title": "2 200 Kilometer, um das Gehirn neu zu verdrahten",
+    "article_excerpt": "Eine zweiseitige Begegnung mit Roland Crettaz, gefolgt vom Interview „Zehn Fragen an…“. Sein Weg, von den Süchten zur Neuroplastizität, und der Sinn des Weges nach Santiago de Compostela.",
+    "read_article": "Artikel lesen",
+    "cta_title": "Berichten Sie über die Neuro-Odyssée?",
+    "cta_text": "Ob Journalist, Blogger oder Content-Creator: Roland steht für Interviews, Erfahrungsberichte und Medienkooperationen zur Verfügung.",
+    "cta_button": "Roland kontaktieren ↗"
   }
 }

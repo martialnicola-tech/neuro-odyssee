@@ -97,18 +97,25 @@
         </svg>
       </a>
       <div class="nav-desktop hidden md:flex items-center gap-6">
-        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="index.html" class="nav-link" data-i18n="nav.home">Accueil</a>
         <a href="la-cause.html" class="nav-link" data-page="la-cause.html" data-i18n="nav.la_cause">La Cause</a>
         <a href="la-association.html" class="nav-link" data-page="la-association.html" data-i18n="nav.association">L'Association</a>
-        <a href="trajet.html" class="nav-link">Le Trajet</a>
-        <a href="preparation.html" class="nav-link">Préparation</a>
-        <a href="journal.html" class="nav-link">Journal</a>
-        <a href="club.html" class="nav-link">Club</a>
-        <a href="media.html" class="nav-link active">Médias</a>
-        <a href="sponsoring.html" class="nav-link">Sponsoring</a>
-        <a href="soutenir.html" class="btn-primary text-sm py-2 px-5">Soutenir</a>
+        <a href="trajet.html" class="nav-link" data-i18n="nav.trajet">Le Trajet</a>
+        <a href="preparation.html" class="nav-link" data-i18n="nav.preparation">Préparation</a>
+        <a href="journal.html" class="nav-link" data-i18n="nav.journal">Journal</a>
+        <a href="club.html" class="nav-link" data-i18n="nav.club">Club</a>
+        <a href="media.html" class="nav-link active" data-i18n="nav.media">Médias</a>
+        <a href="sponsoring.html" class="nav-link" data-i18n="nav.sponsoring">Sponsoring</a>
+        <a href="soutenir.html" class="btn-primary text-sm py-2 px-5" data-i18n="nav.soutenir">Soutenir</a>
       </div>
       <div class="flex items-center gap-3">
+        <div class="lang-switcher hidden md:flex">
+          <button class="lang-btn active" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="it">IT</button>
+          <button class="lang-btn" data-lang="de">DE</button>
+        </div>
         <button id="hamburger" class="hamburger md:hidden" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -119,16 +126,24 @@
   <!-- Mobile Menu -->
   <div id="mobileMenu" class="mobile-menu">
     <button id="mobileMenuClose" class="absolute top-6 right-6 text-white text-2xl" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
-    <a href="index.html" class="mobile-nav-link">Accueil</a>
+    <a href="index.html" class="mobile-nav-link" data-i18n="nav.home">Accueil</a>
     <a href="la-cause.html" class="mobile-nav-link" data-i18n="nav.la_cause">La Cause</a>
     <a href="la-association.html" class="mobile-nav-link" data-i18n="nav.association">L'Association</a>
-    <a href="trajet.html" class="mobile-nav-link">Le Trajet</a>
-    <a href="preparation.html" class="mobile-nav-link">Préparation</a>
-    <a href="journal.html" class="mobile-nav-link">Journal</a>
-    <a href="club.html" class="mobile-nav-link">Club</a>
-    <a href="media.html" class="mobile-nav-link">Médias</a>
-    <a href="sponsoring.html" class="mobile-nav-link">Sponsoring</a>
-    <a href="soutenir.html" class="mobile-nav-link" style="color:#F0A500;">Soutenir</a>
+    <a href="trajet.html" class="mobile-nav-link" data-i18n="nav.trajet">Le Trajet</a>
+    <a href="preparation.html" class="mobile-nav-link" data-i18n="nav.preparation">Préparation</a>
+    <a href="journal.html" class="mobile-nav-link" data-i18n="nav.journal">Journal</a>
+    <a href="club.html" class="mobile-nav-link" data-i18n="nav.club">Club</a>
+    <a href="media.html" class="mobile-nav-link" data-i18n="nav.media">Médias</a>
+    <a href="sponsoring.html" class="mobile-nav-link" data-i18n="nav.sponsoring">Sponsoring</a>
+    <a href="soutenir.html" class="mobile-nav-link" style="color:#F0A500;" data-i18n="nav.soutenir">Soutenir</a>
+      <div class="lang-switcher mt-4 justify-center flex">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="it">IT</button>
+        <button class="lang-btn" data-lang="de">DE</button>
+      </div>
+
   </div>
 
   <!-- HERO -->
@@ -313,6 +328,7 @@
       #scanGrid, #presGrid, #tactacGrid { grid-template-columns: 1fr !important; }
     }
   </style>
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

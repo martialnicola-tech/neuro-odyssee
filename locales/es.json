@@ -14,7 +14,8 @@
     "club": "Club",
     "soutenir": "Apoyar",
     "lang": "ES",
-    "association": "La Asociación"
+    "association": "La Asociación",
+    "media": "Medios"
   },
   "hero": {
     "badge": "Salida el 21 de agosto de 2026",
@@ -743,5 +744,23 @@
     "subject_other": "Otro",
     "field_message": "Mensaje *",
     "send": "Enviar mi mensaje"
+  },
+  "media": {
+    "meta_title": "Medios",
+    "hero_eyebrow": "Hablan de ello",
+    "hero_title": "La Neuro-Odyssée<br><em style=\"color:#F0A500;\">en los medios</em>",
+    "hero_sub": "Influencers, periodistas y socios de medios que difunden la aventura de Roland Crettaz.",
+    "inf_label": "Influencers",
+    "inf_title": "Comparten la aventura",
+    "jogarcia_bio": "Influencer de viajes y aire libre afincado en Valais, Jo Garcia ha difundido la Asociación Neuro-Odyssée entre su comunidad y comparte los entresijos de la aventura de Roland Crettaz.",
+    "see_instagram": "Ver el vídeo de Instagram",
+    "press_label": "Prensa",
+    "press_title": "Artículos y reportajes",
+    "article_title": "2.200 kilómetros para recablear el cerebro",
+    "article_excerpt": "Encuentro de dos páginas con Roland Crettaz, seguido de la entrevista «Diez preguntas a…». Su recorrido, de las adicciones a la neuroplasticidad, y el sentido del camino a Santiago de Compostela.",
+    "read_article": "Leer el artículo",
+    "cta_title": "¿Va a cubrir la Neuro-Odyssée?",
+    "cta_text": "Periodista, bloguero o creador de contenido, Roland está disponible para entrevistas, testimonios y colaboraciones con medios.",
+    "cta_button": "Contactar con Roland ↗"
   }
 }
