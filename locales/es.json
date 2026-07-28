@@ -282,7 +282,8 @@
     "stat_km_total": "km a patrocinar",
     "stat_km_avail": "km disponibles",
     "calc_desc_bronze": "Logo en el sitio + mención en los vídeos de YouTube",
-    "assoc_note": "Apoyas a una asociación sin ánimo de lucro con sede en Martigny (VS)."
+    "assoc_note": "Apoyas a una asociación sin ánimo de lucro con sede en Martigny (VS).",
+    "current_sponsors_sub": "Apoyan a la Asociación Neuro-Odyssée"
   },
   "journal": {
     "page_title": "Diario de a Bordo",
@@ -339,7 +340,8 @@
     "assoc_tag": "Asociación",
     "assoc_title": "Nace la Asociación Neuro-Odisea",
     "assoc_excerpt": "El proyecto de un hombre se convierte en una causa colectiva: una asociación sin ánimo de lucro para sensibilizar y acompañar, mucho más allá de los 2 200 km.",
-    "assoc_badge": "Destacado"
+    "assoc_badge": "Destacado",
+    "filter_nutrition": "Nutrición"
   },
   "soutenir": {
     "page_title": "Apoyar",
@@ -406,7 +408,9 @@
     "twint_instruction": "Abre tu app Twint → \"Pagar\" → introduce el número:",
     "twint_copy": "Copiar número",
     "twint_mention": "✏️ Indicar <strong>ODYSSEE</strong> en el mensaje",
-    "assoc_note": "Tu donación apoya a una asociación sin ánimo de lucro con sede en Martigny (VS)."
+    "assoc_note": "Tu donación apoya a una asociación sin ánimo de lucro con sede en Martigny (VS).",
+    "packs_title": "Elija su pack",
+    "packs_subtitle": "Cada pack financia kilómetros reales y le ofrece una guía exclusiva firmada por Roland"
   },
   "preparation": {
     "hero_badge": "ANTES DE LA SALIDA",
@@ -710,5 +714,34 @@
     "eyebrow": "Colaboradores",
     "lead": "Colaboradores comprometidos a nuestro lado desde el primer día.",
     "title": "Ya apoyan la Neuro-Odyssée."
+  },
+  "newsletter": {
+    "email_placeholder": "Su dirección de correo"
+  },
+  "contact": {
+    "title": "Escriba a Roland",
+    "subtitle": "¿Una pregunta, una colaboración, un proyecto común? Roland responde personalmente en 24 h.",
+    "email_label": "Correo directo",
+    "email_text": "Para colaboraciones, solicitudes de prensa y preguntas sobre el proyecto.",
+    "insta_text": "Siga la preparación día a día y envíe un DM.",
+    "youtube_text": "Los vídeos de preparación y los futuros episodios del viaje.",
+    "sponsor_title": "¿Es usted una empresa?",
+    "sponsor_text": "Descubra las fórmulas de apadrinamiento de km y las oportunidades de visibilidad en 2.200 km.",
+    "sponsor_cta": "Ver las fórmulas de patrocinio",
+    "form_title": "Enviar un mensaje",
+    "success": "¡Mensaje enviado! Roland le responderá en 24 h.",
+    "error": "Se produjo un error. Vuelva a intentarlo o escriba directamente a roland@neuro-odyssee.com",
+    "field_name": "Nombre *",
+    "field_company": "Empresa (opcional)",
+    "field_email": "Correo electrónico *",
+    "field_phone": "Teléfono (opcional)",
+    "field_subject": "Asunto *",
+    "subject_default": "Elija un asunto...",
+    "subject_sponsoring": "Colaboración / Patrocinio",
+    "subject_media": "Prensa / Medios",
+    "subject_conference": "Conferencia / Intervención",
+    "subject_other": "Otro",
+    "field_message": "Mensaje *",
+    "send": "Enviar mi mensaje"
   }
 }
