@@ -13,17 +13,20 @@ $key = $_REQUEST['key'] ?? ($_REQUEST['id'] ?? '');
 $authOk = defined('TRACK_KEY') && TRACK_KEY !== '' && hash_equals(TRACK_KEY, (string)$key);
 
 // --- Journal de diagnostic (temporaire, n'écrit JAMAIS le token) ---
-$dbg = date('Y-m-d H:i:s')
-    . ' | ip=' . ($_SERVER['REMOTE_ADDR'] ?? '?')
-    . ' | ' . ($_SERVER['REQUEST_METHOD'] ?? '?')
-    . ' | auth=' . ($authOk ? 'OK' : 'FAIL')
-    . ' | champs=' . implode(',', array_keys($_REQUEST))
-    . ' | lat=' . ($_REQUEST['lat'] ?? '-')
-    . ' lon=' . ($_REQUEST['lon'] ?? ($_REQUEST['lng'] ?? '-'));
-$dbgFile = __DIR__ . '/../data/track-debug.log';
-$prev = is_file($dbgFile) ? array_slice(file($dbgFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES), -60) : [];
-$prev[] = $dbg;
-@file_put_contents($dbgFile, implode("\n", $prev) . "\n", LOCK_EX);
+// On ignore le bruit : on ne journalise QUE les requêtes qui portent des paramètres.
+if (!empty($_REQUEST)) {
+    $dbg = date('Y-m-d H:i:s')
+        . ' | ip=' . ($_SERVER['REMOTE_ADDR'] ?? '?')
+        . ' | ' . ($_SERVER['REQUEST_METHOD'] ?? '?')
+        . ' | auth=' . ($authOk ? 'OK' : 'FAIL')
+        . ' | champs=' . implode(',', array_keys($_REQUEST))
+        . ' | lat=' . ($_REQUEST['lat'] ?? '-')
+        . ' lon=' . ($_REQUEST['lon'] ?? ($_REQUEST['lng'] ?? '-'));
+    $dbgFile = __DIR__ . '/../data/track-debug.log';
+    $prev = is_file($dbgFile) ? array_slice(file($dbgFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES), -60) : [];
+    $prev[] = $dbg;
+    @file_put_contents($dbgFile, implode("\n", $prev) . "\n", LOCK_EX);
+}
 
 if (!$authOk) { http_response_code(403); exit('forbidden'); }
 
