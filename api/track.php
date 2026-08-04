@@ -8,7 +8,8 @@ require_once __DIR__ . '/config.php';
 header('Content-Type: text/plain; charset=utf-8');
 
 // --- Authentification par token secret ---
-$key = $_REQUEST['key'] ?? '';
+// Accepté via ?key= (URL) OU via le champ "id" de Traccar Client (identifiant appareil = token)
+$key = $_REQUEST['key'] ?? ($_REQUEST['id'] ?? '');
 if (!defined('TRACK_KEY') || TRACK_KEY === '' || !hash_equals(TRACK_KEY, (string)$key)) {
     http_response_code(403);
     exit('forbidden');
