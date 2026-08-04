@@ -264,6 +264,42 @@ function initMap() {
 
   // Live GPS tracking overlay (position réelle de Roland)
   initLiveTracking();
+
+  // Photos publiées le long du chemin
+  initPhotoMarkers();
+}
+
+// ---- Photos épinglées sur la carte ----
+async function initPhotoMarkers() {
+  if (!mapInstance) return;
+  try {
+    const res = await fetch('data/photos-carte.json', { cache: 'no-store' });
+    if (!res.ok) return;
+    const photos = await res.json();
+    if (!Array.isArray(photos) || !photos.length) return;
+
+    photos.forEach(p => {
+      if (typeof p.lat !== 'number' || typeof p.lng !== 'number' || !p.img) return;
+      const icon = L.divIcon({
+        html: `<div style="width:38px;height:38px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.35);overflow:hidden;background:#fff;">
+                 <img src="${p.img}" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+               </div>`,
+        iconSize: [38, 38],
+        iconAnchor: [19, 19],
+        className: ''
+      });
+      const marker = L.marker([p.lat, p.lng], { icon, zIndexOffset: 1500 }).addTo(mapInstance);
+      let when = '';
+      if (p.time) { try { when = new Date(p.time * 1000).toLocaleDateString('fr-CH', { day: '2-digit', month: 'long', year: 'numeric' }); } catch (e) {} }
+      marker.bindPopup(`
+        <div style="padding:2px; max-width:240px;">
+          <a href="${p.img}" target="_blank" rel="noopener"><img src="${p.img}" alt="" style="width:100%;border-radius:8px;display:block;"></a>
+          ${p.caption ? `<div style="margin-top:0.5rem; font-size:0.85rem; color:#1a2332; line-height:1.45;">${p.caption}</div>` : ''}
+          ${when ? `<div style="margin-top:0.3rem; font-size:0.72rem; color:#718096;">📸 ${when}</div>` : ''}
+        </div>
+      `, { maxWidth: 260 });
+    });
+  } catch (e) { /* silencieux */ }
 }
 
 // ---- Suivi GPS temps réel ----

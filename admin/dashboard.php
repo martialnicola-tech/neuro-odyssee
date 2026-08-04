@@ -265,6 +265,7 @@ $error   = $_GET['error'] ?? '';
       <?php else: ?>
         <p style="font-size:0.8rem; color:rgba(255,255,255,0.4);">Aucune position pour l'instant — le point n'apparaît pas sur la carte.</p>
       <?php endif; ?>
+      <p style="margin-top:0.9rem;"><a href="photos-carte.php" style="color:#F0A500; font-size:0.85rem; font-weight:600; text-decoration:none;">📸 Publier une photo sur la carte →</a></p>
     </div>
 
     <form method="POST" action="upload.php" enctype="multipart/form-data" id="postForm">
