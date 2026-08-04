@@ -1615,3 +1615,16 @@ textarea.form-input {
 .share-btn.twitter  { background: #000000; }
 .share-btn.linkedin { background: #0A66C2; }
 .share-btn.whatsapp { background: #25D366; }
+
+/* ============================================
+   Correctif d'ordre de cascade — tailwind.css est chargé AVANT ce fichier,
+   donc on réaffirme ici les utilitaires d'affichage pour qu'ils gardent
+   la priorité sur les règles de composants (ex : .lang-switcher{display:flex}).
+   ============================================ */
+.hidden { display: none; }
+@media (min-width: 768px) {
+  .md\:flex { display: flex; }
+  .md\:hidden { display: none; }
+  .md\:block { display: block; }
+  .md\:grid { display: grid; }
+}
