@@ -9,8 +9,11 @@ header('Content-Type: text/plain; charset=utf-8');
 
 // --- Authentification par token secret ---
 // Accepté via ?key= (URL) OU via le champ "id" de Traccar Client (identifiant appareil = token)
-$key = $_REQUEST['key'] ?? ($_REQUEST['id'] ?? '');
-$authOk = defined('TRACK_KEY') && TRACK_KEY !== '' && hash_equals(TRACK_KEY, (string)$key);
+$key = (string)($_REQUEST['key'] ?? ($_REQUEST['id'] ?? ''));
+$authOk = false;
+foreach (['TRACK_KEY', 'TRACK_KEY_2'] as $c) {
+    if (defined($c) && constant($c) !== '' && hash_equals((string)constant($c), $key)) { $authOk = true; break; }
+}
 
 // --- Journal de diagnostic (temporaire, le token est MASQUÉ dans l'URL) ---
 $uri = $_SERVER['REQUEST_URI'] ?? '';
@@ -24,7 +27,8 @@ $dbg = date('Y-m-d H:i:s')
     . ' | ' . ($_SERVER['REQUEST_METHOD'] ?? '?')
     . ' | auth=' . ($authOk ? 'OK' : 'FAIL')
     . ' | uri=' . substr($uri, 0, 200)
-    . ' | body=' . substr(trim((string)$body), 0, 120);
+    . ' | ua=' . substr($_SERVER['HTTP_USER_AGENT'] ?? '-', 0, 60)
+    . ' | body=' . substr(trim((string)$body), 0, 80);
 $dbgFile = __DIR__ . '/../data/track-debug.log';
 $prev = is_file($dbgFile) ? array_slice(file($dbgFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES), -40) : [];
 $prev[] = $dbg;
