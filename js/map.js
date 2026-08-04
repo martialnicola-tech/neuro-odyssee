@@ -494,32 +494,49 @@ function addMapLegend() {
     div.style.cssText = `
       background: rgba(255,255,255,0.95);
       backdrop-filter: blur(8px);
-      padding: 0.75rem 1rem;
+      padding: 0.55rem 0.85rem;
       border-radius: 0.75rem;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       font-family: Inter, sans-serif;
       font-size: 0.75rem;
       border: 1px solid rgba(45,140,122,0.2);
-      min-width: 160px;
     `;
+    // Replée par défaut sur mobile, dépliée sur grand écran
+    const collapsed = window.innerWidth < 640;
     div.innerHTML = `
-      <div style="font-weight:700; color:#1a2332; margin-bottom:0.5rem; font-size:0.8rem;">Route St-Maurice → Santiago</div>
-      <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.3rem; color:#718096;">
-        <div style="width:20px; height:3px; background:#1E6B5E; border-radius:2px;"></div> Chemin parcouru
+      <div id="legendToggle" style="display:flex; align-items:center; gap:0.45rem; cursor:pointer; user-select:none; font-weight:700; color:#1a2332; font-size:0.8rem;">
+        <span>ℹ️ Légende</span>
+        <span id="legendChevron" style="font-size:0.7rem; color:#718096; transition:transform .2s;">${collapsed ? '▸' : '▾'}</span>
       </div>
-      <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.3rem; color:#718096;">
-        <div style="width:20px; height:3px; background:#2D8C7A; opacity:0.35; border-radius:2px; border-top: 2px dashed #2D8C7A; height:0;"></div> Chemin à venir
-      </div>
-      <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.3rem; color:#718096;">
-        <div style="width:10px; height:10px; background:#F0A500; border-radius:50%; border:2px solid white; box-shadow:0 1px 4px rgba(240,165,0,0.4);"></div> Étape majeure
-      </div>
-      <div style="display:flex; align-items:center; gap:0.5rem; color:#718096;">
-        <div style="width:8px; height:8px; background:#2D8C7A; border-radius:50%; border:2px solid white;"></div> Étape
-      </div>
-      <div style="margin-top:0.5rem; padding-top:0.5rem; border-top:1px solid rgba(0,0,0,0.08); color:#1E6B5E; font-weight:600;">
-        2 200 km · 3 pays
+      <div id="legendBody" style="display:${collapsed ? 'none' : 'block'}; margin-top:0.5rem; min-width:160px;">
+        <div style="font-weight:700; color:#1a2332; margin-bottom:0.5rem; font-size:0.8rem;">Route St-Maurice → Santiago</div>
+        <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.3rem; color:#718096;">
+          <div style="width:20px; height:3px; background:#1E6B5E; border-radius:2px;"></div> Chemin parcouru
+        </div>
+        <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.3rem; color:#718096;">
+          <div style="width:20px; height:3px; background:#2D8C7A; opacity:0.35; border-radius:2px; border-top: 2px dashed #2D8C7A; height:0;"></div> Chemin à venir
+        </div>
+        <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.3rem; color:#718096;">
+          <div style="width:10px; height:10px; background:#F0A500; border-radius:50%; border:2px solid white; box-shadow:0 1px 4px rgba(240,165,0,0.4);"></div> Étape majeure
+        </div>
+        <div style="display:flex; align-items:center; gap:0.5rem; color:#718096;">
+          <div style="width:8px; height:8px; background:#2D8C7A; border-radius:50%; border:2px solid white;"></div> Étape
+        </div>
+        <div style="margin-top:0.5rem; padding-top:0.5rem; border-top:1px solid rgba(0,0,0,0.08); color:#1E6B5E; font-weight:600;">
+          2 200 km · 3 pays
+        </div>
       </div>
     `;
+    // Le tap sur la légende ne doit pas déplacer/zoomer la carte
+    L.DomEvent.disableClickPropagation(div);
+    L.DomEvent.disableScrollPropagation(div);
+    div.querySelector('#legendToggle').addEventListener('click', function() {
+      const body = div.querySelector('#legendBody');
+      const chev = div.querySelector('#legendChevron');
+      const isOpen = body.style.display !== 'none';
+      body.style.display = isOpen ? 'none' : 'block';
+      chev.textContent = isOpen ? '▸' : '▾';
+    });
     return div;
   };
   legend.addTo(mapInstance);
