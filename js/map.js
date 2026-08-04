@@ -261,6 +261,70 @@ function initMap() {
 
   // Add a subtle info panel
   addMapLegend();
+
+  // Live GPS tracking overlay (position réelle de Roland)
+  initLiveTracking();
+}
+
+// ---- Suivi GPS temps réel ----
+let liveLayer = null;
+
+function trackHaversine(la1, lo1, la2, lo2) {
+  const R = 6371;
+  const dLa = (la2 - la1) * Math.PI / 180;
+  const dLo = (lo2 - lo1) * Math.PI / 180;
+  const a = Math.sin(dLa / 2) ** 2 + Math.cos(la1 * Math.PI / 180) * Math.cos(la2 * Math.PI / 180) * Math.sin(dLo / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+// Estime les km parcourus en projetant la position GPS sur le tracé connu
+function kmFromLatLng(lat, lng) {
+  let bestKm = 0, bestD = Infinity;
+  for (let km = 0; km <= 2200; km += 5) {
+    const c = getCoordAtKm(km);
+    if (!c) continue;
+    const d = trackHaversine(lat, lng, c[0], c[1]);
+    if (d < bestD) { bestD = d; bestKm = km; }
+  }
+  return bestKm;
+}
+
+function initLiveTracking() {
+  if (!mapInstance) return;
+  liveLayer = L.layerGroup().addTo(mapInstance);
+
+  async function refresh() {
+    try {
+      const res = await fetch('data/tracking.json', { cache: 'no-store' });
+      if (!res.ok) return;
+      const t = await res.json();
+      if (!t || !t.current || typeof t.current.lat !== 'number') return;
+      liveLayer.clearLayers();
+
+      // Tracé réel déjà parcouru
+      if (Array.isArray(t.trail) && t.trail.length > 1) {
+        L.polyline(t.trail, { color: '#1E6B5E', weight: 5, opacity: 1, lineCap: 'round', smoothFactor: 1 }).addTo(liveLayer);
+      }
+
+      const cur = t.current;
+      const km = kmFromLatLng(cur.lat, cur.lng);
+      const pulseIcon = L.divIcon({ html: '<div class="marker-pulse"></div>', iconSize: [20, 20], iconAnchor: [10, 10], className: '' });
+      const marker = L.marker([cur.lat, cur.lng], { icon: pulseIcon, zIndexOffset: 2000 }).addTo(liveLayer);
+      let when = '';
+      if (cur.time) { try { when = new Date(cur.time * 1000).toLocaleString('fr-CH', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }); } catch (e) {} }
+      const batt = (cur.batt != null) ? ` · 🔋 ${Math.round(cur.batt)}%` : '';
+      marker.bindPopup(`
+        <div style="padding:4px 2px;">
+          <div class="popup-title">📍 Roland est ici</div>
+          <div class="popup-km">km ${Math.round(km).toLocaleString('fr-FR')} / 2 200</div>
+          ${when ? `<div style="margin-top:0.4rem; font-size:0.75rem; color:#718096;">Mis à jour : ${when}${batt}</div>` : ''}
+        </div>
+      `);
+    } catch (e) { /* silencieux */ }
+  }
+
+  refresh();
+  setInterval(refresh, 45000);
 }
 
 function createMarkerIcon(waypoint) {
