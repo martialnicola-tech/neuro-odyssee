@@ -79,5 +79,61 @@ $post = [
 $posts[] = $post;
 file_put_contents($dataFile, json_encode($posts, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
-header('Location: dashboard.php?success=' . urlencode('Article publié avec succès !'));
+// --- Épingler automatiquement la 1re photo du post sur la carte interactive ---
+$pinMsg = '';
+$firstImg = null;
+foreach ($uploadedFiles as $f) {
+    $e = strtolower(pathinfo($f, PATHINFO_EXTENSION));
+    if (in_array($e, ['jpg', 'jpeg', 'png', 'webp'])) { $firstImg = $f; break; }
+}
+if ($firstImg) {
+    $lat = null; $lng = null; $src = '';
+    // 1) EXIF GPS de la photo
+    $imgPath = __DIR__ . '/../' . $firstImg;
+    if (function_exists('exif_read_data') && in_array(strtolower(pathinfo($firstImg, PATHINFO_EXTENSION)), ['jpg', 'jpeg'])) {
+        $exif = @exif_read_data($imgPath);
+        if (!empty($exif['GPSLatitude']) && !empty($exif['GPSLongitude'])) {
+            $toDec = function ($coord, $ref) {
+                if (!is_array($coord) || count($coord) < 3) return null;
+                $p = [];
+                foreach ($coord as $c) {
+                    if (strpos($c, '/') !== false) { [$n, $d] = explode('/', $c); $p[] = $d ? $n / $d : 0; }
+                    else { $p[] = (float)$c; }
+                }
+                $dec = $p[0] + $p[1] / 60 + $p[2] / 3600;
+                return in_array($ref, ['S', 'W']) ? -$dec : $dec;
+            };
+            $lat = $toDec($exif['GPSLatitude'], $exif['GPSLatitudeRef'] ?? 'N');
+            $lng = $toDec($exif['GPSLongitude'], $exif['GPSLongitudeRef'] ?? 'E');
+            $src = 'exif';
+        }
+    }
+    // 2) Sinon : dernière position GPS du suivi
+    if ($lat === null || $lng === null) {
+        $trk = json_decode(@file_get_contents(__DIR__ . '/../data/tracking.json'), true);
+        if (!empty($trk['current']['lat'])) {
+            $lat = $trk['current']['lat']; $lng = $trk['current']['lng']; $src = 'gps';
+        }
+    }
+    if ($lat !== null && $lng !== null) {
+        $mapFile = __DIR__ . '/../data/photos-carte.json';
+        $mapPhotos = file_exists($mapFile) ? (json_decode(file_get_contents($mapFile), true) ?? []) : [];
+        $mapPhotos[] = [
+            'id'      => 'ph_' . $post['id'],
+            'post_id' => $post['id'],
+            'img'     => $firstImg,
+            'caption' => $post['title'],
+            'lat'     => round((float)$lat, 5),
+            'lng'     => round((float)$lng, 5),
+            'time'    => time(),
+            'pos_src' => $src,
+        ];
+        file_put_contents($mapFile, json_encode($mapPhotos, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES), LOCK_EX);
+        $pinMsg = ' Photo épinglée sur la carte 📍';
+    } else {
+        $pinMsg = ' (pas de position GPS, photo non épinglée sur la carte)';
+    }
+}
+
+header('Location: dashboard.php?success=' . urlencode('Article publié avec succès !' . $pinMsg));
 exit;
