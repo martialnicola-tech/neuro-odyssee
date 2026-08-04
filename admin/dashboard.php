@@ -245,6 +245,28 @@ $error   = $_GET['error'] ?? '';
       <div class="alert alert-error">❌ <?= htmlspecialchars($error) ?></div>
     <?php endif; ?>
 
+    <!-- Suivi GPS de Roland -->
+    <?php
+      $trkFile = __DIR__ . '/../data/tracking.json';
+      $trk = file_exists($trkFile) ? json_decode(file_get_contents($trkFile), true) : null;
+      $trkCur = is_array($trk) ? ($trk['current'] ?? null) : null;
+    ?>
+    <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:1.25rem; margin-bottom:1rem;">
+      <p style="font-size:0.9rem; color:#F0A500; font-weight:600; margin-bottom:0.6rem;">📍 Suivi GPS de Roland</p>
+      <?php if ($trkCur && isset($trkCur['lat'])): ?>
+        <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); line-height:1.6; margin-bottom:0.9rem;">
+          Dernière position : <strong style="color:white;"><?= htmlspecialchars((string)$trkCur['lat']) ?>, <?= htmlspecialchars((string)$trkCur['lng']) ?></strong>
+          <?php if (!empty($trkCur['time'])): ?><br>le <?= date('d/m/Y à H:i', (int)$trkCur['time']) ?><?php endif; ?>
+          <?php if (isset($trkCur['batt']) && $trkCur['batt'] !== null): ?> · 🔋 <?= (int)$trkCur['batt'] ?>%<?php endif; ?>
+        </p>
+        <form method="POST" action="clear-tracking.php" onsubmit="return confirm('Effacer la position GPS affichée sur la carte ?')">
+          <button type="submit" style="background:rgba(200,50,50,0.2); border:1px solid rgba(200,50,50,0.4); color:#ff9090; border-radius:8px; padding:0.55rem 1rem; font-size:0.85rem; font-weight:600; cursor:pointer;">🗑️ Effacer la position</button>
+        </form>
+      <?php else: ?>
+        <p style="font-size:0.8rem; color:rgba(255,255,255,0.4);">Aucune position pour l'instant — le point n'apparaît pas sur la carte.</p>
+      <?php endif; ?>
+    </div>
+
     <form method="POST" action="upload.php" enctype="multipart/form-data" id="postForm">
 
       <!-- Type de contenu -->
