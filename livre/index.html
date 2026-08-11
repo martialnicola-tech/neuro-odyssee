@@ -179,8 +179,8 @@
     <div class="checkout-box">
       <h2>Commander l'ebook</h2>
       <div class="price-row">
-        <div class="price-big">39 <span style="font-size:1.2rem;">€</span></div>
-        <div class="price-label">Accès immédiat<br>PDF téléchargeable · Paiement sécurisé Mollie</div>
+        <div class="price-big">29 <span style="font-size:1.2rem;">€</span> <s style="font-size:1.4rem; opacity:0.45; font-weight:400;">39 €</s></div>
+        <div class="price-label">🎒 Prix spécial pendant le voyage<br>Accès immédiat · PDF téléchargeable · Paiement sécurisé Mollie</div>
       </div>
       <form id="checkoutForm">
         <div class="form-group">
@@ -191,7 +191,7 @@
         </div>
         <button type="submit" class="btn-buy" id="buyBtn">
           <i class="fa-solid fa-lock"></i>
-          Acheter, 39 €
+          Acheter, 29 €
         </button>
         <p id="formError" class="error-msg"></p>
       </form>
@@ -270,7 +270,7 @@
       errEl.textContent   = err.message || 'Une erreur est survenue. Réessayez.';
       errEl.style.display = 'block';
       btn.disabled        = false;
-      btn.innerHTML       = '<i class="fa-solid fa-lock"></i> Acheter, 39 €';
+      btn.innerHTML       = '<i class="fa-solid fa-lock"></i> Acheter, 29 €';
     }
   });
   </script>
