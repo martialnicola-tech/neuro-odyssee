@@ -1,0 +1,35 @@
+name: Déploiement Hostinger
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Installer lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+      - name: Déployer (envoi seul, aucune suppression)
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASS: ${{ secrets.FTP_PASS }}
+        run: |
+          lftp -c "
+          set cmd:fail-exit yes;
+          set ssl:verify-certificate no;
+          set ftp:ssl-allow true; set ftp:ssl-force false;
+          open -u '$FTP_USER','$FTP_PASS' '$FTP_HOST';
+          mirror --reverse --verbose --no-perms --parallel=2 \
+            --exclude-glob .git/ --exclude-glob .github/ \
+            --exclude-glob .claude/ --exclude-glob tasks/ \
+            --exclude-glob data/ \
+            --exclude api/config.php --exclude payment/config.php \
+            --exclude .deploy.env --exclude deploy.sh \
+            --exclude-glob '*.md' \
+            ./ ./ ;
+          "
