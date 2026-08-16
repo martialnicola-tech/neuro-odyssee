@@ -7,3 +7,6 @@ data/stats.json
 # macOS
 .DS_Store
 **/.DS_Store
+
+# Déploiement FTP (secrets)
+.deploy.env
