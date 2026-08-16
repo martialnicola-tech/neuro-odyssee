@@ -9,7 +9,7 @@ require_once __DIR__ . '/config.php';
 const PRIX_KM = 25.79;   // € par km parrainé (490€ / 19 km = base Bronze)
 
 $PACKS = [
-    'bronze'  => ['prix' => 490,  'km' => 19,  'label' => 'Pack Bronze, 19 km'],
+    'bronze'  => ['prix' => 590,  'km' => 19,  'label' => 'Pack Bronze, 19 km'],
     'argent'  => ['prix' => 1490, 'km' => 57,  'label' => 'Pack Argent, 57 km'],
     'or'      => ['prix' => 2990, 'km' => 114, 'label' => 'Pack Or, 114 km'],
     'platine' => ['prix' => 4990, 'km' => 190, 'label' => 'Pack Platine, 190 km'],
