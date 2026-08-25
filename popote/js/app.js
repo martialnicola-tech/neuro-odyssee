@@ -15,9 +15,20 @@ const DEFAULTS = {
   setup: {
     country: 'CH', people: 2, diet: 'omni', noPork: false,
     allergies: { gluten: false, lactose: false, nuts: false },
-    meals: 4, budget: 0, theme: 'auto',
+    budget: 0, theme: 'auto',
+    /* planning par jour : familles recomposées, gardes alternées, invités…
+       chaque jour a son propre nombre de convives */
+    week: [
+      { on: true, people: 2 },  // lundi
+      { on: true, people: 2 },
+      { on: true, people: 2 },
+      { on: true, people: 2 },  // jeudi
+      { on: false, people: 2 }, // vendredi
+      { on: false, people: 2 },
+      { on: false, people: 2 }, // dimanche
+    ],
   },
-  plan: null,            // { created, meals: [{rid, locked, cooked}] }
+  plan: null,            // { created, meals: [{rid, day, locked, cooked}] }
   checked: {},           // liste de courses : { ingId: true }
   fridge: [],            // ingrédients déjà à la maison
   includePantry: false,  // compter le fond de placard dans la liste
@@ -33,7 +44,16 @@ function load() {
     if (!raw) return structuredClone(DEFAULTS);
     const s = JSON.parse(raw);
     // fusion défensive avec les défauts (migrations futures)
-    return { ...structuredClone(DEFAULTS), ...s, setup: { ...DEFAULTS.setup, ...(s.setup || {}), allergies: { ...DEFAULTS.setup.allergies, ...((s.setup || {}).allergies || {}) } } };
+    const merged = { ...structuredClone(DEFAULTS), ...s, setup: { ...DEFAULTS.setup, ...(s.setup || {}), allergies: { ...DEFAULTS.setup.allergies, ...((s.setup || {}).allergies || {}) } } };
+    // migration v1 → planning par jour : « N repas à P personnes » devient N jours actifs
+    if (s.setup && !s.setup.week) {
+      const n = Math.min(7, s.setup.meals || 4), p = s.setup.people || 2;
+      merged.setup.week = Array.from({ length: 7 }, (_, i) => ({ on: i < n, people: p }));
+      merged.plan = null;
+    }
+    // migration des repas sans jour attaché
+    if (merged.plan && merged.plan.meals.some((m) => m.day === undefined)) merged.plan = null;
+    return merged;
   } catch { return structuredClone(DEFAULTS); }
 }
 function save() { try { localStorage.setItem(STORE_KEY, JSON.stringify(S)); } catch { /* stockage plein ou bloqué */ } }
@@ -80,6 +100,12 @@ function costOf(recipe, people = S.setup.people, withPantry = false) {
 }
 const costPerPerson = (r) => costOf(r, 1);
 
+/* — planning par jour — */
+const activeDays = () => S.setup.week.map((d, i) => (d.on ? i : -1)).filter((i) => i >= 0);
+const peopleFor = (day) => Math.max(1, S.setup.week[day].people);
+const totalPortions = () => (S.plan ? S.plan.meals.reduce((s, m) => s + peopleFor(m.day), 0) : 0);
+const mealCost = (m) => costOf(byId(m.rid), peopleFor(m.day));
+
 function toast(msg) {
   const t = $('#toast');
   t.textContent = msg;
@@ -119,33 +145,40 @@ function scoreRecipe(r, picked, month) {
   return sc;
 }
 
+function pickBest(p, picked, month, exclude = []) {
+  let best = null, bestSc = -Infinity;
+  for (const r of p) {
+    if (exclude.includes(r.id)) continue;
+    const sc = scoreRecipe(r, picked, month);
+    if (sc > bestSc) { bestSc = sc; best = r; }
+  }
+  return best;
+}
+
 function generateWeek(keepLocked = true) {
   const p = pool();
-  if (p.length < S.setup.meals) { toast('Pas assez de recettes avec ces filtres — élargis tes critères.'); return; }
+  const days = activeDays();
+  if (!days.length) { S.plan = { created: Date.now(), meals: [] }; save(); return; }
+  if (p.length < Math.min(days.length, 4)) { toast('Pas assez de recettes avec ces filtres — élargis tes critères.'); return; }
   const month = new Date().getMonth() + 1;
   const old = (S.plan && S.plan.meals) || [];
-  const meals = [];
-  for (let i = 0; i < S.setup.meals; i++) {
-    if (keepLocked && old[i] && old[i].locked && byId(old[i].rid)) { meals.push({ ...old[i], cooked: false }); continue; }
-    meals.push(null);
-  }
-  const pickedR = () => meals.filter(Boolean).map((m) => byId(m.rid));
-  for (let i = 0; i < meals.length; i++) {
-    if (meals[i]) continue;
-    let best = null, bestSc = -Infinity;
-    for (const r of p) {
-      const sc = scoreRecipe(r, pickedR(), month);
-      if (sc > bestSc) { bestSc = sc; best = r; }
-    }
-    meals[i] = { rid: best.id, locked: false, cooked: false };
+  const meals = days.map((day) => {
+    const prev = old.find((m) => m.day === day);
+    if (keepLocked && prev && prev.locked && byId(prev.rid)) return { ...prev, cooked: false };
+    return { rid: null, day, locked: false, cooked: false };
+  });
+  const pickedR = () => meals.filter((m) => m.rid).map((m) => byId(m.rid));
+  for (const m of meals) {
+    if (m.rid) continue;
+    m.rid = pickBest(p, pickedR(), month).id;
   }
   // respect du budget : remplace le repas le plus cher si on dépasse de >5 %
   const budget = S.setup.budget;
   if (budget > 0) {
     for (let guard = 0; guard < 4; guard++) {
-      const total = meals.reduce((s, m) => s + costOf(byId(m.rid)), 0);
+      const total = meals.reduce((s, m) => s + costOf(byId(m.rid), peopleFor(m.day)), 0);
       if (total <= budget * 1.05) break;
-      const sorted = meals.filter((m) => !m.locked).sort((a, b) => costOf(byId(b.rid)) - costOf(byId(a.rid)));
+      const sorted = meals.filter((m) => !m.locked).sort((a, b) => costOf(byId(b.rid), peopleFor(b.day)) - costOf(byId(a.rid), peopleFor(a.day)));
       if (!sorted.length) break;
       const expensive = sorted[0];
       const used = meals.map((m) => m.rid);
@@ -163,7 +196,26 @@ function generateWeek(keepLocked = true) {
   save();
 }
 
-function planTotal() { return S.plan ? S.plan.meals.reduce((s, m) => s + costOf(byId(m.rid)), 0) : 0; }
+/* après modification des jours actifs : garde les repas existants,
+   complète les nouveaux jours, retire les jours désactivés */
+function reconcilePlan() {
+  if (!S.plan) return;
+  const days = activeDays();
+  const month = new Date().getMonth() + 1;
+  const kept = S.plan.meals.filter((m) => days.includes(m.day));
+  const p = pool();
+  for (const day of days) {
+    if (kept.some((m) => m.day === day)) continue;
+    const best = pickBest(p, kept.map((m) => byId(m.rid)), month, kept.map((m) => m.rid));
+    if (best) kept.push({ rid: best.id, day, locked: false, cooked: false });
+  }
+  kept.sort((a, b) => a.day - b.day);
+  S.plan.meals = kept;
+  S.batchDone = {};
+  save();
+}
+
+function planTotal() { return S.plan ? S.plan.meals.reduce((s, m) => s + mealCost(m), 0) : 0; }
 
 /* ---------- Liste de courses ---------- */
 function shoppingItems() {
@@ -171,8 +223,9 @@ function shoppingItems() {
   const agg = {};
   for (const m of S.plan.meals) {
     const r = byId(m.rid);
+    const n = peopleFor(m.day); // chaque jour a son nombre de convives
     for (const [id, q] of r.ing) {
-      agg[id] = (agg[id] || 0) + q * S.setup.people;
+      agg[id] = (agg[id] || 0) + q * n;
     }
   }
   return Object.entries(agg).map(([id, qty]) => ({
@@ -194,7 +247,7 @@ function listAsText() {
     if (it.fridge || (it.pantry && !S.includePantry)) continue;
     (groups[it.rayon] = groups[it.rayon] || []).push(it);
   }
-  let out = `🍲 Popote — liste de courses (${S.setup.people} pers., ${S.plan.meals.length} repas)\n`;
+  let out = `🍲 Popote — liste de courses (${S.plan.meals.length} repas, ${totalPortions()} portions)\n`;
   for (const [ray, its] of Object.entries(groups)) {
     out += `\n${RAYONS[ray].e} ${RAYONS[ray].n}\n`;
     for (const it of its) out += `  ☐ ${it.name} — ${fmtQty(it.id, it.qty, true)}\n`;
@@ -250,46 +303,90 @@ function renderWeek() {
   if (!S.plan) { generateWeek(false); }
   const total = planTotal();
   const budget = S.setup.budget;
-  const kcalAvg = Math.round(S.plan.meals.reduce((s, m) => s + byId(m.rid).kcal, 0) / S.plan.meals.length);
   const month = new Date().toLocaleDateString('fr-CH', { month: 'long' });
+  const nMeals = S.plan.meals.length;
+  const portions = totalPortions();
+  const kcalAvg = nMeals ? Math.round(S.plan.meals.reduce((s, m) => s + byId(m.rid).kcal, 0) / nMeals) : 0;
 
   APP.innerHTML = `
   <header class="hero">
     <div class="hero-top">
       <div>
         <h1>Ta semaine <span class="flag">${S.setup.country === 'CH' ? '🇨🇭' : '🇫🇷'}</span></h1>
-        <p class="sub">${S.plan.meals.length} repas · ${S.setup.people} pers. · saison : ${esc(month)}</p>
+        <p class="sub">${nMeals} repas · ${portions} portions · saison : ${esc(month)}</p>
       </div>
       <button class="btn-round" id="regen" title="Régénérer la semaine">🎲</button>
     </div>
     <div class="stats-row">
       <div class="stat"><b>${fmtMoney(total)}</b><span>courses estimées</span></div>
-      <div class="stat"><b>${fmtMoney(total / S.plan.meals.length / S.setup.people)}</b><span>par portion</span></div>
+      <div class="stat"><b>${portions ? fmtMoney(total / portions) : '—'}</b><span>par portion</span></div>
       <div class="stat"><b>${kcalAvg} kcal</b><span>moy. / repas</span></div>
     </div>
     ${budget > 0 ? budgetBar(total, budget) : ''}
   </header>
   <section class="cards">
     ${S.plan.meals.map((m, i) => mealCard(m, i)).join('')}
+    <button class="add-day" id="addDay">+ Ajouter un jour</button>
   </section>
-  <div class="hint">🔒 Verrouille tes repas préférés avant de relancer les dés · ↔️ échange un repas · ✅ marque-le cuisiné pour tes stats</div>`;
+  <div class="hint">👥 Touche le badge personnes d'un repas pour ajuster les convives de ce jour-là (enfants en garde alternée, invités…) · 🔒 verrouille tes préférés avant de relancer les dés · ↔️ échange · ✅ cuisiné</div>`;
 
   $('#regen').onclick = () => { generateWeek(true); render(); toast('Nouvelle semaine générée ✨'); };
+  $('#addDay').onclick = openAddDay;
   $$('.meal').forEach((el) => {
     const i = +el.dataset.i;
-    $('.m-open', el).onclick = () => openRecipe(S.plan.meals[i].rid);
-    $('.m-lock', el).onclick = (e) => { e.stopPropagation(); S.plan.meals[i].locked = !S.plan.meals[i].locked; save(); render(); };
+    const m = S.plan.meals[i];
+    $('.m-open', el).onclick = () => openRecipe(m.rid, peopleFor(m.day));
+    $('.m-people', el).onclick = (e) => { e.stopPropagation(); openDaySheet(m.day); };
+    $('.m-lock', el).onclick = (e) => { e.stopPropagation(); m.locked = !m.locked; save(); render(); };
     $('.m-swap', el).onclick = (e) => { e.stopPropagation(); openSwap(i); };
     $('.m-cook', el).onclick = (e) => {
       e.stopPropagation();
-      const m = S.plan.meals[i];
       m.cooked = !m.cooked;
-      const delta = (PRIX_REPAS_REF[S.setup.country] - costPerPerson(byId(m.rid))) * S.setup.people;
+      const delta = (PRIX_REPAS_REF[S.setup.country] - costPerPerson(byId(m.rid))) * peopleFor(m.day);
       S.stats.cooked += m.cooked ? 1 : -1;
       S.stats.saved += m.cooked ? delta : -delta;
       save(); render();
       if (m.cooked) toast(`Bien joué ! ≈ ${fmtMoney(delta)} économisés vs plats livrés 💪`);
     };
+  });
+}
+
+/* réglage rapide d'un jour : convives ce jour-là, ou retirer le repas */
+function openDaySheet(day) {
+  const paint = () => {
+    const n = peopleFor(day);
+    $('#sheet-inner').innerHTML = `
+      <h2>${DAYS[day]}</h2>
+      <p class="sub">Qui mange à la maison ce jour-là ?</p>
+      <div class="row-field big"><span>👥 Personnes ${DAYS[day].toLowerCase()}</span>
+        <span class="stepper"><button id="dMinus">−</button><b>${n}</b><button id="dPlus">+</button></span>
+      </div>
+      <button class="btn-danger" id="dOff">Pas de repas ${DAYS[day].toLowerCase()} — retirer ce jour</button>
+      <button class="btn-primary" id="dOk">C'est noté</button>`;
+    $('#dMinus').onclick = () => { S.setup.week[day].people = Math.max(1, n - 1); save(); paint(); };
+    $('#dPlus').onclick = () => { S.setup.week[day].people = Math.min(10, n + 1); save(); paint(); };
+    $('#dOff').onclick = () => { S.setup.week[day].on = false; save(); reconcilePlan(); closeSheet(); render(); toast(`${DAYS[day]} retiré du planning`); };
+    $('#dOk').onclick = () => { closeSheet(); render(); };
+  };
+  openSheet('');
+  paint();
+}
+
+/* ajouter un jour non planifié */
+function openAddDay() {
+  const off = S.setup.week.map((d, i) => (d.on ? -1 : i)).filter((i) => i >= 0);
+  if (!off.length) { toast('Tous les jours sont déjà planifiés 💪'); return; }
+  openSheet(`
+    <h2>Ajouter un jour</h2>
+    <p class="sub">Un repas sera généré pour ce jour, avec son propre nombre de convives.</p>
+    <div class="swap-list">
+      ${off.map((i) => `<button class="swap-item" data-day="${i}"><span class="m-emoji">📅</span><span><b>${DAYS[i]}</b><small>${peopleFor(i)} pers. par défaut — ajustable ensuite</small></span></button>`).join('')}
+    </div>`);
+  $$('.swap-item[data-day]').forEach((b) => b.onclick = () => {
+    const day = +b.dataset.day;
+    S.setup.week[day].on = true;
+    save(); reconcilePlan(); closeSheet(); render();
+    toast(`${DAYS[day]} ajouté à ta semaine ✨`);
   });
 }
 
@@ -304,12 +401,13 @@ function budgetBar(total, budget) {
 
 function mealCard(m, i) {
   const r = byId(m.rid);
+  const n = peopleFor(m.day);
   return `
   <article class="meal ${m.cooked ? 'cooked' : ''}" data-i="${i}">
     <button class="m-open">
       <span class="m-emoji">${r.e}</span>
       <span class="m-main">
-        <span class="m-day">${DAYS[i] || 'Repas ' + (i + 1)}</span>
+        <span class="m-day">${DAYS[m.day]} <span class="m-people" role="button" tabindex="0" title="Ajuster les convives de ce jour">👥 ${n}</span></span>
         <span class="m-name">${esc(r.n)}</span>
         <span class="m-meta">⏱ ${r.t + r.c} min · ${fmtMoney(costPerPerson(r))}/pers · ${r.kcal} kcal ${catBadge(r)}</span>
       </span>
@@ -347,7 +445,7 @@ function openSwap(i) {
         </button>`).join('')}
     </div>`);
   $$('.swap-item').forEach((b) => b.onclick = () => {
-    S.plan.meals[i] = { rid: b.dataset.rid, locked: false, cooked: false };
+    S.plan.meals[i] = { rid: b.dataset.rid, day: S.plan.meals[i].day, locked: false, cooked: false };
     save(); closeSheet(); render(); toast('Repas remplacé 👍');
   });
 }
@@ -371,8 +469,8 @@ function renderList() {
     </div>
     <div class="stats-row">
       <div class="stat"><b>${fmtMoney(cost)}</b><span>total estimé</span></div>
-      <div class="stat"><b>${fmtMoney(cost / S.setup.people)}</b><span>par personne</span></div>
-      <div class="stat"><b>${S.plan.meals.length * S.setup.people}</b><span>portions</span></div>
+      <div class="stat"><b>${totalPortions() ? fmtMoney(cost / totalPortions()) : '—'}</b><span>par portion</span></div>
+      <div class="stat"><b>${totalPortions()}</b><span>portions</span></div>
     </div>
     ${S.setup.budget > 0 ? budgetBar(cost, S.setup.budget) : ''}
   </header>
@@ -428,7 +526,7 @@ function renderBatch() {
     <div class="stats-row">
       <div class="stat"><b>≈ ${plan.batchTime} min</b><span>session totale</span></div>
       <div class="stat"><b>≈ ${plan.savedTime} min</b><span>gagnées vs 1 par 1</span></div>
-      <div class="stat"><b>${S.plan.meals.length * S.setup.people}</b><span>portions prêtes</span></div>
+      <div class="stat"><b>${totalPortions()}</b><span>portions prêtes</span></div>
     </div>
     <div class="budget"><div class="budget-bar"><i style="width:${pct}%"></i></div><span>${pct} % de la session</span></div>
   </header>
@@ -511,6 +609,30 @@ function renderFridge() {
   if (cf) cf.onclick = () => { S.fridge = []; save(); renderFridge(); };
 }
 
+/* — Éditeur de planning : jours actifs + convives par jour — */
+function weekEditorHTML(week, idPrefix) {
+  return `<div class="week-editor" id="${idPrefix}">
+    ${week.map((d, i) => `
+      <div class="we-row ${d.on ? 'on' : ''}" data-day="${i}">
+        <button class="we-day" type="button">${DAYS[i]}</button>
+        <span class="we-people" ${d.on ? '' : 'hidden'}>
+          <button class="we-minus" type="button">−</button>
+          <b>👥 ${d.people}</b>
+          <button class="we-plus" type="button">+</button>
+        </span>
+        <span class="we-off" ${d.on ? 'hidden' : ''}>pas de repas</span>
+      </div>`).join('')}
+  </div>`;
+}
+function bindWeekEditor(idPrefix, week, onChange) {
+  $$(`#${idPrefix} .we-row`).forEach((row) => {
+    const i = +row.dataset.day;
+    $('.we-day', row).onclick = () => { week[i].on = !week[i].on; onChange(); };
+    $('.we-minus', row).onclick = () => { week[i].people = Math.max(1, week[i].people - 1); onChange(); };
+    $('.we-plus', row).onclick = () => { week[i].people = Math.min(10, week[i].people + 1); onChange(); };
+  });
+}
+
 /* — Profil / réglages / stats — */
 function renderMe() {
   const st = S.setup;
@@ -529,12 +651,8 @@ function renderMe() {
       <button data-v="CH" class="${st.country === 'CH' ? 'on' : ''}">🇨🇭 Suisse (CHF)</button>
       <button data-v="FR" class="${st.country === 'FR' ? 'on' : ''}">🇫🇷 France (EUR)</button>
     </div>
-    <div class="row-field"><span>Personnes</span>
-      <span class="stepper"><button id="pMinus">−</button><b id="pVal">${st.people}</b><button id="pPlus">+</button></span>
-    </div>
-    <div class="row-field"><span>Repas / semaine</span>
-      <span class="stepper"><button id="mMinus">−</button><b id="mVal">${st.meals}</b><button id="mPlus">+</button></span>
-    </div>
+    <p class="sub we-help">Touche un jour pour l'activer ou non, et règle les convives de chaque jour — pratique pour les gardes alternées, les enfants qui ne mangent pas tous les soirs à la maison, ou les invités du week-end.</p>
+    ${weekEditorHTML(st.week, 'weMe')}
     <div class="row-field"><span>Budget courses / semaine <small>(0 = libre)</small></span>
       <input type="number" id="budget" min="0" step="5" value="${st.budget || 0}" class="num"> ${st.country === 'CH' ? 'CHF' : '€'}
     </div>
@@ -574,10 +692,7 @@ function renderMe() {
   $$('#segCountry button').forEach((b) => b.onclick = () => upd(() => { S.setup.country = b.dataset.v; }));
   $$('#segDiet button').forEach((b) => b.onclick = () => upd(() => { S.setup.diet = b.dataset.v; S.plan = null; }));
   $$('#segTheme button').forEach((b) => b.onclick = () => upd(() => { S.setup.theme = b.dataset.v; applyTheme(); }));
-  $('#pMinus').onclick = () => upd(() => { S.setup.people = Math.max(1, S.setup.people - 1); });
-  $('#pPlus').onclick = () => upd(() => { S.setup.people = Math.min(8, S.setup.people + 1); });
-  $('#mMinus').onclick = () => upd(() => { S.setup.meals = Math.max(2, S.setup.meals - 1); S.plan = null; });
-  $('#mPlus').onclick = () => upd(() => { S.setup.meals = Math.min(7, S.setup.meals + 1); S.plan = null; });
+  bindWeekEditor('weMe', S.setup.week, () => { save(); reconcilePlan(); renderMe(); });
   $('#budget').onchange = (e) => upd(() => { S.setup.budget = Math.max(0, +e.target.value || 0); });
   $('#noPork').onchange = (e) => upd(() => { S.setup.noPork = e.target.checked; S.plan = null; });
   $('#aGluten').onchange = (e) => upd(() => { S.setup.allergies.gluten = e.target.checked; S.plan = null; });
@@ -591,9 +706,8 @@ function renderMe() {
 }
 
 /* — Fiche recette & mode cuisine — */
-function openRecipe(rid) {
+function openRecipe(rid, people = S.setup.people) {
   const r = byId(rid);
-  const people = S.setup.people;
   openSheet(`
     <div class="r-head"><span class="r-emoji">${r.e}</span>
       <div><h2>${esc(r.n)}</h2>
@@ -704,13 +818,12 @@ function renderOnboarding() {
         <button data-v="FR" class="${tmp.country === 'FR' ? 'on' : ''}">🇫🇷<br>France<br><small>prix en EUR</small></button>
       </div>`,
     () => `
-      <h1>Ton foyer</h1>
-      <div class="row-field big"><span>Nombre de personnes</span>
+      <h1>Ta semaine type</h1>
+      <p class="sub">Touche un jour pour le planifier ou non, et règle qui mange à la maison ce jour-là — les enfants en garde alternée ou les invités du dimanche comptent jour par jour.</p>
+      <div class="row-field big"><span>Foyer au complet</span>
         <span class="stepper"><button id="obPm">−</button><b id="obPv">${tmp.people}</b><button id="obPp">+</button></span>
       </div>
-      <div class="row-field big"><span>Repas à planifier / semaine</span>
-        <span class="stepper"><button id="obMm">−</button><b id="obMv">${tmp.meals}</b><button id="obMp">+</button></span>
-      </div>`,
+      ${weekEditorHTML(tmp.week, 'weOb')}`,
     () => `
       <h1>Tes goûts</h1>
       <div class="seg wrap" id="obDiet">
@@ -733,6 +846,7 @@ function renderOnboarding() {
     const back = $('#obBack');
     if (back) back.onclick = () => { step--; paint(); };
     $('#obNext').onclick = () => {
+      if (step === 2 && !tmp.week.some((d) => d.on)) { toast('Choisis au moins un jour à planifier 😉'); return; }
       if (step < steps.length - 1) { step++; paint(); return; }
       S.setup = tmp; S.onboarded = true; save();
       generateWeek(false); TAB = 'week'; render();
@@ -741,10 +855,11 @@ function renderOnboarding() {
     $$('#obCountry button').forEach((b) => b.onclick = () => { tmp.country = b.dataset.v; paint(); });
     $$('#obDiet button').forEach((b) => b.onclick = () => { tmp.diet = b.dataset.v; paint(); });
     const bind = (id, fn) => { const el = $(id); if (el) el.onclick = fn; };
-    bind('#obPm', () => { tmp.people = Math.max(1, tmp.people - 1); paint(); });
-    bind('#obPp', () => { tmp.people = Math.min(8, tmp.people + 1); paint(); });
-    bind('#obMm', () => { tmp.meals = Math.max(2, tmp.meals - 1); paint(); });
-    bind('#obMp', () => { tmp.meals = Math.min(7, tmp.meals + 1); paint(); });
+    // « foyer au complet » : ajuste d'un coup tous les jours actifs
+    const setAll = (n) => { tmp.people = n; tmp.week.forEach((d) => { d.people = n; }); paint(); };
+    bind('#obPm', () => setAll(Math.max(1, tmp.people - 1)));
+    bind('#obPp', () => setAll(Math.min(10, tmp.people + 1)));
+    if ($('#weOb')) bindWeekEditor('weOb', tmp.week, paint);
     const chk = (id, fn) => { const el = $(id); if (el) el.onchange = (e) => fn(e.target.checked); };
     chk('#obPork', (v) => { tmp.noPork = v; });
     chk('#obGluten', (v) => { tmp.allergies.gluten = v; });

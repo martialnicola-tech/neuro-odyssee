@@ -1,5 +1,5 @@
 /* Popote — service worker : l'app fonctionne entièrement hors-ligne. */
-const CACHE = 'popote-v1';
+const CACHE = 'popote-v2';
 const ASSETS = [
   './',
   'index.html',
