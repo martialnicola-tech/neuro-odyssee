@@ -706,3 +706,66 @@ const RECIPES = [
 
 /* Moyennes utilisées pour l'estimation des économies (repas livré / plat préparé) */
 const PRIX_REPAS_REF = { FR: 12, CH: 19 };
+
+/* ============================================================
+   Bons plans — catalogues d'actions des enseignes.
+   Le vrai flux se branche via data/promos.json (voir README) :
+   [{ country:"CH", retailer:"Migros", ing:"pouletFilet",
+      discount:0.25, from:"2026-08-24", to:"2026-08-30", label:"" }]
+   Sans flux, une sélection démo réaliste tourne chaque semaine.
+   ============================================================ */
+
+const RETAILERS = {
+  CH: ['Migros', 'Coop', 'Lidl', 'Aldi', 'Denner'],
+  FR: ['Carrefour', 'E.Leclerc', 'Intermarché', 'Lidl', 'Aldi'],
+};
+
+/* Produits fréquemment en action + fourchette de rabais typique */
+const PROMO_POOL = [
+  ['pouletFilet', 0.20, 0.40], ['pouletCuisse', 0.25, 0.40], ['boeufHache', 0.20, 0.35],
+  ['boeufMijote', 0.20, 0.30], ['saumon', 0.25, 0.40], ['cabillaud', 0.20, 0.35],
+  ['crevettes', 0.25, 0.40], ['lardons', 0.20, 0.30], ['filetMignon', 0.20, 0.35],
+  ['poivron', 0.20, 0.35], ['courgette', 0.20, 0.35], ['tomate', 0.20, 0.35],
+  ['aubergine', 0.20, 0.30], ['brocoli', 0.20, 0.30], ['champignon', 0.20, 0.30],
+  ['potiron', 0.20, 0.30], ['chouFleur', 0.20, 0.30], ['avocat', 0.25, 0.40],
+  ['pates', 0.15, 0.30], ['riz', 0.15, 0.25], ['fromageRape', 0.20, 0.30],
+  ['gruyere', 0.15, 0.25], ['mozzarella', 0.20, 0.35], ['feta', 0.20, 0.30],
+  ['laitCoco', 0.20, 0.35], ['tomatesConcassees', 0.15, 0.30], ['thon', 0.20, 0.30],
+  ['gnocchi', 0.20, 0.30], ['tofu', 0.20, 0.30], ['oeuf', 0.15, 0.25],
+];
+
+/* PRNG déterministe : mêmes promos pour tout le monde une semaine donnée */
+function _mulberry32(seed) {
+  return function () {
+    seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+function isoWeek(d = new Date()) {
+  const date = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  const day = date.getUTCDay() || 7;
+  date.setUTCDate(date.getUTCDate() + 4 - day);
+  const yearStart = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
+  return Math.ceil((((date - yearStart) / 86400000) + 1) / 7);
+}
+
+/* Sélection démo de la semaine : 9 actions plausibles, stables 7 jours */
+function weeklyPromos(country) {
+  const now = new Date();
+  const seed = isoWeek(now) * 1000 + now.getFullYear() % 100 + (country === 'CH' ? 7 : 3);
+  const rnd = _mulberry32(seed);
+  const pool = [...PROMO_POOL].sort(() => rnd() - 0.5);
+  const stores = RETAILERS[country];
+  const monday = new Date(now); monday.setDate(now.getDate() - ((now.getDay() + 6) % 7));
+  const sunday = new Date(monday); sunday.setDate(monday.getDate() + 6);
+  const iso = (d) => d.toISOString().slice(0, 10);
+  return pool.slice(0, 9).map(([ing, lo, hi]) => ({
+    country, ing,
+    retailer: stores[Math.floor(rnd() * stores.length)],
+    discount: Math.round((lo + rnd() * (hi - lo)) * 20) / 20, // pas de 5 %
+    from: iso(monday), to: iso(sunday),
+    demo: true,
+  }));
+}

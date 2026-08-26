@@ -1,0 +1,7 @@
+[
+  { "country": "CH", "retailer": "Migros", "ing": "pouletFilet", "discount": 0.30, "from": "2026-08-24", "to": "2026-08-30" },
+  { "country": "CH", "retailer": "Coop", "ing": "saumon", "discount": 0.25, "from": "2026-08-24", "to": "2026-08-30" },
+  { "country": "CH", "retailer": "Lidl", "ing": "poivron", "discount": 0.35, "from": "2026-08-24", "to": "2026-08-30" },
+  { "country": "FR", "retailer": "Carrefour", "ing": "boeufHache", "discount": 0.25, "from": "2026-08-24", "to": "2026-08-30" },
+  { "country": "FR", "retailer": "E.Leclerc", "ing": "pates", "discount": 0.20, "from": "2026-08-24", "to": "2026-08-30" }
+]

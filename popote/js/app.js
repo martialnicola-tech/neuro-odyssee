@@ -16,6 +16,8 @@ const DEFAULTS = {
     country: 'CH', people: 2, diet: 'omni', noPork: false,
     allergies: { gluten: false, lactose: false, nuts: false },
     budget: 0, theme: 'auto',
+    promoMode: true,   // composer les menus avec les actions des enseignes
+    stores: null,      // enseignes fréquentées (null = toutes celles du pays)
     /* planning par jour : familles recomposées, gardes alternées, invités…
        chaque jour a son propre nombre de convives */
     week: [
@@ -79,32 +81,67 @@ function fmtQty(ing, qty, whole = false) {
   if (unit === 'g') return r >= 1000 ? `${(r / 1000).toFixed(1).replace('.', ',')} kg` : `${r} g`;
   return r >= 1000 ? `${(r / 1000).toFixed(1).replace('.', ',')} L` : `${r} ml`;
 }
+/* — Bons plans : actions des enseignes appliquées aux prix — */
+let PROMOS = weeklyPromos('CH').concat(weeklyPromos('FR')); // sélection démo par défaut
+function loadPromoFeed() {
+  // flux catalogue réel, publié dans feed/promos.json (voir feed/README.md)
+  fetch('feed/promos.json', { cache: 'no-cache' })
+    .then((r) => (r.ok ? r.json() : null))
+    .then((feed) => {
+      if (!Array.isArray(feed) || !feed.length) return;
+      const today = new Date().toISOString().slice(0, 10);
+      const valid = feed.filter((p) => p.ing && INGREDIENTS[p.ing] && p.discount > 0 && p.discount < 0.9
+        && (!p.from || p.from <= today) && (!p.to || p.to >= today));
+      if (valid.length) { PROMOS = valid; render(); }
+    })
+    .catch(() => { /* pas de flux : la sélection démo reste */ });
+}
+const myStores = () => (S.setup.stores && S.setup.stores.length ? S.setup.stores : RETAILERS[S.setup.country]);
+function promoOf(id) {
+  if (!S.setup.promoMode) return null;
+  const stores = myStores();
+  let best = null;
+  for (const p of PROMOS) {
+    if (p.country !== S.setup.country || p.ing !== id || !stores.includes(p.retailer)) continue;
+    if (!best || p.discount > best.discount) best = p;
+  }
+  return best;
+}
+const promoFactor = (id) => { const p = promoOf(id); return p ? 1 - p.discount : 1; };
+
 /* prix « exact » (estimation du coût des recettes) */
-function rawPrice(ingId, qty) {
+function rawPrice(ingId, qty, withPromo = true) {
   const i = INGREDIENTS[ingId];
   const p = S.setup.country === 'CH' ? i[4] : i[3];
-  return i[2] === 'pc' ? qty * p : qty * p / 1000;
+  const base = i[2] === 'pc' ? qty * p : qty * p / 1000;
+  return base * (withPromo ? promoFactor(ingId) : 1);
 }
 /* prix « d'achat » : quantités arrondies comme en magasin (liste de courses) */
-function buyPrice(ingId, qty) {
+function buyPrice(ingId, qty, withPromo = true) {
   const i = INGREDIENTS[ingId];
   const p = S.setup.country === 'CH' ? i[4] : i[3];
-  if (i[2] === 'pc') return Math.ceil(qty - 1e-9) * p;
-  return (Math.ceil(qty / 10) * 10) * p / 1000;
+  const base = i[2] === 'pc' ? Math.ceil(qty - 1e-9) * p : (Math.ceil(qty / 10) * 10) * p / 1000;
+  return base * (withPromo ? promoFactor(ingId) : 1);
 }
-function costOf(recipe, people = S.setup.people, withPantry = false) {
+function costOf(recipe, people = S.setup.people, withPantry = false, withPromo = true) {
   return recipe.ing.reduce((s, [id, q]) => {
     if (!withPantry && INGREDIENTS[id][1] === 'PL') return s;
-    return s + rawPrice(id, q * people);
+    return s + rawPrice(id, q * people, withPromo);
   }, 0);
+}
+/* part du coût de la recette couverte par des actions (0 → 1) */
+function promoShare(r) {
+  const full = costOf(r, 1, false, false);
+  return full > 0 ? 1 - costOf(r, 1) / full : 0;
 }
 const costPerPerson = (r) => costOf(r, 1);
 
 /* — planning par jour — */
 const activeDays = () => S.setup.week.map((d, i) => (d.on ? i : -1)).filter((i) => i >= 0);
 const peopleFor = (day) => Math.max(1, S.setup.week[day].people);
-const totalPortions = () => (S.plan ? S.plan.meals.reduce((s, m) => s + peopleFor(m.day), 0) : 0);
-const mealCost = (m) => costOf(byId(m.rid), peopleFor(m.day));
+const effPeople = (m) => peopleFor(m.day) * (m.double ? 2 : 1); // 🍱 repas doublé = restes pour le lendemain
+const totalPortions = () => (S.plan ? S.plan.meals.reduce((s, m) => s + effPeople(m), 0) : 0);
+const mealCost = (m) => costOf(byId(m.rid), effPeople(m));
 
 function toast(msg) {
   const t = $('#toast');
@@ -142,6 +179,8 @@ function scoreRecipe(r, picked, month) {
   }
   // léger bonus batch : les recettes qui se préparent bien à l'avance
   if (r.tags.includes('batch')) sc += 0.4;
+  // bons plans : privilégier les recettes dont les ingrédients sont en action
+  if (S.setup.promoMode) sc += 3 * promoShare(r);
   return sc;
 }
 
@@ -223,7 +262,7 @@ function shoppingItems() {
   const agg = {};
   for (const m of S.plan.meals) {
     const r = byId(m.rid);
-    const n = peopleFor(m.day); // chaque jour a son nombre de convives
+    const n = effPeople(m); // convives du jour, ×2 si repas doublé
     for (const [id, q] of r.ing) {
       agg[id] = (agg[id] || 0) + q * n;
     }
@@ -233,6 +272,8 @@ function shoppingItems() {
     rayon: INGREDIENTS[id][1],
     name: INGREDIENTS[id][0],
     price: buyPrice(id, qty),
+    saved: buyPrice(id, qty, false) - buyPrice(id, qty), // gain grâce aux actions
+    promo: promoOf(id),
     pantry: INGREDIENTS[id][1] === 'PL',
     fridge: S.fridge.includes(id),
   }));
@@ -315,7 +356,10 @@ function renderWeek() {
         <h1>Ta semaine <span class="flag">${S.setup.country === 'CH' ? '🇨🇭' : '🇫🇷'}</span></h1>
         <p class="sub">${nMeals} repas · ${portions} portions · saison : ${esc(month)}</p>
       </div>
-      <button class="btn-round" id="regen" title="Régénérer la semaine">🎲</button>
+      <span class="hero-btns">
+        <button class="btn-round" id="print" title="Imprimer le menu et la liste">🖨️</button>
+        <button class="btn-round" id="regen" title="Régénérer la semaine">🎲</button>
+      </span>
     </div>
     <div class="stats-row">
       <div class="stat"><b>${fmtMoney(total)}</b><span>courses estimées</span></div>
@@ -323,6 +367,7 @@ function renderWeek() {
       <div class="stat"><b>${kcalAvg} kcal</b><span>moy. / repas</span></div>
     </div>
     ${budget > 0 ? budgetBar(total, budget) : ''}
+    ${promoBanner()}
   </header>
   <section class="cards">
     ${S.plan.meals.map((m, i) => mealCard(m, i)).join('')}
@@ -331,6 +376,9 @@ function renderWeek() {
   <div class="hint">👥 Touche le badge personnes d'un repas pour ajuster les convives de ce jour-là (enfants en garde alternée, invités…) · 🔒 verrouille tes préférés avant de relancer les dés · ↔️ échange · ✅ cuisiné</div>`;
 
   $('#regen').onclick = () => { generateWeek(true); render(); toast('Nouvelle semaine générée ✨'); };
+  $('#print').onclick = printWeek;
+  const pb = $('#promoBanner');
+  if (pb) pb.onclick = openPromoSheet;
   $('#addDay').onclick = openAddDay;
   $$('.meal').forEach((el) => {
     const i = +el.dataset.i;
@@ -355,16 +403,21 @@ function renderWeek() {
 function openDaySheet(day) {
   const paint = () => {
     const n = peopleFor(day);
+    const m = S.plan && S.plan.meals.find((x) => x.day === day);
     $('#sheet-inner').innerHTML = `
       <h2>${DAYS[day]}</h2>
       <p class="sub">Qui mange à la maison ce jour-là ?</p>
       <div class="row-field big"><span>👥 Personnes ${DAYS[day].toLowerCase()}</span>
         <span class="stepper"><button id="dMinus">−</button><b>${n}</b><button id="dPlus">+</button></span>
       </div>
+      ${m ? `<label class="check big-check"><input type="checkbox" id="dDouble" ${m.double ? 'checked' : ''}>
+        🍱 <span><b>Cuisiner en double</b><br><small>portions ×2 : les restes font les lunchs du lendemain (≈ ${fmtMoney(PRIX_REPAS_REF[S.setup.country] * n)} de plats à l'emporter économisés)</small></span></label>` : ''}
       <button class="btn-danger" id="dOff">Pas de repas ${DAYS[day].toLowerCase()} — retirer ce jour</button>
       <button class="btn-primary" id="dOk">C'est noté</button>`;
     $('#dMinus').onclick = () => { S.setup.week[day].people = Math.max(1, n - 1); save(); paint(); };
     $('#dPlus').onclick = () => { S.setup.week[day].people = Math.min(10, n + 1); save(); paint(); };
+    const dd = $('#dDouble');
+    if (dd) dd.onchange = () => { m.double = dd.checked; save(); paint(); };
     $('#dOff').onclick = () => { S.setup.week[day].on = false; save(); reconcilePlan(); closeSheet(); render(); toast(`${DAYS[day]} retiré du planning`); };
     $('#dOk').onclick = () => { closeSheet(); render(); };
   };
@@ -390,6 +443,46 @@ function openAddDay() {
   });
 }
 
+/* — Bandeau bons plans : actions actives dans tes enseignes — */
+function activePromos() {
+  const stores = myStores();
+  return PROMOS.filter((p) => p.country === S.setup.country && stores.includes(p.retailer) && INGREDIENTS[p.ing]);
+}
+function promoBanner() {
+  if (!S.setup.promoMode) return '';
+  const promos = activePromos();
+  if (!promos.length) return '';
+  const saved = S.plan ? S.plan.meals.reduce((s, m) => s + (costOf(byId(m.rid), effPeople(m), false, false) - mealCost(m)), 0) : 0;
+  return `<button class="promo-banner" id="promoBanner">
+    🏷️ <b>${promos.length} actions</b> dans tes magasins cette semaine
+    ${saved > 0.05 ? ` · <b>${fmtMoney(saved)}</b> gagnés sur ce menu` : ''} <span class="chev">›</span>
+  </button>`;
+}
+
+function openPromoSheet() {
+  const promos = activePromos().sort((a, b) => b.discount - a.discount);
+  const demo = promos.some((p) => p.demo);
+  const p2 = pool();
+  openSheet(`
+    <h2>🏷️ Les actions de la semaine</h2>
+    <p class="sub">${S.setup.country === 'CH' ? 'Suisse' : 'France'} · tes enseignes : ${myStores().join(', ')}${demo ? ' · <b>sélection type</b> (branche le flux catalogue pour les vraies actions de tes magasins)' : ''}</p>
+    <div class="promo-list">
+      ${promos.map((p) => {
+        const uses = p2.filter((r) => r.ing.some(([id]) => id === p.ing)).slice(0, 2);
+        return `<div class="promo-item">
+          <div class="promo-line">
+            <span class="promo-name">${esc(INGREDIENTS[p.ing][0])}</span>
+            <span class="promo-tag">−${Math.round(p.discount * 100)} %</span>
+            <span class="promo-store">${esc(p.retailer)}</span>
+          </div>
+          ${uses.length ? `<div class="promo-uses">${uses.map((r) => `<button class="promo-recipe" data-rid="${r.id}">${r.e} ${esc(r.n)}</button>`).join('')}</div>` : ''}
+        </div>`;
+      }).join('')}
+    </div>
+    <p class="fine">Le menu de la semaine privilégie automatiquement ces produits — relance les dés 🎲 pour en profiter au maximum.</p>`);
+  $$('.promo-recipe').forEach((b) => b.onclick = () => { closeSheet(); openRecipe(b.dataset.rid); });
+}
+
 function budgetBar(total, budget) {
   const pct = Math.min(100, Math.round((total / budget) * 100));
   const over = total > budget;
@@ -407,9 +500,9 @@ function mealCard(m, i) {
     <button class="m-open">
       <span class="m-emoji">${r.e}</span>
       <span class="m-main">
-        <span class="m-day">${DAYS[m.day]} <span class="m-people" role="button" tabindex="0" title="Ajuster les convives de ce jour">👥 ${n}</span></span>
+        <span class="m-day">${DAYS[m.day]} <span class="m-people" role="button" tabindex="0" title="Ajuster les convives de ce jour">👥 ${n}</span>${m.double ? '<span class="m-double" title="Portions doublées : restes pour le lendemain">🍱 ×2</span>' : ''}</span>
         <span class="m-name">${esc(r.n)}</span>
-        <span class="m-meta">⏱ ${r.t + r.c} min · ${fmtMoney(costPerPerson(r))}/pers · ${r.kcal} kcal ${catBadge(r)}</span>
+        <span class="m-meta">⏱ ${r.t + r.c} min · ${fmtMoney(costPerPerson(r))}/pers · ${r.kcal} kcal ${catBadge(r)}${promoShare(r) > 0.03 ? ' <i class="badge promo-b" title="Des ingrédients de cette recette sont en action">🏷️ promo</i>' : ''}</span>
       </span>
     </button>
     <span class="m-actions">
@@ -473,6 +566,10 @@ function renderList() {
       <div class="stat"><b>${totalPortions()}</b><span>portions</span></div>
     </div>
     ${S.setup.budget > 0 ? budgetBar(cost, S.setup.budget) : ''}
+    ${(() => {
+      const saved = items.filter((it) => !it.fridge && !it.pantry).reduce((s, it) => s + it.saved, 0);
+      return saved > 0.05 ? `<div class="promo-saved">🏷️ ${fmtMoney(saved)} économisés grâce aux actions de tes enseignes</div>` : '';
+    })()}
   </header>
   ${groups.map((g) => `
     <section class="ray ${g.ray === 'PL' ? 'pantry' : ''}">
@@ -481,7 +578,7 @@ function renderList() {
       ${g.items.map((it) => `
         <label class="item ${S.checked[it.id] ? 'done' : ''}">
           <input type="checkbox" data-id="${it.id}" ${S.checked[it.id] ? 'checked' : ''}>
-          <span class="i-name">${esc(it.name)}</span>
+          <span class="i-name">${esc(it.name)}${it.promo && !it.pantry ? `<i class="i-promo">🏷️ −${Math.round(it.promo.discount * 100)} % ${esc(it.promo.retailer)}</i>` : ''}</span>
           <span class="i-qty">${fmtQty(it.id, it.qty, true)}</span>
           <span class="i-price">${(!it.pantry || S.includePantry) ? fmtMoney(it.price) : ''}</span>
         </label>`).join('')}
@@ -668,6 +765,15 @@ function renderMe() {
     <label class="check"><input type="checkbox" id="aNuts" ${st.allergies.nuts ? 'checked' : ''}> Sans fruits à coque</label>
   </section>
   <section class="ray form">
+    <h3>🏷️ Bons plans</h3>
+    <label class="check"><input type="checkbox" id="promoMode" ${st.promoMode ? 'checked' : ''}> Composer mes menus avec les actions de la semaine</label>
+    <p class="sub">Tes enseignes ${st.country === 'CH' ? 'suisses' : 'françaises'} :</p>
+    <div class="chips" id="storeChips">
+      ${RETAILERS[st.country].map((r) => `<button class="chip ${myStores().includes(r) ? 'on' : ''}" data-store="${esc(r)}">${esc(r)}</button>`).join('')}
+    </div>
+    <p class="fine">${PROMOS.some((p) => p.demo) ? 'Sélection type de produits souvent en action — le flux catalogue réel se branche via feed/promos.json.' : 'Flux catalogue actif ✅'}</p>
+  </section>
+  <section class="ray form">
     <h3>🎨 Apparence</h3>
     <div class="seg" id="segTheme">
       <button data-v="auto" class="${st.theme === 'auto' ? 'on' : ''}">Auto</button>
@@ -689,10 +795,18 @@ function renderMe() {
   </section>`;
 
   const upd = (fn, regen = false) => { fn(); save(); if (regen) { S.plan = null; } renderMe(); };
-  $$('#segCountry button').forEach((b) => b.onclick = () => upd(() => { S.setup.country = b.dataset.v; }));
+  $$('#segCountry button').forEach((b) => b.onclick = () => upd(() => { S.setup.country = b.dataset.v; S.setup.stores = null; }));
   $$('#segDiet button').forEach((b) => b.onclick = () => upd(() => { S.setup.diet = b.dataset.v; S.plan = null; }));
   $$('#segTheme button').forEach((b) => b.onclick = () => upd(() => { S.setup.theme = b.dataset.v; applyTheme(); }));
   bindWeekEditor('weMe', S.setup.week, () => { save(); reconcilePlan(); renderMe(); });
+  $('#promoMode').onchange = (e) => upd(() => { S.setup.promoMode = e.target.checked; });
+  $$('#storeChips .chip').forEach((c) => c.onclick = () => upd(() => {
+    const store = c.dataset.store;
+    let stores = myStores().slice();
+    stores = stores.includes(store) ? stores.filter((x) => x !== store) : [...stores, store];
+    if (!stores.length) stores = [store]; // au moins une enseigne
+    S.setup.stores = stores;
+  }));
   $('#budget').onchange = (e) => upd(() => { S.setup.budget = Math.max(0, +e.target.value || 0); });
   $('#noPork').onchange = (e) => upd(() => { S.setup.noPork = e.target.checked; S.plan = null; });
   $('#aGluten').onchange = (e) => upd(() => { S.setup.allergies.gluten = e.target.checked; S.plan = null; });
@@ -869,6 +983,31 @@ function renderOnboarding() {
   paint();
 }
 
+/* — Impression : menu de la semaine + liste, à coller sur le frigo — */
+function printWeek() {
+  if (!S.plan || !S.plan.meals.length) { toast("Rien à imprimer — génère d'abord ta semaine."); return; }
+  const items = shoppingItems();
+  const order = ['FL', 'VP', 'CR', 'EP', 'SU', 'BO', 'PL'];
+  const groups = order
+    .map((ray) => ({ ray, items: items.filter((it) => it.rayon === ray && !it.fridge && (!it.pantry || S.includePantry)) }))
+    .filter((g) => g.items.length);
+  $('#print-area').innerHTML = `
+    <h1>🍲 Popote — ma semaine</h1>
+    <table class="p-menu"><tbody>
+      ${S.plan.meals.map((m) => {
+        const r = byId(m.rid);
+        return `<tr><td class="p-day">${DAYS[m.day]}<br><small>${effPeople(m)} portion(s)${m.double ? ' · 🍱 ×2' : ''}</small></td>
+          <td>${r.e} ${esc(r.n)}</td><td class="p-time">${r.t + r.c} min</td></tr>`;
+      }).join('')}
+    </tbody></table>
+    <h2>Liste de courses — ≈ ${fmtMoney(listCost(items))}</h2>
+    <div class="p-cols">
+      ${groups.map((g) => `<div><h3>${RAYONS[g.ray].n}</h3><ul>${g.items.map((it) => `<li>☐ ${esc(it.name)} — ${fmtQty(it.id, it.qty, true)}</li>`).join('')}</ul></div>`).join('')}
+    </div>
+    <p class="p-foot">Généré avec Popote · gratuit · Suisse & France</p>`;
+  window.print();
+}
+
 /* — Thème — */
 function applyTheme() {
   const t = S.setup.theme;
@@ -882,6 +1021,7 @@ $('#sheet').addEventListener('click', (e) => { if (e.target.id === 'sheet') clos
 $('#sheet-close').onclick = closeSheet;
 $('#timer-stop').onclick = stopTimer;
 render();
+loadPromoFeed();
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js').catch(() => { /* hors-ligne indisponible, l'app marche quand même */ });
