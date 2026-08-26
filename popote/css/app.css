@@ -184,23 +184,33 @@ small { color: var(--muted); }
   padding: 2px 9px; border-radius: 99px; margin-left: 6px; text-decoration: none !important;
 }
 
-/* — Planning par jour (familles recomposées : convives variables) — */
-.week-editor { display: flex; flex-direction: column; gap: 6px; margin: 10px 0; }
+/* — Planning 7 jours × 2 créneaux (midi / soir), convives par créneau — */
+.week-editor { display: flex; flex-direction: column; gap: 5px; margin: 10px 0; }
+.we-head {
+  display: grid; grid-template-columns: 44px 1fr 1fr; gap: 6px;
+  font-size: .72rem; color: var(--muted); text-align: center; padding: 0 2px;
+}
 .we-row {
-  display: flex; align-items: center; gap: 10px;
-  border: 1.5px solid var(--line); border-radius: 12px; padding: 6px 8px;
-  opacity: .55; transition: all .15s;
+  display: grid; grid-template-columns: 44px 1fr 1fr; gap: 6px; align-items: center;
+  border: 1.5px solid var(--line); border-radius: 12px; padding: 5px 6px;
+  opacity: .6; transition: all .15s;
 }
-.we-row.on { opacity: 1; border-color: var(--accent); background: var(--accent-soft); }
-.we-day { flex: 1; text-align: left; font-weight: 650; font-size: .92rem; padding: 6px 4px; }
+.we-row.on { opacity: 1; }
+.we-day { font-weight: 700; font-size: .86rem; text-align: center; }
 .we-row.on .we-day { color: var(--accent); }
-.we-people { display: flex; align-items: center; gap: 2px; }
-.we-people b { min-width: 52px; text-align: center; font-size: .9rem; font-variant-numeric: tabular-nums; }
-.we-people button {
-  width: 32px; height: 32px; border-radius: 10px; background: var(--card);
-  border: 1.5px solid var(--line); font-size: 1.05rem; font-weight: 700;
+.we-slot {
+  display: flex; align-items: center; justify-content: center; gap: 4px;
+  border: 1.5px dashed var(--line); border-radius: 10px; padding: 3px 4px; min-height: 40px;
 }
-.we-off { font-size: .78rem; color: var(--muted); padding-right: 6px; }
+.we-slot.on { border-style: solid; border-color: var(--accent); background: var(--accent-soft); }
+.we-tgl { font-size: 1rem; padding: 4px 6px; border-radius: 8px; filter: grayscale(1); opacity: .5; }
+.we-slot.on .we-tgl { filter: none; opacity: 1; }
+.we-people { display: flex; align-items: center; gap: 1px; }
+.we-people b { min-width: 22px; text-align: center; font-size: .88rem; font-variant-numeric: tabular-nums; }
+.we-people button {
+  width: 27px; height: 27px; border-radius: 9px; background: var(--card);
+  border: 1.5px solid var(--line); font-size: .95rem; font-weight: 700;
+}
 .we-help { margin-bottom: 4px; }
 .m-people {
   display: inline-block; font-size: .68rem; font-weight: 700;

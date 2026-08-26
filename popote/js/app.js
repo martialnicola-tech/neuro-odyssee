@@ -8,6 +8,9 @@
 /* ---------- État ---------- */
 const STORE_KEY = 'popote.v1';
 const DAYS = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+const DAYS_SHORT = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
+const SLOTS = ['midi', 'soir'];
+const SLOT_META = { midi: { label: 'midi', e: '☀️' }, soir: { label: 'soir', e: '🌙' } };
 const DIETS = { omni: 'Omnivore', vege: 'Végétarien', vegan: 'Végan', pesce: 'Pescétarien' };
 
 const DEFAULTS = {
@@ -18,19 +21,19 @@ const DEFAULTS = {
     budget: 0, theme: 'auto',
     promoMode: true,   // composer les menus avec les actions des enseignes
     stores: null,      // enseignes fréquentées (null = toutes celles du pays)
-    /* planning par jour : familles recomposées, gardes alternées, invités…
-       chaque jour a son propre nombre de convives */
+    /* planning par jour ET par créneau (midi / soir) : familles recomposées,
+       cantine le midi, invités du dimanche… chaque créneau a ses convives */
     week: [
-      { on: true, people: 2 },  // lundi
-      { on: true, people: 2 },
-      { on: true, people: 2 },
-      { on: true, people: 2 },  // jeudi
-      { on: false, people: 2 }, // vendredi
-      { on: false, people: 2 },
-      { on: false, people: 2 }, // dimanche
+      { midi: { on: false, people: 2 }, soir: { on: true, people: 2 } },  // lundi
+      { midi: { on: false, people: 2 }, soir: { on: true, people: 2 } },
+      { midi: { on: false, people: 2 }, soir: { on: true, people: 2 } },
+      { midi: { on: false, people: 2 }, soir: { on: true, people: 2 } },  // jeudi
+      { midi: { on: false, people: 2 }, soir: { on: false, people: 2 } }, // vendredi
+      { midi: { on: false, people: 2 }, soir: { on: false, people: 2 } },
+      { midi: { on: false, people: 2 }, soir: { on: false, people: 2 } }, // dimanche
     ],
   },
-  plan: null,            // { created, meals: [{rid, day, locked, cooked}] }
+  plan: null,            // { created, meals: [{rid, day, slot, locked, cooked, double}] }
   checked: {},           // liste de courses : { ingId: true }
   fridge: [],            // ingrédients déjà à la maison
   includePantry: false,  // compter le fond de placard dans la liste
@@ -50,11 +53,21 @@ function load() {
     // migration v1 → planning par jour : « N repas à P personnes » devient N jours actifs
     if (s.setup && !s.setup.week) {
       const n = Math.min(7, s.setup.meals || 4), p = s.setup.people || 2;
-      merged.setup.week = Array.from({ length: 7 }, (_, i) => ({ on: i < n, people: p }));
+      merged.setup.week = Array.from({ length: 7 }, (_, i) => ({
+        midi: { on: false, people: p }, soir: { on: i < n, people: p },
+      }));
       merged.plan = null;
     }
-    // migration des repas sans jour attaché
-    if (merged.plan && merged.plan.meals.some((m) => m.day === undefined)) merged.plan = null;
+    // migration v2 → créneaux midi/soir : l'ancien jour unique devient le soir
+    if (merged.setup.week.some((d) => d && d.on !== undefined)) {
+      merged.setup.week = merged.setup.week.map((d) => ({
+        midi: { on: false, people: d.people || 2 }, soir: { on: !!d.on, people: d.people || 2 },
+      }));
+    }
+    if (merged.plan) {
+      for (const m of merged.plan.meals) if (!m.slot) m.slot = 'soir';
+      if (merged.plan.meals.some((m) => m.day === undefined)) merged.plan = null;
+    }
     return merged;
   } catch { return structuredClone(DEFAULTS); }
 }
@@ -136,12 +149,17 @@ function promoShare(r) {
 }
 const costPerPerson = (r) => costOf(r, 1);
 
-/* — planning par jour — */
-const activeDays = () => S.setup.week.map((d, i) => (d.on ? i : -1)).filter((i) => i >= 0);
-const peopleFor = (day) => Math.max(1, S.setup.week[day].people);
-const effPeople = (m) => peopleFor(m.day) * (m.double ? 2 : 1); // 🍱 repas doublé = restes pour le lendemain
+/* — planning par jour et par créneau (midi / soir) — */
+function activeSlots() {
+  const out = [];
+  for (let day = 0; day < 7; day++) for (const slot of SLOTS) if (S.setup.week[day][slot].on) out.push({ day, slot });
+  return out;
+}
+const peopleFor = (day, slot) => Math.max(1, S.setup.week[day][slot].people);
+const effPeople = (m) => peopleFor(m.day, m.slot) * (m.double ? 2 : 1); // 🍱 repas doublé = restes
 const totalPortions = () => (S.plan ? S.plan.meals.reduce((s, m) => s + effPeople(m), 0) : 0);
 const mealCost = (m) => costOf(byId(m.rid), effPeople(m));
+const slotLabel = (m) => `${DAYS[m.day]} ${SLOT_META[m.slot].e} ${SLOT_META[m.slot].label}`;
 
 function toast(msg) {
   const t = $('#toast');
@@ -168,7 +186,7 @@ function pool() {
   });
 }
 
-function scoreRecipe(r, picked, month) {
+function scoreRecipe(r, picked, month, slot = 'soir', day = 0) {
   let sc = Math.random() * 1.6;
   if (r.season.length) sc += r.season.includes(month) ? 2 : -2.5;
   if (S.history.includes(r.id)) sc -= 2.2;
@@ -181,43 +199,51 @@ function scoreRecipe(r, picked, month) {
   if (r.tags.includes('batch')) sc += 0.4;
   // bons plans : privilégier les recettes dont les ingrédients sont en action
   if (S.setup.promoMode) sc += 3 * promoShare(r);
+  // le midi en semaine : rapide et léger ; le week-end, tout est permis
+  if (slot === 'midi') {
+    if (r.t + r.c <= 30) sc += 1.2;
+    else if (day < 5 && r.t + r.c > 45) sc -= 1.8;
+    if (r.tags.includes('rapide') || r.tags.includes('léger')) sc += 0.6;
+  }
   return sc;
 }
 
-function pickBest(p, picked, month, exclude = []) {
+function pickBest(p, picked, month, exclude = [], slot = 'soir', day = 0) {
   let best = null, bestSc = -Infinity;
   for (const r of p) {
     if (exclude.includes(r.id)) continue;
-    const sc = scoreRecipe(r, picked, month);
+    const sc = scoreRecipe(r, picked, month, slot, day);
     if (sc > bestSc) { bestSc = sc; best = r; }
   }
   return best;
 }
 
+const slotOrder = (a, b) => (a.day - b.day) || (a.slot === b.slot ? 0 : a.slot === 'midi' ? -1 : 1);
+
 function generateWeek(keepLocked = true) {
   const p = pool();
-  const days = activeDays();
-  if (!days.length) { S.plan = { created: Date.now(), meals: [] }; save(); return; }
-  if (p.length < Math.min(days.length, 4)) { toast('Pas assez de recettes avec ces filtres — élargis tes critères.'); return; }
+  const slots = activeSlots();
+  if (!slots.length) { S.plan = { created: Date.now(), meals: [] }; save(); return; }
+  if (p.length < Math.min(slots.length, 4)) { toast('Pas assez de recettes avec ces filtres — élargis tes critères.'); return; }
   const month = new Date().getMonth() + 1;
   const old = (S.plan && S.plan.meals) || [];
-  const meals = days.map((day) => {
-    const prev = old.find((m) => m.day === day);
+  const meals = slots.map(({ day, slot }) => {
+    const prev = old.find((m) => m.day === day && m.slot === slot);
     if (keepLocked && prev && prev.locked && byId(prev.rid)) return { ...prev, cooked: false };
-    return { rid: null, day, locked: false, cooked: false };
+    return { rid: null, day, slot, locked: false, cooked: false };
   });
   const pickedR = () => meals.filter((m) => m.rid).map((m) => byId(m.rid));
   for (const m of meals) {
     if (m.rid) continue;
-    m.rid = pickBest(p, pickedR(), month).id;
+    m.rid = pickBest(p, pickedR(), month, [], m.slot, m.day).id;
   }
   // respect du budget : remplace le repas le plus cher si on dépasse de >5 %
   const budget = S.setup.budget;
   if (budget > 0) {
     for (let guard = 0; guard < 4; guard++) {
-      const total = meals.reduce((s, m) => s + costOf(byId(m.rid), peopleFor(m.day)), 0);
+      const total = meals.reduce((s, m) => s + costOf(byId(m.rid), peopleFor(m.day, m.slot)), 0);
       if (total <= budget * 1.05) break;
-      const sorted = meals.filter((m) => !m.locked).sort((a, b) => costOf(byId(b.rid), peopleFor(b.day)) - costOf(byId(a.rid), peopleFor(a.day)));
+      const sorted = meals.filter((m) => !m.locked).sort((a, b) => costOf(byId(b.rid), peopleFor(b.day, b.slot)) - costOf(byId(a.rid), peopleFor(a.day, a.slot)));
       if (!sorted.length) break;
       const expensive = sorted[0];
       const used = meals.map((m) => m.rid);
@@ -227,28 +253,29 @@ function generateWeek(keepLocked = true) {
       expensive.rid = cheaper.id;
     }
   }
+  meals.sort(slotOrder);
   S.plan = { created: Date.now(), meals };
   S.checked = {};
   S.batchDone = {};
-  S.history = [...meals.map((m) => m.rid), ...S.history].slice(0, 14);
+  S.history = [...meals.map((m) => m.rid), ...S.history].slice(0, 18);
   S.stats.weeks += 1;
   save();
 }
 
-/* après modification des jours actifs : garde les repas existants,
-   complète les nouveaux jours, retire les jours désactivés */
+/* après modification des créneaux actifs : garde les repas existants,
+   complète les nouveaux créneaux, retire ceux qui sont désactivés */
 function reconcilePlan() {
   if (!S.plan) return;
-  const days = activeDays();
+  const slots = activeSlots();
   const month = new Date().getMonth() + 1;
-  const kept = S.plan.meals.filter((m) => days.includes(m.day));
+  const kept = S.plan.meals.filter((m) => slots.some((s) => s.day === m.day && s.slot === m.slot));
   const p = pool();
-  for (const day of days) {
-    if (kept.some((m) => m.day === day)) continue;
-    const best = pickBest(p, kept.map((m) => byId(m.rid)), month, kept.map((m) => m.rid));
-    if (best) kept.push({ rid: best.id, day, locked: false, cooked: false });
+  for (const { day, slot } of slots) {
+    if (kept.some((m) => m.day === day && m.slot === slot)) continue;
+    const best = pickBest(p, kept.map((m) => byId(m.rid)), month, kept.map((m) => m.rid), slot, day);
+    if (best) kept.push({ rid: best.id, day, slot, locked: false, cooked: false });
   }
-  kept.sort((a, b) => a.day - b.day);
+  kept.sort(slotOrder);
   S.plan.meals = kept;
   S.batchDone = {};
   save();
@@ -371,7 +398,7 @@ function renderWeek() {
   </header>
   <section class="cards">
     ${S.plan.meals.map((m, i) => mealCard(m, i)).join('')}
-    <button class="add-day" id="addDay">+ Ajouter un jour</button>
+    <button class="add-day" id="addDay">+ Ajouter un repas (midi ou soir)</button>
   </section>
   <div class="hint">👥 Touche le badge personnes d'un repas pour ajuster les convives de ce jour-là (enfants en garde alternée, invités…) · 🔒 verrouille tes préférés avant de relancer les dés · ↔️ échange · ✅ cuisiné</div>`;
 
@@ -383,14 +410,14 @@ function renderWeek() {
   $$('.meal').forEach((el) => {
     const i = +el.dataset.i;
     const m = S.plan.meals[i];
-    $('.m-open', el).onclick = () => openRecipe(m.rid, peopleFor(m.day));
-    $('.m-people', el).onclick = (e) => { e.stopPropagation(); openDaySheet(m.day); };
+    $('.m-open', el).onclick = () => openRecipe(m.rid, peopleFor(m.day, m.slot));
+    $('.m-people', el).onclick = (e) => { e.stopPropagation(); openDaySheet(m.day, m.slot); };
     $('.m-lock', el).onclick = (e) => { e.stopPropagation(); m.locked = !m.locked; save(); render(); };
     $('.m-swap', el).onclick = (e) => { e.stopPropagation(); openSwap(i); };
     $('.m-cook', el).onclick = (e) => {
       e.stopPropagation();
       m.cooked = !m.cooked;
-      const delta = (PRIX_REPAS_REF[S.setup.country] - costPerPerson(byId(m.rid))) * peopleFor(m.day);
+      const delta = (PRIX_REPAS_REF[S.setup.country] - costPerPerson(byId(m.rid))) * peopleFor(m.day, m.slot);
       S.stats.cooked += m.cooked ? 1 : -1;
       S.stats.saved += m.cooked ? delta : -delta;
       save(); render();
@@ -399,47 +426,49 @@ function renderWeek() {
   });
 }
 
-/* réglage rapide d'un jour : convives ce jour-là, ou retirer le repas */
-function openDaySheet(day) {
+/* réglage rapide d'un créneau : convives, doubler, ou retirer le repas */
+function openDaySheet(day, slot) {
+  const label = `${DAYS[day].toLowerCase()} ${SLOT_META[slot].label}`;
   const paint = () => {
-    const n = peopleFor(day);
-    const m = S.plan && S.plan.meals.find((x) => x.day === day);
+    const n = peopleFor(day, slot);
+    const m = S.plan && S.plan.meals.find((x) => x.day === day && x.slot === slot);
     $('#sheet-inner').innerHTML = `
-      <h2>${DAYS[day]}</h2>
-      <p class="sub">Qui mange à la maison ce jour-là ?</p>
-      <div class="row-field big"><span>👥 Personnes ${DAYS[day].toLowerCase()}</span>
+      <h2>${DAYS[day]} ${SLOT_META[slot].e} ${SLOT_META[slot].label}</h2>
+      <p class="sub">Qui mange à la maison à ce repas-là ?</p>
+      <div class="row-field big"><span>👥 Personnes ${esc(label)}</span>
         <span class="stepper"><button id="dMinus">−</button><b>${n}</b><button id="dPlus">+</button></span>
       </div>
       ${m ? `<label class="check big-check"><input type="checkbox" id="dDouble" ${m.double ? 'checked' : ''}>
-        🍱 <span><b>Cuisiner en double</b><br><small>portions ×2 : les restes font les lunchs du lendemain (≈ ${fmtMoney(PRIX_REPAS_REF[S.setup.country] * n)} de plats à l'emporter économisés)</small></span></label>` : ''}
-      <button class="btn-danger" id="dOff">Pas de repas ${DAYS[day].toLowerCase()} — retirer ce jour</button>
+        🍱 <span><b>Cuisiner en double</b><br><small>portions ×2 : les restes font un autre repas (≈ ${fmtMoney(PRIX_REPAS_REF[S.setup.country] * n)} de plats à l'emporter économisés)</small></span></label>` : ''}
+      <button class="btn-danger" id="dOff">Pas de repas ${esc(label)} — retirer ce créneau</button>
       <button class="btn-primary" id="dOk">C'est noté</button>`;
-    $('#dMinus').onclick = () => { S.setup.week[day].people = Math.max(1, n - 1); save(); paint(); };
-    $('#dPlus').onclick = () => { S.setup.week[day].people = Math.min(10, n + 1); save(); paint(); };
+    $('#dMinus').onclick = () => { S.setup.week[day][slot].people = Math.max(1, n - 1); save(); paint(); };
+    $('#dPlus').onclick = () => { S.setup.week[day][slot].people = Math.min(10, n + 1); save(); paint(); };
     const dd = $('#dDouble');
     if (dd) dd.onchange = () => { m.double = dd.checked; save(); paint(); };
-    $('#dOff').onclick = () => { S.setup.week[day].on = false; save(); reconcilePlan(); closeSheet(); render(); toast(`${DAYS[day]} retiré du planning`); };
+    $('#dOff').onclick = () => { S.setup.week[day][slot].on = false; save(); reconcilePlan(); closeSheet(); render(); toast(`${DAYS[day]} ${SLOT_META[slot].label} retiré du planning`); };
     $('#dOk').onclick = () => { closeSheet(); render(); };
   };
   openSheet('');
   paint();
 }
 
-/* ajouter un jour non planifié */
+/* ajouter un créneau non planifié (midi ou soir) */
 function openAddDay() {
-  const off = S.setup.week.map((d, i) => (d.on ? -1 : i)).filter((i) => i >= 0);
-  if (!off.length) { toast('Tous les jours sont déjà planifiés 💪'); return; }
+  const off = [];
+  for (let i = 0; i < 7; i++) for (const slot of SLOTS) if (!S.setup.week[i][slot].on) off.push({ day: i, slot });
+  if (!off.length) { toast('Tous les repas de la semaine sont déjà planifiés 💪'); return; }
   openSheet(`
-    <h2>Ajouter un jour</h2>
-    <p class="sub">Un repas sera généré pour ce jour, avec son propre nombre de convives.</p>
+    <h2>Ajouter un repas</h2>
+    <p class="sub">Un repas sera généré pour ce créneau, avec son propre nombre de convives — midi rapide, soir plus généreux.</p>
     <div class="swap-list">
-      ${off.map((i) => `<button class="swap-item" data-day="${i}"><span class="m-emoji">📅</span><span><b>${DAYS[i]}</b><small>${peopleFor(i)} pers. par défaut — ajustable ensuite</small></span></button>`).join('')}
+      ${off.map(({ day, slot }) => `<button class="swap-item" data-day="${day}" data-slot="${slot}"><span class="m-emoji">${SLOT_META[slot].e}</span><span><b>${DAYS[day]} ${SLOT_META[slot].label}</b><small>${peopleFor(day, slot)} pers. par défaut — ajustable ensuite</small></span></button>`).join('')}
     </div>`);
   $$('.swap-item[data-day]').forEach((b) => b.onclick = () => {
-    const day = +b.dataset.day;
-    S.setup.week[day].on = true;
+    const day = +b.dataset.day, slot = b.dataset.slot;
+    S.setup.week[day][slot].on = true;
     save(); reconcilePlan(); closeSheet(); render();
-    toast(`${DAYS[day]} ajouté à ta semaine ✨`);
+    toast(`${DAYS[day]} ${SLOT_META[slot].label} ajouté à ta semaine ✨`);
   });
 }
 
@@ -494,13 +523,13 @@ function budgetBar(total, budget) {
 
 function mealCard(m, i) {
   const r = byId(m.rid);
-  const n = peopleFor(m.day);
+  const n = peopleFor(m.day, m.slot);
   return `
   <article class="meal ${m.cooked ? 'cooked' : ''}" data-i="${i}">
     <button class="m-open">
       <span class="m-emoji">${r.e}</span>
       <span class="m-main">
-        <span class="m-day">${DAYS[m.day]} <span class="m-people" role="button" tabindex="0" title="Ajuster les convives de ce jour">👥 ${n}</span>${m.double ? '<span class="m-double" title="Portions doublées : restes pour le lendemain">🍱 ×2</span>' : ''}</span>
+        <span class="m-day">${slotLabel(m)} <span class="m-people" role="button" tabindex="0" title="Ajuster les convives de ce repas">👥 ${n}</span>${m.double ? '<span class="m-double" title="Portions doublées : restes pour un autre repas">🍱 ×2</span>' : ''}</span>
         <span class="m-name">${esc(r.n)}</span>
         <span class="m-meta">⏱ ${r.t + r.c} min · ${fmtMoney(costPerPerson(r))}/pers · ${r.kcal} kcal ${catBadge(r)}${promoShare(r) > 0.03 ? ' <i class="badge promo-b" title="Des ingrédients de cette recette sont en action">🏷️ promo</i>' : ''}</span>
       </span>
@@ -525,7 +554,7 @@ function openSwap(i) {
   const month = new Date().getMonth() + 1;
   const alts = pool()
     .filter((r) => !current.includes(r.id))
-    .map((r) => ({ r, sc: scoreRecipe(r, S.plan.meals.filter((_, j) => j !== i).map((m) => byId(m.rid)), month) }))
+    .map((r) => ({ r, sc: scoreRecipe(r, S.plan.meals.filter((_, j) => j !== i).map((m) => byId(m.rid)), month, S.plan.meals[i].slot, S.plan.meals[i].day) }))
     .sort((a, b) => b.sc - a.sc)
     .slice(0, 10);
   openSheet(`
@@ -706,27 +735,35 @@ function renderFridge() {
   if (cf) cf.onclick = () => { S.fridge = []; save(); renderFridge(); };
 }
 
-/* — Éditeur de planning : jours actifs + convives par jour — */
+/* — Éditeur de planning : 7 jours × 2 créneaux (midi / soir), convives par créneau — */
 function weekEditorHTML(week, idPrefix) {
+  const cell = (d, i, slot) => {
+    const c = d[slot];
+    return `<span class="we-slot ${c.on ? 'on' : ''}" data-day="${i}" data-slot="${slot}">
+      <button class="we-tgl" type="button" title="${DAYS[i]} ${SLOT_META[slot].label} : ${c.on ? 'planifié' : 'pas de repas'}">${SLOT_META[slot].e}</button>
+      <span class="we-people" ${c.on ? '' : 'hidden'}>
+        <button class="we-minus" type="button">−</button><b>${c.people}</b><button class="we-plus" type="button">+</button>
+      </span>
+    </span>`;
+  };
   return `<div class="week-editor" id="${idPrefix}">
+    <div class="we-head"><span></span><span>${SLOT_META.midi.e} midi</span><span>${SLOT_META.soir.e} soir</span></div>
     ${week.map((d, i) => `
-      <div class="we-row ${d.on ? 'on' : ''}" data-day="${i}">
-        <button class="we-day" type="button">${DAYS[i]}</button>
-        <span class="we-people" ${d.on ? '' : 'hidden'}>
-          <button class="we-minus" type="button">−</button>
-          <b>👥 ${d.people}</b>
-          <button class="we-plus" type="button">+</button>
-        </span>
-        <span class="we-off" ${d.on ? 'hidden' : ''}>pas de repas</span>
+      <div class="we-row ${d.midi.on || d.soir.on ? 'on' : ''}">
+        <span class="we-day">${DAYS_SHORT[i]}</span>
+        ${cell(d, i, 'midi')}
+        ${cell(d, i, 'soir')}
       </div>`).join('')}
   </div>`;
 }
 function bindWeekEditor(idPrefix, week, onChange) {
-  $$(`#${idPrefix} .we-row`).forEach((row) => {
-    const i = +row.dataset.day;
-    $('.we-day', row).onclick = () => { week[i].on = !week[i].on; onChange(); };
-    $('.we-minus', row).onclick = () => { week[i].people = Math.max(1, week[i].people - 1); onChange(); };
-    $('.we-plus', row).onclick = () => { week[i].people = Math.min(10, week[i].people + 1); onChange(); };
+  $$(`#${idPrefix} .we-slot`).forEach((el) => {
+    const i = +el.dataset.day, slot = el.dataset.slot;
+    const c = () => week[i][slot];
+    $('.we-tgl', el).onclick = () => { c().on = !c().on; onChange(); };
+    const minus = $('.we-minus', el), plus = $('.we-plus', el);
+    if (minus) minus.onclick = () => { c().people = Math.max(1, c().people - 1); onChange(); };
+    if (plus) plus.onclick = () => { c().people = Math.min(10, c().people + 1); onChange(); };
   });
 }
 
@@ -748,7 +785,7 @@ function renderMe() {
       <button data-v="CH" class="${st.country === 'CH' ? 'on' : ''}">🇨🇭 Suisse (CHF)</button>
       <button data-v="FR" class="${st.country === 'FR' ? 'on' : ''}">🇫🇷 France (EUR)</button>
     </div>
-    <p class="sub we-help">Touche un jour pour l'activer ou non, et règle les convives de chaque jour — pratique pour les gardes alternées, les enfants qui ne mangent pas tous les soirs à la maison, ou les invités du week-end.</p>
+    <p class="sub we-help">Active les repas de midi ☀️ et du soir 🌙 jour par jour, chacun avec ses convives — cantine à midi, garde alternée, invités du week-end : tout se règle ici.</p>
     ${weekEditorHTML(st.week, 'weMe')}
     <div class="row-field"><span>Budget courses / semaine <small>(0 = libre)</small></span>
       <input type="number" id="budget" min="0" step="5" value="${st.budget || 0}" class="num"> ${st.country === 'CH' ? 'CHF' : '€'}
@@ -933,7 +970,7 @@ function renderOnboarding() {
       </div>`,
     () => `
       <h1>Ta semaine type</h1>
-      <p class="sub">Touche un jour pour le planifier ou non, et règle qui mange à la maison ce jour-là — les enfants en garde alternée ou les invités du dimanche comptent jour par jour.</p>
+      <p class="sub">Active les repas de midi ☀️ et du soir 🌙 que tu veux planifier, et règle qui mange à chaque repas — cantine à midi, garde alternée, invités du dimanche : chaque créneau a ses convives.</p>
       <div class="row-field big"><span>Foyer au complet</span>
         <span class="stepper"><button id="obPm">−</button><b id="obPv">${tmp.people}</b><button id="obPp">+</button></span>
       </div>
@@ -960,7 +997,7 @@ function renderOnboarding() {
     const back = $('#obBack');
     if (back) back.onclick = () => { step--; paint(); };
     $('#obNext').onclick = () => {
-      if (step === 2 && !tmp.week.some((d) => d.on)) { toast('Choisis au moins un jour à planifier 😉'); return; }
+      if (step === 2 && !tmp.week.some((d) => d.midi.on || d.soir.on)) { toast('Choisis au moins un repas à planifier 😉'); return; }
       if (step < steps.length - 1) { step++; paint(); return; }
       S.setup = tmp; S.onboarded = true; save();
       generateWeek(false); TAB = 'week'; render();
@@ -969,8 +1006,8 @@ function renderOnboarding() {
     $$('#obCountry button').forEach((b) => b.onclick = () => { tmp.country = b.dataset.v; paint(); });
     $$('#obDiet button').forEach((b) => b.onclick = () => { tmp.diet = b.dataset.v; paint(); });
     const bind = (id, fn) => { const el = $(id); if (el) el.onclick = fn; };
-    // « foyer au complet » : ajuste d'un coup tous les jours actifs
-    const setAll = (n) => { tmp.people = n; tmp.week.forEach((d) => { d.people = n; }); paint(); };
+    // « foyer au complet » : ajuste d'un coup tous les créneaux
+    const setAll = (n) => { tmp.people = n; tmp.week.forEach((d) => { d.midi.people = n; d.soir.people = n; }); paint(); };
     bind('#obPm', () => setAll(Math.max(1, tmp.people - 1)));
     bind('#obPp', () => setAll(Math.min(10, tmp.people + 1)));
     if ($('#weOb')) bindWeekEditor('weOb', tmp.week, paint);
@@ -996,7 +1033,7 @@ function printWeek() {
     <table class="p-menu"><tbody>
       ${S.plan.meals.map((m) => {
         const r = byId(m.rid);
-        return `<tr><td class="p-day">${DAYS[m.day]}<br><small>${effPeople(m)} portion(s)${m.double ? ' · 🍱 ×2' : ''}</small></td>
+        return `<tr><td class="p-day">${slotLabel(m)}<br><small>${effPeople(m)} portion(s)${m.double ? ' · 🍱 ×2' : ''}</small></td>
           <td>${r.e} ${esc(r.n)}</td><td class="p-time">${r.t + r.c} min</td></tr>`;
       }).join('')}
     </tbody></table>
