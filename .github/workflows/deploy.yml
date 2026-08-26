@@ -28,6 +28,7 @@ jobs:
             --exclude-glob .git/ --exclude-glob .github/ \
             --exclude-glob .claude/ --exclude-glob tasks/ \
             --exclude-glob data/ \
+            --exclude-glob popote/ \
             --exclude api/config.php --exclude payment/config.php \
             --exclude .deploy.env --exclude deploy.sh \
             --exclude-glob '*.md' \
