@@ -26,6 +26,14 @@ jobs:
           FTP_USER: ${{ secrets.IASMART_FTP_USER }}
           FTP_PASS: ${{ secrets.IASMART_FTP_PASS }}
         run: |
+          # Selon le compte FTP Hostinger, la racine est le webroot lui-même
+          # ou le dossier parent contenant public_html — on détecte.
+          if lftp -c "set ssl:verify-certificate no; set ftp:ssl-allow true; set ftp:ssl-force false; open -u '$FTP_USER','$FTP_PASS' '$FTP_HOST'; cls -1" | grep -qx 'public_html/*'; then
+            TARGET='./public_html/popote/'
+          else
+            TARGET='./popote/'
+          fi
+          echo "Cible de déploiement : $TARGET"
           lftp -c "
           set cmd:fail-exit yes;
           set ssl:verify-certificate no;
@@ -33,5 +41,5 @@ jobs:
           open -u '$FTP_USER','$FTP_PASS' '$FTP_HOST';
           mirror --reverse --verbose --no-perms --parallel=2 \
             --exclude-glob '*.md' \
-            ./popote/ ./popote/ ;
+            ./popote/ $TARGET ;
           "
