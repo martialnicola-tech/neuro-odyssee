@@ -104,6 +104,12 @@ const INGREDIENTS = {
   painBurger:    ['Pains à burger', 'EP', 'pc', 0.45, 0.65],
   vinCuisine:    ['Vin rouge de cuisine (75 cl)', 'EP', 'pc', 3, 4.5],
 
+  /* — Petit-déjeuner — */
+  floconsAvoine: ["Flocons d'avoine", 'EP', 'g', 2, 3],
+  banane:        ['Bananes', 'FL', 'pc', 0.25, 0.4],
+  pomme:         ['Pommes', 'FL', 'g', 2.5, 3.5],
+  fruitsRouges:  ['Fruits rouges surgelés', 'SU', 'g', 6, 9],
+
   /* — Surgelés — */
   petitsPois:    ['Petits pois surgelés', 'SU', 'g', 2.5, 3.8],
   epinardsSurg:  ['Épinards surgelés', 'SU', 'g', 2.5, 4],
@@ -179,7 +185,7 @@ const RECIPES = [
   },
   {
     id: 'ratatouille', n: 'Ratatouille & semoule', e: '🍆', cat: 'vegan', base: 'cereale',
-    tags: ['batch', 'léger', 'provençal'], g: 1, l: 0, nu: 0, pk: 0, t: 20, c: 35, oven: 0, kcal: 430, season: [6, 7, 8, 9, 10],
+    tags: ['batch', 'léger', 'provençal', 'lunchbox'], g: 1, l: 0, nu: 0, pk: 0, t: 20, c: 35, oven: 0, kcal: 430, season: [6, 7, 8, 9, 10],
     ing: [['aubergine', 100], ['courgette', 100], ['poivron', 80], ['tomate', 150], ['oignon', 60], ['ail', 5], ['herbesProvence', 0.1], ['semoule', 70], ['huileOlive', 15]],
     steps: [
       [1, 'Couper tous les légumes en dés réguliers.'],
@@ -216,7 +222,7 @@ const RECIPES = [
   },
   {
     id: 'buddhaBowl', n: 'Buddha bowl quinoa & pois chiches rôtis', e: '🥗', cat: 'vegan', base: 'cereale',
-    tags: ['léger', 'frais', 'équilibré'], g: 0, l: 0, nu: 0, pk: 0, t: 20, c: 20, oven: 1, kcal: 560, season: [4, 5, 6, 7, 8, 9],
+    tags: ['léger', 'frais', 'équilibré', 'lunchbox'], g: 0, l: 0, nu: 0, pk: 0, t: 20, c: 20, oven: 1, kcal: 560, season: [4, 5, 6, 7, 8, 9],
     ing: [['quinoa', 70], ['poisChiches', 0.5], ['avocat', 0.5], ['carotte', 60], ['concombre', 0.3], ['citron', 0.5], ['paprika', 0.05], ['sesame', 0.1], ['huileOlive', 15]],
     steps: [
       [1, 'Rincer le quinoa. Égoutter les pois chiches et les sécher.'],
@@ -279,7 +285,7 @@ const RECIPES = [
   },
   {
     id: 'falafels', n: 'Falafels maison, sauce yaourt', e: '🧆', cat: 'vege', base: 'legumineuse',
-    tags: ['batch', 'budget', 'street-food'], g: 1, l: 1, nu: 0, pk: 0, t: 30, c: 0, oven: 1, kcal: 540, season: [],
+    tags: ['batch', 'budget', 'street-food', 'lunchbox'], g: 1, l: 1, nu: 0, pk: 0, t: 30, c: 0, oven: 1, kcal: 540, season: [],
     ing: [['poisChiches', 0.75], ['oignon', 40], ['ail', 5], ['cumin', 0.1], ['coriandre', 0.3], ['farine', 15], ['yaourtNature', 0.5], ['citron', 0.5], ['tortillas', 1.5], ['salade', 0.2], ['huileOlive', 15]],
     steps: [
       [1, 'Mixer pois chiches égouttés, oignon, ail, cumin, coriandre et farine en pâte grossière.'],
@@ -317,7 +323,7 @@ const RECIPES = [
   },
   {
     id: 'saladeLentilles', n: 'Salade tiède de lentilles & feta', e: '🥙', cat: 'vege', base: 'legumineuse',
-    tags: ['léger', 'budget', 'frais'], g: 0, l: 1, nu: 0, pk: 0, t: 10, c: 25, oven: 0, kcal: 470, season: [],
+    tags: ['léger', 'budget', 'frais', 'lunchbox'], g: 0, l: 1, nu: 0, pk: 0, t: 10, c: 25, oven: 0, kcal: 470, season: [],
     ing: [['lentillesVertes', 80], ['feta', 40], ['tomateCerise', 80], ['oignonRouge', 30], ['persil', 0.3], ['moutarde', 0.1], ['vinaigre', 10], ['huileOlive', 15]],
     steps: [
       [1, "Émincer finement l'oignon rouge, couper les tomates cerises en deux."],
@@ -627,6 +633,89 @@ const RECIPES = [
     tip: 'Plat des soirs d’hiver après le ski (ou pas). La salade n’est pas optionnelle. 😉',
   },
 
+  /* ——— PETIT-DÉJEUNER (créneau 🌅 matin) ——— */
+  {
+    id: 'porridgeBanane', n: 'Porridge banane-miel', e: '🥣', cat: 'vege', base: 'cereale',
+    tags: ['petit-dej', 'rapide', 'réconfort'], g: 1, l: 1, nu: 0, pk: 0, t: 8, c: 0, oven: 0, kcal: 380, season: [],
+    ing: [['floconsAvoine', 50], ['lait', 200], ['banane', 1], ['miel', 0.2]],
+    steps: [
+      [2, 'Chauffer les flocons dans le lait 5 min en remuant, jusqu’à texture crémeuse.'],
+      [3, 'Servir avec la banane en rondelles et un filet de miel.'],
+    ],
+    tip: 'Se prépare aussi la veille à froid (overnight oats) — encore plus rapide le matin.',
+  },
+  {
+    id: 'porridgeCoco', n: 'Porridge coco & fruits rouges', e: '🫐', cat: 'vegan', base: 'cereale',
+    tags: ['petit-dej', 'rapide'], g: 1, l: 0, nu: 0, pk: 0, t: 8, c: 0, oven: 0, kcal: 390, season: [],
+    ing: [['floconsAvoine', 50], ['laitCoco', 0.4], ['fruitsRouges', 80], ['miel', 0.2]],
+    steps: [
+      [2, 'Chauffer les flocons dans le lait de coco allongé d’un demi-verre d’eau, 5 min.'],
+      [3, 'Ajouter les fruits rouges encore givrés : ils refroidissent le porridge pile comme il faut.'],
+    ],
+    tip: 'Version 100 % végétale — les fruits rouges surgelés coûtent moitié moins que les frais.',
+  },
+  {
+    id: 'bircher', n: 'Birchermüesli maison', e: '🍎', cat: 'vege', base: 'cereale',
+    tags: ['petit-dej', 'suisse', 'sans cuisson'], g: 1, l: 1, nu: 1, pk: 0, t: 10, c: 0, oven: 0, kcal: 420, season: [],
+    ing: [['floconsAvoine', 50], ['yaourtNature', 1], ['pomme', 100], ['lait', 50], ['amandes', 10], ['miel', 0.2]],
+    steps: [
+      [1, 'La veille : mélanger flocons, yaourt, lait et miel. Une nuit au frigo.'],
+      [3, 'Le matin : râper la pomme dedans, parsemer d’amandes effilées.'],
+    ],
+    tip: 'Le vrai birchermüesli se prépare la veille — la pomme se râpe au dernier moment.',
+  },
+  {
+    id: 'oeufsBrouilles', n: 'Œufs brouillés, pain grillé', e: '🍳', cat: 'vege', base: 'pain',
+    tags: ['petit-dej', 'rapide', 'protéiné'], g: 1, l: 1, nu: 0, pk: 0, t: 10, c: 0, oven: 0, kcal: 400, season: [],
+    ing: [['oeuf', 2], ['beurre', 10], ['pain', 0.3], ['creme', 10]],
+    steps: [
+      [2, 'Battre les œufs, cuire à feu doux dans le beurre en remuant sans arrêt.'],
+      [3, 'Retirer du feu encore baveux, ajouter un trait de crème. Servir sur le pain grillé.'],
+    ],
+    tip: 'Feu doux et patience : des œufs brouillés se cuisinent, ils ne se carbonisent pas.',
+  },
+  {
+    id: 'toastAvocat', n: 'Toast avocat-œuf', e: '🥑', cat: 'vege', base: 'pain',
+    tags: ['petit-dej', 'rapide', 'brunch'], g: 1, l: 0, nu: 0, pk: 0, t: 12, c: 0, oven: 0, kcal: 450, season: [],
+    ing: [['pain', 0.3], ['avocat', 0.5], ['oeuf', 1], ['citron', 0.3]],
+    steps: [
+      [2, 'Cuire l’œuf au plat (ou mollet 6 min 30). Griller le pain.'],
+      [1, 'Écraser l’avocat avec le jus de citron, sel, poivre.'],
+      [3, 'Tartiner, poser l’œuf dessus, poivrer généreusement.'],
+    ],
+    tip: 'Le brunch du samedi en 12 minutes — double la mise si tu as des invités.',
+  },
+  {
+    id: 'smoothieBowl', n: 'Smoothie bowl fruits rouges', e: '🍓', cat: 'vege', base: 'autre',
+    tags: ['petit-dej', 'frais', 'sans cuisson'], g: 1, l: 1, nu: 0, pk: 0, t: 8, c: 0, oven: 0, kcal: 360, season: [],
+    ing: [['fruitsRouges', 120], ['banane', 1], ['yaourtNature', 1], ['floconsAvoine', 20], ['miel', 0.1]],
+    steps: [
+      [1, 'Mixer fruits rouges surgelés, banane et yaourt en crème épaisse.'],
+      [3, 'Verser en bol, garnir de flocons d’avoine et d’un filet de miel.'],
+    ],
+    tip: 'Les fruits encore surgelés donnent la texture glacée — ne les décongèle pas.',
+  },
+  {
+    id: 'pancakes', n: 'Pancakes du week-end', e: '🥞', cat: 'vege', base: 'autre',
+    tags: ['petit-dej', 'famille', 'week-end'], g: 1, l: 1, nu: 0, pk: 0, t: 25, c: 0, oven: 0, kcal: 520, season: [],
+    ing: [['farine', 60], ['oeuf', 1], ['lait', 100], ['beurre', 10], ['miel', 0.3], ['banane', 0.5]],
+    steps: [
+      [1, 'Fouetter farine, œufs et lait en pâte lisse. Laisser reposer 10 min.'],
+      [2, 'Cuire des petits disques dans le beurre : retourner quand des bulles apparaissent.'],
+      [3, 'Empiler, arroser de miel, ajouter la banane en rondelles.'],
+    ],
+    tip: 'La pâte se garde 24 h au frigo — pancakes frais deux matins de suite.',
+  },
+  {
+    id: 'yaourtFruits', n: 'Bol yaourt, fruits & amandes', e: '🥛', cat: 'vege', base: 'autre',
+    tags: ['petit-dej', 'rapide', 'léger', 'sans cuisson'], g: 0, l: 1, nu: 1, pk: 0, t: 5, c: 0, oven: 0, kcal: 320, season: [],
+    ing: [['yaourtNature', 1.5], ['banane', 0.5], ['fruitsRouges', 60], ['amandes', 10], ['miel', 0.2]],
+    steps: [
+      [3, 'Assembler : yaourt, fruits, amandes, miel. C’est tout, et c’est très bien comme ça.'],
+    ],
+    tip: 'Le petit-déj sans gluten et prêt en 5 minutes des matins pressés.',
+  },
+
   /* ——— POISSON ——— */
   {
     id: 'saumonRoti', n: 'Saumon rôti, riz & brocoli', e: '🐟', cat: 'poisson', base: 'riz',
@@ -655,7 +744,7 @@ const RECIPES = [
   },
   {
     id: 'patesThon', n: 'Pâtes au thon, citron & olives', e: '🍋', cat: 'poisson', base: 'pates',
-    tags: ['rapide', 'budget', 'placard'], g: 1, l: 0, nu: 0, pk: 0, t: 15, c: 0, oven: 0, kcal: 570, season: [],
+    tags: ['rapide', 'budget', 'placard', 'lunchbox'], g: 1, l: 0, nu: 0, pk: 0, t: 15, c: 0, oven: 0, kcal: 570, season: [],
     ing: [['pates', 100], ['thon', 0.75], ['olives', 0.3], ['citron', 0.5], ['ail', 5], ['persil', 0.2], ['huileOlive', 15]],
     steps: [
       [1, 'Hacher ail et persil, zester le citron.'],
@@ -679,7 +768,7 @@ const RECIPES = [
   },
   {
     id: 'pokeBowl', n: 'Poke bowl saumon-avocat', e: '🥢', cat: 'poisson', base: 'riz',
-    tags: ['frais', 'été', 'sans cuisson'], g: 0, l: 0, nu: 0, pk: 0, t: 25, c: 0, oven: 0, kcal: 620, season: [5, 6, 7, 8, 9],
+    tags: ['frais', 'été', 'sans cuisson', 'lunchbox'], g: 0, l: 0, nu: 0, pk: 0, t: 25, c: 0, oven: 0, kcal: 620, season: [5, 6, 7, 8, 9],
     ing: [['saumon', 120], ['rizBasmati', 75], ['avocat', 0.5], ['concombre', 0.3], ['carotte', 50], ['sauceSoja', 15], ['sesame', 0.2], ['citronVert', 0.5], ['gingembre', 5]],
     steps: [
       [1, 'Cuire le riz, le laisser tiédir avec un trait de vinaigre si tu en as.'],

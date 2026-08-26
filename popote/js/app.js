@@ -9,8 +9,12 @@
 const STORE_KEY = 'popote.v1';
 const DAYS = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
 const DAYS_SHORT = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
-const SLOTS = ['midi', 'soir'];
-const SLOT_META = { midi: { label: 'midi', e: '☀️' }, soir: { label: 'soir', e: '🌙' } };
+const SLOTS = ['matin', 'midi', 'soir'];
+const SLOT_META = {
+  matin: { label: 'petit-déj', e: '🌅' },
+  midi: { label: 'midi', e: '☀️' },
+  soir: { label: 'soir', e: '🌙' },
+};
 const DIETS = { omni: 'Omnivore', vege: 'Végétarien', vegan: 'Végan', pesce: 'Pescétarien' };
 
 const DEFAULTS = {
@@ -23,15 +27,11 @@ const DEFAULTS = {
     stores: null,      // enseignes fréquentées (null = toutes celles du pays)
     /* planning par jour ET par créneau (midi / soir) : familles recomposées,
        cantine le midi, invités du dimanche… chaque créneau a ses convives */
-    week: [
-      { midi: { on: false, people: 2 }, soir: { on: true, people: 2 } },  // lundi
-      { midi: { on: false, people: 2 }, soir: { on: true, people: 2 } },
-      { midi: { on: false, people: 2 }, soir: { on: true, people: 2 } },
-      { midi: { on: false, people: 2 }, soir: { on: true, people: 2 } },  // jeudi
-      { midi: { on: false, people: 2 }, soir: { on: false, people: 2 } }, // vendredi
-      { midi: { on: false, people: 2 }, soir: { on: false, people: 2 } },
-      { midi: { on: false, people: 2 }, soir: { on: false, people: 2 } }, // dimanche
-    ],
+    week: Array.from({ length: 7 }, (_, i) => ({
+      matin: { on: false, people: 2 },
+      midi: { on: false, people: 2 },
+      soir: { on: i < 4, people: 2 }, // lundi → jeudi soir par défaut
+    })),
   },
   plan: null,            // { created, meals: [{rid, day, slot, locked, cooked, double}] }
   checked: {},           // liste de courses : { ingId: true }
@@ -63,6 +63,10 @@ function load() {
       merged.setup.week = merged.setup.week.map((d) => ({
         midi: { on: false, people: d.people || 2 }, soir: { on: !!d.on, people: d.people || 2 },
       }));
+    }
+    // migration v3 → créneau petit-déj optionnel
+    for (const d of merged.setup.week) {
+      if (!d.matin) d.matin = { on: false, people: (d.soir && d.soir.people) || 2 };
     }
     if (merged.plan) {
       for (const m of merged.plan.meals) if (!m.slot) m.slot = 'soir';
@@ -199,11 +203,18 @@ function scoreRecipe(r, picked, month, slot = 'soir', day = 0) {
   if (r.tags.includes('batch')) sc += 0.4;
   // bons plans : privilégier les recettes dont les ingrédients sont en action
   if (S.setup.promoMode) sc += 3 * promoShare(r);
-  // le midi en semaine : rapide et léger ; le week-end, tout est permis
+  // le créneau du matin ne reçoit que des petits-déjeuners, et réciproquement
+  const isPdj = r.tags.includes('petit-dej');
+  if (slot === 'matin') {
+    if (!isPdj) return -1000;
+    if (day >= 5 && r.tags.includes('week-end')) sc += 1.5; // pancakes le samedi
+  } else if (isPdj) return -1000;
+  // le midi en semaine : rapide, léger, transportable ; le week-end, tout est permis
   if (slot === 'midi') {
     if (r.t + r.c <= 30) sc += 1.2;
     else if (day < 5 && r.t + r.c > 45) sc -= 1.8;
     if (r.tags.includes('rapide') || r.tags.includes('léger')) sc += 0.6;
+    if (r.tags.includes('lunchbox')) sc += 0.8; // se glisse dans une boîte pour le bureau
   }
   return sc;
 }
@@ -215,10 +226,10 @@ function pickBest(p, picked, month, exclude = [], slot = 'soir', day = 0) {
     const sc = scoreRecipe(r, picked, month, slot, day);
     if (sc > bestSc) { bestSc = sc; best = r; }
   }
-  return best;
+  return bestSc <= -900 ? null : best; // aucune recette compatible avec ce créneau
 }
 
-const slotOrder = (a, b) => (a.day - b.day) || (a.slot === b.slot ? 0 : a.slot === 'midi' ? -1 : 1);
+const slotOrder = (a, b) => (a.day - b.day) || (SLOTS.indexOf(a.slot) - SLOTS.indexOf(b.slot));
 
 function generateWeek(keepLocked = true) {
   const p = pool();
@@ -227,16 +238,20 @@ function generateWeek(keepLocked = true) {
   if (p.length < Math.min(slots.length, 4)) { toast('Pas assez de recettes avec ces filtres — élargis tes critères.'); return; }
   const month = new Date().getMonth() + 1;
   const old = (S.plan && S.plan.meals) || [];
-  const meals = slots.map(({ day, slot }) => {
+  let meals = slots.map(({ day, slot }) => {
     const prev = old.find((m) => m.day === day && m.slot === slot);
     if (keepLocked && prev && prev.locked && byId(prev.rid)) return { ...prev, cooked: false };
     return { rid: null, day, slot, locked: false, cooked: false };
   });
   const pickedR = () => meals.filter((m) => m.rid).map((m) => byId(m.rid));
+  let starved = false;
   for (const m of meals) {
     if (m.rid) continue;
-    m.rid = pickBest(p, pickedR(), month, [], m.slot, m.day).id;
+    const best = pickBest(p, pickedR(), month, [], m.slot, m.day);
+    if (best) m.rid = best.id; else starved = true; // ex. régime très strict au petit-déj
   }
+  meals = meals.filter((m) => m.rid);
+  if (starved) toast('Certains créneaux n’ont pas trouvé de recette compatible avec tes filtres.');
   // respect du budget : remplace le repas le plus cher si on dépasse de >5 %
   const budget = S.setup.budget;
   if (budget > 0) {
@@ -747,12 +762,11 @@ function weekEditorHTML(week, idPrefix) {
     </span>`;
   };
   return `<div class="week-editor" id="${idPrefix}">
-    <div class="we-head"><span></span><span>${SLOT_META.midi.e} midi</span><span>${SLOT_META.soir.e} soir</span></div>
+    <div class="we-head"><span></span>${SLOTS.map((s) => `<span>${SLOT_META[s].e} ${SLOT_META[s].label}</span>`).join('')}</div>
     ${week.map((d, i) => `
-      <div class="we-row ${d.midi.on || d.soir.on ? 'on' : ''}">
+      <div class="we-row ${SLOTS.some((s) => d[s].on) ? 'on' : ''}">
         <span class="we-day">${DAYS_SHORT[i]}</span>
-        ${cell(d, i, 'midi')}
-        ${cell(d, i, 'soir')}
+        ${SLOTS.map((s) => cell(d, i, s)).join('')}
       </div>`).join('')}
   </div>`;
 }
@@ -997,7 +1011,7 @@ function renderOnboarding() {
     const back = $('#obBack');
     if (back) back.onclick = () => { step--; paint(); };
     $('#obNext').onclick = () => {
-      if (step === 2 && !tmp.week.some((d) => d.midi.on || d.soir.on)) { toast('Choisis au moins un repas à planifier 😉'); return; }
+      if (step === 2 && !tmp.week.some((d) => SLOTS.some((s) => d[s].on))) { toast('Choisis au moins un repas à planifier 😉'); return; }
       if (step < steps.length - 1) { step++; paint(); return; }
       S.setup = tmp; S.onboarded = true; save();
       generateWeek(false); TAB = 'week'; render();
@@ -1007,7 +1021,7 @@ function renderOnboarding() {
     $$('#obDiet button').forEach((b) => b.onclick = () => { tmp.diet = b.dataset.v; paint(); });
     const bind = (id, fn) => { const el = $(id); if (el) el.onclick = fn; };
     // « foyer au complet » : ajuste d'un coup tous les créneaux
-    const setAll = (n) => { tmp.people = n; tmp.week.forEach((d) => { d.midi.people = n; d.soir.people = n; }); paint(); };
+    const setAll = (n) => { tmp.people = n; tmp.week.forEach((d) => { for (const s of SLOTS) d[s].people = n; }); paint(); };
     bind('#obPm', () => setAll(Math.max(1, tmp.people - 1)));
     bind('#obPp', () => setAll(Math.min(10, tmp.people + 1)));
     if ($('#weOb')) bindWeekEditor('weOb', tmp.week, paint);

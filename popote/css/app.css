@@ -187,29 +187,29 @@ small { color: var(--muted); }
 /* — Planning 7 jours × 2 créneaux (midi / soir), convives par créneau — */
 .week-editor { display: flex; flex-direction: column; gap: 5px; margin: 10px 0; }
 .we-head {
-  display: grid; grid-template-columns: 44px 1fr 1fr; gap: 6px;
-  font-size: .72rem; color: var(--muted); text-align: center; padding: 0 2px;
+  display: grid; grid-template-columns: 36px 1fr 1fr 1fr; gap: 4px;
+  font-size: .66rem; color: var(--muted); text-align: center; padding: 0 2px;
 }
 .we-row {
-  display: grid; grid-template-columns: 44px 1fr 1fr; gap: 6px; align-items: center;
-  border: 1.5px solid var(--line); border-radius: 12px; padding: 5px 6px;
+  display: grid; grid-template-columns: 36px 1fr 1fr 1fr; gap: 4px; align-items: center;
+  border: 1.5px solid var(--line); border-radius: 12px; padding: 4px 5px;
   opacity: .6; transition: all .15s;
 }
 .we-row.on { opacity: 1; }
 .we-day { font-weight: 700; font-size: .86rem; text-align: center; }
 .we-row.on .we-day { color: var(--accent); }
 .we-slot {
-  display: flex; align-items: center; justify-content: center; gap: 4px;
-  border: 1.5px dashed var(--line); border-radius: 10px; padding: 3px 4px; min-height: 40px;
+  display: flex; align-items: center; justify-content: center; gap: 2px;
+  border: 1.5px dashed var(--line); border-radius: 10px; padding: 3px 2px; min-height: 38px;
 }
 .we-slot.on { border-style: solid; border-color: var(--accent); background: var(--accent-soft); }
-.we-tgl { font-size: 1rem; padding: 4px 6px; border-radius: 8px; filter: grayscale(1); opacity: .5; }
+.we-tgl { font-size: .92rem; padding: 4px 3px; border-radius: 8px; filter: grayscale(1); opacity: .5; }
 .we-slot.on .we-tgl { filter: none; opacity: 1; }
-.we-people { display: flex; align-items: center; gap: 1px; }
-.we-people b { min-width: 22px; text-align: center; font-size: .88rem; font-variant-numeric: tabular-nums; }
+.we-people { display: flex; align-items: center; gap: 0; }
+.we-people b { min-width: 18px; text-align: center; font-size: .84rem; font-variant-numeric: tabular-nums; }
 .we-people button {
-  width: 27px; height: 27px; border-radius: 9px; background: var(--card);
-  border: 1.5px solid var(--line); font-size: .95rem; font-weight: 700;
+  width: 24px; height: 26px; border-radius: 8px; background: var(--card);
+  border: 1.5px solid var(--line); font-size: .9rem; font-weight: 700;
 }
 .we-help { margin-bottom: 4px; }
 .m-people {
