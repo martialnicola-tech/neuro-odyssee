@@ -1,0 +1,32 @@
+name: Bêta Popote → GitHub Pages
+# Publie l'app Popote sur GitHub Pages (sans FTP), pour la partager aux
+# bêta-testeurs : https://martialnicola-tech.github.io/neuro-odyssee/
+# Se déclenche depuis la branche de dev (bêta) et depuis main.
+on:
+  push:
+    branches: [main, claude/app-suisse-france-xjjd2t]
+    paths: ['popote/**', '.github/workflows/pages-popote.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages-popote
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: popote
+      - id: deployment
+        uses: actions/deploy-pages@v4
