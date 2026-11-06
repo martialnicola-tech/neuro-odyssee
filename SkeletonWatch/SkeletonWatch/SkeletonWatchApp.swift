@@ -4,7 +4,7 @@ import SwiftUI
 struct SkeletonWatchApp: App {
     var body: some Scene {
         WindowGroup {
-            WatchFaceView()
+            RootView()
         }
     }
 }
