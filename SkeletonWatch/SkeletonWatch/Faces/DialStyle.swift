@@ -14,6 +14,7 @@ struct DialStyle {
     var textColor: Color
     var bezel: Color? = nil     // lunette colorée (nil = pas de lunette)
     var bezelTicks: Bool = false
+    var screws: Bool = false    // vis apparentes sur la lunette
     var index: IndexKind
     var hands: HandKind
     var complication: Complication
@@ -47,6 +48,13 @@ enum Catalog {
                 accent: Color(red: 0.95, green: 0.2, blue: 0.15), textColor: .white,
                 bezel: Color(red: 0.05, green: 0.2, blue: 0.5), bezelTicks: true,
                 index: .dots, hands: .baton, complication: .date))),
+        WatchModel(id: "sabord", name: "Sabord", tagline: "Lunette à six vis", isPremium: true,
+            kind: .analog(DialStyle(
+                dialTop: Color(red: 0.10, green: 0.10, blue: 0.11), dialBottom: Color(red: 0.02, green: 0.02, blue: 0.03),
+                metal: Color(red: 0.90, green: 0.90, blue: 0.92), lume: Color(red: 0.9, green: 0.95, blue: 1.0),
+                accent: Color(red: 0.95, green: 0.35, blue: 0.1), textColor: .white,
+                bezel: Color(red: 0.16, green: 0.16, blue: 0.17), bezelTicks: false, screws: true,
+                index: .baton, hands: .sword, complication: .date))),
         WatchModel(id: "heritage", name: "Héritage", tagline: "Classique, phase de lune", isPremium: true,
             kind: .analog(DialStyle(
                 dialTop: Color(red: 0.96, green: 0.93, blue: 0.85), dialBottom: Color(red: 0.86, green: 0.80, blue: 0.68),

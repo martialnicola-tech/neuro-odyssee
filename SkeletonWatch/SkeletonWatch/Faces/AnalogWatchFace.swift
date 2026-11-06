@@ -72,6 +72,29 @@ struct AnalogWatchFace: View {
             }
         }
 
+        // Six vis hexagonales sur la lunette
+        if style.screws {
+            for i in 0..<6 {
+                let a = (Double(i) * 60 + 30 - 90) * .pi / 180
+                let p = CGPoint(x: c.x + cos(a) * R * 0.90, y: c.y + sin(a) * R * 0.90)
+                let sr = R * 0.065
+                var hex = Path()
+                for k in 0..<6 {
+                    let b = Double(k) * .pi / 3
+                    let pt = CGPoint(x: p.x + cos(b) * sr, y: p.y + sin(b) * sr)
+                    if k == 0 { hex.move(to: pt) } else { hex.addLine(to: pt) }
+                }
+                hex.closeSubpath()
+                gc.fill(hex, with: .color(style.metal))
+                gc.stroke(hex, with: .color(.black.opacity(0.5)), lineWidth: 0.8)
+                var slot = Path()
+                slot.move(to: CGPoint(x: p.x - sr * 0.45, y: p.y)); slot.addLine(to: CGPoint(x: p.x + sr * 0.45, y: p.y))
+                gc.stroke(slot, with: .color(.black.opacity(0.6)), lineWidth: 1)
+            }
+            gc.stroke(Path(ellipseIn: CGRect(x: c.x - R, y: c.y - R, width: 2 * R, height: 2 * R)),
+                      with: .color(style.metal.opacity(0.7)), lineWidth: 1.2)
+        }
+
         // Cadran
         let dialRect = CGRect(x: c.x - rd, y: c.y - rd, width: 2 * rd, height: 2 * rd)
         gc.fill(Path(ellipseIn: dialRect),
