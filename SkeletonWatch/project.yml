@@ -1,0 +1,19 @@
+name: SkeletonWatch
+options:
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    watchOS: "10.0"
+targets:
+  SkeletonWatch:
+    type: application
+    platform: watchOS
+    sources: [SkeletonWatch]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.skeletonwatch
+        SWIFT_VERSION: "5.9"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Squelette
+        INFOPLIST_KEY_WKApplication: YES
+        INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
