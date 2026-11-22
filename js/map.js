@@ -6,6 +6,15 @@
    NB : tracé approximatif, sera affiné avec le GPX de Roland.
    ============================================ */
 
+// ── Fond de carte : clé CARTO ───────────────────────────────
+// Depuis septembre 2026, CARTO exige une clé API pour ses tuiles raster.
+// Sans clé, ses serveurs renvoient des tuiles tamponnées « API KEY REQUIRED ».
+// Clé gratuite (jusqu'à 5 millions de requêtes/mois) : https://carto.com/basemaps/apikey/
+// Colle-la ci-dessous pour retrouver le fond clair CARTO « Positron ».
+// Laissée vide, la carte bascule sur le fond gris clair Esri, qui ne demande
+// aucune clé (zoom max 16 au lieu de 18).
+const CARTO_KEY = '';
+
 // ── Les 6 tronçons historiques ─────────────────────────────
 const SEGMENTS = [
   {
@@ -120,11 +129,19 @@ function initMap() {
 
   L.control.zoom({ position: 'bottomright' }).addTo(mapInstance);
 
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    subdomains: 'abcd',
-    maxZoom: 18
-  }).addTo(mapInstance);
+  if (CARTO_KEY) {
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=' + encodeURIComponent(CARTO_KEY), {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 18
+    }).addTo(mapInstance);
+  } else {
+    // Fond de secours sans clé, proche du gris clair de CARTO Positron.
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+      maxZoom: 16
+    }).addTo(mapInstance);
+  }
 
   // Ombre douce sous tout le tracé
   const allCoords = WAYPOINTS.map(w => w.coords);
