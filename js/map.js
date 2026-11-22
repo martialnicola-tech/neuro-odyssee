@@ -23,6 +23,18 @@ const CARTO_KEY = '';
 // progression qui n'a pas eu lieu.
 const OFF_ROUTE_KM = 15;
 
+// ── Position actuelle de Roland ─────────────────────────────
+// Renseignée à la main, affichée tant que le GPS du téléphone n'envoie rien
+// (data/tracking.json vide). Dès que le suivi temps réel fonctionne, c'est lui
+// qui prend le dessus et cette valeur est ignorée.
+// Mettre à jour : lat/lng du lieu, son nom, et la date d'observation.
+const CURRENT_POSITION = {
+  lat: 42.3546268,
+  lng: -4.86461,
+  place: 'Ledigos, province de Palencia',
+  date: '2026-11-22'
+};
+
 // ── Les 6 tronçons historiques ─────────────────────────────
 const SEGMENTS = [
   {
@@ -85,6 +97,7 @@ const WAYPOINTS = [
   { name: "L'Isle-Jourdain", coords: [43.6120, 1.0830], type: "stage", km: 905, country: "🇫🇷", desc: "Entrée en Gascogne, Via Tolosana" },
   { name: "Auch", coords: [43.6460, 0.5860], type: "major", km: 950, country: "🇫🇷", desc: "Cathédrale Sainte-Marie, capitale de la Gascogne" },
   { name: "Marciac", coords: [43.5240, 0.1630], type: "stage", km: 995, country: "🇫🇷", desc: "Bastide gasconne, terre de jazz" },
+  { name: "Lourdes", coords: [43.0955, -0.0456], type: "stage", km: 1035, country: "🇫🇷", desc: "Arrêt non prévu au programme · sanctuaire marial, halte de pèlerins depuis 1858" },
   { name: "Morlaàs", coords: [43.3480, -0.2630], type: "stage", km: 1055, country: "🇫🇷", desc: "Ancienne capitale du Béarn" },
   { name: "Oloron-Sainte-Marie", coords: [43.1940, -0.6110], type: "stage", km: 1090, country: "🇫🇷", desc: "Portail roman classé UNESCO, porte des Pyrénées" },
   { name: "Col du Somport", coords: [42.7960, -0.5250], type: "major", km: 1155, country: "🇫🇷", desc: "Summus Portus, 1 632 m · passage historique des Pyrénées, voie romaine · fin du tronçon 3" },
@@ -273,13 +286,18 @@ function initLiveTracking() {
 
   async function refresh() {
     try {
-      const res = await fetch('data/tracking.json', { cache: 'no-store' });
-      if (!res.ok) return;
-      const t = await res.json();
-      if (!t || !t.current || typeof t.current.lat !== 'number') return;
+      // Le GPS du téléphone fait foi ; à défaut, la position saisie à la main.
+      let t = null;
+      try {
+        const res = await fetch('data/tracking.json', { cache: 'no-store' });
+        if (res.ok) t = await res.json();
+      } catch (e) { /* hors ligne : on garde la position manuelle */ }
+
+      const live = (t && t.current && typeof t.current.lat === 'number') ? t.current : null;
+      const cur = live || CURRENT_POSITION;
+      if (!cur || typeof cur.lat !== 'number') return;
       liveLayer.clearLayers();
 
-      const cur = t.current;
       const proj = projectOnRoute(cur.lat, cur.lng);
       const onRoute = proj.dist <= OFF_ROUTE_KM;
       const km = proj.km;
@@ -290,7 +308,7 @@ function initLiveTracking() {
       if (onRoute) drawWalkedUpTo(km);
 
       // 2) Son tracé GPS réel (fin, par-dessus)
-      if (Array.isArray(t.trail) && t.trail.length > 1) {
+      if (live && t && Array.isArray(t.trail) && t.trail.length > 1) {
         L.polyline(t.trail, { color: '#1a2332', weight: 2.5, opacity: 0.85, lineCap: 'round', smoothFactor: 1 }).addTo(liveLayer);
       }
 
@@ -298,11 +316,16 @@ function initLiveTracking() {
       const pulseIcon = L.divIcon({ html: '<div class="marker-pulse"></div>', iconSize: [20, 20], iconAnchor: [10, 10], className: '' });
       const marker = L.marker([cur.lat, cur.lng], { icon: pulseIcon, zIndexOffset: 2000 }).addTo(liveLayer);
       let when = '';
-      if (cur.time) { try { when = new Date(cur.time * 1000).toLocaleString('fr-CH', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }); } catch (e) {} }
+      if (cur.time) {
+        try { when = new Date(cur.time * 1000).toLocaleString('fr-CH', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }); } catch (e) {}
+      } else if (cur.date) {
+        try { when = new Date(cur.date + 'T12:00:00').toLocaleDateString('fr-CH', { day: '2-digit', month: '2-digit', year: 'numeric' }); } catch (e) { when = cur.date; }
+      }
       const batt = (cur.batt != null) ? ` · 🔋 ${Math.round(cur.batt)}%` : '';
       marker.bindPopup(`
         <div style="padding:4px 2px;">
           <div class="popup-title">📍 Roland est ici</div>
+          ${cur.place ? `<div style="font-size:0.82rem; color:#4a5568; margin-bottom:0.2rem;">${cur.place}</div>` : ''}
           ${onRoute
             ? `<div class="popup-km">km ${Math.round(km).toLocaleString('fr-FR')} / ${TOTAL_KM.toLocaleString('fr-FR')}</div>`
             : `<div class="popup-km">À ${Math.round(proj.dist).toLocaleString('fr-FR')} km du tracé prévu</div>`}
