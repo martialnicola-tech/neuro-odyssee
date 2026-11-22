@@ -1,9 +1,12 @@
 /* ============================================
    LA NEURO-ODYSSÉE, Interactive Leaflet Map
-   Nouveau tracé 2026 : 6 chemins historiques
-   St-Maurice → Genève → Le Puy → Conques → Toulouse
-   → Somport → Aragon → Camino Olvidado → Invierno → Santiago
-   NB : tracé approximatif, sera affiné avec le GPX de Roland.
+   Parcours réellement marché, départ le 21 août 2026 :
+   St-Maurice → Genève → Le Puy → Conques → Toulouse (1 000 km, 7 oct.)
+   → Lourdes → Somport → Camino Aragonés → Puente la Reina
+   → Camino Francés → Burgos → Meseta → León → O Cebreiro → Santiago
+   NB : kilométrages ancrés sur le repère de Roland (Toulouse = 1 000 km)
+   puis étapes standard du Camino ; coordonnées OpenStreetMap, parfois le
+   centre de la commune. Sera affiné avec le GPX de Roland.
    ============================================ */
 
 // ── Fond de carte : clé CARTO ───────────────────────────────
@@ -39,98 +42,113 @@ const CURRENT_POSITION = {
 const SEGMENTS = [
   {
     id: 1, name: "Via Jacobi & Chemin de Genève", color: "#2D8C7A",
-    kmStart: 0, kmEnd: 675,
+    kmStart: 0, kmEnd: 771,
     story: "La voie des marchands et des exilés. Route des grands marchés médiévaux, empruntée à l'envers par les réfugiés huguenots fuyant vers la Suisse. Une terre d'accueil et d'échange, du Léman jusqu'à Conques et ses reliques de Sainte Foy."
   },
   {
     id: 2, name: "Liaison Conques → Toulouse", color: "#C2703D",
-    kmStart: 675, kmEnd: 875,
-    story: "La route des grands sanctuaires. Au XIIe siècle, les pèlerins reliaient les reliques de Sainte Foy à la basilique Saint-Sernin de Toulouse, l'un des plus grands reliquaires d'Europe, à travers le pays des Bastides, villes fortifiées du XIIIe siècle."
+    kmStart: 771, kmEnd: 1000,
+    story: "La route des grands sanctuaires. Au XIIe siècle, les pèlerins reliaient les reliques de Sainte Foy à la basilique Saint-Sernin de Toulouse, l'un des plus grands reliquaires d'Europe, à travers le pays des Bastides, villes fortifiées du XIIIe siècle. Toulouse, atteinte le 7 octobre 2026, marque le cap des 1 000 km."
   },
   {
-    id: 3, name: "Voie d'Arles & Col du Somport", color: "#7B5EA7",
-    kmStart: 875, kmEnd: 1155,
-    story: "La porte des rois. La Via Tolosana, voie romaine à l'origine, passage principal des Pyrénées au Moyen Âge. Le Somport (Summus Portus, « le plus haut col ») était jugé plus sûr que les cols basques hantés par les brigands."
+    id: 3, name: "Voie d'Arles, Lourdes & Somport", color: "#7B5EA7",
+    kmStart: 1000, kmEnd: 1367,
+    story: "La porte des rois. La Via Tolosana, voie romaine à l'origine, passage principal des Pyrénées au Moyen Âge. Roland y ajoute un crochet non prévu par Lourdes, l'un des plus grands lieux de pèlerinage au monde, avant de franchir le Somport (Summus Portus, « le plus haut col »), jugé plus sûr que les cols basques hantés par les brigands."
   },
   {
-    id: 4, name: "Camino Aragonés & Rioja", color: "#B23A48",
-    kmStart: 1155, kmEnd: 1500,
-    story: "Le gardien de la Reconquista. Le vieux Royaume d'Aragon, refuge des royaumes chrétiens du Nord aux IXe-Xe siècles. Jaca et le monastère de Leyre furent les remparts de la chrétienté : les paysages de la résistance médiévale espagnole."
+    id: 4, name: "Camino Aragonés", color: "#B23A48",
+    kmStart: 1367, kmEnd: 1544,
+    story: "Le gardien de la Reconquista. Le vieux Royaume d'Aragon, refuge des royaumes chrétiens du Nord aux IXe-Xe siècles. Jaca fut l'un des remparts de la chrétienté. Puis les villages presque désertés d'Artieda, Ruesta et Undués de Lerda, une Espagne rurale saisissante, jusqu'au pont roman de Puente la Reina où les chemins se rejoignent."
   },
   {
-    id: 5, name: "Camino Olvidado, le Chemin Oublié", color: "#4A6FA5",
-    kmStart: 1500, kmEnd: 1860,
-    story: "La route secrète des premiers pèlerins de l'an 900. Quand la plaine était un champ de bataille, les marcheurs rasaient les montagnes Cantabriques, cachés par les forêts. Abandonné quand le Camino Francés fut créé, d'où son nom de « Chemin Oublié »."
+    id: 5, name: "Camino Francés, Rioja & Castille", color: "#4A6FA5",
+    kmStart: 1544, kmEnd: 1925,
+    story: "Le grand chemin. À Puente la Reina, Roland rejoint le Camino Francés, la plus fréquentée des routes de Compostelle. La Navarre d'Estella, les vignobles de la Rioja, le coq et la poule de Santo Domingo de la Calzada, la cathédrale gothique de Burgos. Puis la Meseta : les plaines céréalières de Castille, les villages isolés et des horizons sans fin."
   },
   {
-    id: 6, name: "Camino de Invierno, le Chemin d'Hiver", color: "#8E3B60",
-    kmStart: 1860, kmEnd: 2200,
-    story: "L'astuce des pèlerins. Pour éviter la montée d'O Cebreiro bloquée par la neige et les loups, ils suivaient la vallée du Sil et son microclimat, où l'on fait du vin depuis l'époque romaine (Ribeira Sacra). La route du bon sens et de la survie hivernale."
+    id: 6, name: "Camino Francés, montagnes de Galice", color: "#8E3B60",
+    kmStart: 1925, kmEnd: 2234,
+    story: "La dernière montée. Après León et sa cathédrale, la Cruz de Ferro où les pèlerins déposent une pierre, puis l'ascension d'O Cebreiro (1 300 m), porte de la Galice, redoutée des marcheurs médiévaux pour sa neige et ses loups. Les cent derniers kilomètres, les plus parcourus au monde, jusqu'à la cathédrale del Obradoiro."
   }
 ];
 
 const WAYPOINTS = [
   // ── TRONÇON 1 · Via Jacobi & Chemin de Genève ──
-  { name: "St-Maurice", coords: [46.2192, 7.0056], type: "start", km: 0, country: "🇨🇭", desc: "Point de départ, Abbaye de St-Maurice, Valais · Via Jacobi" },
-  { name: "Montreux", coords: [46.4312, 6.9107], type: "stage", km: 42, country: "🇨🇭", desc: "Riviera vaudoise, Château de Chillon" },
-  { name: "Lausanne", coords: [46.5197, 6.6323], type: "major", km: 68, country: "🇨🇭", desc: "Cathédrale gothique, rives du Léman" },
-  { name: "Nyon", coords: [46.3833, 6.2390], type: "stage", km: 103, country: "🇨🇭", desc: "Côte lémanique, ville romaine de Noviodunum" },
-  { name: "Genève", coords: [46.2044, 6.1432], type: "major", km: 125, country: "🇨🇭", desc: "Départ du Chemin de Genève (Via Gebennensis), terre d'accueil des huguenots" },
-  { name: "Seyssel", coords: [45.9590, 5.8320], type: "stage", km: 185, country: "🇫🇷", desc: "Vallée du Rhône, premier tronçon savoyard" },
-  { name: "Yenne", coords: [45.7030, 5.7560], type: "stage", km: 225, country: "🇫🇷", desc: "Pied du Mont du Chat, Avant-pays savoyard" },
-  { name: "La Côte-St-André", coords: [45.3940, 5.2600], type: "stage", km: 300, country: "🇫🇷", desc: "Plaines de l'Isère, pays de Berlioz" },
-  { name: "Chavanay", coords: [45.4160, 4.7260], type: "stage", km: 360, country: "🇫🇷", desc: "Traversée du Rhône, vignobles en terrasses" },
-  { name: "Le Puy-en-Velay", coords: [45.0430, 3.8850], type: "major", km: 470, country: "🇫🇷", desc: "Haut lieu du pèlerinage, jonction avec la Via Podiensis (GR65)" },
-  { name: "Saugues", coords: [44.9600, 3.5480], type: "stage", km: 515, country: "🇫🇷", desc: "Margeride, pays de la Bête du Gévaudan" },
-  { name: "Aumont-Aubrac", coords: [44.7220, 3.2830], type: "stage", km: 558, country: "🇫🇷", desc: "Plateau de l'Aubrac, burons et grands espaces" },
-  { name: "Espalion", coords: [44.5220, 2.7620], type: "stage", km: 622, country: "🇫🇷", desc: "Vallée du Lot, Pont-Vieux classé" },
-  { name: "Conques", coords: [44.5990, 2.3970], type: "major", km: 675, country: "🇫🇷", desc: "Abbatiale Sainte-Foy, reliques qui guérissaient la cécité · fin du tronçon 1" },
+  { name: "St-Maurice", coords: [46.2192, 7.0056], type: "start", km: 0, country: "🇨🇭", desc: "Départ le 21 août 2026 · Abbaye fondée en 515, l'une des plus anciennes d'Occident toujours en activité" },
+  { name: "Montreux", coords: [46.4312, 6.9107], type: "stage", km: 48, country: "🇨🇭", desc: "Riviera vaudoise, Château de Chillon" },
+  { name: "Lausanne", coords: [46.5197, 6.6323], type: "major", km: 78, country: "🇨🇭", desc: "Cathédrale gothique, rives du Léman" },
+  { name: "Nyon", coords: [46.3833, 6.2390], type: "stage", km: 118, country: "🇨🇭", desc: "Côte lémanique, ville romaine de Noviodunum" },
+  { name: "Genève", coords: [46.2044, 6.1432], type: "major", km: 143, country: "🇨🇭", desc: "Fin de la Via Jacobi, passage en France" },
+  { name: "Seyssel", coords: [45.9590, 5.8320], type: "stage", km: 211, country: "🇫🇷", desc: "Vallée du Rhône, premier tronçon savoyard" },
+  { name: "Yenne", coords: [45.7030, 5.7560], type: "stage", km: 257, country: "🇫🇷", desc: "Pied du Mont du Chat, Avant-pays savoyard" },
+  { name: "La Côte-St-André", coords: [45.3940, 5.2600], type: "stage", km: 343, country: "🇫🇷", desc: "Plaines de l'Isère, pays de Berlioz" },
+  { name: "Chavanay", coords: [45.4160, 4.7260], type: "stage", km: 411, country: "🇫🇷", desc: "Traversée du Rhône, vignobles en terrasses" },
+  { name: "Le Puy-en-Velay", coords: [45.0430, 3.8850], type: "major", km: 537, country: "🇫🇷", desc: "Cathédrale UNESCO et chapelle St-Michel d'Aiguilhe sur son rocher volcanique · jonction avec la Via Podiensis (GR65)" },
+  { name: "Saugues", coords: [44.9600, 3.5480], type: "stage", km: 589, country: "🇫🇷", desc: "Margeride, pays de la Bête du Gévaudan" },
+  { name: "Aumont-Aubrac", coords: [44.7220, 3.2830], type: "stage", km: 638, country: "🇫🇷", desc: "Plateau de l'Aubrac, burons et grands espaces" },
+  { name: "Espalion", coords: [44.5220, 2.7620], type: "stage", km: 711, country: "🇫🇷", desc: "Vallée du Lot, Pont-Vieux classé" },
+  { name: "Conques", coords: [44.5990, 2.3970], type: "major", km: 771, country: "🇫🇷", desc: "Abbatiale Sainte-Foy et son tympan du Jugement dernier · l'une des plus belles découvertes du voyage · fin du tronçon 1" },
 
   // ── TRONÇON 2 · Liaison Conques → Toulouse ──
-  { name: "Villefranche-de-Rouergue", coords: [44.3520, 2.0370], type: "stage", km: 728, country: "🇫🇷", desc: "Bastide royale du XIIIe siècle" },
-  { name: "Najac", coords: [44.2190, 1.9770], type: "stage", km: 750, country: "🇫🇷", desc: "Forteresse perchée sur son éperon rocheux" },
-  { name: "Cordes-sur-Ciel", coords: [44.0640, 1.9530], type: "stage", km: 786, country: "🇫🇷", desc: "Bastide « dans le ciel », construite après les guerres cathares" },
-  { name: "Gaillac", coords: [43.9010, 1.8970], type: "stage", km: 815, country: "🇫🇷", desc: "Vignoble parmi les plus anciens de France" },
-  { name: "Toulouse", coords: [43.6045, 1.4440], type: "major", km: 875, country: "🇫🇷", desc: "Basilique Saint-Sernin, l'un des plus grands reliquaires d'Europe · fin du tronçon 2" },
+  { name: "Villefranche-de-Rouergue", coords: [44.3520, 2.0370], type: "stage", km: 832, country: "🇫🇷", desc: "Bastide royale du XIIIe siècle" },
+  { name: "Najac", coords: [44.2190, 1.9770], type: "stage", km: 857, country: "🇫🇷", desc: "Forteresse perchée sur son éperon rocheux" },
+  { name: "Cordes-sur-Ciel", coords: [44.0640, 1.9530], type: "stage", km: 898, country: "🇫🇷", desc: "Bastide « dans le ciel », construite après les guerres cathares" },
+  { name: "Gaillac", coords: [43.9010, 1.8970], type: "stage", km: 931, country: "🇫🇷", desc: "Vignoble parmi les plus anciens de France" },
+  { name: "Toulouse", coords: [43.6045, 1.4440], type: "major", km: 1000, country: "🇫🇷", desc: "Arrivée le 7 octobre 2026, cap des 1 000 km franchi · place du Capitole, basilique Saint-Sernin, la Ville rose · fin du tronçon 2" },
 
-  // ── TRONÇON 3 · Voie d'Arles & Col du Somport ──
-  { name: "L'Isle-Jourdain", coords: [43.6120, 1.0830], type: "stage", km: 905, country: "🇫🇷", desc: "Entrée en Gascogne, Via Tolosana" },
-  { name: "Auch", coords: [43.6460, 0.5860], type: "major", km: 950, country: "🇫🇷", desc: "Cathédrale Sainte-Marie, capitale de la Gascogne" },
-  { name: "Marciac", coords: [43.5240, 0.1630], type: "stage", km: 995, country: "🇫🇷", desc: "Bastide gasconne, terre de jazz" },
-  { name: "Lourdes", coords: [43.0955, -0.0456], type: "stage", km: 1035, country: "🇫🇷", desc: "Arrêt non prévu au programme · sanctuaire marial, halte de pèlerins depuis 1858" },
-  { name: "Morlaàs", coords: [43.3480, -0.2630], type: "stage", km: 1055, country: "🇫🇷", desc: "Ancienne capitale du Béarn" },
-  { name: "Oloron-Sainte-Marie", coords: [43.1940, -0.6110], type: "stage", km: 1090, country: "🇫🇷", desc: "Portail roman classé UNESCO, porte des Pyrénées" },
-  { name: "Col du Somport", coords: [42.7960, -0.5250], type: "major", km: 1155, country: "🇫🇷", desc: "Summus Portus, 1 632 m · passage historique des Pyrénées, voie romaine · fin du tronçon 3" },
+  // ── TRONÇON 3 · Voie d'Arles, Lourdes & Somport ──
+  { name: "L'Isle-Jourdain", coords: [43.6120, 1.0830], type: "stage", km: 1037, country: "🇫🇷", desc: "Entrée en Gascogne, Via Tolosana" },
+  { name: "Auch", coords: [43.6460, 0.5860], type: "major", km: 1082, country: "🇫🇷", desc: "Cathédrale Sainte-Marie, capitale de la Gascogne" },
+  { name: "Marciac", coords: [43.5240, 0.1630], type: "stage", km: 1142, country: "🇫🇷", desc: "Bastide gasconne, terre de jazz" },
+  { name: "Lourdes", coords: [43.0955, -0.0456], type: "major", km: 1202, country: "🇫🇷", desc: "Crochet non prévu au programme · sanctuaire Notre-Dame, grotte de Massabielle et basiliques, les Pyrénées en arrière-plan" },
+  { name: "Oloron-Sainte-Marie", coords: [43.1940, -0.6110], type: "stage", km: 1297, country: "🇫🇷", desc: "Cité du Béarn au confluent de deux gaves · portail roman sculpté de la cathédrale Sainte-Marie" },
+  { name: "Col du Somport", coords: [42.7960, -0.5250], type: "major", km: 1367, country: "🇫🇷", desc: "Summus Portus, environ 1 630 m · passage pyrénéen emprunté depuis l'Antiquité · sortie de France · fin du tronçon 3" },
 
-  // ── TRONÇON 4 · Camino Aragonés & Rioja ──
-  { name: "Jaca", coords: [42.5710, -0.5500], type: "major", km: 1185, country: "🇪🇸", desc: "Première capitale du Royaume d'Aragon, rempart de la chrétienté" },
-  { name: "Sangüesa", coords: [42.5750, -1.2810], type: "stage", km: 1255, country: "🇪🇸", desc: "Portail sculpté de Santa María la Real" },
-  { name: "Puente la Reina", coords: [42.6720, -1.8150], type: "major", km: 1310, country: "🇪🇸", desc: "Le pont roman où les chemins se rejoignent" },
-  { name: "Estella", coords: [42.6710, -2.0320], type: "stage", km: 1333, country: "🇪🇸", desc: "« La Tolède du Nord », joyau navarrais" },
-  { name: "Logroño", coords: [42.4660, -2.4450], type: "stage", km: 1381, country: "🇪🇸", desc: "Capitale de la Rioja, pays du vin" },
-  { name: "Burgos", coords: [42.3440, -3.6970], type: "major", km: 1500, country: "🇪🇸", desc: "Cathédrale gothique UNESCO · bifurcation vers le Chemin Oublié · fin du tronçon 4" },
+  // ── TRONÇON 4 · Camino Aragonés ──
+  { name: "Villanúa", coords: [42.6787, -0.5310], type: "stage", km: 1385, country: "🇪🇸", desc: "Première halte espagnole, dans la descente des Pyrénées" },
+  { name: "Jaca", coords: [42.5710, -0.5500], type: "major", km: 1400, country: "🇪🇸", desc: "Ancienne capitale du royaume d'Aragon · cathédrale romane du XIe siècle et citadelle pentagonale" },
+  { name: "Artieda", coords: [42.5868, -0.9835], type: "stage", km: 1445, country: "🇪🇸", desc: "Village de la Jacetania, Espagne rurale préservée" },
+  { name: "Ruesta", coords: [42.5888, -1.0762], type: "stage", km: 1457, country: "🇪🇸", desc: "Maisons abandonnées et vestiges médiévaux, une atmosphère saisissante" },
+  { name: "Undués de Lerda", coords: [42.5655, -1.1689], type: "stage", km: 1472, country: "🇪🇸", desc: "Hameau des Cinco Villas, soixante habitants" },
+  { name: "Sangüesa", coords: [42.5750, -1.2810], type: "stage", km: 1486, country: "🇪🇸", desc: "Portail sculpté de Santa María la Real" },
+  { name: "Puente la Reina", coords: [42.6720, -1.8150], type: "major", km: 1544, country: "🇪🇸", desc: "Pont roman à six arches du XIe siècle · jonction avec le Camino Francés · fin du tronçon 4" },
 
-  // ── TRONÇON 5 · Camino Olvidado ──
-  { name: "Aguilar de Campoo", coords: [42.7940, -4.2570], type: "stage", km: 1600, country: "🇪🇸", desc: "Entrée sur le Viejo Camino, le chemin de l'an 900" },
-  { name: "Cervera de Pisuerga", coords: [42.8700, -4.5000], type: "stage", km: 1625, country: "🇪🇸", desc: "Contreforts des montagnes Cantabriques" },
-  { name: "Guardo", coords: [42.7900, -4.8430], type: "stage", km: 1660, country: "🇪🇸", desc: "Vallées minières de la montagne palentine" },
-  { name: "Cistierna", coords: [42.8050, -5.1300], type: "stage", km: 1692, country: "🇪🇸", desc: "Le chemin caché à l'abri des forêts" },
-  { name: "La Robla", coords: [42.8000, -5.6300], type: "stage", km: 1737, country: "🇪🇸", desc: "Piémont léonais, loin de la plaine dangereuse" },
-  { name: "Igüeña", coords: [42.7120, -6.2850], type: "stage", km: 1810, country: "🇪🇸", desc: "Vallées secrètes du Bierzo oriental" },
-  { name: "Ponferrada", coords: [42.5460, -6.5900], type: "major", km: 1860, country: "🇪🇸", desc: "Château des Templiers, gardiens des pèlerins · fin du tronçon 5" },
+  // ── TRONÇON 5 · Camino Francés, Rioja & Castille ──
+  { name: "Estella", coords: [42.6710, -2.0320], type: "stage", km: 1566, country: "🇪🇸", desc: "« Estella la Bella » · palais des rois de Navarre" },
+  { name: "Los Arcos", coords: [42.5697, -2.1923], type: "stage", km: 1587, country: "🇪🇸", desc: "Église Santa María et architecture historique navarraise" },
+  { name: "Logroño", coords: [42.4660, -2.4450], type: "major", km: 1615, country: "🇪🇸", desc: "Capitale de La Rioja · vieille ville, cathédrale et tradition gastronomique" },
+  { name: "Nájera", coords: [42.4167, -2.7337], type: "stage", km: 1644, country: "🇪🇸", desc: "Monastère Santa María la Real, ancienne cité royale" },
+  { name: "Santo Domingo de la Calzada", coords: [42.4407, -2.9536], type: "stage", km: 1665, country: "🇪🇸", desc: "Un coq et une poule vivants dans la cathédrale, souvenir d'une légende médiévale" },
+  { name: "Belorado", coords: [42.4267, -3.1965], type: "stage", km: 1687, country: "🇪🇸", desc: "Atteinte après une journée de vents violents" },
+  { name: "Burgos", coords: [42.3440, -3.6970], type: "major", km: 1737, country: "🇪🇸", desc: "Cathédrale gothique UNESCO, l'une des grandes merveilles du parcours · promenades le long de l'Arlanzón" },
+  { name: "Hornillos del Camino", coords: [42.3385, -3.9260], type: "stage", km: 1758, country: "🇪🇸", desc: "Entrée dans la Meseta, 44 habitants" },
+  { name: "Hontanas", coords: [42.3126, -4.0445], type: "stage", km: 1777, country: "🇪🇸", desc: "Village invisible jusqu'au dernier moment, caché dans un repli de la plaine" },
+  { name: "Castrojeriz", coords: [42.2884, -4.1406], type: "stage", km: 1787, country: "🇪🇸", desc: "Dominé par son château médiéval · ruines du couvent de San Antón sur le chemin" },
+  { name: "Frómista", coords: [42.2677, -4.4055], type: "stage", km: 1812, country: "🇪🇸", desc: "Église San Martín, l'un des sommets de l'art roman espagnol" },
+  { name: "Carrión de los Condes", coords: [42.3385, -4.6017], type: "stage", km: 1831, country: "🇪🇸", desc: "Ancienne cité de pèlerinage au cœur de la Tierra de Campos" },
+  { name: "Ledigos", coords: [42.3546, -4.8646], type: "stage", km: 1854, country: "🇪🇸", desc: "Position de Roland au 22 novembre 2026 · village de 59 habitants, à 883 m d'altitude" },
+  { name: "Sahagún", coords: [42.3719, -5.0313], type: "stage", km: 1870, country: "🇪🇸", desc: "Berceau de l'art mudéjar en brique, à mi-chemin du Camino Francés" },
+  { name: "El Burgo Ranero", coords: [42.4223, -5.2187], type: "stage", km: 1888, country: "🇪🇸", desc: "Maisons de terre crue au bord de la plaine léonaise" },
+  { name: "Mansilla de las Mulas", coords: [42.4991, -5.4169], type: "stage", km: 1907, country: "🇪🇸", desc: "Remparts médiévaux, dernière halte avant León" },
+  { name: "León", coords: [42.5935, -5.5616], type: "major", km: 1925, country: "🇪🇸", desc: "Prochaine grande étape · cathédrale gothique et ses vitraux · fin du tronçon 5" },
 
-  // ── TRONÇON 6 · Camino de Invierno ──
-  { name: "Las Médulas", coords: [42.5100, -6.7670], type: "stage", km: 1885, country: "🇪🇸", desc: "Anciennes mines d'or romaines, paysage UNESCO" },
-  { name: "O Barco de Valdeorras", coords: [42.4150, -6.9820], type: "stage", km: 1915, country: "🇪🇸", desc: "Vallée du Sil, microclimat des vignes" },
-  { name: "Quiroga", coords: [42.4750, -7.2700], type: "stage", km: 1960, country: "🇪🇸", desc: "Gorges du Sil, oliviers et vignobles" },
-  { name: "Monforte de Lemos", coords: [42.5220, -7.5140], type: "major", km: 1995, country: "🇪🇸", desc: "Cœur de la Ribeira Sacra, vin depuis l'époque romaine" },
-  { name: "Chantada", coords: [42.6090, -7.7710], type: "stage", km: 2035, country: "🇪🇸", desc: "Traversée du Miño, terres galiciennes" },
-  { name: "Lalín", coords: [42.6600, -8.1110], type: "stage", km: 2090, country: "🇪🇸", desc: "Le Deza, dernières collines avant Santiago" },
-  { name: "Ponte Ulla", coords: [42.7960, -8.4390], type: "stage", km: 2150, country: "🇪🇸", desc: "Dernière vallée avant la cité de l'apôtre" },
-  { name: "Santiago de Compostela", coords: [42.8806, -8.5446], type: "end", km: 2200, country: "🇪🇸", desc: "La cathédrale del Obradoiro, le bout du chemin ⭐" }
+  // ── TRONÇON 6 · Camino Francés, montagnes de Galice ──
+  { name: "Hospital de Órbigo", coords: [42.4636, -5.8819], type: "stage", km: 1958, country: "🇪🇸", desc: "Long pont médiéval du Paso Honroso" },
+  { name: "Astorga", coords: [42.4554, -6.0529], type: "major", km: 1974, country: "🇪🇸", desc: "Cathédrale et palais épiscopal de Gaudí, ancienne Asturica Augusta romaine" },
+  { name: "Rabanal del Camino", coords: [42.4817, -6.2843], type: "stage", km: 1994, country: "🇪🇸", desc: "1 145 m · début de la montée vers les monts de León" },
+  { name: "Molinaseca", coords: [42.5218, -6.4461], type: "stage", km: 2020, country: "🇪🇸", desc: "Après la Cruz de Ferro, où les pèlerins déposent une pierre" },
+  { name: "Ponferrada", coords: [42.5460, -6.5900], type: "major", km: 2028, country: "🇪🇸", desc: "Château des Templiers, gardiens des pèlerins · entrée dans le Bierzo" },
+  { name: "O Cebreiro", coords: [42.7177, -7.0530], type: "major", km: 2080, country: "🇪🇸", desc: "1 300 m · porte de la Galice, montée redoutée des marcheurs médiévaux · pallozas aux toits de chaume" },
+  { name: "Triacastela", coords: [42.7622, -7.2141], type: "stage", km: 2101, country: "🇪🇸", desc: "Descente dans les vallées galiciennes" },
+  { name: "Sarria", coords: [42.7710, -7.4335], type: "stage", km: 2119, country: "🇪🇸", desc: "Les 100 derniers kilomètres, point de départ le plus fréquenté du Camino" },
+  { name: "Portomarín", coords: [42.8162, -7.6814], type: "stage", km: 2141, country: "🇪🇸", desc: "Village reconstruit pierre par pierre au-dessus du barrage du Miño" },
+  { name: "Palas de Rei", coords: [42.8978, -7.8408], type: "stage", km: 2166, country: "🇪🇸", desc: "A Ulloa, bocage et chemins creux" },
+  { name: "Arzúa", coords: [42.9237, -8.1528], type: "stage", km: 2195, country: "🇪🇸", desc: "Pays du fromage galicien, avant-dernière étape" },
+  { name: "O Pedrouzo", coords: [42.9047, -8.3624], type: "stage", km: 2214, country: "🇪🇸", desc: "Dernière nuit avant la cité de l'apôtre" },
+  { name: "Santiago de Compostela", coords: [42.8806, -8.5446], type: "end", km: 2234, country: "🇪🇸", desc: "La cathédrale del Obradoiro, le bout du chemin ⭐" }
 ];
 
-const TOTAL_KM = 2200;
+const TOTAL_KM = 2234;
 // Progression de secours si aucun GPS (mise à jour auto par le suivi temps réel)
 const CURRENT_KM = 0;
 
@@ -469,7 +487,7 @@ function addMapLegend() {
           <div style="width:18px; height:4px; background:#1E6B5E; border-radius:2px; flex-shrink:0;"></div> Parcouru (couleur pleine)
         </div>
         <div style="margin-top:0.5rem; padding-top:0.5rem; border-top:1px solid rgba(0,0,0,0.08); color:#1E6B5E; font-weight:600;">
-          2 200 km · 3 pays · 6 chemins historiques
+          2 234 km · 3 pays · 6 chemins historiques
         </div>
       </div>
     `;
