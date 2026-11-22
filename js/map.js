@@ -31,6 +31,7 @@ const OFF_ROUTE_KM = 15;
 // (data/tracking.json vide). Dès que le suivi temps réel fonctionne, c'est lui
 // qui prend le dessus et cette valeur est ignorée.
 // Mettre à jour : lat/lng du lieu, son nom, et la date d'observation.
+const DEPARTURE_DATE = '2026-08-21'; // départ de St-Maurice
 const CURRENT_POSITION = {
   lat: 42.3546268,
   lng: -4.86461,
@@ -298,6 +299,32 @@ function kmFromLatLng(lat, lng) {
   return projectOnRoute(lat, lng).km;
 }
 
+// ── Compteur de progression de la page (section « Le Curseur de Roland ») ──
+// Ces chiffres étaient codés en dur à 0 dans trajet.html : on les alimente
+// depuis la position réelle, pour que la page et la carte racontent la même chose.
+function updateProgressWidget(km) {
+  const pct = Math.max(0, Math.min(100, (km / TOTAL_KM) * 100));
+  const fmt = n => Math.round(n).toLocaleString('fr-FR');
+  const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+
+  const bar = document.querySelector('.progress-bar[data-progress]');
+  if (bar) {
+    bar.setAttribute('data-progress', pct.toFixed(1));
+    bar.style.width = pct.toFixed(1) + '%';   // au cas où l'animation ait déjà eu lieu
+  }
+
+  set('currentKm', fmt(km));
+  set('statKm', fmt(km));
+  set('totalKmLabel', fmt(TOTAL_KM) + ' km');
+
+  const dep = new Date(DEPARTURE_DATE + 'T00:00:00');
+  const days = Math.floor((Date.now() - dep.getTime()) / 86400000);
+  if (days >= 0) set('statDays', String(days));
+
+  const next = WAYPOINTS.find(w => w.km > km);
+  set('statNext', next ? next.name : WAYPOINTS[WAYPOINTS.length - 1].name);
+}
+
 function initLiveTracking() {
   if (!mapInstance) return;
   liveLayer = L.layerGroup().addTo(mapInstance);
@@ -323,7 +350,10 @@ function initLiveTracking() {
 
       // 1) La couleur du tracé avance jusqu'à sa position, seulement s'il est
       //    bien sur le tracé prévu (sinon on ne colorie rien : voir OFF_ROUTE_KM)
-      if (onRoute) drawWalkedUpTo(km);
+      if (onRoute) {
+        drawWalkedUpTo(km);
+        updateProgressWidget(km);
+      }
 
       // 2) Son tracé GPS réel (fin, par-dessus)
       if (live && t && Array.isArray(t.trail) && t.trail.length > 1) {
