@@ -15,6 +15,14 @@
 // aucune clé (zoom max 16 au lieu de 18).
 const CARTO_KEY = '';
 
+// ── Tolérance « hors tracé » ────────────────────────────────
+// Au-delà de cette distance au tracé prévu, on n'essaie plus de traduire la
+// position GPS en kilomètres parcourus : on affiche le marqueur là où Roland
+// est vraiment, sans faire avancer la coloration du chemin. Sinon un point
+// éloigné est « collé » à l'étape la plus proche et la carte annonce une
+// progression qui n'a pas eu lieu.
+const OFF_ROUTE_KM = 15;
+
 // ── Les 6 tronçons historiques ─────────────────────────────
 const SEGMENTS = [
   {
@@ -244,7 +252,7 @@ function trackHaversine(la1, lo1, la2, lo2) {
 }
 
 // Projette la position GPS sur le tracé pour estimer les km parcourus
-function kmFromLatLng(lat, lng) {
+function projectOnRoute(lat, lng) {
   let bestKm = 0, bestD = Infinity;
   for (let km = 0; km <= TOTAL_KM; km += 5) {
     const c = getCoordAtKm(km);
@@ -252,7 +260,11 @@ function kmFromLatLng(lat, lng) {
     const d = trackHaversine(lat, lng, c[0], c[1]);
     if (d < bestD) { bestD = d; bestKm = km; }
   }
-  return bestKm;
+  return { km: bestKm, dist: bestD };
+}
+
+function kmFromLatLng(lat, lng) {
+  return projectOnRoute(lat, lng).km;
 }
 
 function initLiveTracking() {
@@ -268,11 +280,14 @@ function initLiveTracking() {
       liveLayer.clearLayers();
 
       const cur = t.current;
-      const km = kmFromLatLng(cur.lat, cur.lng);
-      const seg = segmentForKm(km);
+      const proj = projectOnRoute(cur.lat, cur.lng);
+      const onRoute = proj.dist <= OFF_ROUTE_KM;
+      const km = proj.km;
+      const seg = onRoute ? segmentForKm(km) : null;
 
-      // 1) La couleur du tracé avance jusqu'à sa position
-      drawWalkedUpTo(km);
+      // 1) La couleur du tracé avance jusqu'à sa position, seulement s'il est
+      //    bien sur le tracé prévu (sinon on ne colorie rien : voir OFF_ROUTE_KM)
+      if (onRoute) drawWalkedUpTo(km);
 
       // 2) Son tracé GPS réel (fin, par-dessus)
       if (Array.isArray(t.trail) && t.trail.length > 1) {
@@ -288,7 +303,9 @@ function initLiveTracking() {
       marker.bindPopup(`
         <div style="padding:4px 2px;">
           <div class="popup-title">📍 Roland est ici</div>
-          <div class="popup-km">km ${Math.round(km).toLocaleString('fr-FR')} / ${TOTAL_KM.toLocaleString('fr-FR')}</div>
+          ${onRoute
+            ? `<div class="popup-km">km ${Math.round(km).toLocaleString('fr-FR')} / ${TOTAL_KM.toLocaleString('fr-FR')}</div>`
+            : `<div class="popup-km">À ${Math.round(proj.dist).toLocaleString('fr-FR')} km du tracé prévu</div>`}
           ${seg ? `<div style="margin-top:0.35rem; font-size:0.78rem; color:${seg.color}; font-weight:700;">${seg.name}</div>` : ''}
           ${when ? `<div style="margin-top:0.35rem; font-size:0.75rem; color:#718096;">Mis à jour : ${when}${batt}</div>` : ''}
         </div>
