@@ -4,6 +4,7 @@
    St-Maurice → Genève → Le Puy → Conques → Toulouse (1 000 km, 7 oct.)
    → Lourdes → Somport → Camino Aragonés → Puente la Reina
    → Camino Francés → Burgos → Meseta → León → O Cebreiro → Santiago
+   puis prolongation : Santiago → Porto → Coimbra → Fátima (Portugal)
    NB : kilométrages ancrés sur le repère de Roland (Toulouse = 1 000 km)
    puis étapes standard du Camino ; coordonnées OpenStreetMap, parfois le
    centre de la commune. Sera affiné avec le GPX de Roland.
@@ -70,6 +71,11 @@ const SEGMENTS = [
     id: 6, name: "Camino Francés, montagnes de Galice", color: "#8E3B60",
     kmStart: 1925, kmEnd: 2234,
     story: "La dernière montée. Après León et sa cathédrale, la Cruz de Ferro où les pèlerins déposent une pierre, puis l'ascension d'O Cebreiro (1 300 m), porte de la Galice, redoutée des marcheurs médiévaux pour sa neige et ses loups. Les cent derniers kilomètres, les plus parcourus au monde, jusqu'à la cathédrale del Obradoiro."
+  },
+  {
+    id: 7, name: "Prolongation : Compostelle → Fátima", color: "#2E7D5B",
+    kmStart: 2234, kmEnd: 2699, prolongation: true,
+    story: "Le chemin d'après. Compostelle atteinte, Roland ne s'arrête pas : il redescend le Caminho Português vers le Portugal, 465 km de plus. Les rias de Galice, le Minho franchi à Valença, les chemins pavés du Minho portugais, Porto, Coimbra et son université millénaire, puis le sanctuaire de Fátima. Un second pèlerinage greffé sur le premier."
   }
 ];
 
@@ -146,10 +152,27 @@ const WAYPOINTS = [
   { name: "Palas de Rei", coords: [42.8978, -7.8408], type: "stage", km: 2166, country: "🇪🇸", desc: "A Ulloa, bocage et chemins creux" },
   { name: "Arzúa", coords: [42.9237, -8.1528], type: "stage", km: 2195, country: "🇪🇸", desc: "Pays du fromage galicien, avant-dernière étape" },
   { name: "O Pedrouzo", coords: [42.9047, -8.3624], type: "stage", km: 2214, country: "🇪🇸", desc: "Dernière nuit avant la cité de l'apôtre" },
-  { name: "Santiago de Compostela", coords: [42.8806, -8.5446], type: "end", km: 2234, country: "🇪🇸", desc: "La cathédrale del Obradoiro, le bout du chemin ⭐" }
+  { name: "Santiago de Compostela", coords: [42.8806, -8.5446], type: "end", km: 2234, country: "🇪🇸", desc: "La cathédrale del Obradoiro · but du Camino, atteint au km 2 234 ⭐" },
+
+  // ── TRONÇON 7 · Prolongation vers Fátima (Caminho Português) ──
+  { name: "Padrón", coords: [42.7608, -8.6217], type: "stage", km: 2259, country: "🇪🇸", desc: "Là où la barque de l'apôtre aurait touché terre · début de la descente vers le sud" },
+  { name: "Caldas de Reis", coords: [42.6183, -8.6614], type: "stage", km: 2278, country: "🇪🇸", desc: "Thermes romains encore en activité" },
+  { name: "Pontevedra", coords: [42.4281, -8.6041], type: "stage", km: 2301, country: "🇪🇸", desc: "Vieille ville des rias, sanctuaire de la Peregrina" },
+  { name: "Redondela", coords: [42.2799, -8.6163], type: "stage", km: 2321, country: "🇪🇸", desc: "Les viaducs et le fond de la ria de Vigo" },
+  { name: "Tui", coords: [42.0669, -8.6638], type: "stage", km: 2353, country: "🇪🇸", desc: "Cathédrale forteresse au bord du Minho, dernière ville espagnole" },
+  { name: "Valença", coords: [41.9917, -8.6064], type: "major", km: 2355, country: "🇵🇹", desc: "Entrée au Portugal · forteresse Vauban face à Tui, de l'autre côté du Minho" },
+  { name: "Ponte de Lima", coords: [41.7468, -8.5735], type: "stage", km: 2391, country: "🇵🇹", desc: "Le plus ancien bourg du Portugal, son pont romain sur le Lima" },
+  { name: "Barcelos", coords: [41.5314, -8.6192], type: "stage", km: 2425, country: "🇵🇹", desc: "Le coq de Barcelos, emblème du pays, né d'une légende de pèlerin" },
+  { name: "Porto", coords: [41.1502, -8.6103], type: "major", km: 2480, country: "🇵🇹", desc: "Les quais du Douro, les azulejos, les caves de Porto · bascule sur le Caminho de Fátima" },
+  { name: "Albergaria-a-Velha", coords: [40.6907, -8.4792], type: "stage", km: 2545, country: "🇵🇹", desc: "Pinèdes et eucalyptus de la Beira Litoral" },
+  { name: "Coimbra", coords: [40.2112, -8.4291], type: "major", km: 2605, country: "🇵🇹", desc: "Université fondée en 1290, classée UNESCO · ancienne capitale du Portugal" },
+  { name: "Ansião", coords: [39.9114, -8.4360], type: "stage", km: 2665, country: "🇵🇹", desc: "Collines du centre, dernière étape avant le sanctuaire" },
+  { name: "Fátima", coords: [39.6255, -8.6659], type: "fatima", km: 2699, country: "🇵🇹", desc: "Sanctuaire de Notre-Dame de Fátima · terme de la prolongation, au km 2 699 🕊️" }
 ];
 
-const TOTAL_KM = 2234;
+const KM_SANTIAGO = 2234;     // arrivée à Compostelle, le but du Camino
+const PROLONGATION_KM = 465;  // Compostelle → Fátima
+const TOTAL_KM = 2699;        // parcours complet, prolongation incluse
 // Progression de secours si aucun GPS (mise à jour auto par le suivi temps réel)
 const CURRENT_KM = 0;
 
@@ -194,7 +217,8 @@ function initMap() {
     const path = pathBetweenKm(seg.kmStart, seg.kmEnd);
     if (path.length < 2) return;
     const line = L.polyline(path, {
-      color: seg.color, weight: 4, opacity: 0.35, dashArray: '7 9',
+      color: seg.color, weight: seg.prolongation ? 3 : 4, opacity: 0.35,
+      dashArray: seg.prolongation ? '2 8' : '7 9',
       lineCap: 'round', lineJoin: 'round', smoothFactor: 1
     }).addTo(mapInstance);
     line.bindPopup(segmentPopupHtml(seg), { maxWidth: 300, className: 'custom-popup' });
@@ -237,7 +261,7 @@ function drawWalkedUpTo(km) {
     const path = pathBetweenKm(seg.kmStart, end);
     if (path.length < 2) return;
     L.polyline(path, {
-      color: seg.color, weight: 5.5, opacity: 1,
+      color: seg.color, weight: seg.prolongation ? 4.5 : 5.5, opacity: 1,
       lineCap: 'round', lineJoin: 'round', smoothFactor: 1
     }).addTo(walkedLayer);
   });
@@ -303,7 +327,12 @@ function kmFromLatLng(lat, lng) {
 // Ces chiffres étaient codés en dur à 0 dans trajet.html : on les alimente
 // depuis la position réelle, pour que la page et la carte racontent la même chose.
 function updateProgressWidget(km) {
-  const pct = Math.max(0, Math.min(100, (km / TOTAL_KM) * 100));
+  // Deux phases : la barre mesure Compostelle jusqu'à Santiago, puis la
+  // prolongation vers Fátima. « km parcourus » reste le total marché.
+  const inProlongation = km > KM_SANTIAGO;
+  const phaseKm = inProlongation ? km - KM_SANTIAGO : km;
+  const phaseTotal = inProlongation ? PROLONGATION_KM : KM_SANTIAGO;
+  const pct = Math.max(0, Math.min(100, (phaseKm / phaseTotal) * 100));
   const fmt = n => Math.round(n).toLocaleString('fr-FR');
   const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
 
@@ -313,9 +342,11 @@ function updateProgressWidget(km) {
     bar.style.width = pct.toFixed(1) + '%';   // au cas où l'animation ait déjà eu lieu
   }
 
-  set('currentKm', fmt(km));
+  set('barFrom', inProlongation ? 'Santiago 🇪🇸 ⭐' : 'St-Maurice 🇨🇭');
+  set('barTo', inProlongation ? 'Fátima 🇵🇹 🕊️' : 'Santiago 🇪🇸 ⭐');
+  set('currentKm', fmt(phaseKm));
   set('statKm', fmt(km));
-  set('totalKmLabel', fmt(TOTAL_KM) + ' km');
+  set('totalKmLabel', fmt(phaseTotal) + ' km');
 
   const dep = new Date(DEPARTURE_DATE + 'T00:00:00');
   const days = Math.floor((Date.now() - dep.getTime()) / 86400000);
@@ -375,7 +406,7 @@ function initLiveTracking() {
           <div class="popup-title">📍 Roland est ici</div>
           ${cur.place ? `<div style="font-size:0.82rem; color:#4a5568; margin-bottom:0.2rem;">${cur.place}</div>` : ''}
           ${onRoute
-            ? `<div class="popup-km">km ${Math.round(km).toLocaleString('fr-FR')} / ${TOTAL_KM.toLocaleString('fr-FR')}</div>`
+            ? `<div class="popup-km">km ${Math.round(km).toLocaleString('fr-FR')} / ${(km > KM_SANTIAGO ? TOTAL_KM : KM_SANTIAGO).toLocaleString('fr-FR')}${km > KM_SANTIAGO ? ' · prolongation vers Fátima' : ''}</div>`
             : `<div class="popup-km">À ${Math.round(proj.dist).toLocaleString('fr-FR')} km du tracé prévu</div>`}
           ${seg ? `<div style="margin-top:0.35rem; font-size:0.78rem; color:${seg.color}; font-weight:700;">${seg.name}</div>` : ''}
           ${when ? `<div style="margin-top:0.35rem; font-size:0.75rem; color:#718096;">Mis à jour : ${when}${batt}</div>` : ''}
@@ -430,6 +461,9 @@ function createMarkerIcon(waypoint) {
   } else if (waypoint.type === 'end') {
     html = `<div style="font-size:1.6rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));">⭐</div>`;
     size = [32, 32]; anchor = [16, 16];
+  } else if (waypoint.type === 'fatima') {
+    html = `<div style="font-size:1.6rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🕊️</div>`;
+    size = [32, 32]; anchor = [16, 16];
   } else if (waypoint.type === 'major') {
     html = `
       <div style="
@@ -459,7 +493,7 @@ function addWaypointMarker(waypoint, index) {
   const icon = createMarkerIcon(waypoint);
   const marker = L.marker(waypoint.coords, { icon, zIndexOffset: waypoint.type === 'end' ? 1000 : 0 });
 
-  const typeLabels = { start: 'Départ', end: 'Arrivée', major: 'Étape Majeure', stage: 'Étape' };
+  const typeLabels = { start: 'Départ', end: 'Compostelle', fatima: 'Terme de la prolongation', major: 'Étape Majeure', stage: 'Étape' };
   const seg = segmentForKm(waypoint.km);
 
   const popupContent = `
@@ -505,7 +539,7 @@ function addMapLegend() {
       </div>`).join('');
     div.innerHTML = `
       <div id="legendToggle" style="display:flex; align-items:center; gap:0.45rem; cursor:pointer; user-select:none; font-weight:700; color:#1a2332; font-size:0.8rem;">
-        <span>ℹ️ Les 6 chemins</span>
+        <span>ℹ️ Les 7 chemins</span>
         <span id="legendChevron" style="font-size:0.7rem; color:#718096; transition:transform .2s;">${collapsed ? '▸' : '▾'}</span>
       </div>
       <div id="legendBody" style="display:${collapsed ? 'none' : 'block'}; margin-top:0.5rem; min-width:190px; max-width:230px;">
@@ -517,7 +551,7 @@ function addMapLegend() {
           <div style="width:18px; height:4px; background:#1E6B5E; border-radius:2px; flex-shrink:0;"></div> Parcouru (couleur pleine)
         </div>
         <div style="margin-top:0.5rem; padding-top:0.5rem; border-top:1px solid rgba(0,0,0,0.08); color:#1E6B5E; font-weight:600;">
-          2 234 km · 3 pays · 6 chemins historiques
+          2 234 km jusqu'à Compostelle<br>+ 465 km de prolongation vers Fátima<br>4 pays · 7 chemins
         </div>
       </div>
     `;

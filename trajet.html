@@ -170,7 +170,7 @@
     <div class="hero-content max-w-4xl mx-auto text-center">
       <span class="hero-badge mb-6 inline-flex">
         <i class="fa-solid fa-map-location-dot"></i>
-        <span>3 pays · 2 200 km · ~90 jours</span>
+        <span>4 pays · 2 200 km + 465 km · ~140 jours</span>
       </span>
       <h1 class="hero-title animate-fadeInUp" data-i18n="trajet.hero_title">2 200 km</h1>
       <p class="hero-tagline mt-2 animate-fadeInUp animate-delay-1" data-i18n="trajet.hero_subtitle">St-Maurice → Santiago de Compostela</p>
@@ -193,6 +193,11 @@
         <div class="text-center">
           <div class="text-3xl">🇪🇸</div>
           <div style="color:rgba(255,255,255,0.5); font-size:0.7rem; margin-top:0.25rem; text-transform:uppercase; letter-spacing:0.1em;">Espagne</div>
+        </div>
+        <div style="flex:1; max-width:80px; height:1px; background:linear-gradient(90deg,rgba(255,255,255,0.2),rgba(46,125,91,0.6),rgba(255,255,255,0.2));"></div>
+        <div class="text-center">
+          <div class="text-3xl">🇵🇹</div>
+          <div style="color:rgba(255,255,255,0.5); font-size:0.7rem; margin-top:0.25rem; text-transform:uppercase; letter-spacing:0.1em;">Portugal</div>
         </div>
       </div>
     </div>
@@ -279,8 +284,8 @@
         <!-- Progress bar -->
         <div class="mb-6">
           <div class="flex justify-between text-sm mb-2">
-            <span style="color:rgba(255,255,255,0.5);">St-Maurice 🇨🇭</span>
-            <span style="color:rgba(255,255,255,0.5);">Santiago 🇪🇸 ⭐</span>
+            <span id="barFrom" style="color:rgba(255,255,255,0.5);">St-Maurice 🇨🇭</span>
+            <span id="barTo" style="color:rgba(255,255,255,0.5);">Santiago 🇪🇸 ⭐</span>
           </div>
           <div class="progress-track" style="background:rgba(255,255,255,0.08); height:16px;">
             <div class="progress-bar" data-progress="0" style="min-width:16px; border-radius:8px;"></div>
@@ -317,8 +322,8 @@
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-6 reveal">
         <span class="section-label justify-center">L'histoire secrète du parcours</span>
-        <h2 class="section-title mt-3">Les 6 Chemins historiques</h2>
-        <p class="section-subtitle mx-auto mt-3 text-center">2 200 km ne suivent pas une route, mais six chemins millénaires, chacun avec son histoire. Les couleurs correspondent aux tronçons de la carte, qui se colorent au fil de l'avancée de Roland.</p>
+        <h2 class="section-title mt-3">Les 7 Chemins historiques</h2>
+        <p class="section-subtitle mx-auto mt-3 text-center">Ce parcours ne suit pas une route, mais sept chemins millénaires, chacun avec son histoire. Les couleurs correspondent aux tronçons de la carte, qui se colorent au fil de l'avancée de Roland.</p>
       </div>
       <p class="text-center" style="font-size:0.78rem; color:var(--text-light); margin-bottom:2.5rem;">Tracé du parcours réellement marché, ancré sur le repère de Roland (Toulouse = 1 000 km le 7 octobre) puis sur les étapes standard du Camino. Il sera affiné avec son itinéraire GPS définitif.</p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -404,6 +409,21 @@
             </div>
             <div style="font-size:0.8rem; font-weight:600; color:var(--text-light); margin-bottom:0.9rem;">🇪🇸 León → ⭐ Santiago</div>
             <p style="font-size:0.92rem; color:#4a5568; line-height:1.75;">Après León et sa cathédrale aux vitraux, la route grimpe vers les monts de León et la Cruz de Ferro, où chaque pèlerin dépose une pierre. Puis Ponferrada et son château des Templiers, avant le mur que redoutaient les marcheurs médiévaux : la montée d'O Cebreiro (1 300 m), porte de la Galice, bloquée par la neige et les loups de novembre à avril. Viennent enfin les cent derniers kilomètres, les plus parcourus au monde, jusqu'à la cathédrale del Obradoiro.</p>
+          </div>
+        </div>
+        <div class="reveal md:col-span-2" style="background:white; border-radius:1rem; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.06); border:1px dashed rgba(46,125,91,0.45);">
+          <div style="height:6px; background:repeating-linear-gradient(90deg,#2E7D5B 0 10px,transparent 10px 18px);"></div>
+          <div style="padding:1.75rem;">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:0.75rem; margin-bottom:0.75rem; flex-wrap:wrap;">
+              <div style="display:flex; align-items:center; gap:0.75rem;">
+                <span style="width:34px; height:34px; border-radius:50%; background:#2E7D5B; color:white; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-family:'Cormorant Garamond',serif; font-size:1.15rem; flex-shrink:0;">7</span>
+                <h3 class="font-serif" style="font-size:1.35rem; font-weight:700; color:#1a2332; line-height:1.2;">Prolongation : Compostelle → Fátima</h3>
+                <span style="font-size:0.66rem; font-weight:700; color:#2E7D5B; background:#2E7D5B18; padding:0.2rem 0.6rem; border-radius:1rem; text-transform:uppercase; letter-spacing:0.08em; white-space:nowrap;">Prolongation</span>
+              </div>
+              <span style="font-size:0.72rem; font-weight:700; color:#2E7D5B; background:#2E7D5B18; padding:0.25rem 0.7rem; border-radius:1rem; white-space:nowrap;">+ 465 km</span>
+            </div>
+            <div style="font-size:0.8rem; font-weight:600; color:var(--text-light); margin-bottom:0.9rem;">⭐ Santiago → 🇵🇹 Porto → 🇵🇹 Fátima</div>
+            <p style="font-size:0.92rem; color:#4a5568; line-height:1.75;">Compostelle atteinte, Roland ne s'arrête pas. Il redescend le Caminho Português vers le Portugal : 465 kilomètres de plus, qui s'ajoutent aux 2 200 du périple initial. Les rias de Galice, le Minho franchi à Valença, les chemins pavés du Minho portugais, le coq de Barcelos, les quais du Douro à Porto, Coimbra et son université fondée en 1290. Puis le sanctuaire de Fátima, terme d'un second pèlerinage greffé sur le premier.</p>
           </div>
         </div>
       </div>
