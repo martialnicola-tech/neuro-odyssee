@@ -18,6 +18,14 @@ RewriteRule ^(.*)$ https://www.neuro-odyssee.com/$1 [R=301,L]
   <FilesMatch "\.json$">
     Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>
+
+  # Scripts, styles et pages : même raison. Sans ça, un visiteur déjà venu
+  # garde l'ancien js/map.js après un déploiement et voit une carte périmée
+  # (compteur figé à 0). « no-cache » ne désactive pas le cache : il force
+  # une revalidation, donc un 304 tant que le fichier n'a pas changé.
+  <FilesMatch "\.(js|css|html)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
 </IfModule>
 
 # Bloquer l'accès public aux journaux (.log)

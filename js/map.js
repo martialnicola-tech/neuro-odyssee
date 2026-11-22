@@ -356,6 +356,44 @@ function updateProgressWidget(km) {
   set('statNext', next ? next.name : WAYPOINTS[WAYPOINTS.length - 1].name);
 }
 
+// ── Où Roland se trouve, écrit en toutes lettres ──────────────
+// Le marqueur sur la carte ne suffit pas : il faut zoomer pour le lire.
+function updateCurrentPlace(cur, km, onRoute) {
+  const block = document.getElementById('currentPlaceBlock');
+  const name = document.getElementById('currentPlace');
+  const meta = document.getElementById('currentPlaceMeta');
+  if (!block || !name) return;
+
+  const place = cur.place || (onRoute && nearestWaypointName(km)) || null;
+  if (!place) return;
+
+  name.textContent = place;
+  block.style.display = 'block';
+
+  if (meta) {
+    const bits = [];
+    if (onRoute) {
+      const seg = segmentForKm(km);
+      bits.push(`km ${Math.round(km).toLocaleString('fr-FR')}`);
+      if (seg) bits.push(seg.name);
+    }
+    let when = '';
+    if (cur.time) {
+      try { when = new Date(cur.time * 1000).toLocaleDateString('fr-CH', { day: '2-digit', month: 'long', year: 'numeric' }); } catch (e) {}
+    } else if (cur.date) {
+      try { when = new Date(cur.date + 'T12:00:00').toLocaleDateString('fr-CH', { day: '2-digit', month: 'long', year: 'numeric' }); } catch (e) { when = cur.date; }
+    }
+    if (when) bits.push('au ' + when);
+    meta.textContent = bits.join(' · ');
+  }
+}
+
+function nearestWaypointName(km) {
+  let best = null, bestD = Infinity;
+  WAYPOINTS.forEach(w => { const d = Math.abs(w.km - km); if (d < bestD) { bestD = d; best = w; } });
+  return best ? best.name : null;
+}
+
 function initLiveTracking() {
   if (!mapInstance) return;
   liveLayer = L.layerGroup().addTo(mapInstance);
@@ -385,6 +423,7 @@ function initLiveTracking() {
         drawWalkedUpTo(km);
         updateProgressWidget(km);
       }
+      updateCurrentPlace(cur, km, onRoute);
 
       // 2) Son tracé GPS réel (fin, par-dessus)
       if (live && t && Array.isArray(t.trail) && t.trail.length > 1) {

@@ -27,8 +27,8 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Association Neuro-Odyssée">
   <link rel="canonical" href="https://www.neuro-odyssee.com/trajet.html">
-  <link rel="stylesheet" href="css/tailwind.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tailwind.css?v=20261122">
+  <link rel="stylesheet" href="css/style.css?v=20261122">
   <style>
     .map-tooltip {
       background: white !important;
@@ -281,6 +281,13 @@
           <span style="color:var(--gold); font-size:0.8rem; font-weight:600;">21 août 2026</span>
         </div>
 
+        <!-- Lieu où se trouve Roland, renseigné par js/map.js -->
+        <div id="currentPlaceBlock" style="display:none; margin-bottom:1.75rem;">
+          <div style="color:rgba(255,255,255,0.45); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.35rem;">Actuellement</div>
+          <div id="currentPlace" class="font-serif" style="color:white; font-size:1.65rem; font-weight:700; line-height:1.2;"></div>
+          <div id="currentPlaceMeta" style="color:rgba(255,255,255,0.4); font-size:0.78rem; margin-top:0.35rem;"></div>
+        </div>
+
         <!-- Progress bar -->
         <div class="mb-6">
           <div class="flex justify-between text-sm mb-2">
@@ -481,10 +488,10 @@
 
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="js/i18n.js"></script>
-  <script src="js/map.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/newsletter.js"></script>
+  <script src="js/i18n.js?v=20261122"></script>
+  <script src="js/map.js?v=20261122"></script>
+  <script src="js/main.js?v=20261122"></script>
+  <script src="js/newsletter.js?v=20261122"></script>
   <script>initNewsletterForm('footerNewsletter_trajet');</script>
 </body>
 </html>
